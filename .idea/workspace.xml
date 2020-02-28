@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="ff9d1aa2-a4e1-4ba0-a982-8947eea861cf" />
+  </component>
+  <component name="ProjectId" id="1YRp6cGUlwuLBO3Q9XcHRckpjqX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="" />
+      <created>1582915087459</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582915087459</updated>
+      <workItem from="1582915092263" duration="1120000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="385" y="90" key="#Project_Structure" timestamp="1582915436343">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="385" y="90" key="#Project_Structure/0.0.1368.872@0.0.1368.872" timestamp="1582915436343" />
+    <state x="466" y="192" key="FileChooserDialogImpl" timestamp="1582915154503">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="466" y="192" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1582915154503" />
+    <state x="554" y="330" key="Github.ShareDialog" timestamp="1582916219185">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="554" y="330" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1582916219185" />
+    <state x="186" y="79" key="SettingsEditor" timestamp="1582915951704">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="186" y="79" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1582915951704" />
+    <state x="385" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1582915092263">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="385" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1582915092263" />
+    <state x="110" y="58" key="new project wizard" timestamp="1582915330098">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="110" y="58" key="new project wizard/0.0.1368.872@0.0.1368.872" timestamp="1582915330098" />
+  </component>
+</project>
