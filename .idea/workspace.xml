@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="" />
+    <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="ff9d1aa2-a4e1-4ba0-a982-8947eea861cf" />
   </component>
   <component name="ProjectId" id="1YRp6cGUlwuLBO3Q9XcHRckpjqX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -20,6 +26,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -35,7 +42,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582915087459</updated>
-      <workItem from="1582915092263" duration="1120000" />
+      <workItem from="1582915092263" duration="2274000" />
     </task>
     <servers />
   </component>
@@ -47,10 +54,14 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="385" y="90" key="#Project_Structure/0.0.1368.872@0.0.1368.872" timestamp="1582915436343" />
-    <state x="466" y="192" key="FileChooserDialogImpl" timestamp="1582915154503">
+    <state x="93" y="93" width="1181" height="685" key="DiffContextDialog" timestamp="1582917123558">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="466" y="192" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1582915154503" />
+    <state x="93" y="93" width="1181" height="685" key="DiffContextDialog/0.0.1368.872@0.0.1368.872" timestamp="1582917123558" />
+    <state x="466" y="192" key="FileChooserDialogImpl" timestamp="1582917092855">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="466" y="192" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1582917092855" />
     <state x="554" y="330" key="Github.ShareDialog" timestamp="1582916219185">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
@@ -63,6 +74,10 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="385" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1582915092263" />
+    <state x="93" y="93" width="1181" height="685" key="git4idea.log.GitShowExternalLogAction" timestamp="1582917123558">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="93" y="93" width="1181" height="685" key="git4idea.log.GitShowExternalLogAction/0.0.1368.872@0.0.1368.872" timestamp="1582917123558" />
     <state x="110" y="58" key="new project wizard" timestamp="1582915330098">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
