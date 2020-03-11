@@ -2,12 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reseau/src/Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reseau/src/EcouteurConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,13 +39,28 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Client" />
+      <module name="Client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Client" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -42,7 +72,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582915087459</updated>
-      <workItem from="1582915092263" duration="2274000" />
+      <workItem from="1582915092263" duration="9745000" />
+      <workItem from="1583261006436" duration="18499000" />
+      <workItem from="1583959043418" duration="1577000" />
     </task>
     <servers />
   </component>
@@ -50,10 +82,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="385" y="90" key="#Project_Structure" timestamp="1582915436343">
+    <state x="462" y="47" key="#Project_Structure" timestamp="1583348425028">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="385" y="90" key="#Project_Structure/0.0.1368.872@0.0.1368.872" timestamp="1582915436343" />
+    <state x="462" y="47" key="#Project_Structure/0.0.1368.872@0.0.1368.872" timestamp="1583348425028" />
+    <state x="490" y="146" key="#com.intellij.ide.util.MemberChooser" timestamp="1583505724356">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="490" y="146" key="#com.intellij.ide.util.MemberChooser/0.0.1368.872@0.0.1368.872" timestamp="1583505724356" />
     <state x="93" y="93" width="1181" height="685" key="DiffContextDialog" timestamp="1582917123558">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
@@ -66,21 +102,45 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="554" y="330" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1582916219185" />
+    <state width="914" height="252" key="GridCell.Tab.0.bottom" timestamp="1583960767322">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583960767322" />
+    <state width="914" height="252" key="GridCell.Tab.0.center" timestamp="1583960767322">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="252" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583960767322" />
+    <state width="914" height="252" key="GridCell.Tab.0.left" timestamp="1583960767322">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="252" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583960767322" />
+    <state width="914" height="252" key="GridCell.Tab.0.right" timestamp="1583960767322">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="252" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583960767322" />
     <state x="186" y="79" key="SettingsEditor" timestamp="1582915951704">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="186" y="79" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1582915951704" />
-    <state x="385" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1582915092263">
+    <state x="385" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1583261006689">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="385" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1582915092263" />
-    <state x="93" y="93" width="1181" height="685" key="git4idea.log.GitShowExternalLogAction" timestamp="1582917123558">
+    <state x="385" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1583261006689" />
+    <state x="834" y="356" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583341984277">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="93" y="93" width="1181" height="685" key="git4idea.log.GitShowExternalLogAction/0.0.1368.872@0.0.1368.872" timestamp="1582917123558" />
+    <state x="834" y="356" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872@0.0.1368.872" timestamp="1583341984277" />
+    <state x="93" y="93" width="1181" height="685" key="git4idea.log.GitShowExternalLogAction" timestamp="1583174399837">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="93" y="93" width="1181" height="685" key="git4idea.log.GitShowExternalLogAction/0.0.1368.872@0.0.1368.872" timestamp="1583174399837" />
     <state x="110" y="58" key="new project wizard" timestamp="1582915330098">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="110" y="58" key="new project wizard/0.0.1368.872@0.0.1368.872" timestamp="1582915330098" />
+    <state x="347" y="184" width="672" height="678" key="search.everywhere.popup" timestamp="1582917414774">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="347" y="184" width="672" height="678" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1582917414774" />
   </component>
 </project>
