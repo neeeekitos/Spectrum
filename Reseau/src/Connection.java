@@ -33,7 +33,6 @@ public class Connection {
                     while(!cnThread.isInterrupted()){
                         eventEcouteur.receiveString(Connection.this, in.readLine());
                     }
-                    String msg = in.readLine();
                 } catch (IOException e) {
                     eventEcouteur.exception(Connection.this, e);
                 } finally {
@@ -41,6 +40,7 @@ public class Connection {
                 }
             }
         });
+        cnThread.start();
     }
 
     @Override
@@ -53,6 +53,8 @@ public class Connection {
         try {
             out.write(msg + "\r\n");
             out.flush(); //pour envoyer de Buffer au client
+
+            //ajouter l'envoie du message dans la DB
         } catch (IOException e){
             eventEcouteur.exception(Connection.this, e);
             disconnect();
