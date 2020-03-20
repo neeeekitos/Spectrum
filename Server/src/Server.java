@@ -8,16 +8,15 @@ import java.util.concurrent.*;
 
 public class Server implements EcouteurConnection{
 
-    public final static int PORT = 13;
+    public final static int PORT = 8190;
 
     public static void main(String[] args) {
-
         new Server();
     }
 
     private final ArrayList<Connection> connections = new ArrayList<>();
 
-    //        ExecutorService pool = Executors.newFixedThreadPool(50);
+//            ExecutorService pool = Executors.newFixedThreadPool(50);
 //
 //        /* utilisation des parametres permet de fermet la connection automatiquement
 //        * car ServerSocket implements Autocloseable
@@ -38,7 +37,7 @@ public class Server implements EcouteurConnection{
 //            System.err.println("le serveur ne peut pas être démarré");
 //        }
 //    }
-
+//
 //    private static class ChatThread implements Callable<Void> {
 //
 //        private Socket connection;
@@ -92,7 +91,7 @@ public class Server implements EcouteurConnection{
     @Override
     public synchronized void connectionReady(Connection connection) {
         connections.add(connection);
-        System.out.println("Nouveau client connecté :" + connection);
+        sendToAllConnections("Nouveau client connecté :" + connection);
     }
 
     @Override
@@ -104,7 +103,6 @@ public class Server implements EcouteurConnection{
     public synchronized void disconnect(Connection connection) {
         connections.remove(connection);
         System.out.println("Client déconnecté :" + connection);
-
     }
 
     @Override
