@@ -11,6 +11,7 @@ public class Connection {
     private final Thread cnThread;
     private final EcouteurConnection eventEcouteur;
 
+
     public Connection(EcouteurConnection eventEcouteur, String ip, int port) throws IOException{
         this(eventEcouteur, new Socket(ip, port));
     }

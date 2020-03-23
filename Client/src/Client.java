@@ -10,31 +10,12 @@ public class Client extends JFrame implements EcouteurConnection, ActionListener
     private static final String IP_ADDR = "localhost";
     private static final int PORT = 8190;
     private Connection connection;
+    private String username;
+    private FenetreApp fenetre;
 
-    public static void main(String[] args) {
-        //attention avec swing on peut travailler que de Thread edt
-
-                new Client();
-
-    }
-
-    private final JTextArea log = new JTextArea();
-    private final JTextField fieldNickname = new JTextField("alex");
-    private final JTextField fieldInput = new JTextField("fieldInput");
-
-
-    private Client(){
-
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(600,600);
-        setLocationRelativeTo(null);
-        setAlwaysOnTop(true);
-        log.setEditable(false);
-        log.setLineWrap(true);
-        fieldInput.addActionListener(this);
-        add(log, BorderLayout.CENTER);
-        add(fieldInput, BorderLayout.SOUTH);
-        add(fieldNickname, BorderLayout.NORTH);
+    public Client(FenetreApp fenetre, String username){
+        this.username = username;
+        this.fenetre=fenetre;
 
         try {
             InetAddress inetAddress = InetAddress.getLocalHost();
@@ -83,5 +64,9 @@ public class Client extends JFrame implements EcouteurConnection, ActionListener
         fieldInput.setText(null);
         connection.sendString(fieldNickname.getText() + " : " + msg);
         this.validate();
+    }
+
+    public String getUsername(){
+        return username;
     }
 }
