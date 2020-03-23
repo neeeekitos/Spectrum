@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/FenetreApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/FenetreApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/FenetreApp.class" beforeDir="false" />
-    </list>
+    <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,6 +91,7 @@
       <workItem from="1584314182485" duration="2929000" />
       <workItem from="1584611658281" duration="7862000" />
       <workItem from="1584653334923" duration="3453000" />
+      <workItem from="1584996308931" duration="831000" />
     </task>
     <servers />
   </component>
@@ -153,10 +148,10 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="186" y="79" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1582915951704" />
-    <state x="540" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1584653334038">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="385" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1584996311345">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="385" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1584314193934" />
+    <state x="385" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1584996311345" />
     <state x="540" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584653334038" />
     <state x="834" y="356" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583341984277">
       <screen x="0" y="0" width="1368" height="872" />
