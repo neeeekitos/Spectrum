@@ -96,7 +96,7 @@ public class Server implements EcouteurConnection{
 
     @Override
     public synchronized void receiveString(Connection connection, String msg) {
-        sendToAllConnections(msg);
+        sendToConnection(connection, msg);
     }
 
     @Override
@@ -110,10 +110,11 @@ public class Server implements EcouteurConnection{
         System.out.println("Connection exception: " + e);
     }
 
-    private void sendToAllConnections(String msg){
+    private void sendToConnection(String username, String msg){
         System.out.println(msg);
         final int cnt = connections.size();
         for (int i = 0; i < cnt; i++) {
+            if( username == connections.get(i).getUsername())
             connections.get(i).sendString(msg);
         }
     }
