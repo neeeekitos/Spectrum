@@ -1,17 +1,24 @@
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Message {
     public String username;
     public String message;
-    public Date date;
+    public LocalDateTime date;
+    private ArrayList<String> destinateurs;
 
-    public Message(String username, String message, Date date){|
-        this.username=username;
-        this.message=message;
-        this.date=date;
+    public Message(String username, String message, LocalDateTime date, ArrayList<String> destinateurs){
+        this.username = username;
+        this.message = message;
+        this.date = date;
+        this.destinateurs = destinateurs;
     }
 
     public String getUsername(){
+        return username;
+    }
+
+    public String getDestinateurs(){
         return username;
     }
 
@@ -19,7 +26,7 @@ public class Message {
         return message;
     }
 
-    public Date getDate(){
+    public LocalDateTime getDate(){
         return date;
     }
 }

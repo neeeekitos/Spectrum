@@ -1,3 +1,5 @@
+import javafx.scene.control.ComboBox;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,9 +9,15 @@ public class FenetreApp extends JFrame implements ActionListener {
 
     private JFrame frame;
     private Client user;
+    private ComboBox<Projet> projet;
+
+
+
     private final JTextArea log = new JTextArea();
     private final JTextField fieldNickname = new JTextField("username");
     private final JTextField fieldInput = new JTextField("fieldInput");
+
+
 
     public FenetreApp(Client user) {
 

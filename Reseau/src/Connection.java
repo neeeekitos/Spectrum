@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
 public class Connection {
@@ -10,6 +11,7 @@ public class Connection {
     private final BufferedReader in;
     private final Thread cnThread;
     private final EcouteurConnection eventEcouteur;
+    private String username;
 
 
     public Connection(EcouteurConnection eventEcouteur, String ip, int port) throws IOException{
@@ -30,9 +32,9 @@ public class Connection {
             @Override
             public void run() {
                 try {
-                    eventEcouteur.connectionReady(Connection.this);
+                    eventEcouteur.connectionReady(Connection.this, username);
                     while(!cnThread.isInterrupted()){
-                        eventEcouteur.receiveString(Connection.this, in.readLine());
+                        eventEcouteur.receiveString(in.readLine());
                     }
                 } catch (IOException e) {
                     eventEcouteur.exception(Connection.this, e);
@@ -49,8 +51,17 @@ public class Connection {
         return "Connection: " + connection.getInetAddress() + ": " + connection.getPort();
     }
 
+    public synchronized void disconnect() {
+        cnThread.interrupt();
+        try {
+            connection.close();
+        } catch (IOException e){
+            eventEcouteur.exception(Connection.this, e);
+        }
+    }
+
     //syncronisé pour la securité
-    public synchronized void sendString(String msg){
+    public synchronized void sendString(String msg) {
         try {
             out.write(msg + "\r\n");
             out.flush(); //pour envoyer de Buffer au client
@@ -59,15 +70,6 @@ public class Connection {
         } catch (IOException e){
             eventEcouteur.exception(Connection.this, e);
             disconnect();
-        }
-    }
-
-    public synchronized void disconnect() {
-        cnThread.interrupt();
-        try {
-            connection.close();
-        } catch (IOException e){
-            eventEcouteur.exception(Connection.this, e);
         }
     }
 }

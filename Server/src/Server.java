@@ -3,6 +3,7 @@ import com.sun.corba.se.pept.transport.ConnectionCache;
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
+import java.rmi.ConnectIOException;
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -14,7 +15,7 @@ public class Server implements EcouteurConnection{
         new Server();
     }
 
-    private final ArrayList<Connection> connections = new ArrayList<>();
+    private HashMap<String, Connection> connections = new HashMap<String, Connection>();
 
 //            ExecutorService pool = Executors.newFixedThreadPool(50);
 //
@@ -89,14 +90,22 @@ public class Server implements EcouteurConnection{
     }
 
     @Override
-    public synchronized void connectionReady(Connection connection) {
-        connections.add(connection);
-        sendToAllConnections("Nouveau client connecté :" + connection);
+    public synchronized void connectionReady(Connection connection, String username) {
+        connections.put(username, connection);
+        //sendToConnection(username,"Nouveau client connecté :" + username + connection);
     }
 
     @Override
-    public synchronized void receiveString(Connection connection, String msg) {
-        sendToConnection(connection, msg);
+    public synchronized void receiveString(String msg) {
+        String[] parts = msg.split("-");
+        ArrayList<Connection> destinateursConnection = new  ArrayList<Connection>(parts.length-2);
+
+        for (int i = 2; i<parts.length; i++) {
+            destinateursConnection.add(connections.get(parts[i]));
+        }
+
+        //find connections
+        sendToConnection(destinateursConnection, msg);
     }
 
     @Override
@@ -110,12 +119,12 @@ public class Server implements EcouteurConnection{
         System.out.println("Connection exception: " + e);
     }
 
-    private void sendToConnection(String username, String msg){
+    private void sendToConnection(ArrayList<Connection> destinateursConnection, String msg){
+
         System.out.println(msg);
-        final int cnt = connections.size();
-        for (int i = 0; i < cnt; i++) {
-            if( username == connections.get(i).getUsername())
-            connections.get(i).sendString(msg);
+
+        for (Connection connection : destinateursConnection) {
+            connection.sendString(msg);
         }
     }
 
