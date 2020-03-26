@@ -19,6 +19,10 @@ public class Projet {
 
     }
 
+    public LinkedList<Message> getMessages() {
+        return messages;
+    }
+
     public String getId(){
         return this.id;
     }
@@ -26,6 +30,7 @@ public class Projet {
     public String getNom(){
         return this.nom;
     }
+
     public ArrayList <String> getCollaborateurs(){
         return this.getCollaborateurs();
     }
@@ -34,4 +39,7 @@ public class Projet {
         return date;
     }
 
+    public ArrayList<String> getArrayCollaborateurs() {
+        return collaborateurs;
+    }
 }
