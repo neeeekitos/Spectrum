@@ -1,10 +1,13 @@
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
-public class Connection {
+public class ConnectionExchange {
 
     private final Socket connection;
     private final BufferedWriter out;
@@ -14,11 +17,11 @@ public class Connection {
     private String username;
 
 
-    public Connection(EcouteurConnection eventEcouteur, String ip, int port) throws IOException{
+    public ConnectionExchange(EcouteurConnection eventEcouteur, String ip, int port) throws IOException {
         this(eventEcouteur, new Socket(ip, port));
     }
 
-    public Connection(EcouteurConnection eventEcouteur, Socket connection) throws IOException {
+    public ConnectionExchange(EcouteurConnection eventEcouteur, Socket connection) throws IOException {
         this.eventEcouteur = eventEcouteur;
         this.connection = connection;
 
@@ -32,14 +35,14 @@ public class Connection {
             @Override
             public void run() {
                 try {
-                    eventEcouteur.connectionReady(Connection.this, username);
-                    while(!cnThread.isInterrupted()){
+                    eventEcouteur.connectionReady(ConnectionExchange.this, username);
+                    while (!cnThread.isInterrupted()) {
                         eventEcouteur.receiveString(in.readLine());
                     }
                 } catch (IOException e) {
-                    eventEcouteur.exception(Connection.this, e);
+                    eventEcouteur.exception(ConnectionExchange.this, e);
                 } finally {
-                    eventEcouteur.disconnect(Connection.this);
+                    eventEcouteur.disconnect(ConnectionExchange.this);
                 }
             }
         });
@@ -47,7 +50,7 @@ public class Connection {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Connection: " + connection.getInetAddress() + ": " + connection.getPort();
     }
 
@@ -55,8 +58,8 @@ public class Connection {
         cnThread.interrupt();
         try {
             connection.close();
-        } catch (IOException e){
-            eventEcouteur.exception(Connection.this, e);
+        } catch (IOException e) {
+            eventEcouteur.exception(ConnectionExchange.this, e);
         }
     }
 
@@ -67,9 +70,31 @@ public class Connection {
             out.flush(); //pour envoyer de Buffer au client
 
             //ajouter l'envoie du message dans la DB
-        } catch (IOException e){
-            eventEcouteur.exception(Connection.this, e);
+        } catch (IOException e) {
+            eventEcouteur.exception(ConnectionExchange.this, e);
             disconnect();
+        }
+    }
+
+    private synchronized void connectToDb() {
+
+        Connection connDb = null;
+        try {
+            String url = "jdbc:sqlite:path-to-db/chinook/chinook.db";
+            connDb = DriverManager.getConnection(url);
+
+            System.out.println("Connecté à la BD");
+
+        } catch (SQLException e) {
+            throw new Error("Erreur de connexion à la BD", e);
+        } finally {
+            try {
+                if (connDb != null) {
+                    connDb.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
     }
 }

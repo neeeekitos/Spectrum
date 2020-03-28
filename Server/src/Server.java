@@ -15,7 +15,7 @@ public class Server implements EcouteurConnection{
         new Server();
     }
 
-    private HashMap<String, Connection> connections = new HashMap<String, Connection>();
+    private HashMap<String, ConnectionExchange> connections = new HashMap<String, ConnectionExchange>();
 
 //            ExecutorService pool = Executors.newFixedThreadPool(50);
 //
@@ -77,7 +77,7 @@ public class Server implements EcouteurConnection{
             while (true) {
                 try {
                     Socket connection = server.accept();
-                    new Connection(this, connection);
+                    new ConnectionExchange(this, connection);
                 } catch (IOException ex) {
                     System.err.println(ex.getMessage());
                     System.exit(1);
@@ -90,43 +90,42 @@ public class Server implements EcouteurConnection{
     }
 
     @Override
-    public synchronized void connectionReady(Connection connection, String username) {
+    public synchronized void connectionReady(ConnectionExchange connection, String username) {
         connections.put(username, connection);
         //sendToConnection(username,"Nouveau client connecté :" + username + connection);
     }
 
     @Override
     public synchronized void receiveString(String msg) {
-        String[] parts = msg.split("-");
-        ArrayList<Connection> destinateursConnection = new  ArrayList<Connection>(parts.length-2);
 
+        String[] parts = msg.split("-");
+        ArrayList<ConnectionExchange> destinateursConnection = new  ArrayList<ConnectionExchange>(parts.length-2);
+
+        //find connections
         for (int i = 2; i<parts.length; i++) {
             destinateursConnection.add(connections.get(parts[i]));
         }
 
-        //find connections
         sendToConnection(destinateursConnection, msg);
     }
 
     @Override
-    public synchronized void disconnect(Connection connection) {
+    public synchronized void disconnect(ConnectionExchange connection) {
         connections.remove(connection);
         System.out.println("Client déconnecté :" + connection);
     }
 
     @Override
-    public synchronized void exception(Connection connection, IOException e) {
+    public synchronized void exception(ConnectionExchange connection, IOException e) {
         System.out.println("Connection exception: " + e);
     }
 
-    private void sendToConnection(ArrayList<Connection> destinateursConnection, String msg){
+    private void sendToConnection(ArrayList<ConnectionExchange> destinateursConnection, String msg){
 
         System.out.println(msg);
 
-        for (Connection connection : destinateursConnection) {
+        for (ConnectionExchange connection : destinateursConnection) {
             connection.sendString(msg);
         }
     }
-
-
 }
