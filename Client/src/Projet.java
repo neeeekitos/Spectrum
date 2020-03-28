@@ -31,10 +31,6 @@ public class Projet {
         return this.nom;
     }
 
-    public ArrayList <String> getCollaborateurs(){
-        return this.getCollaborateurs();
-    }
-
     public Date getDate() {
         return date;
     }

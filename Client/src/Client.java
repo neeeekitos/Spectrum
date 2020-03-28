@@ -12,7 +12,7 @@ public class Client implements EcouteurConnection {
 
     private static final String IP_ADDR = "localhost";
     private static final int PORT = 8190;
-    private Connection connection;
+    private ConnectionExchange connection;
     private FenetreApp fenetre;
 
     private String nom;
@@ -28,7 +28,7 @@ public class Client implements EcouteurConnection {
         try {
             InetAddress inetAddress = InetAddress.getLocalHost();
             System.out.println("connection on local IP : "+ inetAddress.toString());
-            connection = new Connection(this,"127.0.0.1", PORT);
+            connection = new ConnectionExchange(this,"127.0.0.1", PORT);
         } catch (IOException e) {
             fenetre.printMsg("exception de connexion " + e);
             e.printStackTrace();
@@ -36,7 +36,7 @@ public class Client implements EcouteurConnection {
     }
 
     @Override
-    public void connectionReady(Connection connection, String username) { fenetre.printMsg("connexion établie avec " + username); }
+    public void connectionReady(ConnectionExchange connection, String username) { fenetre.printMsg("connexion établie avec " + username); }
 
     @Override
     public void receiveString(String msg) {
@@ -45,12 +45,12 @@ public class Client implements EcouteurConnection {
     }
 
     @Override
-    public void disconnect(Connection connection) {
+    public void disconnect(ConnectionExchange connection) {
         fenetre.printMsg("Connection interrompue");
     }
 
     @Override
-    public void exception(Connection connection, IOException e) {
+    public void exception(ConnectionExchange connection, IOException e) {
         fenetre.printMsg("Exception de connection " + e);
     }
 
@@ -74,15 +74,20 @@ public class Client implements EcouteurConnection {
 //    }
 
     public void sendMessage(String msg, Projet projet) {
-        //str = Client.username . msg . collaborateurs
-       // connection.sendMessage(str);
-    }
 
-//    Message message = new Message(username, msg, LocalDateTime.now(), projet.getArrayCollaborateurs());
-//
-//        projet.getMessages().add(message);
-//
-//        connection.sendMessage(message);
+        Message message = new Message(username, msg, LocalDateTime.now(), projet.getArrayCollaborateurs());
+
+        projet.getMessages().add(message);
+
+        //collabStr: usernames separated by #$#
+        String collabStr = "";
+        for (int i = 0; i < projet.getArrayCollaborateurs().size(); i++) {
+            collabStr += projet.getArrayCollaborateurs().get(i) + "#$#";
+        }
+
+        String str = this.username + "#$#" + msg + "#$#" + collabStr;
+        connection.sendString(str);
+    }
 
     public String getUsername(){
         return username;
@@ -91,4 +96,5 @@ public class Client implements EcouteurConnection {
     public String getConnection(){
         return username;
     }
+
 }
