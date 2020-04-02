@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/FenetreApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/FenetreApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/Projet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Projet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reseau/src/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reseau/src/ConnectionExchange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reseau/src/EcouteurConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reseau/src/EcouteurConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reseau/src/ConnectionExchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reseau/src/ConnectionExchange.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +26,44 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Spectrum" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Spectrum" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Spectrum" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="spectrum: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Spectrum" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="spectrum: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="messages: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Spectrum" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="spectrum: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="projets: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Spectrum" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="spectrum: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -56,7 +93,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mysql-connector-java-8.0.19/mysql-connector-java-8.0.19.jar" />
+    <property name="last_opened_file_path" value="D:/P2I/progCom p2i/planning" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -106,7 +143,8 @@
       <workItem from="1584611658281" duration="7862000" />
       <workItem from="1584653334923" duration="3453000" />
       <workItem from="1585206465224" duration="11214000" />
-      <workItem from="1585408132712" duration="6577000" />
+      <workItem from="1585408132712" duration="7420000" />
+      <workItem from="1585742577577" duration="10279000" />
     </task>
     <servers />
   </component>
@@ -114,15 +152,23 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Notifications" timestamp="1585813903005">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1585813903005" />
     <state x="648" y="56" key="#Project_Structure" timestamp="1585217305683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="462" y="47" key="#Project_Structure/0.0.1368.872@0.0.1368.872" timestamp="1583348425028" />
     <state x="648" y="56" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1585217305683" />
-    <state x="162" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585416934006">
+    <state x="552" y="178" key="#SQL_Dialects" timestamp="1585825103390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="162" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585416934006" />
+    <state x="552" y="178" key="#SQL_Dialects/0.0.1920.1040@0.0.1920.1040" timestamp="1585825103390" />
+    <state x="76" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585814023452">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="76" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585814023452" />
     <state x="688" y="174" key="#com.intellij.ide.util.MemberChooser" timestamp="1584653839071">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -132,11 +178,11 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="93" y="93" width="1181" height="685" key="DiffContextDialog/0.0.1368.872@0.0.1368.872" timestamp="1582917123558" />
-    <state x="654" y="229" key="FileChooserDialogImpl" timestamp="1585415412904">
+    <state x="654" y="229" key="FileChooserDialogImpl" timestamp="1585742635717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="466" y="192" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1582917092855" />
-    <state x="654" y="229" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585415412904" />
+    <state x="654" y="229" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585742635717" />
     <state x="554" y="330" key="Github.ShareDialog" timestamp="1582916219185">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
@@ -173,11 +219,19 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="186" y="79" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1582915951704" />
-    <state x="540" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1585408153188">
+    <state x="756" y="345" width="408" height="342" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1585821198728">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="756" y="345" width="408" height="342" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585821198728" />
+    <state x="405" y="240" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1585821209587">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="405" y="240" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585821209587" />
+    <state x="540" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1585742578014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="385" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1584314193934" />
-    <state x="540" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585408153188" />
+    <state x="540" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585742578014" />
     <state x="834" y="356" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583341984277">
       <screen x="0" y="0" width="1368" height="872" />
     </state>

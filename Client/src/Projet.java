@@ -4,18 +4,16 @@ import java.util.LinkedList;
 
 public class Projet {
 
-    private String id;
+    private int id;
     private String nom;
-    private Date date;
     private LinkedList <Message> messages;
     private ArrayList <String> collaborateurs;
 
-    public Projet(String id, String nom, Date date, LinkedList<Message> messages, ArrayList<String> collaborateurs){
+    public Projet(int id, String nom, ArrayList<String> collaborateurs){
         this.id=id;
         this.nom=nom;
-        this.date=date;
         this.collaborateurs = collaborateurs;
-        this.messages = messages;
+        this.messages = null;
 
     }
 
@@ -23,7 +21,7 @@ public class Projet {
         return messages;
     }
 
-    public String getId(){
+    public int getId(){
         return this.id;
     }
 
@@ -31,11 +29,11 @@ public class Projet {
         return this.nom;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
     public ArrayList<String> getArrayCollaborateurs() {
         return collaborateurs;
     }
+
+    public void setNom(String nom) { this.nom = nom; }
+
+    public void addMsg(Message msg) { messages.add(0, msg); }
 }

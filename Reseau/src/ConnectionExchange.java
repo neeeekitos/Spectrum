@@ -1,9 +1,7 @@
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
@@ -67,7 +65,7 @@ public class ConnectionExchange {
     public synchronized void sendString(String msg) {
         try {
             out.write(msg + "\r\n");
-            out.flush(); //pour envoyer de Buffer au client
+            out.flush(); //pour envoyer de Buffer à client/serveur
 
             //ajouter l'envoie du message dans la DB
         } catch (IOException e) {
@@ -76,13 +74,11 @@ public class ConnectionExchange {
         }
     }
 
-    private synchronized void connectToDb() {
-
+    private synchronized Connection connectToDb() {
         Connection connDb = null;
         try {
-            String url = "jdbc:sqlite:path-to-db/chinook/chinook.db";
-            connDb = DriverManager.getConnection(url);
-
+            String url = "jdbc:mysql://localhost:3306/Spectrum";
+            connDb = DriverManager.getConnection(url, "root", "root");
             System.out.println("Connecté à la BD");
 
         } catch (SQLException e) {
@@ -95,6 +91,32 @@ public class ConnectionExchange {
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
+        }
+        return connDb;
+    }
+
+    public boolean loginDb(String username, String password) throws SQLException {
+        Connection connDb = this.connectToDb();
+
+        ResultSet result = null;
+        String requete = "SELECT * FROM users as u WHERE u.username="+username;
+
+
+        Statement stmt = connDb.createStatement();
+        result = stmt.executeQuery(requete);
+
+        if (!result.equals(null)) {
+            String usernameDb = result.getString(2);
+            String passwordDb = result.getString(5);
+
+            if (username.equals(usernameDb) && password.equals(passwordDb)) {
+                new Client(username, result.getString(3), result.getString(4));
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
         }
     }
 }
