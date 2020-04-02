@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 
 public class Client implements EcouteurConnection {
@@ -13,17 +14,16 @@ public class Client implements EcouteurConnection {
     private static final String IP_ADDR = "localhost";
     private static final int PORT = 8190;
     private ConnectionExchange connection;
-    private FenetreApp fenetre;
+    protected FenetreApp fenetre;
 
     private String nom;
     private String prenom;
     private String username;
-    private String mdp;
     private LinkedList<Projet> projets;
 
 
-    public Client(FenetreApp fenetre){
-        this.fenetre=fenetre;
+    public Client(String username, String prenom, String nom){
+        fenetre = new FenetreApp(this);
 
         try {
             InetAddress inetAddress = InetAddress.getLocalHost();
@@ -54,6 +54,25 @@ public class Client implements EcouteurConnection {
         fenetre.printMsg("Exception de connection " + e);
     }
 
+    public String getUsername(){
+        return username;
+    }
+
+    public String getPrenom(){
+        return prenom;
+    }
+
+    public String getNom() { return nom; }
+
+    public void createProject(String nom, ArrayList<String> collaborateurs) {
+        projets.add(new Projet(projets.size(), nom, collaborateurs));
+    }
+
+
+    public ConnectionExchange getConnectionExchange() { return connection; }
+
+
+
 //    public synchronized void printMsg(String msg){ //тк работаем из потока окошка и соединения
 //        SwingUtilities.invokeLater(new Runnable() {
 //            @Override
@@ -82,19 +101,10 @@ public class Client implements EcouteurConnection {
         //collabStr: usernames separated by #$#
         String collabStr = "";
         for (int i = 0; i < projet.getArrayCollaborateurs().size(); i++) {
-            collabStr += projet.getArrayCollaborateurs().get(i) + "#$#";
+            collabStr += projet.getArrayCollaborateurs().get(i) + "###";
         }
 
         String str = this.username + "#$#" + msg + "#$#" + collabStr;
         connection.sendString(str);
     }
-
-    public String getUsername(){
-        return username;
-    }
-
-    public String getConnection(){
-        return username;
-    }
-
 }

@@ -98,7 +98,7 @@ public class Server implements EcouteurConnection{
     @Override
     public synchronized void receiveString(String msg) {
 
-        String[] parts = msg.split("-");
+        String[] parts = msg.split("###");
         ArrayList<ConnectionExchange> destinateursConnection = new  ArrayList<ConnectionExchange>(parts.length-2);
 
         //find connections

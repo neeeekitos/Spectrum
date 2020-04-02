@@ -53,7 +53,7 @@ public class FenetreApp extends JFrame implements ActionListener {
         String msg = fieldInput.getText();
         if (msg.equals("")) return;
         fieldInput.setText(null);
-        user.getConnection().sendString(fieldNickname.getText() + " : " + msg);
+        //user.getConnection().sendString(fieldNickname.getText() + " : " + msg);
         this.validate();
     }
 }
