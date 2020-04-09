@@ -95,28 +95,65 @@ public class ConnectionExchange {
         return connDb;
     }
 
-    public boolean loginDb(String username, String password) throws SQLException {
-        Connection connDb = this.connectToDb();
+    public void loginDb(String username, String password, FenetreLogin fenetreLogin) throws SQLException {
+        Connection connDB = this.connectToDb();
 
         ResultSet result = null;
         String requete = "SELECT * FROM users as u WHERE u.username="+username;
 
 
-        Statement stmt = connDb.createStatement();
-        result = stmt.executeQuery(requete);
+        PreparedStatement preparedStmt = connDB.prepareStatement(requete);
+        result = preparedStmt.executeQuery(requete);
 
-        if (!result.equals(null)) {
+        //verifions si on a qqch dans un result
+        if (result.next()) {
+
             String usernameDb = result.getString(2);
             String passwordDb = result.getString(5);
 
-            if (username.equals(usernameDb) && password.equals(passwordDb)) {
+            if (password.equals(passwordDb)) {
+                JOptionPane.showMessageDialog(null,"Connexion réussie ! ","Success",JOptionPane.PLAIN_MESSAGE);
                 new Client(username, result.getString(3), result.getString(4));
-                return true;
             } else {
-                return false;
+                JOptionPane.showMessageDialog(null,"Mot de passe incorrect ! ","Error",1);
             }
         } else {
-            return false;
+            JOptionPane.showMessageDialog(null,"Login incorrect ! ","Error",1);
         }
+
+        connDB.close();
+    }
+
+    public boolean singinDB(String prenom, String nom, String username, String password) throws SQLException {
+        //finir cela + generer les codes de projets + finir le login et singin
+
+        Connection connDB = this.connectToDb();
+        ResultSet result = null;
+
+        //requete qui verifie si ce username est déjà utilisé
+        String requeteCheck = "SELECT * FROM users as u WHERE u.username=?";
+
+        PreparedStatement preparedStmt = connDB.prepareStatement(requeteCheck);
+        result = preparedStmt.executeQuery();
+
+        //verifions si on a qqch dans un result
+        if (!result.next()) {
+
+            //création d'insert statement
+            String requete = " INSERT INTO users (username, prenom, nom, mdp) VALUES (?, ?, ?, ?)";
+            preparedStmt = connDB.prepareStatement(requete);
+
+            // ajouter les valeurs sql insert
+            preparedStmt.setString(1, username);
+            preparedStmt.setString(2, prenom);
+            preparedStmt.setString(3, nom);
+            preparedStmt.setString(4, password);
+
+            // executer
+            preparedStmt.execute();
+        }
+
+
+
     }
 }
