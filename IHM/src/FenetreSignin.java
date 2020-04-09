@@ -13,6 +13,16 @@ import javax.swing.*;
 
 public class FenetreSignin extends JFrame {
 
+    private String firstName;
+    private String lastName;
+    private String username;
+    private String eMail;
+    private char[] password1;
+    private char[] password2;
+    private char[] passWord;
+
+
+
     /**
      * Creates new form NewJFrame
      */
@@ -444,7 +454,15 @@ public class FenetreSignin extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitButtonMouseClicked
-
+        firstName = firstNameField.getText();
+        lastName = lastNameField.getText();
+        username = userNameField.getText();
+        eMail = eMailField.getText();
+        password1 = jPasswordField1.getPassword();
+        password2 = jPasswordField2.getPassword();
+        if(password1==password2) {
+            passWord = password1;
+        }
         System.exit(0);
     }//GEN-LAST:event_submitButtonMouseClicked
 
