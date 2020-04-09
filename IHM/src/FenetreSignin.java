@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.sql.SQLException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,7 +20,7 @@ public class FenetreSignin extends JFrame {
     private String eMail;
     private char[] password1;
     private char[] password2;
-    private char[] passWord;
+    private char[] password;
 
 
 
@@ -460,10 +461,16 @@ public class FenetreSignin extends JFrame {
         eMail = eMailField.getText();
         password1 = jPasswordField1.getPassword();
         password2 = jPasswordField2.getPassword();
+
         if(password1==password2) {
-            passWord = password1;
+            password = password1;
         }
-        System.exit(0);
+
+        try {
+            ConnectionExchange.signinDB(firstName, lastName, username, username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_submitButtonMouseClicked
 
     private void eMailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eMailFieldActionPerformed
