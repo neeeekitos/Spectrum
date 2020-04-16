@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
- develop
+      develop
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
- develop
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/IHM/src" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -100,10 +100,17 @@
       <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FenetreSignin">
+  <component name="RunManager" selected="Application.FenetreApp">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="Client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FenetreApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FenetreApp" />
+      <module name="IHM" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,9 +133,11 @@
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.FenetreSignin" />
+      <item itemvalue="Application.FenetreApp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FenetreApp" />
         <item itemvalue="Application.FenetreSignin" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
@@ -266,7 +275,7 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="93" y="93" width="1181" height="685" key="git4idea.log.GitShowExternalLogAction/0.0.1368.872@0.0.1368.872" timestamp="1583174399837" />
- develop
+    develop
     <state x="487" y="219" width="944" height="809" key="search.everywhere.popup" timestamp="1585209836232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
