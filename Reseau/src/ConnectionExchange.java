@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
@@ -74,29 +75,21 @@ public class ConnectionExchange {
         }
     }
 
-    private synchronized Connection connectToDb() {
+    private static synchronized Connection connectToDb() {
         Connection connDb = null;
         try {
-            String url = "jdbc:mysql://localhost:3306/Spectrum";
+            String url = "jdbc:mysql://localhost:3306/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
             connDb = DriverManager.getConnection(url, "root", "root");
             System.out.println("Connecté à la BD");
 
         } catch (SQLException e) {
             throw new Error("Erreur de connexion à la BD", e);
-        } finally {
-            try {
-                if (connDb != null) {
-                    connDb.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
         }
         return connDb;
     }
 
-    public void loginDb(String username, String password, FenetreLogin fenetreLogin) throws SQLException {
-        Connection connDB = this.connectToDb();
+    public static void loginDb(String username, String password) throws SQLException {
+        Connection connDB = connectToDb();
 
         ResultSet result = null;
         String requete = "SELECT * FROM users as u WHERE u.username="+username;
@@ -124,16 +117,17 @@ public class ConnectionExchange {
         connDB.close();
     }
 
-    public boolean singinDB(String prenom, String nom, String username, String password) throws SQLException {
+    public static boolean signinDB(String prenom, String nom, String username, String password) throws SQLException {
         //finir cela + generer les codes de projets + finir le login et singin
 
-        Connection connDB = this.connectToDb();
+        Connection connDB = connectToDb();
         ResultSet result = null;
 
         //requete qui verifie si ce username est déjà utilisé
         String requeteCheck = "SELECT * FROM users as u WHERE u.username=?";
 
         PreparedStatement preparedStmt = connDB.prepareStatement(requeteCheck);
+        preparedStmt.setString(1, username);
         result = preparedStmt.executeQuery();
 
         //verifions si on a qqch dans un result
@@ -150,10 +144,7 @@ public class ConnectionExchange {
             preparedStmt.setString(4, password);
 
             // executer
-            preparedStmt.execute();
-        }
-
-
-
+            return preparedStmt.execute();
+        } else { return false; }
     }
 }
