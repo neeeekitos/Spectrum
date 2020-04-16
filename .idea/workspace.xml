@@ -4,33 +4,7 @@
     <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IHM/IHM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/IHM.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IHM/src/FenetreSignin.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FenetreSignin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reseau/Reseau.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Reseau/Reseau.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reseau/src/ConnectionExchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reseau/src/ConnectionExchange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/FenetreApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/FenetreApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Reseau/Connection$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Reseau/Connection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Reseau/EcouteurConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Reseau/EcouteurConnection.class" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,8 +93,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/Downloads/mysql-connector-java-8.0.19.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
@@ -131,10 +104,17 @@
       <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FenetreSignin">
+  <component name="RunManager" selected="Application.FenetreApp">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="Client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FenetreApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FenetreApp" />
+      <module name="IHM" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -157,9 +137,11 @@
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.FenetreSignin" />
+      <item itemvalue="Application.FenetreApp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FenetreApp" />
         <item itemvalue="Application.FenetreSignin" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
@@ -302,8 +284,7 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="93" y="93" width="1181" height="685" key="git4idea.log.GitShowExternalLogAction/0.0.1368.872@0.0.1368.872" timestamp="1583174399837" />
-    <state x="348" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1586430411593">
-      <screen x="0" y="0" width="1368" height="872" />
+
     </state>
     <state x="348" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1586430411593" />
     <state x="487" y="219" width="944" height="809" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585209836232" />
