@@ -344,14 +344,12 @@ public class FenetreSignin extends JFrame {
             }
         });
 
-        jPasswordField1.setText("µµµµµµµµµµ");
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
             }
         });
 
-        jPasswordField2.setText("Repeat you");
         jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField2ActionPerformed(evt);

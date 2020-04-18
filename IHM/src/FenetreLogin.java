@@ -309,7 +309,6 @@ public class FenetreLogin extends JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Documents\\NetBeansProjects\\projectForm\\src\\main\\java\\logo login.png")); // NOI18N
 
-        jPasswordField1.setText("µµµµµµµµµµ");
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
