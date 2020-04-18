@@ -1,7 +1,10 @@
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.regex.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,8 +25,6 @@ public class FenetreSignin extends JFrame {
     private String eMail;
     private char[] password1;
     private char[] password2;
-    private char[] password;
-
 
 
     /**
@@ -461,37 +462,44 @@ public class FenetreSignin extends JFrame {
 
         firstName = firstNameField.getText();
         lastName = lastNameField.getText();
-        if (preg_match('\W', userNameField.getText())) {
+        if (Pattern.matches("^[a-zA-Z0-9._-]{3,}$", userNameField.getText())) {
             username = userNameField.getText();
         } else {
             JOptionPane usernameFalse = new JOptionPane();
-            usernameFalse.showMessageDialog(null, "Your username contains forbidden characters", "Warning",JOptionPane.ERROR_MESSAGE, img);
+            usernameFalse.showMessageDialog(null, "Votre nom d'utilisateur doit suivre les règles suivantes : \n" +
+                    "- au moins 3 caractères\n" +
+                    "- les caractères autorisés sont les majuscules, minuscules, \" _ \"", "Attention",JOptionPane.ERROR_MESSAGE, img);
 
         }
 
         eMail = eMailField.getText();
         password1 = jPasswordField1.getPassword();
         password2 = jPasswordField2.getPassword();
-        if(preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', password1)) {) {
-            if (password1.equals(password2)) {
-                password = password1;
+        String password = new String(password1);
+
+        if(Arrays.equals(password1, password2))  {
+
+            if (Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=\\S+$).{8,}$", password)) {
+
             } else {
-                JOptionPane passwordDiff = new JOptionPane();
-                passwordDiff.showMessageDialog(null, "The passwords are not the same", "Warning", JOptionPane.ERROR_MESSAGE, img);
-            }
-        }else{
-            JOptionPane passwordFalse = new JOptionPane();
-            passwordFalse.showMessageDialog(null, "Your password should follow these rules : " +
-                    "- more than 8 characters\n" +
-                    "- at least one lower case letter\n" +
-                    "- at least one upper case letter\n" +
-                    "- at least one number\n" +
-                    "- at least one special character: $ @ % * + - _ !\n" +
-                    "- no accentuated vowels", "Warning", JOptionPane.ERROR_MESSAGE, img);
+                JOptionPane passwordFalse = new JOptionPane();
+                passwordFalse.showMessageDialog(null, "Votre mot de passe doit suivre les règles suivantes :\n " +
+                        "- plus de 8 caractères\n" +
+                        "- au moins une minuscule\n" +
+                        "- au moins une majuscule\n" +
+                        "- au moins un chiffre\n" +
+                        "- au moins un caractère spécial : $ @ % * _ ! ^ & #\n" +
+                        "- aucune voyelle accentuée", "Attention", JOptionPane.ERROR_MESSAGE, img);
             }
 
+        } else {
+
+            JOptionPane passwordDiff = new JOptionPane();
+            passwordDiff.showMessageDialog(null, "Les mots de passe ne sont pas identiques", "Attention", JOptionPane.ERROR_MESSAGE, img);
+        }
+
         try {
-            ConnectionExchange.signinDB(firstName, lastName, username, username);
+            ConnectionExchange.signinDB(firstName, lastName, username, password);
         } catch (SQLException e) {
             e.printStackTrace();
         }
