@@ -293,7 +293,7 @@ public class FenetreLogin extends JFrame {
         LoginButton.setBackground(new java.awt.Color(102, 204, 255));
         LoginButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         LoginButton.setForeground(new java.awt.Color(0, 121, 203));
-        LoginButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Bureau\\triangle logo Spectrumddddd.png")); // NOI18N
+        LoginButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png"))); // NOI18N
         LoginButton.setText("Login");
         LoginButton.setToolTipText("");
         LoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -306,8 +306,6 @@ public class FenetreLogin extends JFrame {
                 LoginButtonActionPerformed(evt);
             }
         });
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Documents\\NetBeansProjects\\projectForm\\src\\main\\java\\logo login.png")); // NOI18N
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

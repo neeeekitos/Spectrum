@@ -314,7 +314,7 @@ public class FenetreSignin extends JFrame {
         submitButton.setBackground(new java.awt.Color(102, 204, 255));
         submitButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         submitButton.setForeground(new java.awt.Color(0, 121, 203));
-        submitButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Bureau\\triangle logo Spectrumddddd.png")); // NOI18N
+        submitButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png"))); // NOI18N
         submitButton.setText("Submit");
         submitButton.setToolTipText("");
         submitButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -331,8 +331,6 @@ public class FenetreSignin extends JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Documents\\NetBeansProjects\\projectForm\\src\\main\\java\\logo login.png")); // NOI18N
 
         backToLogin.setBackground(new java.awt.Color(231, 231, 231));
         backToLogin.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
