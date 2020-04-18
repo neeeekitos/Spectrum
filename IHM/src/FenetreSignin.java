@@ -4,6 +4,8 @@ import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.regex.Pattern;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -472,16 +474,45 @@ public class FenetreSignin extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitButtonMouseClicked
+        ImageIcon img = new ImageIcon("images/attention.png");
+
         firstName = firstNameField.getText();
         lastName = lastNameField.getText();
-        username = userNameField.getText();
+        if (Pattern.matches("^[a-zA-Z0-9._-]{3,}$", userNameField.getText())) {
+            username = userNameField.getText();
+        } else {
+            JOptionPane usernameFalse = new JOptionPane();
+            usernameFalse.showMessageDialog(null, "Votre nom d'utilisateur doit suivre les règles suivantes : \n" +
+                    "- au moins 3 caractères\n" +
+                    "- les caractères autorisés sont les majuscules, minuscules, \" _ \"\n" +
+                    "- les voyelles accentuées ne sont pas acceptées", "Attention",JOptionPane.ERROR_MESSAGE, img);
+
+        }
+
         eMail = eMailField.getText();
         password1 = jPasswordField1.getPassword();
         password2 = jPasswordField2.getPassword();
-        String password = "";
+        String password = new String(password1);
 
-        if(password1.equals(password2)) {
-            password = new String(password1);
+        if(Arrays.equals(password1, password2))  {
+
+            if (Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=\\S+$).{8,}$", password)) {
+
+            } else {
+                JOptionPane passwordFalse = new JOptionPane();
+                passwordFalse.showMessageDialog(null, "Votre mot de passe doit suivre les règles suivantes :\n " +
+                        "- plus de 8 caractères\n" +
+                        "- au moins une minuscule\n" +
+                        "- au moins une majuscule\n" +
+                        "- au moins un chiffre\n" +
+                        "- au moins un caractère spécial : $ @ % * _ ! ^ & #\n" +
+                        "- aucune voyelle accentuée", "Attention", JOptionPane.ERROR_MESSAGE, img);
+            }
+
+        } else {
+
+            JOptionPane passwordDiff = new JOptionPane();
+            passwordDiff.showMessageDialog(null, "Les mots de passe ne sont pas identiques", "Attention", JOptionPane.ERROR_MESSAGE, img);
         }
 
         try {
