@@ -24,7 +24,6 @@ public class FenetreSignin extends JFrame {
     private String eMail;
     private char[] password1;
     private char[] password2;
-    private char[] password;
 
 
 
@@ -314,7 +313,7 @@ public class FenetreSignin extends JFrame {
         submitButton.setBackground(new java.awt.Color(102, 204, 255));
         submitButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         submitButton.setForeground(new java.awt.Color(0, 121, 203));
-        submitButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Bureau\\triangle logo Spectrumddddd.png")); // NOI18N
+        submitButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png"))); // NOI18N
         submitButton.setText("Submit");
         submitButton.setToolTipText("");
         submitButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -331,8 +330,6 @@ public class FenetreSignin extends JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Documents\\NetBeansProjects\\projectForm\\src\\main\\java\\logo login.png")); // NOI18N
 
         backToLogin.setBackground(new java.awt.Color(231, 231, 231));
         backToLogin.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
@@ -481,13 +478,14 @@ public class FenetreSignin extends JFrame {
         eMail = eMailField.getText();
         password1 = jPasswordField1.getPassword();
         password2 = jPasswordField2.getPassword();
+        String password = "";
 
-        if(password1==password2) {
-            password = password1;
+        if(password1.equals(password2)) {
+            password = new String(password1);
         }
 
         try {
-            ConnectionExchange.signinDB(firstName, lastName, username, username);
+            ConnectionExchange.signinDB(firstName, lastName, username, password);
         } catch (SQLException e) {
             e.printStackTrace();
         }

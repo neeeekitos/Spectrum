@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -71,7 +72,7 @@ public class FenetreLogin extends JFrame {
         jButtonOk = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        firstNameField = new javax.swing.JTextField();
+        usernameField = new javax.swing.JTextField();
         LoginButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
@@ -273,27 +274,27 @@ public class FenetreLogin extends JFrame {
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel2.setOpaque(false);
 
-        firstNameField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        firstNameField.addMouseListener(new java.awt.event.MouseAdapter() {
+        usernameField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        usernameField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                firstNameFieldMouseClicked(evt);
+                usernameFieldMouseClicked(evt);
             }
         });
-        firstNameField.addActionListener(new java.awt.event.ActionListener() {
+        usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameFieldActionPerformed(evt);
+                fusernameFieldActionPerformed(evt);
             }
         });
-        firstNameField.addKeyListener(new java.awt.event.KeyAdapter() {
+        usernameField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                firstNameFieldKeyPressed(evt);
+                usernameFieldKeyPressed(evt);
             }
         });
 
         LoginButton.setBackground(new java.awt.Color(102, 204, 255));
         LoginButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         LoginButton.setForeground(new java.awt.Color(0, 121, 203));
-        LoginButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Bureau\\triangle logo Spectrumddddd.png")); // NOI18N
+        LoginButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png"))); // NOI18N
         LoginButton.setText("Login");
         LoginButton.setToolTipText("");
         LoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -306,8 +307,6 @@ public class FenetreLogin extends JFrame {
                 LoginButtonActionPerformed(evt);
             }
         });
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Documents\\NetBeansProjects\\projectForm\\src\\main\\java\\logo login.png")); // NOI18N
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -358,7 +357,7 @@ public class FenetreLogin extends JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
@@ -379,7 +378,7 @@ public class FenetreLogin extends JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
@@ -409,17 +408,17 @@ public class FenetreLogin extends JFrame {
         System.exit(0);
     }//GEN-LAST:event_LoginButtonMouseClicked
 
-    private void firstNameFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameFieldKeyPressed
+    private void usernameFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameFieldKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameFieldKeyPressed
+    }//GEN-LAST:event_usernameFieldKeyPressed
 
-    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
+    private void fusernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameFieldActionPerformed
+    }//GEN-LAST:event_usernameFieldActionPerformed
 
-    private void firstNameFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstNameFieldMouseClicked
+    private void usernameFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameFieldMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameFieldMouseClicked
+    }//GEN-LAST:event_usernameFieldMouseClicked
 
     private void backToSignInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToSignInMouseClicked
       // new FenetreSignin();
@@ -429,7 +428,14 @@ public class FenetreLogin extends JFrame {
     }//GEN-LAST:event_backToSignInMouseClicked
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        // TODO add your handling code here:
+        String username = usernameField.getText();
+        String password = new String(jPasswordField1.getPassword());
+
+        try {
+            ConnectionExchange.loginDb(username, password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void jButtonOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonOkMouseClicked
@@ -489,7 +495,7 @@ public class FenetreLogin extends JFrame {
     private JFrame Conditions;
     private javax.swing.JButton LoginButton;
     private javax.swing.JLabel backToSignIn;
-    private javax.swing.JTextField firstNameField;
+    private javax.swing.JTextField usernameField;
     private javax.swing.JButton jButtonOk;
     private javax.swing.JButton jButtonOk2;
     private javax.swing.JDialog jDialog1;
