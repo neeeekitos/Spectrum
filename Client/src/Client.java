@@ -21,9 +21,21 @@ public class Client implements EcouteurConnection {
     private String username;
     private LinkedList<Projet> projets;
 
+    public static void main(String[] args){
+        new Client("lalala", "hdhdhdh", "sdjsj");
+    }
+
 
     public Client(String username, String prenom, String nom){
-        fenetre = new FenetreApp(this);
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                fenetre = new FenetreApp(Client.this);
+                fenetre.setVisible(true);
+            }
+        });
 
         try {
             InetAddress inetAddress = InetAddress.getLocalHost();
