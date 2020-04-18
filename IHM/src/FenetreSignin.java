@@ -24,7 +24,6 @@ public class FenetreSignin extends JFrame {
     private String eMail;
     private char[] password1;
     private char[] password2;
-    private char[] password;
 
 
 
@@ -479,13 +478,14 @@ public class FenetreSignin extends JFrame {
         eMail = eMailField.getText();
         password1 = jPasswordField1.getPassword();
         password2 = jPasswordField2.getPassword();
+        String password = "";
 
-        if(password1==password2) {
-            password = password1;
+        if(password1.equals(password2)) {
+            password = new String(password1);
         }
 
         try {
-            ConnectionExchange.signinDB(firstName, lastName, username, username);
+            ConnectionExchange.signinDB(firstName, lastName, username, password);
         } catch (SQLException e) {
             e.printStackTrace();
         }

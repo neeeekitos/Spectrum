@@ -92,11 +92,11 @@ public class ConnectionExchange {
         Connection connDB = connectToDb();
 
         ResultSet result = null;
-        String requete = "SELECT * FROM users as u WHERE u.username="+username;
+        String requeteCheck = "SELECT * FROM users as u WHERE u.username=?";
 
-
-        PreparedStatement preparedStmt = connDB.prepareStatement(requete);
-        result = preparedStmt.executeQuery(requete);
+        PreparedStatement preparedStmt = connDB.prepareStatement(requeteCheck);
+        preparedStmt.setString(1, username);
+        result = preparedStmt.executeQuery();
 
         //verifions si on a qqch dans un result
         if (result.next()) {
@@ -118,7 +118,6 @@ public class ConnectionExchange {
     }
 
     public static boolean signinDB(String prenom, String nom, String username, String password) throws SQLException {
-        //finir cela + generer les codes de projets + finir le login et singin
 
         Connection connDB = connectToDb();
         ResultSet result = null;

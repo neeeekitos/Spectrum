@@ -2,11 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/IHM/images/triangle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_191.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IHM/src/FenetreLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FenetreLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IHM/src/FenetreSignin.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FenetreSignin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reseau/Reseau.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Reseau/Reseau.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reseau/src/ConnectionExchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reseau/src/ConnectionExchange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreSignin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreSignin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Reseau/ConnectionExchange.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Reseau/ConnectionExchange.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +130,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Downloads/mysql-connector-java-8.0.19.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
@@ -207,10 +243,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#SQL_Dialects/0.0.1920.1040@0.0.1920.1040" timestamp="1585825103390" />
-    <state x="76" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586432660721">
+    <state x="76" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587237915483">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="76" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586432660721" />
+    <state x="76" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587237915483" />
     <state x="688" y="174" key="#com.intellij.ide.util.MemberChooser" timestamp="1584653839071">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -224,44 +260,44 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="93" y="93" width="1181" height="685" key="DiffContextDialog/0.0.1368.872@0.0.1368.872" timestamp="1582917123558" />
-    <state x="654" y="229" key="FileChooserDialogImpl" timestamp="1586433335646">
+    <state x="654" y="229" key="FileChooserDialogImpl" timestamp="1587238049947">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="436" y="116" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1586417666028" />
     <state x="466" y="192" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1582917092855" />
     <state x="523" y="181" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586015741747" />
-    <state x="654" y="229" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586433335646" />
+    <state x="654" y="229" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587238049947" />
     <state x="554" y="330" key="Github.ShareDialog" timestamp="1582916219185">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="554" y="330" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1582916219185" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1587235896058">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1587238261146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
     <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587235896058" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261146" />
     <state width="1877" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1587235896057">
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1587238261145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
     <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587235896057" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261145" />
     <state width="1877" height="252" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1587235896057">
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1587238261145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
     <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587235896057" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261145" />
     <state width="1877" height="252" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1587235896058">
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1587238261146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
     <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587235896058" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261146" />
     <state width="1877" height="252" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1587214344048">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -288,11 +324,11 @@
     </state>
     <state x="366" y="79" key="NewModule_or_Project.wizard/0.0.1280.680@0.0.1280.680" timestamp="1586417674059" />
     <state x="439" y="111" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1586015750851" />
-    <state x="167" y="189" key="SettingsEditor" timestamp="1586433583656">
+    <state x="167" y="189" key="SettingsEditor" timestamp="1587238066331">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="186" y="79" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1582915951704" />
-    <state x="167" y="189" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586433583656" />
+    <state x="167" y="189" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587238066331" />
     <state x="756" y="345" width="408" height="342" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1585821198728">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
