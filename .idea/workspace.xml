@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/IHM/images/background.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/IHM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/IHM.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/FenetreLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FenetreLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/FenetreSignin.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FenetreSignin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreLogin.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,17 +112,21 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\temp\ALGO\Spectrum\IHM\images" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM\src" />
       <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.FenetreSignin">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="Client" />
@@ -111,6 +136,13 @@
     </configuration>
     <configuration name="FenetreApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FenetreApp" />
+      <module name="IHM" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FenetreLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FenetreLogin" />
       <module name="IHM" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -135,12 +167,14 @@
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.FenetreSignin" />
       <item itemvalue="Application.FenetreApp" />
+      <item itemvalue="Application.FenetreLogin" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
-        <item itemvalue="Application.FenetreApp" />
         <item itemvalue="Application.FenetreSignin" />
+        <item itemvalue="Application.FenetreLogin" />
+        <item itemvalue="Application.FenetreApp" />
+        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
@@ -180,12 +214,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1585813903005" />
-    <state x="648" y="56" key="#Project_Structure" timestamp="1586431288227">
+    <state x="648" y="56" key="#Project_Structure" timestamp="1587219594114">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="432" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1586418536438" />
     <state x="462" y="47" key="#Project_Structure/0.0.1368.872@0.0.1368.872" timestamp="1586430584236" />
-    <state x="648" y="56" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1586431288227" />
+    <state x="648" y="56" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1587219594114" />
     <state x="552" y="178" key="#SQL_Dialects" timestamp="1585825103390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -218,33 +252,33 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="554" y="330" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1582916219185" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1587214351363">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1587221356694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
     <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351363" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587221356694" />
     <state width="1877" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1587214351362">
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1587221356693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
     <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351362" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587221356693" />
     <state width="1877" height="252" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1587214351362">
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1587221356693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
     <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351362" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587221356693" />
     <state width="1877" height="252" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1587214351363">
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1587221356693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
     <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351363" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587221356693" />
     <state width="1877" height="252" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1587214344048">
       <screen x="0" y="0" width="1920" height="1040" />

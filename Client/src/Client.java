@@ -25,7 +25,6 @@ public class Client implements EcouteurConnection {
         new Client("lalala", "hdhdhdh", "sdjsj");
     }
 
-
     public Client(String username, String prenom, String nom){
 
         /* Create and display the form */
@@ -80,6 +79,9 @@ public class Client implements EcouteurConnection {
         projets.add(new Projet(projets.size(), nom, collaborateurs));
     }
 
+    public LinkedList<Projet> getProjets(){
+        return projets;
+    }
 
     public ConnectionExchange getConnectionExchange() { return connection; }
 

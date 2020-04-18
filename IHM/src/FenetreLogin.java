@@ -1,4 +1,9 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,12 +18,32 @@ import javax.swing.*;
 
 public class FenetreLogin extends JFrame {
 
+    private JPanel background;
+
     /**
      * Creates new form NewJFrame
      */
     public FenetreLogin() {
+        try {
+            Image img = ImageIO.read(new FileInputStream("IHM/images/background.jpg"));
+
+            Image scaledImg = img.getScaledInstance(1000, 800,  java.awt.Image.SCALE_SMOOTH) ;
+
+            this.setContentPane(new JPanel() {
+                @Override
+                public void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.drawImage(scaledImg, 0, 0, null);
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**

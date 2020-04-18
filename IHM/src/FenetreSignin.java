@@ -1,4 +1,8 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.SQLException;
 
 /*
@@ -28,8 +32,26 @@ public class FenetreSignin extends JFrame {
      * Creates new form NewJFrame
      */
     public FenetreSignin() {
+        try {
+            Image img = ImageIO.read(new FileInputStream("IHM/images/background.jpg"));
+
+            Image scaledImg = img.getScaledInstance(1000, 800,  java.awt.Image.SCALE_SMOOTH) ;
+
+            this.setContentPane(new JPanel() {
+                @Override
+                public void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.drawImage(scaledImg, 0, 0, null);
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
