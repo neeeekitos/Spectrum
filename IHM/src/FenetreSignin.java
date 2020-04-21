@@ -476,28 +476,70 @@ public class FenetreSignin extends JFrame {
     private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitButtonMouseClicked
         ImageIcon img = new ImageIcon("images/attention.png");
 
+
         firstName = firstNameField.getText();
         lastName = lastNameField.getText();
-        if (Pattern.matches("^[a-zA-Z0-9._-]{3,}$", userNameField.getText())) {
-            username = userNameField.getText();
-        } else {
-            JOptionPane usernameFalse = new JOptionPane();
-            usernameFalse.showMessageDialog(null, "Votre nom d'utilisateur doit suivre les règles suivantes : \n" +
-                    "- au moins 3 caractères\n" +
-                    "- les caractères autorisés sont les majuscules, minuscules, \" _ \"\n" +
-                    "- les voyelles accentuées ne sont pas acceptées", "Attention",JOptionPane.ERROR_MESSAGE, img);
-
-        }
-
-        eMail = eMailField.getText();
+        username = userNameField.getText();
+        eMail=eMailField.getText();
         password1 = jPasswordField1.getPassword();
         password2 = jPasswordField2.getPassword();
         String password = new String(password1);
 
-        if(Arrays.equals(password1, password2))  {
+        if(username.equals("") || password1==null || password2== null || eMail.equals("") || lastName.equals("") || firstName.equals("")) {
+            JOptionPane notFilledOut = new JOptionPane();
+            notFilledOut.showMessageDialog(null, "Veuillez remplir toutes les informations", "Attention", JOptionPane.ERROR_MESSAGE, img);
+
+        }else{
+
+            if (Pattern.matches("^\\p{L}*$", firstNameField.getText())) {
+
+            } else {
+                JOptionPane firstNameFalse = new JOptionPane();
+                firstNameFalse.showMessageDialog(null, "Votre prénom ne doit être composé que de lettres\n" , "Attention",JOptionPane.ERROR_MESSAGE, img);
+
+            }
+
+
+            if (Pattern.matches("^\\p{L}*$", lastNameField.getText())) {
+
+            } else {
+                JOptionPane lastNameFalse = new JOptionPane();
+                lastNameFalse.showMessageDialog(null, "Votre nom ne doit être composé que de lettres\n" , "Attention",JOptionPane.ERROR_MESSAGE, img);
+
+            }
+
+            if (Pattern.matches("^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\\.[a-z]{2,4}$", eMailField.getText())) {
+
+            } else {
+                JOptionPane eMailFalse = new JOptionPane();
+                eMailFalse.showMessageDialog(null, "Votre adresse e-mail n'est pas conforme\n", "Attention", JOptionPane.ERROR_MESSAGE, img);
+            }
+
+
+            if (Pattern.matches("^[a-zA-Z0-9._-]{3,}$", userNameField.getText())) {
+
+            } else {
+                JOptionPane usernameFalse = new JOptionPane();
+                usernameFalse.showMessageDialog(null, "Votre nom d'utilisateur doit suivre les règles suivantes : \n" +
+                        "- au moins 3 caractères\n" +
+                        "- les caractères autorisés sont les majuscules, minuscules, \" _ \"\n" +
+                        "- les voyelles accentuées ne sont pas acceptées", "Attention",JOptionPane.ERROR_MESSAGE, img);
+
+            }
+            if(legalConCheckbox.isSelected()) {
+            }else{
+                JOptionPane checkBoxNotChecked = new JOptionPane();
+                checkBoxNotChecked.showMessageDialog(null, "Veuillez accepter les conditions d'utilisations\n" , "Attention",JOptionPane.ERROR_MESSAGE, img);
+
+            }
 
             if (Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=\\S+$).{8,}$", password)) {
+                if(Arrays.equals(password1, password2))  {
+                } else {
 
+                    JOptionPane passwordDiff = new JOptionPane();
+                    passwordDiff.showMessageDialog(null, "Les mots de passe ne sont pas identiques", "Attention", JOptionPane.ERROR_MESSAGE, img);
+                }
             } else {
                 JOptionPane passwordFalse = new JOptionPane();
                 passwordFalse.showMessageDialog(null, "Votre mot de passe doit suivre les règles suivantes :\n " +
@@ -509,13 +551,14 @@ public class FenetreSignin extends JFrame {
                         "- aucune voyelle accentuée", "Attention", JOptionPane.ERROR_MESSAGE, img);
             }
 
-        } else {
-
-            JOptionPane passwordDiff = new JOptionPane();
-            passwordDiff.showMessageDialog(null, "Les mots de passe ne sont pas identiques", "Attention", JOptionPane.ERROR_MESSAGE, img);
         }
 
+
+
+
+
         try {
+
             ConnectionExchange.signinDB(firstName, lastName, username, password);
         } catch (SQLException e) {
             e.printStackTrace();
