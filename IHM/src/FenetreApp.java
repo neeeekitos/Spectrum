@@ -26,6 +26,16 @@ public class FenetreApp extends javax.swing.JFrame {
         initComponents();
     }
 
+    public static void main(String[] args){
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new FenetreApp(null).setVisible(true);
+            }
+        });
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,30 +67,33 @@ public class FenetreApp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+        this.setMinimumSize(new java.awt.Dimension(1150, 810));
 
-        panel1.setBackground(new java.awt.Color(102, 102, 102));
-        panel1.setMaximumSize(new java.awt.Dimension(80, 800));
+        panel1.setBackground(new java.awt.Color(61,42,42));
+        panel1.setMaximumSize(new java.awt.Dimension(80, 1800));
         panel1.setMinimumSize(new java.awt.Dimension(80, 800));
         panel1.setPreferredSize(new java.awt.Dimension(80, 800));
         panel1.setRequestFocusEnabled(false);
-        panel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 750));
+        panel1.setLayout(new java.awt.FlowLayout(FlowLayout.CENTER, 10, 750));
 
+        exitButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("exit.jpeg")));
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitButtonActionPerformed(evt);
             }
         });
+
         panel1.add(exitButton);
 
         getContentPane().add(panel1);
 
-        panelCalendar.setBackground(new java.awt.Color(0, 124, 163));
-        panelCalendar.setMaximumSize(new java.awt.Dimension(180, 800));
+        panelCalendar.setBackground(new java.awt.Color(153,102,102));
+        panelCalendar.setMaximumSize(new java.awt.Dimension(180, 1800));
         panelCalendar.setMinimumSize(new java.awt.Dimension(180, 800));
         panelCalendar.setPreferredSize(new java.awt.Dimension(180, 800));
 
-        name.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        name.setText("Valentina ETEGAN");
+        name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        name.setText("Nom Prenom");
         name.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 nameInputMethodTextChanged(evt);
@@ -89,7 +102,7 @@ public class FenetreApp extends javax.swing.JFrame {
             }
         });
 
-        username.setText("@vetegan");
+        username.setText("Username");
         username.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 usernameInputMethodTextChanged(evt);
@@ -124,8 +137,8 @@ public class FenetreApp extends javax.swing.JFrame {
 
         getContentPane().add(panelCalendar);
 
-        panelCentral.setMaximumSize(new java.awt.Dimension(690, 800));
-        panelCentral.setMinimumSize(new java.awt.Dimension(690, 100));
+       // panelCentral.setMaximumSize(new java.awt.Dimension(690, 800));
+       // panelCentral.setMinimumSize(new java.awt.Dimension(690, 800));
         panelCentral.setPreferredSize(new java.awt.Dimension(690, 800));
         panelCentral.setLayout(new javax.swing.BoxLayout(panelCentral, javax.swing.BoxLayout.Y_AXIS));
 
@@ -133,8 +146,9 @@ public class FenetreApp extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(690, 50));
         jPanel1.setPreferredSize(new java.awt.Dimension(690, 50));
         jPanel1.setLayout(new java.awt.BorderLayout());
+        jPanel1.setBackground(new java.awt.Color(224,224,226));
 
-        projectName.setFont(new java.awt.Font("New Peninim MT", 3, 24)); // NOI18N
+        projectName.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         projectName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         projectName.setText("PROJECT");
         projectName.setMaximumSize(new java.awt.Dimension(690, 50));
@@ -148,18 +162,21 @@ public class FenetreApp extends javax.swing.JFrame {
         jPanel1.add(projectName, java.awt.BorderLayout.CENTER);
 
         panelCentral.add(jPanel1);
+        panelCentral.setBackground(new java.awt.Color(224,224,226));
 
-        scrollMessages.setBackground(new java.awt.Color(255, 255, 255));
+
         scrollMessages.setMinimumSize(new java.awt.Dimension(690, 540));
         scrollMessages.setPreferredSize(new java.awt.Dimension(690, 540));
+        scrollMessages.setBackground(new java.awt.Color(204,204,204));
         panelCentral.add(scrollMessages);
 
         PanelSend.setMaximumSize(new java.awt.Dimension(690, 100));
         PanelSend.setMinimumSize(new java.awt.Dimension(690, 100));
         PanelSend.setPreferredSize(new java.awt.Dimension(690, 100));
+        PanelSend.setBackground(new java.awt.Color(224,224,226));
         PanelSend.setLayout(new javax.swing.BoxLayout(PanelSend, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel1.setText("Attach");
+        jLabel1.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("attach.jpeg")));
         PanelSend.add(jLabel1);
 
         jTextField1.setText("jTextField1");
@@ -173,7 +190,8 @@ public class FenetreApp extends javax.swing.JFrame {
         });
         PanelSend.add(jTextField1);
 
-        attach.setText("Send");
+
+        attach.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("send.png")));
         PanelSend.add(attach);
 
         panelCentral.add(PanelSend);
@@ -181,17 +199,19 @@ public class FenetreApp extends javax.swing.JFrame {
         getContentPane().add(panelCentral);
 
         panel_rigth.setBackground(new java.awt.Color(255, 255, 255));
-        panel_rigth.setMaximumSize(new java.awt.Dimension(200, 800));
+        panel_rigth.setMaximumSize(new java.awt.Dimension(200, 1800));
         panel_rigth.setMinimumSize(new java.awt.Dimension(200, 800));
         panel_rigth.setPreferredSize(new java.awt.Dimension(200, 800));
 
-        logo_image.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        logo_image.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        logo_image.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png")));
 
-        spectrum.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        spectrum.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         spectrum.setText("SPECTRUM");
 
-        projet.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        projet.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         projet.setText(" Projets");
+        projet.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("drop.png")));
         projet.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 projetMouseClicked(evt);
@@ -253,7 +273,7 @@ public class FenetreApp extends javax.swing.JFrame {
 
     private void nameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
 
-        // Add the name of the client;
+
     }
 
     private void usernameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
@@ -284,45 +304,14 @@ public class FenetreApp extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(FenetreApp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(FenetreApp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(FenetreApp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(FenetreApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        /* Create and display the form */
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new FenetreApp(null).setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify
     private javax.swing.JPanel PanelSend;
     private javax.swing.JButton ajouterColab;
-    private javax.swing.JLabel attach;
+    private javax.swing.JLabel attach;        //"Send"
     private javax.swing.JButton exitButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel1;       //"Attach"
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
