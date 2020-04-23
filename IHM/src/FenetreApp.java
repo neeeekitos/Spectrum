@@ -117,11 +117,11 @@ public class FenetreApp extends javax.swing.JFrame {
                 panelCalendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelCalendarLayout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panelCalendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelCalendarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(panelCalendarLayout.createSequentialGroup()
                                                 .addComponent(username)
                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCalendarLayout.createSequentialGroup()
+                                        .addGroup(GroupLayout.Alignment.LEADING, panelCalendarLayout.createSequentialGroup()
                                                 .addComponent(name)
                                                 .addContainerGap())))
         );

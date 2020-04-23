@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/IHM/images/attach.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IHM/images/drop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IHM/images/send.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IHM/images/triangle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/IHM/attach.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/IHM/drop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/IHM/send.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/IHM/triangle.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IHM/images/download.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/images/exit.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IHM/src/Ajouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/Ajouter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IHM/src/Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/Create.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IHM/src/FenetreApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FenetreApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IHM/src/FirstEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FirstEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IHM/src/NewProjet.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/NewProjet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/Ajouter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/Ajouter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/Create.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/Create.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FirstEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FirstEntry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/NewProjet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/NewProjet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/download.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/exit.jpeg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,38 +238,38 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="554" y="330" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1582916219185" />
-    <state width="699" height="244" key="GridCell.Tab.0.bottom" timestamp="1587637332485">
+    <state width="699" height="244" key="GridCell.Tab.0.bottom" timestamp="1587638063305">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
-    <state width="699" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587637332485" />
+    <state width="699" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587638063305" />
     <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351363" />
     <state width="1877" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
     <state width="699" height="244" key="GridCell.Tab.0.bottom/0.23.1440.804@0.23.1440.804" timestamp="1587218629436" />
-    <state width="699" height="244" key="GridCell.Tab.0.center" timestamp="1587637332484">
+    <state width="699" height="244" key="GridCell.Tab.0.center" timestamp="1587638063302">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
-    <state width="699" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1587637332484" />
+    <state width="699" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1587638063302" />
     <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351362" />
     <state width="1877" height="252" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
     <state width="699" height="244" key="GridCell.Tab.0.center/0.23.1440.804@0.23.1440.804" timestamp="1587218629435" />
-    <state width="699" height="244" key="GridCell.Tab.0.left" timestamp="1587637332483">
+    <state width="699" height="244" key="GridCell.Tab.0.left" timestamp="1587638063299">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
-    <state width="699" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1587637332483" />
+    <state width="699" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1587638063299" />
     <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351362" />
     <state width="1877" height="252" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
     <state width="699" height="244" key="GridCell.Tab.0.left/0.23.1440.804@0.23.1440.804" timestamp="1587218629433" />
-    <state width="699" height="244" key="GridCell.Tab.0.right" timestamp="1587637332484">
+    <state width="699" height="244" key="GridCell.Tab.0.right" timestamp="1587638063304">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
-    <state width="699" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1587637332484" />
+    <state width="699" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1587638063304" />
     <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351363" />
     <state width="1877" height="252" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
