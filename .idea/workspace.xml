@@ -2,8 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/IHM/images/attach.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IHM/images/envoyer.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/images/attach.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/images/send.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/Ajouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/Ajouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/Create.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IHM/src/FenetreApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FenetreApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/FirstEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FirstEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/NewProjet.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/NewProjet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/Ajouter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/Ajouter$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/Ajouter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/Ajouter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/Create$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/Create$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/Create$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/Create$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/Create$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/Create$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/Create.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/Create.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/attach.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/send.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,19 +118,19 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM\src" />
-      <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/IHM/images" />
       <recent name="$PROJECT_DIR$/IHM/Bin" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM\src" />
+      <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.FenetreApp">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Client" />
-      <module name="Client" />
+    <configuration name="Ajouter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Ajouter" />
+      <module name="IHM" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,13 +149,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FenetreSignin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="FenetreSignin" />
-      <module name="IHM" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="FirstEntry" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FirstEntry" />
       <module name="IHM" />
@@ -143,20 +156,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NewProjet" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="NewProjet" />
+      <module name="IHM" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.FenetreSignin" />
       <item itemvalue="Application.FenetreApp" />
-      <item itemvalue="Application.FirstEntry" />
       <item itemvalue="Application.Create" />
-      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.NewProjet" />
+      <item itemvalue="Application.FirstEntry" />
+      <item itemvalue="Application.Ajouter" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.FenetreApp" />
-        <item itemvalue="Application.Client" />
-        <item itemvalue="Application.Create" />
+        <item itemvalue="Application.NewProjet" />
         <item itemvalue="Application.FirstEntry" />
-        <item itemvalue="Application.FenetreSignin" />
+        <item itemvalue="Application.Create" />
+        <item itemvalue="Application.Ajouter" />
       </list>
     </recent_temporary>
   </component>
@@ -195,6 +215,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#Inspections/0.0.1440.900@0.0.1440.900" timestamp="1587567859438" />
+    <state x="320" y="115" width="800" height="717" key="#Intentions" timestamp="1587889166960">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="115" width="800" height="717" key="#Intentions/0.0.1440.900@0.0.1440.900" timestamp="1587889166960" />
     <state x="552" y="178" key="#Notifications" timestamp="1585813903005">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -238,61 +262,65 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="554" y="330" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1582916219185" />
-    <state width="699" height="244" key="GridCell.Tab.0.bottom" timestamp="1587638063305">
+    <state width="699" height="244" key="GridCell.Tab.0.bottom" timestamp="1587893945409">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
-    <state width="699" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587638063305" />
+    <state width="699" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587893945409" />
     <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351363" />
     <state width="1877" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
     <state width="699" height="244" key="GridCell.Tab.0.bottom/0.23.1440.804@0.23.1440.804" timestamp="1587218629436" />
-    <state width="699" height="244" key="GridCell.Tab.0.center" timestamp="1587638063302">
+    <state width="591" height="244" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1587889870502" />
+    <state width="699" height="244" key="GridCell.Tab.0.center" timestamp="1587893945408">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
-    <state width="699" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1587638063302" />
+    <state width="699" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1587893945408" />
     <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351362" />
     <state width="1877" height="252" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
     <state width="699" height="244" key="GridCell.Tab.0.center/0.23.1440.804@0.23.1440.804" timestamp="1587218629435" />
-    <state width="699" height="244" key="GridCell.Tab.0.left" timestamp="1587638063299">
+    <state width="591" height="244" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1587889870501" />
+    <state width="699" height="244" key="GridCell.Tab.0.left" timestamp="1587893945407">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
-    <state width="699" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1587638063299" />
+    <state width="699" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1587893945407" />
     <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351362" />
     <state width="1877" height="252" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
     <state width="699" height="244" key="GridCell.Tab.0.left/0.23.1440.804@0.23.1440.804" timestamp="1587218629433" />
-    <state width="699" height="244" key="GridCell.Tab.0.right" timestamp="1587638063304">
+    <state width="591" height="244" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1587889870501" />
+    <state width="699" height="244" key="GridCell.Tab.0.right" timestamp="1587893945408">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1586420293296" />
-    <state width="699" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1587638063304" />
+    <state width="699" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1587893945408" />
     <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587214351363" />
     <state width="1877" height="252" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
     <state width="699" height="244" key="GridCell.Tab.0.right/0.23.1440.804@0.23.1440.804" timestamp="1587218629436" />
-    <state width="699" height="303" key="GridCell.Tab.1.bottom" timestamp="1587571371624">
+    <state width="591" height="244" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1587889870502" />
+    <state width="699" height="303" key="GridCell.Tab.1.bottom" timestamp="1587638574611">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="699" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587571371624" />
+    <state width="699" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587638574611" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587214344048" />
-    <state width="699" height="303" key="GridCell.Tab.1.center" timestamp="1587571371623">
+    <state width="699" height="303" key="GridCell.Tab.1.center" timestamp="1587638574610">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="699" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1587571371623" />
+    <state width="699" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1587638574610" />
     <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587214344048" />
-    <state width="699" height="303" key="GridCell.Tab.1.left" timestamp="1587571371622">
+    <state width="699" height="303" key="GridCell.Tab.1.left" timestamp="1587638574610">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="699" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1587571371622" />
+    <state width="699" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1587638574610" />
     <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587214344048" />
-    <state width="699" height="303" key="GridCell.Tab.1.right" timestamp="1587571371623">
+    <state width="699" height="303" key="GridCell.Tab.1.right" timestamp="1587638574611">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="699" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1587571371623" />
+    <state width="699" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1587638574611" />
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587214344048" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1585415557937">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -322,11 +350,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="405" y="240" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586434355806" />
-    <state x="405" y="269" key="com.intellij.ide.util.TipDialog" timestamp="1587559687781">
+    <state x="405" y="269" key="com.intellij.ide.util.TipDialog" timestamp="1587886706551">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="385" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1586411332134" />
-    <state x="405" y="269" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587559687781" />
+    <state x="405" y="269" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587886706551" />
     <state x="540" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585742578014" />
     <state x="1084" y="604" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1586432948975">
       <screen x="0" y="0" width="1920" height="1040" />

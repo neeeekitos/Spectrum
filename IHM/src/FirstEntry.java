@@ -34,7 +34,8 @@ public class FirstEntry extends javax.swing.JFrame {
         logo_image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(400, 290));
+        this.setMaximumSize(new java.awt.Dimension(400, 290));
+        this.setMinimumSize(new java.awt.Dimension(400, 290));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         text1.setText("Bonjour,");
@@ -85,7 +86,7 @@ public class FirstEntry extends javax.swing.JFrame {
         getContentPane().add(Continue, gridBagConstraints);
 
         logo_image.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        logo_image.setIcon(new javax.swing.ImageIcon("/Users/vetegan/Desktop/Clase online/Algo/triangle.png")); // NOI18N
+        logo_image.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -99,6 +100,7 @@ public class FirstEntry extends javax.swing.JFrame {
 
     private void ContinueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContinueMouseClicked
         // TODO add your handling code here:
+        new FenetreApp(null).setVisible(true);
     }//GEN-LAST:event_ContinueMouseClicked
 
     private void ContinuePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_ContinuePropertyChange

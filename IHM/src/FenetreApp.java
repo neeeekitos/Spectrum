@@ -69,7 +69,7 @@ public class FenetreApp extends javax.swing.JFrame {
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
         this.setMinimumSize(new java.awt.Dimension(1150, 810));
 
-        panel1.setBackground(new java.awt.Color(61,42,42));
+        panel1.setBackground(new java.awt.Color(26, 49, 81));
         panel1.setMaximumSize(new java.awt.Dimension(80, 1800));
         panel1.setMinimumSize(new java.awt.Dimension(80, 800));
         panel1.setPreferredSize(new java.awt.Dimension(80, 800));
@@ -87,13 +87,13 @@ public class FenetreApp extends javax.swing.JFrame {
 
         getContentPane().add(panel1);
 
-        panelCalendar.setBackground(new java.awt.Color(153,102,102));
+        panelCalendar.setBackground(new java.awt.Color(69, 123, 157));
         panelCalendar.setMaximumSize(new java.awt.Dimension(180, 1800));
         panelCalendar.setMinimumSize(new java.awt.Dimension(180, 800));
         panelCalendar.setPreferredSize(new java.awt.Dimension(180, 800));
 
         name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        name.setText("Nom Prenom");
+        name.setText("Nom Pren");
         name.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 nameInputMethodTextChanged(evt);
@@ -167,7 +167,7 @@ public class FenetreApp extends javax.swing.JFrame {
 
         scrollMessages.setMinimumSize(new java.awt.Dimension(690, 540));
         scrollMessages.setPreferredSize(new java.awt.Dimension(690, 540));
-        scrollMessages.setBackground(new java.awt.Color(204,204,204));
+        scrollMessages.setBackground(new java.awt.Color(255,255,255));
         panelCentral.add(scrollMessages);
 
         PanelSend.setMaximumSize(new java.awt.Dimension(690, 100));
@@ -176,8 +176,14 @@ public class FenetreApp extends javax.swing.JFrame {
         PanelSend.setBackground(new java.awt.Color(224,224,226));
         PanelSend.setLayout(new javax.swing.BoxLayout(PanelSend, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("attach.jpeg")));
+        jLabel1.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("attach.png")));
         PanelSend.add(jLabel1);
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jTextField1.setText("jTextField1");
         jTextField1.setMaximumSize(new java.awt.Dimension(600, 50));
@@ -191,14 +197,15 @@ public class FenetreApp extends javax.swing.JFrame {
         PanelSend.add(jTextField1);
 
 
-        attach.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("send.png")));
+        attach.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("envoyer.png")));
+        attach.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanelSend.add(attach);
 
         panelCentral.add(PanelSend);
 
         getContentPane().add(panelCentral);
 
-        panel_rigth.setBackground(new java.awt.Color(255, 255, 255));
+        panel_rigth.setBackground(new java.awt.Color(237, 246, 249));
         panel_rigth.setMaximumSize(new java.awt.Dimension(200, 1800));
         panel_rigth.setMinimumSize(new java.awt.Dimension(200, 800));
         panel_rigth.setPreferredSize(new java.awt.Dimension(200, 800));
@@ -206,12 +213,14 @@ public class FenetreApp extends javax.swing.JFrame {
         logo_image.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         logo_image.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png")));
 
+
         spectrum.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         spectrum.setText("SPECTRUM");
 
         projet.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         projet.setText(" Projets");
         projet.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("drop.png")));
+        projet.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         projet.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 projetMouseClicked(evt);
@@ -224,6 +233,11 @@ public class FenetreApp extends javax.swing.JFrame {
         });
 
         ajouterColab.setText("Ajouter un colaborator");
+        ajouterColab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ajouterColabMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_rigthLayout = new javax.swing.GroupLayout(panel_rigth);
         panel_rigth.setLayout(panel_rigthLayout);
@@ -269,6 +283,25 @@ public class FenetreApp extends javax.swing.JFrame {
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {
         //changer
         System.exit(0);
+    }
+
+    private void ajouterColabMouseClicked(java.awt.event.MouseEvent evt) {
+
+        new Ajouter().setVisible(true);
+    }
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {
+        JFileChooser fileChooser =  new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter( " 4 Extensions Supported", "jpg", "png", "jpeg", "gif");
+        fileChooser.setFileFilter(filter);
+        int selected = fileChooser.showOpenDialog(null);
+        if(selected == JFileChooser.APPROVE_OPTION){
+            File file = fileChooser.getSelectedFile();
+            String getselectedImage = file.getAbsolutePath();
+            JOptionPane.showMessageDialog(null, getselectedImage);
+            ImageIcon imIcon = new ImageIcon(getselectedImage);
+            //jLabel1.setIcon(imIcon);
+        }
     }
 
     private void nameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {

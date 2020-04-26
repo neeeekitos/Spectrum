@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+
 /**
  *
  * @author vetegan
@@ -32,8 +36,9 @@ public class Ajouter extends javax.swing.JFrame {
         valider = new javax.swing.JButton();
         logo_image = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(439, 323));
+        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.setMaximumSize(new java.awt.Dimension(439, 323));
+        this.setMinimumSize(new java.awt.Dimension(439, 323));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         collaborateurs.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -47,7 +52,7 @@ public class Ajouter extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(64, 138, 0, 0);
         getContentPane().add(collaborateurs, gridBagConstraints);
 
-        nomColab.setText("...");
+        nomColab.setText("WRITE");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -56,6 +61,13 @@ public class Ajouter extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 111, 0, 0);
         getContentPane().add(nomColab, gridBagConstraints);
+        nomColab.addFocusListener(new FocusAdapter() {
+            public void focusGained(FocusEvent e) {
+                //JTextField source = (JTextField)e.getComponent();
+                nomColab.setText("");
+                //nomColab.removeFocusListener(this);
+            }
+        });
 
         valider.setText("Valider");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -68,7 +80,7 @@ public class Ajouter extends javax.swing.JFrame {
         getContentPane().add(valider, gridBagConstraints);
 
         logo_image.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        logo_image.setIcon(new javax.swing.ImageIcon("/Users/vetegan/Desktop/Clase online/Algo/triangle.png")); // NOI18N
+        logo_image.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png")));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;

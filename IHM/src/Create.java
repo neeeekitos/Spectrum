@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+
 /**
  *
  * @author vetegan
@@ -79,6 +82,13 @@ public class Create extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 68, 0, 69);
         getContentPane().add(nomColab, gridBagConstraints);
+        nomColab.addFocusListener(new FocusAdapter() {
+            public void focusGained(FocusEvent e) {
+                //JTextField source = (JTextField)e.getComponent();
+                nomColab.setText("");
+                //nomColab.removeFocusListener(this);
+            }
+        });
 
         collaborateur.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         collaborateur.setText("COLLABORATEUR");
@@ -115,6 +125,13 @@ public class Create extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(12, 68, 0, 69);
         getContentPane().add(nameProjet, gridBagConstraints);
+        nameProjet.addFocusListener(new FocusAdapter() {
+            public void focusGained(FocusEvent e) {
+                //JTextField source = (JTextField)e.getComponent();
+                nameProjet.setText("");
+                //nameProjet.removeFocusListener(this);
+            }
+        });
 
         nouveauProjet.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         nouveauProjet.setText("NOUVEAU PROJET");
@@ -146,9 +163,16 @@ public class Create extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 93, 0, 0);
         getContentPane().add(codeProjet, gridBagConstraints);
+        codeProjet.addFocusListener(new FocusAdapter() {
+            public void focusGained(FocusEvent e) {
+                //JTextField source = (JTextField)e.getComponent();
+                codeProjet.setText("");
+                //codeProjet.removeFocusListener(this);
+            }
+        });
 
         logo_image.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        logo_image.setIcon(new javax.swing.ImageIcon("/Users/vetegan/Desktop/Clase online/Algo/triangle.png")); // NOI18N
+        logo_image.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -184,7 +208,7 @@ public class Create extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
