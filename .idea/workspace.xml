@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-
+    <list default="true" id="f95a23f4-4e23-4a94-8ff7-402fb0904d2e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/IHM/src/Ajouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/Ajouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/Create.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/FenetreApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FenetreApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/FirstEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FirstEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/NewProjet.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/NewProjet.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +95,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/mysql-connector-java-8.0.19.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/IHM/images" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -104,7 +110,7 @@
       <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FenetreSignin">
+  <component name="RunManager" selected="Application.FenetreApp">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="Client" />
@@ -149,9 +155,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FenetreApp" />
         <item itemvalue="Application.FenetreSignin" />
         <item itemvalue="Application.FenetreLogin" />
-        <item itemvalue="Application.FenetreApp" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
       </list>

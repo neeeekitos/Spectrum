@@ -43,6 +43,7 @@ public class NewProjet extends javax.swing.JFrame {
                 projetsMouseClicked(evt);
             }
         });
+        projets.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         projets.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 projetsPropertyChange(evt);
@@ -72,7 +73,7 @@ public class NewProjet extends javax.swing.JFrame {
         getContentPane().add(nouveauProjet, gridBagConstraints);
 
         logo_image.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        logo_image.setIcon(new javax.swing.ImageIcon("/Users/vetegan/Desktop/Clase online/Algo/triangle logo Spectrum.png")); // NOI18N
+        logo_image.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -92,7 +93,7 @@ public class NewProjet extends javax.swing.JFrame {
     }//GEN-LAST:event_projetsPropertyChange
 
     private void nouveauProjetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nouveauProjetActionPerformed
-        // TODO add your handling code here:
+        new Create().setVisible(true);
     }//GEN-LAST:event_nouveauProjetActionPerformed
 
     /**

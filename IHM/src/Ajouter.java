@@ -4,11 +4,15 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+
 /**
  *
  * @author vetegan
  */
-public class Ajouter extends javax.swing.JFrame {
+public class Ajouter extends JFrame {
 
     /**
      * Creates new form Ajouter
@@ -27,13 +31,14 @@ public class Ajouter extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        collaborateurs = new javax.swing.JLabel();
-        nomColab = new javax.swing.JTextField();
-        valider = new javax.swing.JButton();
-        logo_image = new javax.swing.JLabel();
+        collaborateurs = new JLabel();
+        nomColab = new JTextField();
+        valider = new JButton();
+        logo_image = new JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(439, 323));
+        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.setMaximumSize(new java.awt.Dimension(439, 323));
+        this.setMinimumSize(new java.awt.Dimension(439, 323));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         collaborateurs.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -47,7 +52,7 @@ public class Ajouter extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(64, 138, 0, 0);
         getContentPane().add(collaborateurs, gridBagConstraints);
 
-        nomColab.setText("...");
+        nomColab.setText("WRITE");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -56,6 +61,13 @@ public class Ajouter extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 111, 0, 0);
         getContentPane().add(nomColab, gridBagConstraints);
+        nomColab.addFocusListener(new FocusAdapter() {
+            public void focusGained(FocusEvent e) {
+                //JTextField source = (JTextField)e.getComponent();
+                nomColab.setText("");
+                //nomColab.removeFocusListener(this);
+            }
+        });
 
         valider.setText("Valider");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -68,7 +80,7 @@ public class Ajouter extends javax.swing.JFrame {
         getContentPane().add(valider, gridBagConstraints);
 
         logo_image.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        logo_image.setIcon(new javax.swing.ImageIcon("/Users/vetegan/Desktop/Clase online/Algo/triangle logo Spectrum.png")); // NOI18N
+        logo_image.setIcon(new ImageIcon(this.getClass().getResource("triangle.png")));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
@@ -89,9 +101,9 @@ public class Ajouter extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
@@ -101,7 +113,7 @@ public class Ajouter extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Ajouter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Ajouter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Ajouter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -115,9 +127,9 @@ public class Ajouter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel collaborateurs;
-    private javax.swing.JLabel logo_image;
-    private javax.swing.JTextField nomColab;
-    private javax.swing.JButton valider;
+    private JLabel collaborateurs;
+    private JLabel logo_image;
+    private JTextField nomColab;
+    private JButton valider;
     // End of variables declaration//GEN-END:variables
 }
