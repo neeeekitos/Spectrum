@@ -14,15 +14,18 @@ public class ConnectionExchange {
     private final Thread cnThread;
     private final EcouteurConnection eventEcouteur;
     private String username;
+    private Connection connDb;
 
 
-    public ConnectionExchange(EcouteurConnection eventEcouteur, String ip, int port) throws IOException {
-        this(eventEcouteur, new Socket(ip, port));
+    public ConnectionExchange(EcouteurConnection eventEcouteur, String ip, int port, String username) throws IOException {
+        this(eventEcouteur, new Socket(ip, port), username);
     }
 
-    public ConnectionExchange(EcouteurConnection eventEcouteur, Socket connection) throws IOException {
+    public ConnectionExchange(EcouteurConnection eventEcouteur, Socket connection, String username) throws IOException {
         this.eventEcouteur = eventEcouteur;
         this.connection = connection;
+        this.username = username;
+        this.connDb = connectToDb();
 
         OutputStream output = connection.getOutputStream();
         InputStream input = connection.getInputStream();
@@ -75,7 +78,7 @@ public class ConnectionExchange {
         }
     }
 
-    private static synchronized Connection connectToDb() {
+    public static synchronized Connection connectToDb() {
         Connection connDb = null;
         try {
             String url = "jdbc:mysql://localhost:3306/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -145,5 +148,17 @@ public class ConnectionExchange {
             // executer
             return preparedStmt.execute();
         } else { return false; }
+    }
+
+    public synchronized void updateProjects() {
+        Connection connDB = connectToDb();
+        ResultSet result = null;
+
+        //requete qui verifie si ce username est déjà utilisé
+        String requeteCheck = "SELECT * FROM users as u WHERE u.username=?";
+
+//        PreparedStatement preparedStmt = connDB.prepareStatement(requeteCheck);
+//        preparedStmt.setString(1, username);
+//        result = preparedStmt.executeQuery();
     }
 }

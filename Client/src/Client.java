@@ -1,10 +1,10 @@
 import javax.swing.*;
-import javax.swing.text.AsyncBoxView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,10 +12,11 @@ import java.util.LinkedList;
 
 public class Client implements EcouteurConnection {
 
-    private static final String IP_ADDR = "127.0.0.1";
+    private static final String IP_ADDR = "localhost";
     private static final int PORT = 8190;
     private ConnectionExchange connection;
     protected FenetreApp fenetre;
+    private Connection connDb;
 
     private String nom;
     private String prenom;
@@ -23,7 +24,7 @@ public class Client implements EcouteurConnection {
     private LinkedList<Projet> projets;
 
     public static void main(String[] args){
-        new Client("vale", "Valentina", "Etegan");
+        new Client("lalala", "hdhdhdh", "sdjsj");
     }
 
     public Client(String username, String prenom, String nom){
@@ -33,7 +34,7 @@ public class Client implements EcouteurConnection {
         this.prenom = prenom;
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 fenetre = new FenetreApp(Client.this);
@@ -44,15 +45,17 @@ public class Client implements EcouteurConnection {
         try {
             InetAddress inetAddress = InetAddress.getLocalHost();
             System.out.println("connection on local IP : "+ inetAddress.toString());
-            connection = new ConnectionExchange(this,"127.0.0.1", PORT);
+            connection = new ConnectionExchange(this,"127.0.0.1", PORT, username);
         } catch (IOException e) {
             fenetre.printMsg("exception de connexion " + e);
             e.printStackTrace();
         }
+
+        connection.updateProjects();
     }
 
     @Override
-    public void connectionReady(ConnectionExchange connection, String username) { fenetre.printMsg("connexion établie avec " + username); }
+    public void connectionReady(ConnectionExchange connection, String username) { System.out.println("connexion établie avec " + username);}
 
     @Override
     public void receiveString(String msg) {
@@ -89,7 +92,6 @@ public class Client implements EcouteurConnection {
     }
 
     public ConnectionExchange getConnectionExchange() { return connection; }
-
 
 
 //    public synchronized void printMsg(String msg){ //тк работаем из потока окошка и соединения
