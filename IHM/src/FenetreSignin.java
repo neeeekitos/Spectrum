@@ -4,6 +4,8 @@ import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.regex.Pattern;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,7 +26,6 @@ public class FenetreSignin extends JFrame {
     private String eMail;
     private char[] password1;
     private char[] password2;
-    private char[] password;
 
 
 
@@ -314,7 +315,7 @@ public class FenetreSignin extends JFrame {
         submitButton.setBackground(new java.awt.Color(102, 204, 255));
         submitButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         submitButton.setForeground(new java.awt.Color(0, 121, 203));
-        submitButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Bureau\\triangle logo Spectrumddddd.png")); // NOI18N
+        submitButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png"))); // NOI18N
         submitButton.setText("Submit");
         submitButton.setToolTipText("");
         submitButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -331,8 +332,6 @@ public class FenetreSignin extends JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\lehma\\OneDrive\\Documents\\NetBeansProjects\\projectForm\\src\\main\\java\\logo login.png")); // NOI18N
 
         backToLogin.setBackground(new java.awt.Color(231, 231, 231));
         backToLogin.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
@@ -475,19 +474,92 @@ public class FenetreSignin extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitButtonMouseClicked
+        ImageIcon img = new ImageIcon("images/attention.png");
+
+
         firstName = firstNameField.getText();
         lastName = lastNameField.getText();
         username = userNameField.getText();
-        eMail = eMailField.getText();
+        eMail=eMailField.getText();
         password1 = jPasswordField1.getPassword();
         password2 = jPasswordField2.getPassword();
+        String password = new String(password1);
 
-        if(password1==password2) {
-            password = password1;
+        if(username.equals("") || password1==null || password2== null || eMail.equals("") || lastName.equals("") || firstName.equals("")) {
+            JOptionPane notFilledOut = new JOptionPane();
+            notFilledOut.showMessageDialog(null, "Veuillez remplir toutes les informations", "Attention", JOptionPane.ERROR_MESSAGE, img);
+
+        }else{
+
+            if (Pattern.matches("^\\p{L}*$", firstNameField.getText())) {
+
+            } else {
+                JOptionPane firstNameFalse = new JOptionPane();
+                firstNameFalse.showMessageDialog(null, "Votre prénom ne doit être composé que de lettres\n" , "Attention",JOptionPane.ERROR_MESSAGE, img);
+
+            }
+
+
+            if (Pattern.matches("^\\p{L}*$", lastNameField.getText())) {
+
+            } else {
+                JOptionPane lastNameFalse = new JOptionPane();
+                lastNameFalse.showMessageDialog(null, "Votre nom ne doit être composé que de lettres\n" , "Attention",JOptionPane.ERROR_MESSAGE, img);
+
+            }
+
+            if (Pattern.matches("^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\\.[a-z]{2,4}$", eMailField.getText())) {
+
+            } else {
+                JOptionPane eMailFalse = new JOptionPane();
+                eMailFalse.showMessageDialog(null, "Votre adresse e-mail n'est pas conforme\n", "Attention", JOptionPane.ERROR_MESSAGE, img);
+            }
+
+
+            if (Pattern.matches("^[a-zA-Z0-9._-]{3,}$", userNameField.getText())) {
+
+            } else {
+                JOptionPane usernameFalse = new JOptionPane();
+                usernameFalse.showMessageDialog(null, "Votre nom d'utilisateur doit suivre les règles suivantes : \n" +
+                        "- au moins 3 caractères\n" +
+                        "- les caractères autorisés sont les majuscules, minuscules, \" _ \"\n" +
+                        "- les voyelles accentuées ne sont pas acceptées", "Attention",JOptionPane.ERROR_MESSAGE, img);
+
+            }
+            if(legalConCheckbox.isSelected()) {
+            }else{
+                JOptionPane checkBoxNotChecked = new JOptionPane();
+                checkBoxNotChecked.showMessageDialog(null, "Veuillez accepter les conditions d'utilisations\n" , "Attention",JOptionPane.ERROR_MESSAGE, img);
+
+            }
+
+            if (Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=\\S+$).{8,}$", password)) {
+                if(Arrays.equals(password1, password2))  {
+                } else {
+
+                    JOptionPane passwordDiff = new JOptionPane();
+                    passwordDiff.showMessageDialog(null, "Les mots de passe ne sont pas identiques", "Attention", JOptionPane.ERROR_MESSAGE, img);
+                }
+            } else {
+                JOptionPane passwordFalse = new JOptionPane();
+                passwordFalse.showMessageDialog(null, "Votre mot de passe doit suivre les règles suivantes :\n " +
+                        "- plus de 8 caractères\n" +
+                        "- au moins une minuscule\n" +
+                        "- au moins une majuscule\n" +
+                        "- au moins un chiffre\n" +
+                        "- au moins un caractère spécial : $ @ % * _ ! ^ & #\n" +
+                        "- aucune voyelle accentuée", "Attention", JOptionPane.ERROR_MESSAGE, img);
+            }
+
         }
 
+
+
+
+
         try {
-            ConnectionExchange.signinDB(firstName, lastName, username, username);
+
+            ConnectionExchange.signinDB(firstName, lastName, username, password);
         } catch (SQLException e) {
             e.printStackTrace();
         }
