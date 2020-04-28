@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.text.AsyncBoxView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +12,7 @@ import java.util.LinkedList;
 
 public class Client implements EcouteurConnection {
 
-    private static final String IP_ADDR = "localhost";
+    private static final String IP_ADDR = "127.0.0.1";
     private static final int PORT = 8190;
     private ConnectionExchange connection;
     protected FenetreApp fenetre;
@@ -22,10 +23,14 @@ public class Client implements EcouteurConnection {
     private LinkedList<Projet> projets;
 
     public static void main(String[] args){
-        new Client("lalala", "hdhdhdh", "sdjsj");
+        new Client("vale", "Valentina", "Etegan");
     }
 
     public Client(String username, String prenom, String nom){
+
+        this.username = username;
+        this.nom = nom;
+        this.prenom = prenom;
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

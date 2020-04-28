@@ -6,6 +6,8 @@
 
 
 import java.awt.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -93,7 +95,7 @@ public class FenetreApp extends JFrame {
         panelCalendar.setPreferredSize(new Dimension(180, 800));
 
         name.setFont(new Font("Arial", 1, 18)); // NOI18N
-        name.setText("Nom Pren");
+        name.setText(user.getNom()+" "+user.getPrenom());
         name.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 nameInputMethodTextChanged(evt);
@@ -102,7 +104,7 @@ public class FenetreApp extends JFrame {
             }
         });
 
-        username.setText("Username");
+        username.setText("@"+user.getUsername());
         username.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 usernameInputMethodTextChanged(evt);
@@ -185,7 +187,7 @@ public class FenetreApp extends JFrame {
             }
         });
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("...");
         jTextField1.setMaximumSize(new Dimension(600, 50));
         jTextField1.setMinimumSize(new Dimension(600, 50));
         jTextField1.setPreferredSize(new Dimension(600, 50));
@@ -194,6 +196,12 @@ public class FenetreApp extends JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+        jTextField1.addFocusListener(new FocusAdapter() {
+            public void focusGained(FocusEvent e) {
+                jTextField1.setText("");
+            }
+        });
+
         PanelSend.add(jTextField1);
 
 
