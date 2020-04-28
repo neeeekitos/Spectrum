@@ -78,7 +78,7 @@ public class ConnectionExchange {
     private static synchronized Connection connectToDb() {
         Connection connDb = null;
         try {
-            String url = "jdbc:mysql://localhost:3306/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:8889/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
             connDb = DriverManager.getConnection(url, "root", "root");
             System.out.println("Connecté à la BD");
 
