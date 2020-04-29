@@ -10,8 +10,6 @@ import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -67,6 +65,7 @@ public class FenetreApp extends JFrame {
         spectrum = new JLabel();
         projet = new JLabel();
         ajouterColab = new JButton();
+        msgArea = new JTextArea();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));
@@ -140,8 +139,8 @@ public class FenetreApp extends JFrame {
 
         getContentPane().add(panelCalendar);
 
-       // panelCentral.setMaximumSize(new java.awt.Dimension(690, 800));
-       // panelCentral.setMinimumSize(new java.awt.Dimension(690, 800));
+        // panelCentral.setMaximumSize(new java.awt.Dimension(690, 800));
+        // panelCentral.setMinimumSize(new java.awt.Dimension(690, 800));
         panelCentral.setPreferredSize(new Dimension(690, 800));
         panelCentral.setLayout(new BoxLayout(panelCentral, BoxLayout.Y_AXIS));
 
@@ -171,6 +170,7 @@ public class FenetreApp extends JFrame {
         scrollMessages.setMinimumSize(new Dimension(690, 540));
         scrollMessages.setPreferredSize(new Dimension(690, 540));
         scrollMessages.setBackground(new Color(255,255,255));
+        scrollMessages.add(msgArea);
         panelCentral.add(scrollMessages);
 
         PanelSend.setMaximumSize(new Dimension(690, 100));
@@ -320,16 +320,16 @@ public class FenetreApp extends JFrame {
 
 
     private void sendMouseClicked(java.awt.event.MouseEvent evt) {
-       String msg= jTextField1.getText();
-       if (msg.equals("")){
-           if(!projectName.getText().equals("")) {
-               user.sendMessage(msg, user.getProjectByName(projectName.getText()));
-           } else {
-               ImageIcon img = new ImageIcon("images/attention.png");
-               JOptionPane usernameFalse = new JOptionPane();
-               usernameFalse.showMessageDialog(null, "choose your project", "Attention",JOptionPane.ERROR_MESSAGE, img);
-           }
-       }
+        String msg= jTextField1.getText();
+        if (msg.equals("")){
+            if(!projectName.getText().equals("")) {
+                user.sendMessage(msg, user.getProjectByName(projectName.getText()));
+            } else {
+                ImageIcon img = new ImageIcon("images/attention.png");
+                JOptionPane usernameFalse = new JOptionPane();
+                usernameFalse.showMessageDialog(null, "choose your project", "Attention",JOptionPane.ERROR_MESSAGE, img);
+            }
+        }
     }
 
     private void nameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
@@ -358,8 +358,8 @@ public class FenetreApp extends JFrame {
         // TODO add your handling code here:
     }
 
-    public String printMsg(String message) {
-        return message;
+    public void printMsg(String msg) {
+        msgArea.append(msg);
     }
 
     /**
@@ -368,6 +368,8 @@ public class FenetreApp extends JFrame {
 
 
     // Variables declaration - do not modify
+    private JTextArea msgArea;
+
     private JPanel PanelSend;
     private JButton ajouterColab;
     private JLabel  send;
