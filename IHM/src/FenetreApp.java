@@ -6,8 +6,9 @@
 
 
 import java.awt.*;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import java.awt.event.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,7 +58,7 @@ public class FenetreApp extends JFrame {
         projectName = new JLabel();
         scrollMessages = new ScrollPane();
         PanelSend = new JPanel();
-        jLabel1 = new JLabel();
+        send = new JLabel();
         jTextField1 = new JTextField();
         attach = new JLabel();
         panel_rigth = new JPanel();
@@ -79,8 +80,8 @@ public class FenetreApp extends JFrame {
         panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 750));
 
         exitButton.setIcon(new ImageIcon(this.getClass().getResource("exit.jpeg")));
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 exitButtonActionPerformed(evt);
             }
         });
@@ -96,20 +97,20 @@ public class FenetreApp extends JFrame {
 
         name.setFont(new Font("Arial", 1, 18)); // NOI18N
         name.setText(user.getNom()+" "+user.getPrenom());
-        name.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+        name.addInputMethodListener(new InputMethodListener() {
+            public void inputMethodTextChanged(InputMethodEvent evt) {
                 nameInputMethodTextChanged(evt);
             }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            public void caretPositionChanged(InputMethodEvent evt) {
             }
         });
 
         username.setText("@"+user.getUsername());
-        username.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+        username.addInputMethodListener(new InputMethodListener() {
+            public void inputMethodTextChanged(InputMethodEvent evt) {
                 usernameInputMethodTextChanged(evt);
             }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            public void caretPositionChanged(InputMethodEvent evt) {
             }
         });
 
@@ -151,14 +152,14 @@ public class FenetreApp extends JFrame {
         jPanel1.setBackground(new Color(224,224,226));
 
         projectName.setFont(new Font("Arial", 3, 24)); // NOI18N
-        projectName.setHorizontalAlignment(SwingConstants.CENTER);
-        projectName.setText("PROJECT");
+        projectName.setText("");
+//        projectName.setText(user.getProjets().get(0).getNom());
         projectName.setMaximumSize(new Dimension(690, 50));
-        projectName.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+        projectName.addInputMethodListener(new InputMethodListener() {
+            public void inputMethodTextChanged(InputMethodEvent evt) {
                 projectNameInputMethodTextChanged(evt);
             }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            public void caretPositionChanged(InputMethodEvent evt) {
             }
         });
         jPanel1.add(projectName, BorderLayout.CENTER);
@@ -178,21 +179,21 @@ public class FenetreApp extends JFrame {
         PanelSend.setBackground(new Color(224,224,226));
         PanelSend.setLayout(new BoxLayout(PanelSend, BoxLayout.LINE_AXIS));
 
-        jLabel1.setIcon(new ImageIcon(this.getClass().getResource("attach.png")));
-        PanelSend.add(jLabel1);
-        jLabel1.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+        attach.setIcon(new ImageIcon(this.getClass().getResource("attach.png")));
+        PanelSend.add(attach);
+        attach.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        attach.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                attachMouseClicked(evt);
             }
         });
 
-        jTextField1.setText("...");
+        jTextField1.setText("Tapez votre message ici");
         jTextField1.setMaximumSize(new Dimension(600, 50));
         jTextField1.setMinimumSize(new Dimension(600, 50));
         jTextField1.setPreferredSize(new Dimension(600, 50));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
@@ -205,9 +206,14 @@ public class FenetreApp extends JFrame {
         PanelSend.add(jTextField1);
 
 
-        attach.setIcon(new ImageIcon(this.getClass().getResource("envoyer.png")));
-        attach.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        PanelSend.add(attach);
+        send.setIcon(new ImageIcon(this.getClass().getResource("envoyer.png")));
+        send.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        send.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                sendMouseClicked(evt);
+            }
+        });
+        PanelSend.add(send);
 
         panelCentral.add(PanelSend);
 
@@ -229,20 +235,20 @@ public class FenetreApp extends JFrame {
         projet.setText(" Projets");
         projet.setIcon(new ImageIcon(this.getClass().getResource("drop.png")));
         projet.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        projet.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        projet.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 projetMouseClicked(evt);
             }
         });
-        projet.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+        projet.addPropertyChangeListener(new PropertyChangeListener() {
+            public void propertyChange(PropertyChangeEvent evt) {
                 projetPropertyChange(evt);
             }
         });
 
         ajouterColab.setText("Ajouter un colaborator");
-        ajouterColab.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        ajouterColab.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 ajouterColabMouseClicked(evt);
             }
         });
@@ -298,7 +304,7 @@ public class FenetreApp extends JFrame {
         new Ajouter().setVisible(true);
     }
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {
+    private void attachMouseClicked(java.awt.event.MouseEvent evt) {
         JFileChooser fileChooser =  new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter( " 4 Extensions Supported", "jpg", "png", "jpeg", "gif");
         fileChooser.setFileFilter(filter);
@@ -308,8 +314,22 @@ public class FenetreApp extends JFrame {
             String getselectedImage = file.getAbsolutePath();
             JOptionPane.showMessageDialog(null, getselectedImage);
             ImageIcon imIcon = new ImageIcon(getselectedImage);
-            //jLabel1.setIcon(imIcon);
+            //attach.setIcon(imIcon);
         }
+    }
+
+
+    private void sendMouseClicked(java.awt.event.MouseEvent evt) {
+       String msg= jTextField1.getText();
+       if (msg.equals("")){
+           if(!projectName.getText().equals("")) {
+               user.sendMessage(msg, user.getProjectByName(projectName.getText()));
+           } else {
+               ImageIcon img = new ImageIcon("images/attention.png");
+               JOptionPane usernameFalse = new JOptionPane();
+               usernameFalse.showMessageDialog(null, "choose your project", "Attention",JOptionPane.ERROR_MESSAGE, img);
+           }
+       }
     }
 
     private void nameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
@@ -350,9 +370,9 @@ public class FenetreApp extends JFrame {
     // Variables declaration - do not modify
     private JPanel PanelSend;
     private JButton ajouterColab;
-    private JLabel attach;        //"Send"
+    private JLabel  send;
     private JButton exitButton;
-    private JLabel jLabel1;       //"Attach"
+    private JLabel   attach;
     private JLabel jLabel3;
     private JPanel jPanel1;
     private JTextField jTextField1;
