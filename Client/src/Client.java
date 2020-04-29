@@ -59,8 +59,12 @@ public class Client implements EcouteurConnection {
 
     @Override
     public void receiveString(String msg) {
-        fenetre.printMsg(msg);
-        System.out.println(" sdsdsdsds");
+
+        String[] parts = msg.split("###");
+        String sender = parts[0];
+        fenetre.printMsg("\r\n" + sender + " : " + msg);
+        System.out.println("message reçu : " + msg);
+
     }
 
     @Override
@@ -89,6 +93,15 @@ public class Client implements EcouteurConnection {
 
     public LinkedList<Projet> getProjets(){
         return projets;
+    }
+
+    public Projet getProjectByName(String name) {
+        for (Projet projet : projets) {
+            if (projet.getNom().equals(name)) {
+                return projet;
+            }
+        }
+        return null;
     }
 
     public ConnectionExchange getConnectionExchange() { return connection; }
@@ -125,7 +138,7 @@ public class Client implements EcouteurConnection {
             collabStr += projet.getArrayCollaborateurs().get(i) + "###";
         }
 
-        String str = this.username + "#$#" + msg + "#$#" + collabStr;
+        String str = this.username + "###" + msg + "###" + collabStr;
         connection.sendString(str);
     }
 }
