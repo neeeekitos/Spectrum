@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f95a23f4-4e23-4a94-8ff7-402fb0904d2e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IHM/src/FenetreApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FenetreApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp.class" afterDir="false" />
-    </list>
+ develop
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +40,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="spectrum: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="messages: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Spectrum" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="spectrum: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="projetassociation: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -104,7 +96,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/IHM/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Reseau/src" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

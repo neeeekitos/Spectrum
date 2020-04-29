@@ -77,7 +77,7 @@ public class Server implements EcouteurConnection{
             while (true) {
                 try {
                     Socket connection = server.accept();
-                    new ConnectionExchange(this, connection);
+                    new ConnectionExchange(this, connection, "server");
                 } catch (IOException ex) {
                     System.err.println(ex.getMessage());
                     System.exit(1);
