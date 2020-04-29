@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="" />
+ develop
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,14 +113,7 @@
       <recent name="D:\temp\ALGO\Spectrum\IHM\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Create">
-    <configuration name="Ajouter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Ajouter" />
-      <module name="IHM" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="Client" />
@@ -142,27 +135,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server" />
-      <module name="Server" />
+    <configuration name="FirstEntry" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FirstEntry" />
+      <module name="IHM" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NewProjet" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="NewProjet" />
+      <module name="IHM" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Client" />
-      <item itemvalue="Application.Server" />
       <item itemvalue="Application.FenetreApp" />
-      <item itemvalue="Application.Ajouter" />
       <item itemvalue="Application.Create" />
+      <item itemvalue="Application.FirstEntry" />
+      <item itemvalue="Application.NewProjet" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Create" />
         <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Create" />
         <item itemvalue="Application.FenetreApp" />
-        <item itemvalue="Application.Ajouter" />
-        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.NewProjet" />
+        <item itemvalue="Application.FirstEntry" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +171,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="" />
+      <changelist id="f95a23f4-4e23-4a94-8ff7-402fb0904d2e" name="Default Changelist" comment="" />
       <created>1582915087459</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -239,35 +239,35 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="554" y="330" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1582916219185" />
-    <state width="1398" height="151" key="GridCell.Tab.0.bottom" timestamp="1588092712062">
+    <state width="699" height="247" key="GridCell.Tab.0.bottom" timestamp="1588170882667">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="12" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587478653628" />
-    <state width="1398" height="151" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588092712062" />
+    <state width="699" height="247" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588170882667" />
     <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261146" />
     <state width="1877" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="1398" height="151" key="GridCell.Tab.0.center" timestamp="1588092712061">
+    <state width="699" height="247" key="GridCell.Tab.0.center" timestamp="1588170882665">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="12" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587478653628" />
-    <state width="1398" height="151" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588092712061" />
+    <state width="699" height="247" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588170882665" />
     <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261145" />
     <state width="1877" height="252" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="1398" height="151" key="GridCell.Tab.0.left" timestamp="1588092712060">
+    <state width="699" height="247" key="GridCell.Tab.0.left" timestamp="1588170882665">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="12" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587478653628" />
-    <state width="1398" height="151" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588092712060" />
+    <state width="699" height="247" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588170882665" />
     <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261145" />
     <state width="1877" height="252" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="1398" height="151" key="GridCell.Tab.0.right" timestamp="1588092712061">
+    <state width="699" height="247" key="GridCell.Tab.0.right" timestamp="1588170882666">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1237" height="12" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587478653628" />
-    <state width="1398" height="151" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588092712061" />
+    <state width="699" height="247" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588170882666" />
     <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261146" />
     <state width="1877" height="252" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
@@ -313,11 +313,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="405" y="240" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586434355806" />
-    <state x="360" y="204" key="com.intellij.ide.util.TipDialog" timestamp="1587472200980">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="405" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1588169200663">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="360" y="204" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587472200980" />
     <state x="385" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1586411332134" />
+    <state x="405" y="270" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1588169200663" />
     <state x="540" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585742578014" />
     <state x="1084" y="604" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1586432948975">
       <screen x="0" y="0" width="1920" height="1040" />
