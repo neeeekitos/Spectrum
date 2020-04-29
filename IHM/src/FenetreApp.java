@@ -151,8 +151,7 @@ public class FenetreApp extends JFrame {
         jPanel1.setBackground(new Color(224,224,226));
 
         projectName.setFont(new Font("Arial", 3, 24)); // NOI18N
-        projectName.setText("");
-//        projectName.setText(user.getProjets().get(0).getNom());
+        projectName.setText(user.getProjets().get(0).getNom());
         projectName.setMaximumSize(new Dimension(690, 50));
         projectName.addInputMethodListener(new InputMethodListener() {
             public void inputMethodTextChanged(InputMethodEvent evt) {
@@ -321,9 +320,11 @@ public class FenetreApp extends JFrame {
 
     private void sendMouseClicked(java.awt.event.MouseEvent evt) {
         String msg= jTextField1.getText();
-        if (msg.equals("")){
+        if (!msg.equals("")){
             if(!projectName.getText().equals("")) {
                 user.sendMessage(msg, user.getProjectByName(projectName.getText()));
+                msgArea.append("\r\n" + user.getUsername() + " : " + msg);
+                this.repaint();
             } else {
                 ImageIcon img = new ImageIcon("images/attention.png");
                 JOptionPane usernameFalse = new JOptionPane();
@@ -358,7 +359,7 @@ public class FenetreApp extends JFrame {
         // TODO add your handling code here:
     }
 
-    public void printMsg(String msg) {
+    public synchronized void printMsg(String msg) {
         msgArea.append(msg);
     }
 

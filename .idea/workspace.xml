@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8398c841-fb8b-49ee-886a-cd03ed5fd217" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IHM/src/FenetreApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/src/FenetreApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reseau/src/ConnectionExchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reseau/src/ConnectionExchange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IHM/FenetreApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IHM/FenetreApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Reseau/ConnectionExchange$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Reseau/ConnectionExchange$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Reseau/ConnectionExchange.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Reseau/ConnectionExchange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/Server.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +133,7 @@
       <recent name="D:\temp\ALGO\Spectrum\IHM\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="Client" />
@@ -152,6 +169,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="Client" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="Client" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.FenetreApp" />
@@ -161,8 +225,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
         <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.Create" />
         <item itemvalue="Application.FenetreApp" />
         <item itemvalue="Application.NewProjet" />
@@ -242,37 +306,37 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="554" y="330" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1582916219185" />
-    <state width="699" height="247" key="GridCell.Tab.0.bottom" timestamp="1588170882667">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1877" height="222" key="GridCell.Tab.0.bottom" timestamp="1588185516719">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="12" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587478653628" />
     <state width="699" height="247" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588170882667" />
     <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261146" />
+    <state width="1877" height="222" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588185516719" />
     <state width="1877" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="699" height="247" key="GridCell.Tab.0.center" timestamp="1588170882665">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1877" height="222" key="GridCell.Tab.0.center" timestamp="1588185516719">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="12" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587478653628" />
     <state width="699" height="247" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588170882665" />
     <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261145" />
+    <state width="1877" height="222" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588185516719" />
     <state width="1877" height="252" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="699" height="247" key="GridCell.Tab.0.left" timestamp="1588170882665">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1877" height="222" key="GridCell.Tab.0.left" timestamp="1588185516719">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="12" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587478653628" />
     <state width="699" height="247" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588170882665" />
     <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261145" />
+    <state width="1877" height="222" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588185516719" />
     <state width="1877" height="252" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
-    <state width="699" height="247" key="GridCell.Tab.0.right" timestamp="1588170882666">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1877" height="222" key="GridCell.Tab.0.right" timestamp="1588185516719">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="12" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587478653628" />
     <state width="699" height="247" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588170882666" />
     <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584724327014" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587238261146" />
+    <state width="1877" height="222" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588185516719" />
     <state width="1877" height="252" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584620565455" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1587242799614">
       <screen x="0" y="0" width="1280" height="680" />
@@ -335,6 +399,10 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="93" y="93" width="1181" height="685" key="git4idea.log.GitShowExternalLogAction/0.0.1368.872@0.0.1368.872" timestamp="1583174399837" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1588181699318">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588181699318" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1587473220445">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

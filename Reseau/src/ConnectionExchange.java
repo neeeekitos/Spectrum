@@ -161,4 +161,8 @@ public class ConnectionExchange {
 //        preparedStmt.setString(1, username);
 //        result = preparedStmt.executeQuery();
     }
+
+    public String getUsername() {
+        return username;
+    }
 }

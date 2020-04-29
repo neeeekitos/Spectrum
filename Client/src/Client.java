@@ -24,7 +24,7 @@ public class Client implements EcouteurConnection {
     private LinkedList<Projet> projets;
 
     public static void main(String[] args){
-        new Client("lalala", "hdhdhdh", "sdjsj");
+        new Client("Lol", "Nikita", "H");
     }
 
     public Client(String username, String prenom, String nom){
@@ -42,10 +42,18 @@ public class Client implements EcouteurConnection {
             }
         });
 
+        projets = new LinkedList<Projet>();
+        ArrayList<String> collabs = new ArrayList<>();
+        collabs.add("Nikita");
+        collabs.add("Roman");
+        collabs.add("Lol");
+        projets.add(new Projet(1, "pr1", collabs));
+
         try {
             InetAddress inetAddress = InetAddress.getLocalHost();
             System.out.println("connection on local IP : "+ inetAddress.toString());
             connection = new ConnectionExchange(this,"127.0.0.1", PORT, username);
+            connection.sendString(username);
         } catch (IOException e) {
             fenetre.printMsg("exception de connexion " + e);
             e.printStackTrace();
@@ -55,15 +63,18 @@ public class Client implements EcouteurConnection {
     }
 
     @Override
-    public void connectionReady(ConnectionExchange connection, String username) { System.out.println("connexion établie avec " + username);}
+    public void connectionReady(ConnectionExchange connection, String username) {
+        System.out.println("connexion établie avec " + username);
+    }
 
     @Override
     public void receiveString(String msg) {
 
         String[] parts = msg.split("###");
         String sender = parts[0];
-        fenetre.printMsg("\r\n" + sender + " : " + msg);
-        System.out.println("message reçu : " + msg);
+        String textMessage = parts[1];
+        fenetre.printMsg("\r\n" + sender + " : " + textMessage);
+        System.out.println("message reçu : " + textMessage);
 
     }
 
@@ -128,14 +139,17 @@ public class Client implements EcouteurConnection {
 
     public void sendMessage(String msg, Projet projet) {
 
-        Message message = new Message(username, msg, LocalDateTime.now(), projet.getArrayCollaborateurs());
-
-        projet.getMessages().add(message);
+//        Message message = new Message(username, msg, LocalDateTime.now(), projet.getArrayCollaborateurs());
+//
+//        projet.getMessages().add(message);
 
         //collabStr: usernames separated by #$#
         String collabStr = "";
         for (int i = 0; i < projet.getArrayCollaborateurs().size(); i++) {
-            collabStr += projet.getArrayCollaborateurs().get(i) + "###";
+            String usernameCollab = projet.getArrayCollaborateurs().get(i);
+            if (!this.username.equals(usernameCollab)) {
+                collabStr += usernameCollab + "###";
+            }
         }
 
         String str = this.username + "###" + msg + "###" + collabStr;
