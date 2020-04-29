@@ -59,8 +59,12 @@ public class Client implements EcouteurConnection {
 
     @Override
     public void receiveString(String msg) {
-        fenetre.printMsg(msg);
-        System.out.println(" sdsdsdsds");
+
+        String[] parts = msg.split("###");
+        String sender = parts[0];
+        fenetre.printMsg("\r\n" + sender + " : " + msg);
+        System.out.println("message reçu : " + msg);
+
     }
 
     @Override
