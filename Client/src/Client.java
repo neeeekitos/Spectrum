@@ -91,6 +91,15 @@ public class Client implements EcouteurConnection {
         return projets;
     }
 
+    public Projet getProjectByName(String name) {
+        for (Projet projet : projets) {
+            if (projet.getNom().equals(name)) {
+                return projet;
+            }
+        }
+        return null;
+    }
+
     public ConnectionExchange getConnectionExchange() { return connection; }
 
 
@@ -125,7 +134,7 @@ public class Client implements EcouteurConnection {
             collabStr += projet.getArrayCollaborateurs().get(i) + "###";
         }
 
-        String str = this.username + "#$#" + msg + "#$#" + collabStr;
+        String str = this.username + "###" + msg + "###" + collabStr;
         connection.sendString(str);
     }
 }
