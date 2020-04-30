@@ -135,6 +135,7 @@ public class Server implements EcouteurConnection{
     @Override
     public synchronized void disconnect(ConnectionExchange connection) {
         connections.remove(connection);
+        connection.disconnect();
         System.out.println("Client déconnecté :" + connection);
     }
 

@@ -59,7 +59,6 @@ public class ConnectionExchange {
     public synchronized void disconnect() {
         cnThread.interrupt();
         try {
-            eventEcouteur.disconnect(this);
             connection.close();
             System.out.println("Le client @" + username + " est déconnecté");
         } catch (IOException e) {
