@@ -80,6 +80,7 @@ public class Client implements EcouteurConnection {
 
     @Override
     public void disconnect(ConnectionExchange connection) {
+        connection.disconnect();
         fenetre.printMsg("Connection interrompue");
     }
 
