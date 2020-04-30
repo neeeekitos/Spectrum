@@ -57,7 +57,7 @@ public class ConnectionExchange {
     }
 
     public synchronized void disconnect() {
-        cnThread.interrupt();
+        //cnThread.interrupt();
         try {
             connection.close();
             System.out.println("Le client @" + username + " est déconnecté");
@@ -75,8 +75,7 @@ public class ConnectionExchange {
             //ajouter l'envoie du message dans la DB
         } catch (IOException e) {
             eventEcouteur.exception(ConnectionExchange.this, e);
-            System.out.println("lalala");
-            disconnect();
+            eventEcouteur.disconnect(this);
         }
     }
 

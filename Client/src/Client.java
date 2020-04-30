@@ -24,7 +24,7 @@ public class Client implements EcouteurConnection {
     private LinkedList<Projet> projets;
 
     public static void main(String[] args){
-        new Client("Lol", "Nikita", "H");
+        new Client("kek", "Nikita", "H");
     }
 
     public Client(String username, String prenom, String nom){

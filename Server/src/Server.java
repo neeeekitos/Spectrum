@@ -134,9 +134,12 @@ public class Server implements EcouteurConnection{
 
     @Override
     public synchronized void disconnect(ConnectionExchange connection) {
-        connections.remove(connection);
+        connections.remove(connection.getUsername());
+        System.out.println("Voici les utilisateurs qui restent connectés :");
+        for (Map.Entry username : connections.entrySet()) {
+            System.out.println(username.getKey());
+        }
         connection.disconnect();
-        System.out.println("Client déconnecté :" + connection);
     }
 
     @Override
