@@ -128,8 +128,8 @@ public class Server implements EcouteurConnection{
             destinateursConnection.add(parts[i]);
         }
 
-        sendToConnection(destinateursConnection, msg);
         System.out.println("serveur à reçu le message :" + msg);
+        sendToConnection(destinateursConnection, msg);
     }
 
     @Override
@@ -150,7 +150,12 @@ public class Server implements EcouteurConnection{
         for (int i = 0; i<destinateursConnection.size(); i++) {
             System.out.println("j'envoie le message à : ");
             System.out.println(destinateursConnection.get(i));
-            connections.get(destinateursConnection.get(i)).sendString(msg);
+            ConnectionExchange conn = connections.get(destinateursConnection.get(i));
+            if (conn != null) {
+                conn.sendString(msg);
+            } else {
+                System.out.println("L'utilisateur @" + destinateursConnection.get(i) + " n'est pas en ligne");
+            }
         }
     }
 }

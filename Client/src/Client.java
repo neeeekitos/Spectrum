@@ -85,7 +85,7 @@ public class Client implements EcouteurConnection {
 
     @Override
     public void exception(ConnectionExchange connection, IOException e) {
-        fenetre.printMsg("Exception de connection " + e);
+        System.out.println("Exception de connection " + e);
     }
 
     public String getUsername(){
