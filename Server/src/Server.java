@@ -77,7 +77,27 @@ public class Server implements EcouteurConnection{
             while (true) {
                 try {
                     Socket connection = server.accept();
-                    new ConnectionExchange(this, connection);
+
+                    //receive username to identify a person && attente 1 seconde pour obtenir le username, sinon disconnect
+                    String username = "";
+                    long initTime = System.currentTimeMillis();
+                    BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
+                    BufferedWriter out = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream(), Charset.forName("UTF-8")));
+
+                    //timer in while
+                    while (username.equals("") && System.currentTimeMillis()-initTime<1000) {
+                        username = in.readLine();
+                    }
+                    System.out.println("================================");
+                    System.out.println("username reçu : " + username);
+
+                    //if we successfully received a username
+                    if (!username.equals("")) {
+                        new ConnectionExchange(this, connection, username);
+                    } else {
+                        out.write("#server# : try to reconnect");
+                        out.flush();
+                    }
                 } catch (IOException ex) {
                     System.err.println(ex.getMessage());
                     System.exit(1);
@@ -92,6 +112,8 @@ public class Server implements EcouteurConnection{
     @Override
     public synchronized void connectionReady(ConnectionExchange connection, String username) {
         connections.put(username, connection);
+        System.out.println("l'utilisateur @" + username + " connecté");
+        System.out.println("========================================");
         //sendToConnection(username,"Nouveau client connecté :" + username + connection);
     }
 
@@ -99,14 +121,15 @@ public class Server implements EcouteurConnection{
     public synchronized void receiveString(String msg) {
 
         String[] parts = msg.split("###");
-        ArrayList<ConnectionExchange> destinateursConnection = new  ArrayList<ConnectionExchange>(parts.length-2);
+        ArrayList<String> destinateursConnection = new  ArrayList<String>(parts.length-2);
 
         //find connections
         for (int i = 2; i<parts.length; i++) {
-            destinateursConnection.add(connections.get(parts[i]));
+            destinateursConnection.add(parts[i]);
         }
 
         sendToConnection(destinateursConnection, msg);
+        System.out.println("serveur à reçu le message :" + msg);
     }
 
     @Override
@@ -120,12 +143,14 @@ public class Server implements EcouteurConnection{
         System.out.println("Connection exception: " + e);
     }
 
-    private void sendToConnection(ArrayList<ConnectionExchange> destinateursConnection, String msg){
+    private void sendToConnection(ArrayList<String> destinateursConnection, String msg){
 
-        System.out.println(msg);
+        System.out.println("server will send this : " + msg);
 
-        for (ConnectionExchange connection : destinateursConnection) {
-            connection.sendString(msg);
+        for (int i = 0; i<destinateursConnection.size(); i++) {
+            System.out.println("j'envoie le message à : ");
+            System.out.println(destinateursConnection.get(i));
+            connections.get(destinateursConnection.get(i)).sendString(msg);
         }
     }
 }
