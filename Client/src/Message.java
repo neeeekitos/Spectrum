@@ -4,29 +4,29 @@ import java.util.*;
 public class Message {
     public String username;
     public String message;
-    public LocalDateTime date;
-    private ArrayList<String> destinateurs;
+    public String date;
+    private Projet projet;
 
-    public Message(String username, String message, LocalDateTime date, ArrayList<String> destinateurs){
+    public Message(String username, String message, String date, Projet projet){
         this.username = username;
         this.message = message;
         this.date = date;
-        this.destinateurs = destinateurs;
+        this.projet = projet;
     }
 
     public String getUsername(){
         return username;
     }
 
-    public String getDestinateurs(){
-        return username;
+    public Projet getProjet(){
+        return projet;
     }
 
     public String getMessage(){
         return message;
     }
 
-    public LocalDateTime getDate(){
+    public String getDate(){
         return date;
     }
 }

@@ -121,10 +121,10 @@ public class Server implements EcouteurConnection{
     public synchronized void receiveString(String msg) {
 
         String[] parts = msg.split("###");
-        ArrayList<String> destinateursConnection = new  ArrayList<String>(parts.length-2);
+        ArrayList<String> destinateursConnection = new  ArrayList<String>(parts.length-3);
 
         //find connections
-        for (int i = 2; i<parts.length; i++) {
+        for (int i = 3; i<parts.length; i++) {
             destinateursConnection.add(parts[i]);
         }
 
