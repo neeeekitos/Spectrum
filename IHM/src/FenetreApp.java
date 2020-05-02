@@ -301,7 +301,6 @@ public class FenetreApp extends JFrame {
     }
 
     private void ajouterColabMouseClicked(java.awt.event.MouseEvent evt) {
-
         new Ajouter().setVisible(true);
     }
 
