@@ -3,7 +3,10 @@ import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.concurrent.Callable;
 
 public class ConnectionExchange {
@@ -15,6 +18,8 @@ public class ConnectionExchange {
     private final EcouteurConnection eventEcouteur;
     private String username;
     private Connection connDb;
+    //incremente à chaque updateMessages(), pour afficher + de messages
+    private int counterUpdateMsg = 0;
 
 
     public ConnectionExchange(EcouteurConnection eventEcouteur, String ip, int port, String username) throws IOException {
@@ -56,8 +61,12 @@ public class ConnectionExchange {
         return "Connection: " + connection.getInetAddress() + ": " + connection.getPort();
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     public synchronized void disconnect() {
-        cnThread.interrupt();
+        //cnThread.interrupt();
         try {
             connection.close();
             System.out.println("Le client @" + username + " est déconnecté");
@@ -75,8 +84,7 @@ public class ConnectionExchange {
             //ajouter l'envoie du message dans la DB
         } catch (IOException e) {
             eventEcouteur.exception(ConnectionExchange.this, e);
-            System.out.println("lalala");
-            disconnect();
+            eventEcouteur.disconnect(this);
         }
     }
 
@@ -104,7 +112,7 @@ public class ConnectionExchange {
         result = preparedStmt.executeQuery();
 
         //verifions si on a qqch dans un result
-        if (result.next()) {
+        if (result != null) {
 
             String usernameDb = result.getString(2);
             String passwordDb = result.getString(5);
@@ -152,19 +160,157 @@ public class ConnectionExchange {
         } else { return false; }
     }
 
-    public synchronized void updateProjects() {
-        Connection connDB = connectToDb();
-        ResultSet result = null;
+    public synchronized LinkedList<Projet> updateProjects() throws SQLException {
+        ResultSet resultProjetID = null;
+        ResultSet resultNomProjet = null;
+        ResultSet resultCollaborateurs = null;
+
+        LinkedList<Projet> projets = new LinkedList<>();
+        int projectID;
+        ArrayList <String> collaborateurs = new ArrayList<>();
+        String nomProjet = "";
+
 
         //requete qui verifie si ce username est déjà utilisé
-        String requeteCheck = "SELECT * FROM users as u WHERE u.username=?";
+        String requete1 = "SELECT * FROM projetassociation as p WHERE p.username=?";
 
-//        PreparedStatement preparedStmt = connDB.prepareStatement(requeteCheck);
-//        preparedStmt.setString(1, username);
-//        result = preparedStmt.executeQuery();
+        PreparedStatement preparedStmt = connDb.prepareStatement(requete1);
+        preparedStmt.setString(1, username);
+        resultProjetID = preparedStmt.executeQuery();
+
+        System.out.println("=================================");
+        System.out.println("Chargement des projets de BD : ");
+        while (resultProjetID.next()) {
+
+            projectID = resultProjetID.getInt("projectID");
+
+            //obtenir le nom du projet
+            String requete2 = "SELECT * FROM projets as p WHERE p.projectID=?";
+            preparedStmt = connDb.prepareStatement(requete2);
+            preparedStmt.setInt(1, projectID);
+            resultNomProjet = preparedStmt.executeQuery();
+            if (resultNomProjet.next()) {
+                nomProjet = resultNomProjet.getString("nom");
+            }
+
+            //obtenir tous les collaborateurs dans le même projet
+            String requete3 = "SELECT * FROM projetassociation as p WHERE p.projectID=?";
+            preparedStmt = connDb.prepareStatement(requete3);
+            preparedStmt.setInt(1, projectID);
+            resultCollaborateurs = preparedStmt.executeQuery();
+            while (resultCollaborateurs.next()) {
+                collaborateurs.add(resultCollaborateurs.getString("username"));
+            }
+
+            //creer le projet et ajouter dans la liste
+            Projet projet = new Projet(projectID, nomProjet, collaborateurs, new LinkedList<>());
+            projets.add(projet);
+            System.out.println(nomProjet);
+        }
+        System.out.println("=================================");
+        return projets;
     }
 
-    public String getUsername() {
-        return username;
+    public synchronized LinkedList<Message> updateMessages(Projet projet) throws SQLException {
+        counterUpdateMsg++;
+        ResultSet result;
+        final int NB_MESSAGES = 15;
+        LinkedList<Message> messages = new LinkedList<>();
+        Message msg;
+
+        String date;
+        String textMsg;
+
+        String requete = "SELECT * FROM messages as m WHERE m.projectID=? ORDER BY msgID DESC";
+
+        PreparedStatement preparedStmt = connDb.prepareStatement(requete);
+        preparedStmt.setInt(1, projet.getId());
+        result = preparedStmt.executeQuery();
+
+        /*
+         * updates la quantité de messages nécessaire
+         * si le user va regarder les messages plus anciens, il va faire un updateMessages,
+         * donc le compteur++, on va charger encore x=NB_MESSAGES en plus
+         */
+        for (int i = 0; i<NB_MESSAGES*counterUpdateMsg; i++){
+            if (result.next()) {
+                textMsg = result.getString("message");
+                date = result.getString("dateMsg");
+                messages.add(new Message(username, textMsg, date, projet));
+            }
+        }
+
+        return messages;
+    }
+
+    public synchronized boolean addMessageToDB(Message message) throws SQLException{
+        ResultSet result = null;
+
+        String requeteCheck = "SELECT * FROM messages as m WHERE m.projectID=?";
+
+        PreparedStatement preparedStmt = connDb.prepareStatement(requeteCheck);
+        preparedStmt.setInt(1, message.getProjet().getId());
+        result = preparedStmt.executeQuery();
+
+        //verifions si on a qqch dans un result
+        if (result != null) {
+
+            //création d'insert statement
+            String requete = " INSERT INTO messages (projectID, username, message, dateMsg) VALUES (?, ?, ?, ?)";
+            preparedStmt = connDb.prepareStatement(requete);
+
+            // ajouter les valeurs sql insert
+            preparedStmt.setInt(1, message.getProjet().getId());
+            preparedStmt.setString(2, message.getUsername());
+            preparedStmt.setString(3, message.getMessage());
+            preparedStmt.setString(4, message.getDate());
+
+            // executer
+            return preparedStmt.execute();
+        } else {
+            System.out.println("L'envoi du message dans la BD n'est pas reussi : " + message.getMessage());
+            return false;
+        }
+    }
+
+    public synchronized void addProjectToDB(Projet projet) throws SQLException {
+        //création d'insert statement
+        String requete1 = " INSERT INTO projets (projectID, nom) VALUES (?, ?)";
+        PreparedStatement preparedStmt1 = connDb.prepareStatement(requete1);
+
+        // ajouter les valeurs sql insert
+        preparedStmt1.setInt(1, projet.getId());
+        preparedStmt1.setString(2, projet.getNom());
+
+        preparedStmt1.execute();
+
+        //ajouter dans un tableau projetAssociation
+        String requeteAssociation;
+        for (String usernameCollaborateur : projet.getArrayCollaborateurs()) {
+
+            //création d'insert statement
+            requeteAssociation= " INSERT INTO projetassociation (username, projectID) VALUES (?, ?)";
+            PreparedStatement preparedStmt2 = connDb.prepareStatement(requeteAssociation);
+
+            // ajouter les valeurs sql insert
+            preparedStmt2.setString(1, usernameCollaborateur);
+            preparedStmt2.setInt(2, projet.getId());
+
+            preparedStmt2.execute();
+        }
+    }
+
+    public int getLastIdProject() throws SQLException {
+        ResultSet result;
+        int lastProjectID = 0;
+        String requete = "SELECT * FROM projets ORDER BY projectID DESC";
+        PreparedStatement preparedStmt = connDb.prepareStatement(requete);
+        result = preparedStmt.executeQuery();
+
+        if (result != null) {
+            lastProjectID = result.getInt("projectID");
+        }
+
+        return lastProjectID;
     }
 }

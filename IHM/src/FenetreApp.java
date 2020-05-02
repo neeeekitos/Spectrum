@@ -151,7 +151,9 @@ public class FenetreApp extends JFrame {
         jPanel1.setBackground(new Color(224,224,226));
 
         projectName.setFont(new Font("Arial", 3, 24)); // NOI18N
-        projectName.setText(user.getProjets().get(0).getNom());
+        if (user.getProjets().size() != 0) {
+            projectName.setText(user.getProjets().get(0).getNom());
+        }
         projectName.setMaximumSize(new Dimension(690, 50));
         projectName.addInputMethodListener(new InputMethodListener() {
             public void inputMethodTextChanged(InputMethodEvent evt) {
