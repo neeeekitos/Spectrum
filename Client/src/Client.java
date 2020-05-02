@@ -48,6 +48,10 @@ public class Client implements EcouteurConnection {
         collabs.add("Roman");
         collabs.add("Lol");
         projets.add(new Projet(1, "pr1", collabs));
+        projets.add(new Projet(2, "pr2", collabs));
+        projets.add(new Projet(3, "pr3", collabs));
+        projets.add(new Projet(4, "pr4", collabs));
+
 
         try {
             InetAddress inetAddress = InetAddress.getLocalHost();

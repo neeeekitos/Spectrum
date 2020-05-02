@@ -344,7 +344,7 @@ public class FenetreApp extends JFrame {
     }
 
     private void projetMouseClicked(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:
+        new Solve(user).setVisible(true);
     }
 
     private void projetPropertyChange(java.beans.PropertyChangeEvent evt) {
