@@ -130,18 +130,46 @@ public class Client implements EcouteurConnection {
         System.out.println("Exception de connection " + e);
     }
 
+    /** Retourne le username de l'utilisateur
+     * @return username
+     */
     public String getUsername(){
         return username;
     }
 
+    /** Retourne le prenom de l'utilisateur
+     * @return prenom
+     */
     public String getPrenom(){
         return prenom;
     }
 
+    /** Retourne le nom de l'utilisateur
+     * @return nom
+     */
     public String getNom() { return nom; }
 
+    /** Retourne l'instance ConnectionExchange de l'utilisateur
+     * @return connection
+     */
     public ConnectionExchange getConnectionExchange() { return connection; }
 
+    /** Retourne la liste de projets de l'utilisateur
+     * @return projets
+     */
+    public LinkedList<Projet> getProjets(){
+        return projets;
+    }
+
+    /** Va creer le nouvel projet pour notre utilisateur :
+     * tout d'abord récupere le dernier projectID de la BD (qui est unique),
+     * ensuite va créer le nouvel projet en utilisant l'id = projectID + 1, puis ajoute dans la DB,
+     * finalement rajoute ce projet localement dans la liste des projets
+     * @param nom le nom du projet, qui est unique dans la liste des projets de chaque clients,
+     *            on le vérifie avec une méthode contains(), qui utilise equals, ce dernier étant redéfini
+     *            pour comparer le nom de projets
+     * @param collaborateurs les collaborateurs du projet
+     */
     public void createProject(String nom, ArrayList<String> collaborateurs) {
         int id = 0;
         try {
@@ -170,10 +198,10 @@ public class Client implements EcouteurConnection {
         }
     }
 
-    public LinkedList<Projet> getProjets(){
-        return projets;
-    }
-
+    /** Retourne l'instance Projet de l'utilisateur en le trouvant par le nom du projet fourni
+     * @param name le nom du projet
+     * @return projet l'instance Projet
+     */
     public Projet getProjectByName(String name) {
         for (Projet projet : projets) {
             if (projet.getNom().equals(name)) {
@@ -203,6 +231,10 @@ public class Client implements EcouteurConnection {
 //        this.validate();
 //    }
 
+    /** Permet d'envoyer le message dans la BD et au serveur
+     * @param msg le message à envoyer
+     * @param projet l'instance Projet auquel appartient le message
+     */
     public void sendMessage(String msg, Projet projet) {
 
         //sendToDB
@@ -234,6 +266,9 @@ public class Client implements EcouteurConnection {
         connection.sendString(str);
     }
 
+    /** Permet d'envoyer le message dans la BD et au serveur
+     * @param messages la liste de messages
+     */
     public synchronized void printMessages(LinkedList<Message> messages){
         //print dans un ordre inversé
         for (int i = messages.size() - 1; i>=0; i--) {

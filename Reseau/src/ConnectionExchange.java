@@ -273,6 +273,12 @@ public class ConnectionExchange {
         }
     }
 
+    /** Insère le nouveau projet la BD :
+     * Premièrement on insère le projet dans projets, puis dans la table qui associe chaque projet avec
+     * chaque utilisateur
+     * @param projet le projet à ajouter dans la BD
+     * @throws SQLException si jamais on a un problème avec la BD
+     */
     public synchronized void addProjectToDB(Projet projet) throws SQLException {
         //création d'insert statement
         String requete1 = " INSERT INTO projets (projectID, nom) VALUES (?, ?)";
@@ -300,6 +306,10 @@ public class ConnectionExchange {
         }
     }
 
+    /** Permet d'envoyer le message dans la BD et au serveur
+     * @return lastProjectID le dernier projectID unique récupéré de la BD
+     * @throws SQLException si jamais on a un problème avec la BD
+     */
     public int getLastIdProject() throws SQLException {
         ResultSet result;
         int lastProjectID = 0;
