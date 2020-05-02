@@ -199,6 +199,14 @@ public class Client implements EcouteurConnection {
         }
     }
 
+    public void ajouterCollab(String usernameCollab, int projetID){
+        try {
+            connection.addCollabInProject(usernameCollab, projetID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     /** Retourne l'instance Projet de l'utilisateur en le trouvant par le nom du projet fourni
      * @param name le nom du projet
      * @return projet l'instance Projet
