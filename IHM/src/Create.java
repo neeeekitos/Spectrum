@@ -54,6 +54,9 @@ public class Create extends javax.swing.JFrame {
         this.setMaximumSize(new java.awt.Dimension(562,450));
         this.setMinimumSize(new java.awt.Dimension(562,450));
         this.setPreferredSize(new java.awt.Dimension(562,450));
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((int) (dimension.getWidth() / 2 - 562/ 2),
+                (int) (dimension.getHeight() / 2 - 450 / 2));
 
         top.setMaximumSize(new java.awt.Dimension(562, 396));
         top.setMinimumSize(new java.awt.Dimension(562, 396));

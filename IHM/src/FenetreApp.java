@@ -7,11 +7,15 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.RoundRectangle2D;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import static javax.swing.SwingConstants.CENTER;
 
 /**
  *
@@ -57,7 +61,7 @@ public class FenetreApp extends JFrame {
         scrollMessages = new ScrollPane();
         PanelSend = new JPanel();
         send = new JLabel();
-        jTextField1 = new JTextField();
+        jTextField1 = new RoundJTextField(20);
         attach = new JLabel();
         panel_rigth = new JPanel();
         jLabel3 = new JLabel();
@@ -70,13 +74,16 @@ public class FenetreApp extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));
         this.setMinimumSize(new Dimension(1150, 810));
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((int) (dimension.getWidth() / 2 - 1150/ 2),
+                (int) (dimension.getHeight() / 2 - 810 / 2));
 
         panel1.setBackground(new Color(26, 49, 81));
         panel1.setMaximumSize(new Dimension(80, 1800));
         panel1.setMinimumSize(new Dimension(80, 800));
         panel1.setPreferredSize(new Dimension(80, 800));
         panel1.setRequestFocusEnabled(false);
-        panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 750));
+        panel1.setLayout(new BorderLayout(10, 750));
 
         exitButton.setIcon(new ImageIcon(this.getClass().getResource("exit.jpeg")));
         exitButton.addActionListener(new ActionListener() {
@@ -85,7 +92,7 @@ public class FenetreApp extends JFrame {
             }
         });
 
-        panel1.add(exitButton);
+        panel1.add(exitButton,BorderLayout.PAGE_END);
 
         getContentPane().add(panel1);
 
@@ -112,6 +119,45 @@ public class FenetreApp extends JFrame {
             public void caretPositionChanged(InputMethodEvent evt) {
             }
         });
+
+
+        /*
+        DefaultListModel listModel = new DefaultListModel();
+
+        for (int i = 0; i<user.getProjets().size(); i++) {
+                if(user.getProjets().get(i).getNom()==projectName.getText()) {
+                    for(int j=0; j<(user.getProjets().get(i).getArrayCollaborateurs().size());j++) {
+                        listModel.add(i,user.getProjets().get(i).getArrayCollaborateurs().get(j).split("###"));
+                    }
+            }
+        }
+
+        //create list
+
+        b = new JList(listModel);
+        MouseListener mouseListener = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 1) {
+
+
+                    String selectedItem = (String) b.getSelectedValue();
+                    // add selectedItem to your second list.
+                    DefaultListModel model = (DefaultListModel) b.getModel();
+                    System.out.println("on a selectionée "+ selectedItem);
+
+                }
+            }
+        };
+        b.addMouseListener(mouseListener);
+        //set a selected index
+       // b.setSelectedIndex(0);
+
+        p.setBackground(new Color(255,255,255));
+        //add list to panel
+        p.add(b);
+
+        panelCalendar.add(p); */
+
 
         GroupLayout panelCalendarLayout = new GroupLayout(panelCalendar);
         panelCalendar.setLayout(panelCalendarLayout);
@@ -154,6 +200,7 @@ public class FenetreApp extends JFrame {
         if (user.getProjets().size() != 0) {
             projectName.setText(user.getProjets().get(0).getNom());
         }
+        projectName.setHorizontalAlignment(JLabel.CENTER);
         projectName.setMaximumSize(new Dimension(690, 50));
         projectName.addInputMethodListener(new InputMethodListener() {
             public void inputMethodTextChanged(InputMethodEvent evt) {
@@ -203,6 +250,8 @@ public class FenetreApp extends JFrame {
                 jTextField1.setText("");
             }
         });
+        LineBorder lineBorder =new LineBorder(Color.white, 8, true);
+        jTextField1.setBorder(lineBorder );
 
         PanelSend.add(jTextField1);
 
@@ -234,7 +283,7 @@ public class FenetreApp extends JFrame {
 
         projet.setFont(new Font("Arial", 1, 18)); // NOI18N
         projet.setText(" Projets");
-        projet.setIcon(new ImageIcon(this.getClass().getResource("drop.png")));
+        projet.setIcon(new ImageIcon(this.getClass().getResource("droping.png")));
         projet.setCursor(new Cursor(Cursor.HAND_CURSOR));
         projet.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
@@ -365,11 +414,30 @@ public class FenetreApp extends JFrame {
         msgArea.append(msg);
     }
 
-    /**
-     * @param args the command line arguments
-     */
 
 
+    public class RoundJTextField extends JTextField {
+        private Shape shape;
+        public RoundJTextField(int size) {
+            super(size);
+            setOpaque(false); // As suggested by @AVD in comment.
+        }
+        protected void paintComponent(Graphics g) {
+            g.setColor(getBackground());
+            g.fillRoundRect(0, 0, getWidth()-1, getHeight()-1, 15, 15);
+            super.paintComponent(g);
+        }
+        protected void paintBorder(Graphics g) {
+            g.setColor(getForeground());
+            g.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 15, 15);
+        }
+        public boolean contains(int x, int y) {
+            if (shape == null || !shape.getBounds().equals(getBounds())) {
+                shape = new RoundRectangle2D.Float(0, 0, getWidth()-1, getHeight()-1, 15, 15);
+            }
+            return shape.contains(x, y);
+        }
+    }
     // Variables declaration - do not modify
     private JTextArea msgArea;
 
@@ -380,7 +448,7 @@ public class FenetreApp extends JFrame {
     private JLabel   attach;
     private JLabel jLabel3;
     private JPanel jPanel1;
-    private JTextField jTextField1;
+    private RoundJTextField jTextField1;
     private JLabel logo_image;
     private JLabel name;
     private JPanel panel1;
@@ -392,5 +460,7 @@ public class FenetreApp extends JFrame {
     private ScrollPane scrollMessages;
     private JLabel spectrum;
     private JLabel username;
+    private JList b;
+    private JPanel p;
     // End of variables declaration
 }
