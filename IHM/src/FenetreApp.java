@@ -12,6 +12,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -97,9 +98,12 @@ public class FenetreApp extends JFrame {
         getContentPane().add(panel1);
 
         panelCalendar.setBackground(new Color(69, 123, 157));
-        panelCalendar.setMaximumSize(new Dimension(180, 1800));
+        panelCalendar.setMaximumSize(new Dimension(180, 800));
         panelCalendar.setMinimumSize(new Dimension(180, 800));
         panelCalendar.setPreferredSize(new Dimension(180, 800));
+        panelCalendar.setLayout(new BoxLayout(panelCalendar, BoxLayout.Y_AXIS));
+
+        panelCalendar.add(Box.createRigidArea(new Dimension(0,60)));
 
         name.setFont(new Font("Arial", 1, 18)); // NOI18N
         name.setText(user.getNom()+" "+user.getPrenom());
@@ -110,6 +114,8 @@ public class FenetreApp extends JFrame {
             public void caretPositionChanged(InputMethodEvent evt) {
             }
         });
+        panelCalendar.add(name);
+
 
         username.setText("@"+user.getUsername());
         username.addInputMethodListener(new InputMethodListener() {
@@ -119,47 +125,11 @@ public class FenetreApp extends JFrame {
             public void caretPositionChanged(InputMethodEvent evt) {
             }
         });
+        panelCalendar.add(username);
+        panelCalendar.add(Box.createRigidArea(new Dimension(0,70)));
 
 
-        /*
-        DefaultListModel listModel = new DefaultListModel();
-
-        for (int i = 0; i<user.getProjets().size(); i++) {
-                if(user.getProjets().get(i).getNom()==projectName.getText()) {
-                    for(int j=0; j<(user.getProjets().get(i).getArrayCollaborateurs().size());j++) {
-                        listModel.add(i,user.getProjets().get(i).getArrayCollaborateurs().get(j).split("###"));
-                    }
-            }
-        }
-
-        //create list
-
-        b = new JList(listModel);
-        MouseListener mouseListener = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 1) {
-
-
-                    String selectedItem = (String) b.getSelectedValue();
-                    // add selectedItem to your second list.
-                    DefaultListModel model = (DefaultListModel) b.getModel();
-                    System.out.println("on a selectionée "+ selectedItem);
-
-                }
-            }
-        };
-        b.addMouseListener(mouseListener);
-        //set a selected index
-       // b.setSelectedIndex(0);
-
-        p.setBackground(new Color(255,255,255));
-        //add list to panel
-        p.add(b);
-
-        panelCalendar.add(p); */
-
-
-        GroupLayout panelCalendarLayout = new GroupLayout(panelCalendar);
+        /*GroupLayout panelCalendarLayout = new GroupLayout(panelCalendar);
         panelCalendar.setLayout(panelCalendarLayout);
         panelCalendarLayout.setHorizontalGroup(
                 panelCalendarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -181,12 +151,11 @@ public class FenetreApp extends JFrame {
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(username)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        );*/
 
         getContentPane().add(panelCalendar);
 
-        // panelCentral.setMaximumSize(new java.awt.Dimension(690, 800));
-        // panelCentral.setMinimumSize(new java.awt.Dimension(690, 800));
+
         panelCentral.setPreferredSize(new Dimension(690, 800));
         panelCentral.setLayout(new BoxLayout(panelCentral, BoxLayout.Y_AXIS));
 
@@ -196,7 +165,7 @@ public class FenetreApp extends JFrame {
         jPanel1.setLayout(new BorderLayout());
         jPanel1.setBackground(new Color(224,224,226));
 
-        projectName.setFont(new Font("Arial", 3, 24)); // NOI18N
+        projectName.setFont(new Font("Arial", 3, 24));
         if (user.getProjets().size() != 0) {
             projectName.setText(user.getProjets().get(0).getNom());
         }
@@ -338,6 +307,41 @@ public class FenetreApp extends JFrame {
                                 .addComponent(projet)
                                 .addContainerGap(592, Short.MAX_VALUE))
         );
+
+
+        //Layout  background
+        JLabel colab = new JLabel("Collaborateurs:",JLabel.LEFT);
+        //colab.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+        colab.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        //colab.setMaximumSize(new java.awt.Dimension(180, 30));
+        //colab.setMinimumSize(new java.awt.Dimension(180, 30));
+        //colab.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        panelCalendar.add(colab, Component.LEFT_ALIGNMENT);
+        panelCalendar.add(Box.createRigidArea(new Dimension(0,10)));
+
+
+
+        DefaultListModel listModel = new DefaultListModel();
+
+
+        for(int j=0; j<(user.getProjectByName(projectName.getText()).getArrayCollaborateurs().size());j++) {
+            listModel.add(j,user.getProjectByName(projectName.getText()).getArrayCollaborateurs().get(j));
+        }
+
+        b = new JList(listModel);
+        p = new JPanel();
+    //    p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
+
+        b.setSelectedIndex(0);
+        b.setBackground(new Color(69, 123, 157));
+
+        p.setBackground(new Color(69, 123, 157));
+        p.add(b);
+        //p.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+
+        panelCalendar.add(p,Component.LEFT_ALIGNMENT); //
+
 
         getContentPane().add(panel_rigth);
 
