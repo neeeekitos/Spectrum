@@ -99,7 +99,7 @@ public class NewProjet extends javax.swing.JFrame {
     }//GEN-LAST:event_projetsPropertyChange
 
     private void nouveauProjetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nouveauProjetActionPerformed
-        new Create().setVisible(true);
+       // new Create(user).setVisible(true);
     }//GEN-LAST:event_nouveauProjetActionPerformed
 
     /**

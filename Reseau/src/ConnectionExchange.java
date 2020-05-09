@@ -317,7 +317,7 @@ public class ConnectionExchange {
         PreparedStatement preparedStmt = connDb.prepareStatement(requete);
         result = preparedStmt.executeQuery();
 
-        if (result != null) {
+        if (result.next()) {
             lastProjectID = result.getInt("projectID");
         }
 
