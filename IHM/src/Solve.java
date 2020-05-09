@@ -17,6 +17,8 @@ class Solve extends JFrame
 
     static JScrollPane scrollpane;
 
+    static JLabel create;
+
     public static void main(String[] args){
         new Solve(new Client("JAJAJA","hihihi","LALALA"));
      }
@@ -89,8 +91,26 @@ class Solve extends JFrame
 
 
         scrollpane = new JScrollPane(p);
+
+        create = new JLabel();
+        create.setText("New Projet");
+        create.setHorizontalAlignment(JLabel.CENTER);
+        create.setPreferredSize(new Dimension(300, 40));
+        create.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        getContentPane().setBackground(new Color(237, 246, 249));
+        create.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                new Create(user).setVisible(true);
+            }
+        });
+
+
+
+
         getContentPane().add(jLabel1,BorderLayout.PAGE_START);
         getContentPane().add(scrollpane, BorderLayout.CENTER);
+        getContentPane().add(create,BorderLayout.PAGE_END);
+
 
 
     }
