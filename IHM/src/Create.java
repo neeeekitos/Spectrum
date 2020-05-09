@@ -96,28 +96,28 @@ public class Create extends javax.swing.JFrame {
         jPanel1.add(nomProjet, gridBagConstraints[0]);
         jPanel1.setBackground(new Color(69, 123, 157));
 
-        nom.setText("....");
+        nom.setText("");
         nom.setMaximumSize(new Dimension(200, 26));
         nom.setMinimumSize(new Dimension(200, 26));
         nom.setPreferredSize(new Dimension(200, 26));
-        nom.addFocusListener(new FocusAdapter() {
+        /*nom.addFocusListener(new FocusAdapter() {
             public void focusGained(FocusEvent e) {
                 nom.setText("");
             }
-        });
+        });*/
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
-        gridBagConstraints[0].gridy = 5;
+        gridBagConstraints[0].gridy = 2;
         jPanel1.add(nom, gridBagConstraints[0]);
 
-        collab.add(0, new JTextField("..."));
+        collab.add(0, new JTextField(""));
         collab.get(0).setMaximumSize(new Dimension(200, 26));
         collab.get(0).setMinimumSize(new Dimension(200, 26));
         collab.get(0).setPreferredSize(new Dimension(200, 26));
 
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
-        gridBagConstraints[0].gridy = 2;
+        gridBagConstraints[0].gridy = 5;
         jPanel1.add(collab.get(0), gridBagConstraints[0]);
 
         addColab = new JLabel();
@@ -143,11 +143,11 @@ public class Create extends javax.swing.JFrame {
             }
 
             private void addColabMouseEntered(MouseEvent evt) {
-                addColab.setText(" Add more colab");
+                addColab.setText(" Plus collaborateurs");
             }
 
             public void mouseClicked(MouseEvent e) {
-                collab.add(counter, new JTextField("..."));
+                collab.add(counter, new JTextField(""));
                 collab.get(counter).setMaximumSize(new Dimension(200, 26));
                 collab.get(counter).setMinimumSize(new Dimension(200, 26));
                 collab.get(counter).setPreferredSize(new Dimension(200, 26));
@@ -161,13 +161,14 @@ public class Create extends javax.swing.JFrame {
                 gridBagConstraints[0].gridx = 0;
                 gridBagConstraints[0].gridy = 7+counter;
                 jPanel1.add(addColab, gridBagConstraints[0]);
-                counter++;
-                jPanel1.repaint();
-                collab.get(counter).addFocusListener(new FocusAdapter() {
+                /*collab.get(counter).addFocusListener(new FocusAdapter() {
                     public void focusGained(FocusEvent e) {
                         collab.get(counter).setText("");
                     }
-                });
+                });*/
+                counter++;
+                jPanel1.repaint();
+
             }
         });
         gridBagConstraints[0] = new GridBagConstraints();
@@ -209,15 +210,15 @@ public class Create extends javax.swing.JFrame {
         gridBagConstraints[0].anchor = GridBagConstraints.PAGE_START;
         PanelProjet.add(projExistant, gridBagConstraints[0]);
 
-        codeProjet.setText("...");
+        codeProjet.setText("");
         codeProjet.setMaximumSize(new Dimension(200, 26));
         codeProjet.setMinimumSize(new Dimension(200, 26));
         codeProjet.setPreferredSize(new Dimension(200, 26));
-        codeProjet.addFocusListener(new FocusAdapter() {
+        /*codeProjet.addFocusListener(new FocusAdapter() {
             public void focusGained(FocusEvent e) {
                 codeProjet.setText("");
             }
-        });
+        });*/
 
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
@@ -263,7 +264,7 @@ public class Create extends javax.swing.JFrame {
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {
         ArrayList <String> nomColabString = new ArrayList<String>();
         for(int i=0;i<counter;i++){
-            if(!collab.get(i).getText().equals("...")){
+            if(!collab.get(i).getText().equals("")){
                 nomColabString.add(collab.get(i).getText());
             }
         }
