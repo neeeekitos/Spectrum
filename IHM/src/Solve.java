@@ -83,6 +83,9 @@ class Solve extends JFrame
 
         //set the size of frame
         this.setSize(300,200);
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((int) (dimension.getWidth() / 2 - 300/ 2),
+                (int) (dimension.getHeight() / 2 - 200/ 2));
 
 
         scrollpane = new JScrollPane(p);
