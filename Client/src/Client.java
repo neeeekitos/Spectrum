@@ -29,7 +29,7 @@ public class Client implements EcouteurConnection {
     private LinkedList<Projet> projets;
 
     public static void main(String[] args){
-        new Client("Nikita", "Nikita", "H");
+        new Client("Roman", "Nikita", "H");
     }
 
     public Client(String username, String prenom, String nom){
@@ -115,7 +115,7 @@ public class Client implements EcouteurConnection {
 
         this.getProjectByName(nomProjet).addMsg(new Message(sender, textMessage, date, getProjectByName(nomProjet)));
 
-        fenetre.printMsg("\r\n" + sender + " : " + textMessage);
+        fenetre.printMsg("@" + sender + " : "  + "\r\n" + textMessage, false);//false = not my message => will be placed on the left area
         System.out.println("message reçu : " + textMessage);
 
     }
@@ -123,7 +123,9 @@ public class Client implements EcouteurConnection {
     @Override
     public void disconnect(ConnectionExchange connection) {
         connection.disconnect();
-        fenetre.printMsg("Connection interrompue");
+        ImageIcon img = new ImageIcon("images/attention.png");
+        JOptionPane existingProject = new JOptionPane();
+        existingProject.showMessageDialog(null, "Connection interrompue", "Attention", JOptionPane.ERROR_MESSAGE, img);
     }
 
     @Override
@@ -199,6 +201,14 @@ public class Client implements EcouteurConnection {
         }
     }
 
+    public void ajouterCollab(String usernameCollab, int projetID){
+        try {
+            connection.addCollabInProject(usernameCollab, projetID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     /** Retourne l'instance Projet de l'utilisateur en le trouvant par le nom du projet fourni
      * @param name le nom du projet
      * @return projet l'instance Projet
@@ -267,13 +277,16 @@ public class Client implements EcouteurConnection {
         connection.sendString(str);
     }
 
-    /** Permet d'envoyer le message dans la BD et au serveur
-     * @param messages la liste de messages
+    /** Permet d'afficher la liste des messages dans JScrollPane dans la FenetreApp
+     * @param messages la liste de messages LinkedList
      */
     public synchronized void printMessages(LinkedList<Message> messages){
         //print dans un ordre inversé
         for (int i = messages.size() - 1; i>=0; i--) {
-            fenetre.printMsg("\r\n" + username + " : " + messages.get(i).getMessage());
+            //2th argument "myMessage" shows if it is my message (to be placed on the right area) or not
+            boolean myMessage = messages.get(i).getUsername().equals(username);
+            //si le message est le mien, on ne va pas afficher @username
+            fenetre.printMsg((!myMessage ? "@" + messages.get(i).getUsername() + " :" + "\r\n" : "") + messages.get(i).getMessage(), myMessage);
         }
     }
 }
