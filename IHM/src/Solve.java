@@ -34,11 +34,12 @@ class Solve extends JFrame
 
     public void init() {
 
+        getContentPane().setMinimumSize(new Dimension(300, 200));
 
         jLabel1 = new JLabel();
         jLabel1.setText("PROJETS");
         jLabel1.setHorizontalAlignment(JLabel.CENTER);
-        jLabel1.setPreferredSize(new Dimension(300, 40));
+        jLabel1.setMinimumSize(new Dimension(300, 40));
         getContentPane().setBackground(new Color(237, 246, 249));
 
         //create a panel
@@ -84,7 +85,7 @@ class Solve extends JFrame
         this.add(p);
 
         //set the size of frame
-        this.setSize(300,200);
+        this.setMinimumSize(new Dimension(300,200));
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((int) (dimension.getWidth() / 2 - 300/ 2),
                 (int) (dimension.getHeight() / 2 - 200/ 2));
@@ -95,7 +96,7 @@ class Solve extends JFrame
         create = new JLabel();
         create.setText("New Projet");
         create.setHorizontalAlignment(JLabel.CENTER);
-        create.setPreferredSize(new Dimension(300, 40));
+        create.setMinimumSize(new Dimension(300, 40));
         create.setCursor(new Cursor(Cursor.HAND_CURSOR));
         getContentPane().setBackground(new Color(237, 246, 249));
         create.addMouseListener(new MouseAdapter() {
