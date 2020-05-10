@@ -24,10 +24,9 @@ import static javax.swing.SwingConstants.CENTER;
  * @author vetegan
  */
 public class FenetreApp extends JFrame {
-    Client user;
-    /**
-     * Creates new form FenetreApp2
-     */
+    protected Client user;
+
+
     public FenetreApp(Client user) {
         this.user=user;
         initComponents();
