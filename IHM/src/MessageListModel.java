@@ -26,6 +26,13 @@ public class MessageListModel extends AbstractListModel<ListItem> {
         return true;
     }
 
+    public void removeAll() {
+        System.out.println(list.size());
+        for (int i=0; i<list.size(); i++) {
+            remove(i);
+        }
+    }
+
     public void remove(int index) {
         list.remove(index);
         fireIntervalRemoved(this, index, index);

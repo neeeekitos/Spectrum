@@ -60,9 +60,10 @@ public class Create extends javax.swing.JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        this.setMaximumSize(new Dimension(562,450));
-        this.setMinimumSize(new Dimension(562,450));
-        this.setPreferredSize(new Dimension(562,450));
+        getContentPane().setMaximumSize(new Dimension(562,450));
+
+        getContentPane().setMinimumSize(new Dimension(562,450));
+        getContentPane().setPreferredSize(new Dimension(562,450));
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((int) (dimension.getWidth() / 2 - 562/ 2),
                 (int) (dimension.getHeight() / 2 - 450 / 2));
@@ -239,9 +240,9 @@ public class Create extends javax.swing.JFrame {
 
         getContentPane().add(top);
 
-        bottom.setMaximumSize(new Dimension(562, 30));
-        bottom.setMinimumSize(new Dimension(562, 30));
-        bottom.setPreferredSize(new Dimension(562, 30));
+        bottom.setMaximumSize(new Dimension(562, 54));
+        bottom.setMinimumSize(new Dimension(562, 54));
+        bottom.setPreferredSize(new Dimension(562, 54));
         bottom.setLayout(new GridBagLayout());
 
         valider.setText("Valider");
@@ -263,48 +264,16 @@ public class Create extends javax.swing.JFrame {
 
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {
         ArrayList <String> nomColabString = new ArrayList<String>();
-        for(int i=0;i<counter;i++){
+        for(int i=0;i<=counter;i++){
             if(!collab.get(i).getText().equals("")){
+                System.out.println(collab.get(i).getText());
                 nomColabString.add(collab.get(i).getText());
             }
         }
-        nomColabString.add(user.getUsername());
-        user.createProject(nom.getText(),nomColabString);
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Create.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Create.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Create.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Create.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        if (!nomColabString.contains(user.getUsername())) {
+            nomColabString.add(user.getUsername());
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Create(new Client("JAJAJA","hihihi","LALALA")).setVisible(true);
-            }
-        });
+        user.createProject(nom.getText(),nomColabString);
     }
 
     // Variables declaration - do not modify

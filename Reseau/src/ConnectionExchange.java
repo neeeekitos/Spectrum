@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.xml.ws.handler.LogicalHandler;
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
@@ -91,7 +92,7 @@ public class ConnectionExchange {
     public static synchronized Connection connectToDb() {
         Connection connDb = null;
         try {
-            String url = "jdbc:mysql://localhost:4489/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:3306/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
             connDb = DriverManager.getConnection(url, "root", "root");
             System.out.println("Connecté à la BD");
 
@@ -112,14 +113,24 @@ public class ConnectionExchange {
         result = preparedStmt.executeQuery();
 
         //verifions si on a qqch dans un result
-        if (result != null) {
+        if (result.next()) {
 
             String usernameDb = result.getString(2);
             String passwordDb = result.getString(5);
 
             if (password.equals(passwordDb)) {
                 JOptionPane.showMessageDialog(null,"Connexion réussie ! ","Success",JOptionPane.PLAIN_MESSAGE);
-                new Client(username, result.getString(3), result.getString(4));
+                String prenom = result.getString(3);
+                String nom = result.getString(4);
+
+                //Comme on ne peut pas appeler invokeAndWait(dans la classe client) de thread EDT
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Client(username, prenom, nom);
+                    }
+                }).start();
+
             } else {
                 JOptionPane.showMessageDialog(null,"Mot de passe incorrect ! ","Error",1);
             }
@@ -156,7 +167,7 @@ public class ConnectionExchange {
             preparedStmt.setString(4, password);
 
             // executer
-            return preparedStmt.execute();
+            return(preparedStmt.execute());
         } else { return false; }
     }
 
@@ -206,6 +217,9 @@ public class ConnectionExchange {
             Projet projet = new Projet(projectID, nomProjet, collaborateurs, new LinkedList<>());
             projets.add(projet);
             System.out.println(nomProjet);
+
+            //vider l'ArrayList pour ajouter des collaborateurs des autres projets
+            collaborateurs = new ArrayList<>();
         }
         System.out.println("=================================");
         return projets;
@@ -282,7 +296,7 @@ public class ConnectionExchange {
      * @throws SQLException si jamais on a un problème avec la BD
      */
     public synchronized void addProjectToDB(Projet projet) throws SQLException {
-        //vérifions si le projet n'est pas encore dans la BD
+        //vérifions si le projet n'est pas encore dans la BD associé avec notre utilisateur qui appelle cette méthode
         boolean checkCollabPresent = checkProjectExists(username, projet.getId());
         if (!checkCollabPresent) {
             //création d'insert statement
@@ -333,7 +347,7 @@ public class ConnectionExchange {
         preparedStmt.setInt(2, projectID);
         resultCheck = preparedStmt.executeQuery();
         System.out.println("ce membre est présent dans le projet déjà: " + resultCheck.next());
-        return resultCheck.next(); //true si projet n'existe pas pour cet username
+        return resultCheck.next(); //false si projet n'existe pas pour cet username
     }
 
     /** Permet d'envoyer le message dans la BD et au serveur

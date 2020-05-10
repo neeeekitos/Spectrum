@@ -29,7 +29,7 @@ public class Client implements EcouteurConnection {
     private LinkedList<Projet> projets;
 
     public static void main(String[] args){
-        new Client("Roman", "Nikita", "H");
+        new Client("mathieu", "Mathieu", "Thoreton");
     }
 
     public Client(String username, String prenom, String nom){
@@ -78,16 +78,7 @@ public class Client implements EcouteurConnection {
         }
 
         //charger les messages du 1er projet
-        if (projets.size() != 0) {
-            LinkedList<Message> messages = new LinkedList<>();
-            try {
-                messages = connection.updateMessages(projets.get(0));
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            projets.get(0).setMsgs(messages);
-            this.printMessages(messages);
-        }
+        loadMessages(projets.get(0));
 
 //        projets = new LinkedList<Projet>();
 //        ArrayList<String> collabs = new ArrayList<>();
@@ -184,7 +175,7 @@ public class Client implements EcouteurConnection {
 
         //nouveau projet + vérier si le nom est déjà présent dans la liste des projets de notre user
         Projet projet = new Projet(id, nom, collaborateurs, new LinkedList<>());
-        if (projets.contains(projet)) {
+        if (!projets.contains(projet)) {
             //ajouter dans DB
             try {
                 connection.addProjectToDB(projet);
@@ -206,6 +197,19 @@ public class Client implements EcouteurConnection {
             connection.addCollabInProject(usernameCollab, projetID);
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void loadMessages(Projet projet) {
+        if (projet != null) {
+            LinkedList<Message> messages = new LinkedList<>();
+            try {
+                messages = connection.updateMessages(projet);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            projet.setMsgs(messages);
+            this.printMessages(messages);
         }
     }
 

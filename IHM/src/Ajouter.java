@@ -228,31 +228,6 @@ public class Ajouter extends JFrame {
         bottom.add(valider, new GridBagConstraints());
 
         getContentPane().add(bottom);
-
-        valider.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-                if (!nomColab.equals("")) {
-                    user.ajouterCollab(nomColab.getText(), currentProjectID);
-                }
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 12;
-        gridBagConstraints.ipady = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(41, 171, 0, 0);
-        getContentPane().add(valider, gridBagConstraints);
-
-        logo_image.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        logo_image.setIcon(new ImageIcon(this.getClass().getResource("triangle.png")));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(29, 43, 27, 24);
-        getContentPane().add(logo_image, gridBagConstraints);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 

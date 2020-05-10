@@ -19,14 +19,11 @@ class Solve extends JFrame
 
     static JLabel create;
 
-    public static void main(String[] args){
-        new Solve(new Client("JAJAJA","hihihi","LALALA"));
-     }
+    private FenetreApp fen;
 
-    Client user;
 
-    public Solve(Client user){
-        this.user = user;
+    public Solve(FenetreApp fen){
+        this.fen = fen;
         this.init();
         this.setVisible(true);
     }
@@ -50,9 +47,9 @@ class Solve extends JFrame
 
         DefaultListModel listModel = new DefaultListModel();
 
-        for (int i = 0; i<user.getProjets().size(); i++) {
+        for (int i = 0; i<fen.user.getProjets().size(); i++) {
 
-            listModel.add(i,user.getProjets().get(i).getNom() );
+            listModel.add(i,fen.user.getProjets().get(i).getNom() );
 
         }
 
@@ -62,13 +59,11 @@ class Solve extends JFrame
         MouseListener mouseListener = new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 1) {
-
-
                     String selectedItem = (String) b.getSelectedValue();
                     // add selectedItem to your second list.
                     DefaultListModel model = (DefaultListModel) b.getModel();
-                    System.out.println("on a selectionée "+ selectedItem);
-
+                    System.out.println("on a selectioné "+ selectedItem);
+                    fen.updateProjetActif(selectedItem);
                 }
             }
         };
@@ -101,7 +96,7 @@ class Solve extends JFrame
         getContentPane().setBackground(new Color(237, 246, 249));
         create.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
-                new Create(user).setVisible(true);
+                new Create(fen.user).setVisible(true);
             }
         });
 

@@ -114,31 +114,6 @@ public class FenetreApp extends JFrame {
         panelCalendar.add(username);
         panelCalendar.add(Box.createRigidArea(new Dimension(0,70)));
 
-
-        /*GroupLayout panelCalendarLayout = new GroupLayout(panelCalendar);
-        panelCalendar.setLayout(panelCalendarLayout);
-        panelCalendarLayout.setHorizontalGroup(
-                panelCalendarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(panelCalendarLayout.createSequentialGroup()
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panelCalendarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addGroup(panelCalendarLayout.createSequentialGroup()
-                                                .addComponent(username)
-                                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(GroupLayout.Alignment.LEADING, panelCalendarLayout.createSequentialGroup()
-                                                .addComponent(name)
-                                                .addContainerGap())))
-        );
-        panelCalendarLayout.setVerticalGroup(
-                panelCalendarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(panelCalendarLayout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(name)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(username)
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );*/
-
         getContentPane().add(panelCalendar);
 
 
@@ -154,6 +129,8 @@ public class FenetreApp extends JFrame {
         projectName.setFont(new Font("Arial", 3, 24));
         if (user.getProjets().size() != 0) {
             projectName.setText(user.getProjets().get(0).getNom());
+        } else {
+            projectName.setText("");
         }
         projectName.setHorizontalAlignment(JLabel.CENTER);
         projectName.setMaximumSize(new Dimension(690, 50));
@@ -239,7 +216,7 @@ public class FenetreApp extends JFrame {
             }
         });
 
-        ajouterColab.setText("Ajouter un colaborator");
+        ajouterColab.setText("Ajouter collaborateurs");
         ajouterColab.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 ajouterColabMouseClicked(evt);
@@ -296,12 +273,9 @@ public class FenetreApp extends JFrame {
 
 
 
-        DefaultListModel listModel = new DefaultListModel();
+        listModel = new DefaultListModel();
 
-
-        for(int j=0; j<(user.getProjectByName(projectName.getText()).getArrayCollaborateurs().size());j++) {
-            listModel.add(j,user.getProjectByName(projectName.getText()).getArrayCollaborateurs().get(j));
-        }
+        updateCollaborateurs();
 
         b = new JList(listModel);
         p = new JPanel();
@@ -328,7 +302,13 @@ public class FenetreApp extends JFrame {
     }
 
     private void ajouterColabMouseClicked(java.awt.event.MouseEvent evt) {
-        new Ajouter(user, user.getProjectByName(projectName.getText()).getId()).setVisible(true);
+        if (!projectName.getText().equals("")) {
+            new Ajouter(user, user.getProjectByName(projectName.getText()).getId()).setVisible(true);
+        } else {
+            ImageIcon img = new ImageIcon("images/attention.png");
+            JOptionPane usernameFalse = new JOptionPane();
+            usernameFalse.showMessageDialog(null, "Vous n'avez pas projets actifs", "Attention",JOptionPane.ERROR_MESSAGE, img);
+        }
     }
 
     private void attachMouseClicked(java.awt.event.MouseEvent evt) {
@@ -362,7 +342,7 @@ public class FenetreApp extends JFrame {
     }
 
     private void projetMouseClicked(java.awt.event.MouseEvent evt) {
-        new Solve(user).setVisible(true);
+        new Solve(this).setVisible(true);
     }
 
 
@@ -393,6 +373,32 @@ public class FenetreApp extends JFrame {
         }
     }
 
+    public void updateProjetActif(String nomProjetActif) {
+        //changer le JLabel
+        projectName.setText(nomProjetActif);
+
+        //changer les collaborateurs
+       updateCollaborateurs();
+
+       //effacer les messages
+        addedItems = new MessageListModel();
+        list.setModel(addedItems);
+
+       //charger les messages
+        user.loadMessages(user.getProjectByName(nomProjetActif));
+
+    }
+
+    public void updateCollaborateurs() {
+        listModel.removeAllElements();
+        String projetString=projectName.getText();
+        if (!projetString.equals("")) {
+            for (int j = 0; j < (user.getProjectByName(projectName.getText()).getArrayCollaborateurs().size()); j++) {
+                listModel.add(j, user.getProjectByName(projectName.getText()).getArrayCollaborateurs().get(j));
+            }
+        }
+    }
+
     //Declaration des variables
 
     private JTextArea msgArea;
@@ -415,6 +421,7 @@ public class FenetreApp extends JFrame {
     private JScrollPane scrollMessages;
     private JLabel spectrum;
     private JLabel username;
+    private DefaultListModel listModel;
 
     private MessageListModel addedItems;
     private JList<ListItem> list;

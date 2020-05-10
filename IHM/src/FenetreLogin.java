@@ -324,7 +324,8 @@ public class FenetreLogin extends JFrame {
 
         backToSignIn.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         backToSignIn.setForeground(new java.awt.Color(255, 255, 255));
-        backToSignIn.setText("back to sign in");
+        backToSignIn.setText("To sign in");
+        backToSignIn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         backToSignIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backToSignInMouseClicked(evt);
@@ -421,9 +422,8 @@ public class FenetreLogin extends JFrame {
     }//GEN-LAST:event_usernameFieldMouseClicked
 
     private void backToSignInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToSignInMouseClicked
-      // new FenetreSignin();
-      // FenetreSignin().setVisible(true);
-     //  this.JFrame.EXIT_ON_CLOSE();
+      new FenetreSignin().setVisible(true);
+      this.dispose();
 
     }//GEN-LAST:event_backToSignInMouseClicked
 
@@ -433,6 +433,7 @@ public class FenetreLogin extends JFrame {
 
         try {
             ConnectionExchange.loginDb(username, password);
+            this.dispose();
         } catch (SQLException e) {
             e.printStackTrace();
         }
