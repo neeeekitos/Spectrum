@@ -80,16 +80,16 @@ public class FenetreLogin extends JFrame {
         jLabel13 = new javax.swing.JLabel();
         backToSignIn = new javax.swing.JLabel();
 
-        jTextArea1.setColumns(20);
+       /* jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n In tristique, urna consequat vestibulum accumsan, leo\n diam pharetra tortor, ut dictum velit nibh eget velit. \nQuisque felis arcu, finibus non sodales a, laoreet eget \nmetus. Nunc faucibus imperdiet condimentum. Aenean \nlobortis gravida nulla, non mollis quam malesuada eget.\n Pellentesque quis arcu est. Phasellus consectetur augue\n nec arcu cursus, at aliquet elit dignissim. Vivamus \nauctor lectus in ipsum malesuada efficitur. Praesent\n egestas faucibus nunc, sed mollis velit mattis eu.\n Suspendisse tincidunt aliquam ante. In diam urna,\n porta non scelerisque eget, ultricies ut ante. Fusce\n dapibus massa ut faucibus lacinia. Quisque ut congue\n felis. Ut nibh velit, imperdiet vel quam non, rutrum\n pulvinar enim. Vivamus sit amet luctus diam.\n Aenean et quam sed justo iaculis tincidunt.\n\nCras ultrices augue sed felis faucibus, sit amet\n ornare urna pellentesque. Nam et ligula eros.\n Morbi velit magna, rutrum a dui id, maximus\n fermentum neque. In ac nulla mi. Sed pellentesque\n finibus aliquam. Vestibulum nec libero fringilla,\n fermentum ipsum ut, mollis dui. Suspendisse vulputate\n lacus quis metus rhoncus euismod. Pellentesque\n scelerisque, urna in ornare pretium, orci justo\n volutpat nisi, tincidunt dignissim magna velit\n eget lectus. Curabitur eu fringilla felis,\n eget dignissim nulla.\n\nMauris elit dolor, congue vitae leo sed, tempus\n ullamcorper nulla. Nulla a convallis diam, vel \naliquet odio. Suspendisse sed risus nisl. Sed vel\n leo id risus aliquam bibendum in id dolor. Quisque\n et augue eget magna volutpat lobortis. Morbi sed\n varius felis. Curabitur quis semper tellus. \nSuspendisse potenti. Donec id malesuada ante,\n id sollicitudin velit. Nullam ut lacus sed nunc \nscelerisque accumsan. Aenean sit amet quam non justo\n interdum fringilla. Phasellus interdum, dui sit \namet bibendum consectetur, magna turpis commodo erat,\n at elementum neque arcu ac lorem. Morbi ac dolor in\n odio ultricies tincidunt.\n\nPhasellus ac odio in odio elementum vulputate. \nPellentesque eu elit non urna eleifend tincidunt vitae\n ut massa. Praesent non maximus purus, ut viverra risus. \nNam finibus feugiat tortor, quis tincidunt ante ultrices \nquis. Donec tempus sem auctor pharetra vehicula. Phasellus\n et massa quam. Pellentesque habitant morbi tristique senectus \net netus et malesuada fames ac turpis egestas. Ut ullamcorper\n nulla a luctus blandit. Pellentesque eu nisi malesuada,\n bibendum mauris vel, laoreet felis. Curabitur facilisis quam\n erat, eu elementum massa euismod a.");
-        jScrollPane1.setViewportView(jTextArea1);
+        jScrollPane1.setViewportView(jTextArea1);*/
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        /*jLabel8.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Legal terms and conditions");
+        jLabel8.setText("Legal terms and conditions");*/
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,16 +154,6 @@ public class FenetreLogin extends JFrame {
 
         jButtonOk2.setText("OK");
         jButtonOk2.setPreferredSize(new java.awt.Dimension(50, 30));
-        jButtonOk2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonOk2MouseClicked(evt);
-            }
-        });
-        jButtonOk2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonOk2ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -218,11 +208,6 @@ public class FenetreLogin extends JFrame {
                 jButtonOkMouseClicked(evt);
             }
         });
-        jButtonOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonOkActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -275,21 +260,6 @@ public class FenetreLogin extends JFrame {
         jLabel2.setOpaque(false);
 
         usernameField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        usernameField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                usernameFieldMouseClicked(evt);
-            }
-        });
-        usernameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fusernameFieldActionPerformed(evt);
-            }
-        });
-        usernameField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                usernameFieldKeyPressed(evt);
-            }
-        });
 
         LoginButton.setBackground(new java.awt.Color(102, 204, 255));
         LoginButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
@@ -308,15 +278,10 @@ public class FenetreLogin extends JFrame {
             }
         });
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Password");
+        jLabel9.setText("Mot passe");
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -324,7 +289,7 @@ public class FenetreLogin extends JFrame {
 
         backToSignIn.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         backToSignIn.setForeground(new java.awt.Color(255, 255, 255));
-        backToSignIn.setText("To sign in");
+        backToSignIn.setText("Vers Sign in");
         backToSignIn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         backToSignIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -400,34 +365,16 @@ public class FenetreLogin extends JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
-
     private void LoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginButtonMouseClicked
-
         System.exit(0);
     }//GEN-LAST:event_LoginButtonMouseClicked
-
-    private void usernameFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameFieldKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameFieldKeyPressed
-
-    private void fusernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameFieldActionPerformed
-
-    private void usernameFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameFieldMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameFieldMouseClicked
 
     private void backToSignInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToSignInMouseClicked
       new FenetreSignin().setVisible(true);
       this.dispose();
+    }
 
-    }//GEN-LAST:event_backToSignInMouseClicked
-
-    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
+    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {
         String username = usernameField.getText();
         String password = new String(jPasswordField1.getPassword());
 
@@ -437,52 +384,16 @@ public class FenetreLogin extends JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_LoginButtonActionPerformed
+    }
 
-    private void jButtonOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonOkMouseClicked
+    private void jButtonOkMouseClicked(java.awt.event.MouseEvent evt) {
         System.exit(0);
-    }//GEN-LAST:event_jButtonOkMouseClicked
-
-    private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonOkActionPerformed
-
-    private void jButtonOk2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonOk2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonOk2MouseClicked
-
-    private void jButtonOk2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOk2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonOk2ActionPerformed
-
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FenetreSignin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FenetreSignin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FenetreSignin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FenetreSignin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

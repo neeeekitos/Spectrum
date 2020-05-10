@@ -228,6 +228,7 @@ public class Ajouter extends JFrame {
         bottom.add(valider, new GridBagConstraints());
 
         getContentPane().add(bottom);
+        setResizable(false);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 

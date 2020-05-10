@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.awt.*;
 import java.util.LinkedList;
 import javax.swing.*;
-class Solve extends JFrame
+class Projets extends JFrame
 {
 
     //frame
@@ -22,7 +22,7 @@ class Solve extends JFrame
     private FenetreApp fen;
 
 
-    public Solve(FenetreApp fen){
+    public Projets(FenetreApp fen){
         this.fen = fen;
         this.init();
         this.setVisible(true);

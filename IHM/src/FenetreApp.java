@@ -8,16 +8,10 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.io.File;
-import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
-import static javax.swing.SwingConstants.CENTER;
 
 /**
  *
@@ -65,12 +59,12 @@ public class FenetreApp extends JFrame {
         jTextField1 = new RoundJTextField(20);
         attach = new JLabel();
         panel_rigth = new JPanel();
-        jLabel3 = new JLabel();
         logo_image = new JLabel();
         spectrum = new JLabel();
         projet = new JLabel();
         ajouterColab = new JButton();
         msgArea = new JTextArea();
+        design = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));
@@ -98,7 +92,7 @@ public class FenetreApp extends JFrame {
         getContentPane().add(panel1);
 
         panelCalendar.setBackground(new Color(69, 123, 157));
-        panelCalendar.setMaximumSize(new Dimension(180, 800));
+        panelCalendar.setMaximumSize(new Dimension(180, 2000));
         panelCalendar.setMinimumSize(new Dimension(180, 800));
         panelCalendar.setPreferredSize(new Dimension(180, 800));
         panelCalendar.setLayout(new BoxLayout(panelCalendar, BoxLayout.Y_AXIS));
@@ -222,14 +216,18 @@ public class FenetreApp extends JFrame {
                 ajouterColabMouseClicked(evt);
             }
         });
+        design.setIcon(new ImageIcon(this.getClass().getResource("design.png")));
+        design.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        design.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                designMouseClicked(evt);
+            }
+        });
 
         GroupLayout panel_rigthLayout = new GroupLayout(panel_rigth);
         panel_rigth.setLayout(panel_rigthLayout);
         panel_rigthLayout.setHorizontalGroup(
                 panel_rigthLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(panel_rigthLayout.createSequentialGroup()
-                                .addGap(568, 568, 568)
-                                .addComponent(jLabel3))
                         .addGroup(panel_rigthLayout.createSequentialGroup()
                                 .addGap(77, 77, 77)
                                 .addComponent(logo_image))
@@ -242,12 +240,14 @@ public class FenetreApp extends JFrame {
                         .addGroup(panel_rigthLayout.createSequentialGroup()
                                 .addGap(60, 60, 60)
                                 .addComponent(projet))
+                        .addGroup(panel_rigthLayout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(design))
         );
         panel_rigthLayout.setVerticalGroup(
                 panel_rigthLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(panel_rigthLayout.createSequentialGroup()
                                 .addGap(46, 46, 46)
-                                .addComponent(jLabel3)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(logo_image)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
@@ -256,22 +256,20 @@ public class FenetreApp extends JFrame {
                                 .addComponent(ajouterColab)
                                 .addGap(18, 18, 18)
                                 .addComponent(projet)
+                                .addGap(30, 30, 30)
+                                .addComponent(design)
                                 .addContainerGap(592, Short.MAX_VALUE))
         );
 
 
+        getContentPane().add(panel_rigth);
+
         //Layout  background
         JLabel colab = new JLabel("Collaborateurs:",JLabel.LEFT);
-        //colab.setBorder(BorderFactory.createLineBorder(Color.red, 5));
         colab.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        //colab.setMaximumSize(new java.awt.Dimension(180, 30));
-        //colab.setMinimumSize(new java.awt.Dimension(180, 30));
-        //colab.setPreferredSize(new java.awt.Dimension(180, 30));
 
         panelCalendar.add(colab, Component.LEFT_ALIGNMENT);
         panelCalendar.add(Box.createRigidArea(new Dimension(0,10)));
-
-
 
         listModel = new DefaultListModel();
 
@@ -289,9 +287,6 @@ public class FenetreApp extends JFrame {
         //p.setBorder(BorderFactory.createLineBorder(Color.red, 5));
 
         panelCalendar.add(p,Component.LEFT_ALIGNMENT); //
-
-
-        getContentPane().add(panel_rigth);
 
         pack();
     }// </editor-fold>
@@ -313,7 +308,7 @@ public class FenetreApp extends JFrame {
 
     private void attachMouseClicked(java.awt.event.MouseEvent evt) {
         JFileChooser fileChooser =  new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter( " 4 Extensions Supported", "jpg", "png", "jpeg", "gif");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter( " 4 Extensions Supported", "jpg", "png", "jpeg", "gif", "pdf");
         fileChooser.setFileFilter(filter);
         int selected = fileChooser.showOpenDialog(null);
         if(selected == JFileChooser.APPROVE_OPTION){
@@ -325,6 +320,9 @@ public class FenetreApp extends JFrame {
         }
     }
 
+    private void designMouseClicked(java.awt.event.MouseEvent evt) {
+
+    }
 
     private void sendMouseClicked(java.awt.event.MouseEvent evt) {
         String msg= jTextField1.getText();
@@ -342,7 +340,7 @@ public class FenetreApp extends JFrame {
     }
 
     private void projetMouseClicked(java.awt.event.MouseEvent evt) {
-        new Solve(this).setVisible(true);
+        new Projets(this).setVisible(true);
     }
 
 
@@ -407,7 +405,6 @@ public class FenetreApp extends JFrame {
     private JLabel  send;
     private JButton exitButton;
     private JLabel   attach;
-    private JLabel jLabel3;
     private JPanel jPanel1;
     private RoundJTextField jTextField1;
     private JLabel logo_image;
@@ -422,7 +419,7 @@ public class FenetreApp extends JFrame {
     private JLabel spectrum;
     private JLabel username;
     private DefaultListModel listModel;
-
+    private JLabel design;
     private MessageListModel addedItems;
     private JList<ListItem> list;
 
