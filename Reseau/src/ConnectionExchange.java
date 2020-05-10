@@ -91,7 +91,7 @@ public class ConnectionExchange {
     public static synchronized Connection connectToDb() {
         Connection connDb = null;
         try {
-            String url = "jdbc:mysql://localhost:3306/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:4489/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
             connDb = DriverManager.getConnection(url, "root", "root");
             System.out.println("Connecté à la BD");
 
@@ -347,7 +347,7 @@ public class ConnectionExchange {
         PreparedStatement preparedStmt = connDb.prepareStatement(requete);
         result = preparedStmt.executeQuery();
 
-        if (result != null) {
+        if (result.next()) {
             lastProjectID = result.getInt("projectID");
         }
 

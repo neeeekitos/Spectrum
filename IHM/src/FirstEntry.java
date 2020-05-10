@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import java.awt.*;
+
 /**
  *
  * @author vetegan
@@ -36,6 +38,9 @@ public class FirstEntry extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         this.setMaximumSize(new java.awt.Dimension(400, 290));
         this.setMinimumSize(new java.awt.Dimension(400, 290));
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((int) (dimension.getWidth() / 2 - 400/ 2),
+                (int) (dimension.getHeight() / 2 - 290/ 2));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         text1.setText("Bonjour,");

@@ -5,6 +5,7 @@
  */
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
@@ -43,9 +44,15 @@ public class Ajouter extends JFrame {
         logo_image = new JLabel();
 
 
-        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         this.setMaximumSize(new java.awt.Dimension(439, 323));
         this.setMinimumSize(new java.awt.Dimension(439, 323));
+
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((int) (dimension.getWidth() / 2 - 439/ 2),
+                (int) (dimension.getHeight() / 2 - 323 / 2));
+
+        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         collaborateurs.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N

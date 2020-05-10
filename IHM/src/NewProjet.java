@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import java.awt.*;
+
 /**
  *
  * @author vetegan
@@ -32,7 +34,11 @@ public class NewProjet extends javax.swing.JFrame {
         logo_image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(400, 284));
         setMaximumSize(new java.awt.Dimension(400, 284));
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((int) (dimension.getWidth() / 2 - 400/ 2),
+                (int) (dimension.getHeight() / 2 - 284 / 2));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         projets.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -93,7 +99,7 @@ public class NewProjet extends javax.swing.JFrame {
     }//GEN-LAST:event_projetsPropertyChange
 
     private void nouveauProjetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nouveauProjetActionPerformed
-        new Create().setVisible(true);
+       // new Create(user).setVisible(true);
     }//GEN-LAST:event_nouveauProjetActionPerformed
 
     /**

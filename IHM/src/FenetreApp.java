@@ -7,12 +7,17 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.RoundRectangle2D;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import static javax.swing.SwingConstants.CENTER;
 
 /**
  *
@@ -57,7 +62,7 @@ public class FenetreApp extends JFrame {
         projectName = new JLabel();
         PanelSend = new JPanel();
         send = new JLabel();
-        jTextField1 = new JTextField();
+        jTextField1 = new RoundJTextField(20);
         attach = new JLabel();
         panel_rigth = new JPanel();
         jLabel3 = new JLabel();
@@ -70,13 +75,16 @@ public class FenetreApp extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));
         this.setMinimumSize(new Dimension(1150, 810));
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((int) (dimension.getWidth() / 2 - 1150/ 2),
+                (int) (dimension.getHeight() / 2 - 810 / 2));
 
         panel1.setBackground(new Color(26, 49, 81));
         panel1.setMaximumSize(new Dimension(80, 1800));
         panel1.setMinimumSize(new Dimension(80, 800));
         panel1.setPreferredSize(new Dimension(80, 800));
         panel1.setRequestFocusEnabled(false);
-        panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 750));
+        panel1.setLayout(new BorderLayout(10, 750));
 
         exitButton.setIcon(new ImageIcon(this.getClass().getResource("exit.jpeg")));
         exitButton.addActionListener(new ActionListener() {
@@ -85,14 +93,17 @@ public class FenetreApp extends JFrame {
             }
         });
 
-        panel1.add(exitButton);
+        panel1.add(exitButton,BorderLayout.PAGE_END);
 
         getContentPane().add(panel1);
 
         panelCalendar.setBackground(new Color(69, 123, 157));
-        panelCalendar.setMaximumSize(new Dimension(180, 1800));
+        panelCalendar.setMaximumSize(new Dimension(180, 800));
         panelCalendar.setMinimumSize(new Dimension(180, 800));
         panelCalendar.setPreferredSize(new Dimension(180, 800));
+        panelCalendar.setLayout(new BoxLayout(panelCalendar, BoxLayout.Y_AXIS));
+
+        panelCalendar.add(Box.createRigidArea(new Dimension(0,60)));
 
         name.setFont(new Font("Arial", 1, 18)); // NOI18N
         name.setText(user.getNom()+" "+user.getPrenom());
@@ -103,6 +114,8 @@ public class FenetreApp extends JFrame {
             public void caretPositionChanged(InputMethodEvent evt) {
             }
         });
+        panelCalendar.add(name);
+
 
         username.setText("@"+user.getUsername());
         username.addInputMethodListener(new InputMethodListener() {
@@ -112,8 +125,11 @@ public class FenetreApp extends JFrame {
             public void caretPositionChanged(InputMethodEvent evt) {
             }
         });
+        panelCalendar.add(username);
+        panelCalendar.add(Box.createRigidArea(new Dimension(0,70)));
 
-        GroupLayout panelCalendarLayout = new GroupLayout(panelCalendar);
+
+        /*GroupLayout panelCalendarLayout = new GroupLayout(panelCalendar);
         panelCalendar.setLayout(panelCalendarLayout);
         panelCalendarLayout.setHorizontalGroup(
                 panelCalendarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -135,12 +151,11 @@ public class FenetreApp extends JFrame {
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(username)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        );*/
 
         getContentPane().add(panelCalendar);
 
-        // panelCentral.setMaximumSize(new java.awt.Dimension(690, 800));
-        // panelCentral.setMinimumSize(new java.awt.Dimension(690, 800));
+
         panelCentral.setPreferredSize(new Dimension(690, 800));
         panelCentral.setLayout(new BoxLayout(panelCentral, BoxLayout.Y_AXIS));
 
@@ -150,10 +165,11 @@ public class FenetreApp extends JFrame {
         jPanel1.setLayout(new BorderLayout());
         jPanel1.setBackground(new Color(224,224,226));
 
-        projectName.setFont(new Font("Arial", 3, 24)); // NOI18N
+        projectName.setFont(new Font("Arial", 3, 24));
         if (user.getProjets().size() != 0) {
             projectName.setText(user.getProjets().get(0).getNom());
         }
+        projectName.setHorizontalAlignment(JLabel.CENTER);
         projectName.setMaximumSize(new Dimension(690, 50));
         projectName.addInputMethodListener(new InputMethodListener() {
             public void inputMethodTextChanged(InputMethodEvent evt) {
@@ -208,6 +224,8 @@ public class FenetreApp extends JFrame {
                 jTextField1.setText("");
             }
         });
+        LineBorder lineBorder =new LineBorder(Color.white, 8, true);
+        jTextField1.setBorder(lineBorder );
 
         PanelSend.add(jTextField1);
 
@@ -239,7 +257,7 @@ public class FenetreApp extends JFrame {
 
         projet.setFont(new Font("Arial", 1, 18)); // NOI18N
         projet.setText(" Projets");
-        projet.setIcon(new ImageIcon(this.getClass().getResource("drop.png")));
+        projet.setIcon(new ImageIcon(this.getClass().getResource("droping.png")));
         projet.setCursor(new Cursor(Cursor.HAND_CURSOR));
         projet.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
@@ -294,6 +312,41 @@ public class FenetreApp extends JFrame {
                                 .addComponent(projet)
                                 .addContainerGap(592, Short.MAX_VALUE))
         );
+
+
+        //Layout  background
+        JLabel colab = new JLabel("Collaborateurs:",JLabel.LEFT);
+        //colab.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+        colab.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        //colab.setMaximumSize(new java.awt.Dimension(180, 30));
+        //colab.setMinimumSize(new java.awt.Dimension(180, 30));
+        //colab.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        panelCalendar.add(colab, Component.LEFT_ALIGNMENT);
+        panelCalendar.add(Box.createRigidArea(new Dimension(0,10)));
+
+
+
+        DefaultListModel listModel = new DefaultListModel();
+
+
+        for(int j=0; j<(user.getProjectByName(projectName.getText()).getArrayCollaborateurs().size());j++) {
+            listModel.add(j,user.getProjectByName(projectName.getText()).getArrayCollaborateurs().get(j));
+        }
+
+        b = new JList(listModel);
+        p = new JPanel();
+    //    p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
+
+        b.setSelectedIndex(0);
+        b.setBackground(new Color(69, 123, 157));
+
+        p.setBackground(new Color(69, 123, 157));
+        p.add(b);
+        //p.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+
+        panelCalendar.add(p,Component.LEFT_ALIGNMENT); //
+
 
         getContentPane().add(panel_rigth);
 
@@ -369,11 +422,30 @@ public class FenetreApp extends JFrame {
         addedItems.add(addedItems.getSize(), new ListItem(msg, myMessage));
     }
 
-    /**
-     * @param args the command line arguments
-     */
 
 
+    public class RoundJTextField extends JTextField {
+        private Shape shape;
+        public RoundJTextField(int size) {
+            super(size);
+            setOpaque(false); // As suggested by @AVD in comment.
+        }
+        protected void paintComponent(Graphics g) {
+            g.setColor(getBackground());
+            g.fillRoundRect(0, 0, getWidth()-1, getHeight()-1, 15, 15);
+            super.paintComponent(g);
+        }
+        protected void paintBorder(Graphics g) {
+            g.setColor(getForeground());
+            g.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 15, 15);
+        }
+        public boolean contains(int x, int y) {
+            if (shape == null || !shape.getBounds().equals(getBounds())) {
+                shape = new RoundRectangle2D.Float(0, 0, getWidth()-1, getHeight()-1, 15, 15);
+            }
+            return shape.contains(x, y);
+        }
+    }
     // Variables declaration - do not modify
     private JTextArea msgArea;
 
@@ -384,7 +456,7 @@ public class FenetreApp extends JFrame {
     private JLabel   attach;
     private JLabel jLabel3;
     private JPanel jPanel1;
-    private JTextField jTextField1;
+    private RoundJTextField jTextField1;
     private JLabel logo_image;
     private JLabel name;
     private JPanel panel1;
@@ -396,7 +468,12 @@ public class FenetreApp extends JFrame {
     private JScrollPane scrollMessages;
     private JLabel spectrum;
     private JLabel username;
+
     private MessageListModel addedItems;
     private JList<ListItem> list;
+
+    private JList b;
+    private JPanel p;
+
     // End of variables declaration
 }
