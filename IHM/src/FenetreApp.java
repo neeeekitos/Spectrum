@@ -107,24 +107,10 @@ public class FenetreApp extends JFrame {
 
         name.setFont(new Font("Arial", 1, 18)); // NOI18N
         name.setText(user.getNom()+" "+user.getPrenom());
-        name.addInputMethodListener(new InputMethodListener() {
-            public void inputMethodTextChanged(InputMethodEvent evt) {
-                nameInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(InputMethodEvent evt) {
-            }
-        });
         panelCalendar.add(name);
 
 
         username.setText("@"+user.getUsername());
-        username.addInputMethodListener(new InputMethodListener() {
-            public void inputMethodTextChanged(InputMethodEvent evt) {
-                usernameInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(InputMethodEvent evt) {
-            }
-        });
         panelCalendar.add(username);
         panelCalendar.add(Box.createRigidArea(new Dimension(0,70)));
 
@@ -171,13 +157,6 @@ public class FenetreApp extends JFrame {
         }
         projectName.setHorizontalAlignment(JLabel.CENTER);
         projectName.setMaximumSize(new Dimension(690, 50));
-        projectName.addInputMethodListener(new InputMethodListener() {
-            public void inputMethodTextChanged(InputMethodEvent evt) {
-                projectNameInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(InputMethodEvent evt) {
-            }
-        });
         jPanel1.add(projectName, BorderLayout.CENTER);
 
         panelCentral.add(jPanel1);
@@ -214,11 +193,6 @@ public class FenetreApp extends JFrame {
         jTextField1.setMaximumSize(new Dimension(600, 50));
         jTextField1.setMinimumSize(new Dimension(600, 50));
         jTextField1.setPreferredSize(new Dimension(600, 50));
-        jTextField1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
         jTextField1.addFocusListener(new FocusAdapter() {
             public void focusGained(FocusEvent e) {
                 jTextField1.setText("");
@@ -262,11 +236,6 @@ public class FenetreApp extends JFrame {
         projet.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 projetMouseClicked(evt);
-            }
-        });
-        projet.addPropertyChangeListener(new PropertyChangeListener() {
-            public void propertyChange(PropertyChangeEvent evt) {
-                projetPropertyChange(evt);
             }
         });
 
@@ -392,37 +361,14 @@ public class FenetreApp extends JFrame {
         }
     }
 
-    private void nameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-
-
-    }
-
-    private void usernameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-
-        // Change the username;
-    }
-
     private void projetMouseClicked(java.awt.event.MouseEvent evt) {
         new Solve(user).setVisible(true);
     }
 
-    private void projetPropertyChange(java.beans.PropertyChangeEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void projectNameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-        // TO DO add your handling code here:
-    }
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
 
     public synchronized void printMsg(String msg, boolean myMessage) {
         addedItems.add(addedItems.getSize(), new ListItem(msg, myMessage));
     }
-
-
 
     public class RoundJTextField extends JTextField {
         private Shape shape;
@@ -446,9 +392,10 @@ public class FenetreApp extends JFrame {
             return shape.contains(x, y);
         }
     }
-    // Variables declaration - do not modify
-    private JTextArea msgArea;
 
+    //Declaration des variables
+
+    private JTextArea msgArea;
     private JPanel PanelSend;
     private JButton ajouterColab;
     private JLabel  send;
@@ -474,6 +421,4 @@ public class FenetreApp extends JFrame {
 
     private JList b;
     private JPanel p;
-
-    // End of variables declaration
 }

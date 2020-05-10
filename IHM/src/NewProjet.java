@@ -44,17 +44,9 @@ public class NewProjet extends javax.swing.JFrame {
         projets.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         projets.setIcon(new javax.swing.ImageIcon("/Users/vetegan/Desktop/img_176810.png")); // NOI18N
         projets.setText("Mes Projets");
-        projets.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                projetsMouseClicked(evt);
-            }
-        });
+
         projets.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        projets.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                projetsPropertyChange(evt);
-            }
-        });
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -90,13 +82,6 @@ public class NewProjet extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void projetsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_projetsMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_projetsMouseClicked
-
-    private void projetsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_projetsPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_projetsPropertyChange
 
     private void nouveauProjetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nouveauProjetActionPerformed
        // new Create(user).setVisible(true);
