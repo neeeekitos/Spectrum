@@ -220,6 +220,7 @@ public class ConnectionExchange {
 
         String date;
         String textMsg;
+        String usernameMsg;
 
         String requete = "SELECT * FROM messages as m WHERE m.projectID=? ORDER BY msgID DESC";
 
@@ -236,7 +237,8 @@ public class ConnectionExchange {
             if (result.next()) {
                 textMsg = result.getString("message");
                 date = result.getString("dateMsg");
-                messages.add(new Message(username, textMsg, date, projet));
+                usernameMsg = result.getString("username");
+                messages.add(new Message(usernameMsg, textMsg, date, projet));
             }
         }
 

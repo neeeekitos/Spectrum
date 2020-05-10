@@ -10,6 +10,7 @@ import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -54,7 +55,6 @@ public class FenetreApp extends JFrame {
         panelCentral = new Panel();
         jPanel1 = new JPanel();
         projectName = new JLabel();
-        scrollMessages = new ScrollPane();
         PanelSend = new JPanel();
         send = new JLabel();
         jTextField1 = new JTextField();
@@ -167,6 +167,11 @@ public class FenetreApp extends JFrame {
         panelCentral.add(jPanel1);
         panelCentral.setBackground(new Color(224,224,226));
 
+        //Scroll panel avec des messages
+        addedItems = new MessageListModel();
+        list = new JList(addedItems);
+        list.setCellRenderer(new ListItemRenderer());
+        scrollMessages = new JScrollPane(list);
 
         scrollMessages.setMinimumSize(new Dimension(690, 540));
         scrollMessages.setPreferredSize(new Dimension(690, 540));
@@ -324,7 +329,7 @@ public class FenetreApp extends JFrame {
         if (!msg.equals("")){
             if(!projectName.getText().equals("")) {
                 user.sendMessage(msg, user.getProjectByName(projectName.getText()));
-                msgArea.append("\r\n" + user.getUsername() + " : " + msg);
+                this.printMsg(msg, true);
                 this.repaint();
             } else {
                 ImageIcon img = new ImageIcon("images/attention.png");
@@ -360,8 +365,8 @@ public class FenetreApp extends JFrame {
         // TODO add your handling code here:
     }
 
-    public synchronized void printMsg(String msg) {
-        msgArea.append(msg);
+    public synchronized void printMsg(String msg, boolean myMessage) {
+        addedItems.add(addedItems.getSize(), new ListItem(msg, myMessage));
     }
 
     /**
@@ -388,8 +393,10 @@ public class FenetreApp extends JFrame {
     private JPanel panel_rigth;
     private JLabel projectName;
     private JLabel projet;
-    private ScrollPane scrollMessages;
+    private JScrollPane scrollMessages;
     private JLabel spectrum;
     private JLabel username;
+    private MessageListModel addedItems;
+    private JList<ListItem> list;
     // End of variables declaration
 }
