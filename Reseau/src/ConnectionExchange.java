@@ -220,6 +220,7 @@ public class ConnectionExchange {
 
         String date;
         String textMsg;
+        String usernameMsg;
 
         String requete = "SELECT * FROM messages as m WHERE m.projectID=? ORDER BY msgID DESC";
 
@@ -236,7 +237,8 @@ public class ConnectionExchange {
             if (result.next()) {
                 textMsg = result.getString("message");
                 date = result.getString("dateMsg");
-                messages.add(new Message(username, textMsg, date, projet));
+                usernameMsg = result.getString("username");
+                messages.add(new Message(usernameMsg, textMsg, date, projet));
             }
         }
 
@@ -280,30 +282,58 @@ public class ConnectionExchange {
      * @throws SQLException si jamais on a un problème avec la BD
      */
     public synchronized void addProjectToDB(Projet projet) throws SQLException {
-        //création d'insert statement
-        String requete1 = " INSERT INTO projets (projectID, nom) VALUES (?, ?)";
-        PreparedStatement preparedStmt1 = connDb.prepareStatement(requete1);
-
-        // ajouter les valeurs sql insert
-        preparedStmt1.setInt(1, projet.getId());
-        preparedStmt1.setString(2, projet.getNom());
-
-        preparedStmt1.execute();
-
-        //ajouter dans un tableau projetAssociation
-        String requeteAssociation;
-        for (String usernameCollaborateur : projet.getArrayCollaborateurs()) {
-
+        //vérifions si le projet n'est pas encore dans la BD
+        boolean checkCollabPresent = checkProjectExists(username, projet.getId());
+        if (!checkCollabPresent) {
             //création d'insert statement
-            requeteAssociation= " INSERT INTO projetassociation (username, projectID) VALUES (?, ?)";
+            String requete1 = " INSERT INTO projets (projectID, nom) VALUES (?, ?)";
+            PreparedStatement preparedStmt1 = connDb.prepareStatement(requete1);
+
+            // ajouter les valeurs sql insert
+            preparedStmt1.setInt(1, projet.getId());
+            preparedStmt1.setString(2, projet.getNom());
+
+            preparedStmt1.execute();
+
+            //ajouter dans un tableau projetAssociation
+            for (String usernameCollaborateur : projet.getArrayCollaborateurs()) {
+                addCollabInProject(usernameCollaborateur, projet.getId());
+            }
+        }
+    }
+
+    public void addCollabInProject(String usernameCollaborateur, int projetID) throws SQLException{
+        //vérifions si le collab est déjà présent dans ce projet
+        boolean checkCollabPresent = checkProjectExists(usernameCollaborateur, projetID);
+        if (!checkCollabPresent) {
+            //création d'insert statement
+            String requeteAssociation = " INSERT INTO projetassociation (username, projectID) VALUES (?, ?)";
             PreparedStatement preparedStmt2 = connDb.prepareStatement(requeteAssociation);
 
             // ajouter les valeurs sql insert
             preparedStmt2.setString(1, usernameCollaborateur);
-            preparedStmt2.setInt(2, projet.getId());
+            preparedStmt2.setInt(2, projetID);
 
             preparedStmt2.execute();
+            System.out.println("l'utilisateur @" + usernameCollaborateur + " a été ajouté dans le projet id = " + projetID);
+        } else {
+            ImageIcon img = new ImageIcon("images/attention.png");
+            JOptionPane existingProject = new JOptionPane();
+            existingProject.showMessageDialog(null, "Ce membre est déjà présent dans de projet", "Attention", JOptionPane.ERROR_MESSAGE, img);
         }
+    }
+
+    public boolean checkProjectExists(String usernameToCheck, int projectID) throws SQLException {
+        ResultSet resultCheck;
+        //requete qui verifie si ce username est déjà utilisé
+        String requete1 = "SELECT * FROM projetassociation as p WHERE p.username=? AND p.projectID=?";
+
+        PreparedStatement preparedStmt = connDb.prepareStatement(requete1);
+        preparedStmt.setString(1, usernameToCheck);
+        preparedStmt.setInt(2, projectID);
+        resultCheck = preparedStmt.executeQuery();
+        System.out.println("ce membre est présent dans le projet déjà: " + resultCheck.next());
+        return resultCheck.next(); //true si projet n'existe pas pour cet username
     }
 
     /** Permet d'envoyer le message dans la BD et au serveur
