@@ -40,7 +40,7 @@ public class Client implements EcouteurConnection {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        new Client("mathieu", "Mathieu", "Thoreton");
+        new Client("vale", "Valentina", "Etegan");
     }
 
     public Client(String username, String prenom, String nom){
@@ -88,18 +88,9 @@ public class Client implements EcouteurConnection {
         }
 
         //charger les messages du 1er projet
-        if (projets.get(0) != null) {
+        if (projets.size() > 0) {
             loadMessages(projets.get(0));
         }
-
-        int date1 = (int) new Date().getTime()/1000;
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        int date2 = (int) new Date().getTime()/1000;
-        System.out.println( new Date().getTime()/1000 - date1);
     }
 
     @Override

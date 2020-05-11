@@ -262,7 +262,7 @@ public class Create extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {
-
+        //Ajouter un for pour verif si sont null
         // Ajouter les collaborateurs et le projet  dans la BD
         ArrayList <String> nomColabString = new ArrayList<String>();
         for(int i=0;i<=counter;i++){
@@ -280,7 +280,8 @@ public class Create extends javax.swing.JFrame {
         if(!codeProjet.getText().equals("")){
             DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
             String dateVerif = dateFormat.format(new Date());
-            new Code(codeProjet.getText(),dateVerif);
+            new Code(codeProjet.getText(),dateVerif).codeCompare(codeProjet.getText(), user);
+            this.dispose();
         }
 
     }

@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -51,7 +52,12 @@ public class Projet {
     }
 
     public void createCode(String code){
-        new Code(code,id);
+        Code c = new Code(code,id);
+        try {
+            ConnectionExchange.setCodeOnProject(c);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

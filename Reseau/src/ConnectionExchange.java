@@ -423,39 +423,38 @@ public class ConnectionExchange {
         return lastProjectID;
     }
 
-//    public static Code getCodeIfExists(String code) throws SQLException {
-//        ResultSet result;
-//        //requete qui verifie si ce username est déjà utilisé
-//        String requete1 = "SELECT * FROM codeprojets as c WHERE c.code=?";
-//
-//        PreparedStatement preparedStmt = connDb.prepareStatement(requete1);
-//        preparedStmt.setString(1, code);
-//        result = preparedStmt.executeQuery();
-//
-//        int projectID;
-//        String dateCreation = "";
-//
-//        if (result.next()) {
-//            result.getInt("projectID");
-//            result.getString("dateCreation");
-//            return new Code(code, dateCreation, projectID);
-//        }
-//
-//        return null; //returns null if no code
-//    }
+    public static Code getCodeIfExists(String code) throws SQLException {
+        Connection connDb = connectToDb();
+        ResultSet result;
+        //requete qui verifie si ce username est déjà utilisé
+        String requete1 = "SELECT * FROM codeprojets as c WHERE c.code=?";
 
-//    public static void setCodeOnProject(Code c) throws SQLException{
-//        Connection connDb = connectToDb();
-//        String requeteAssociation = " INSERT INTO codeprojets (projectID, code, dateCreation) VALUES (?, ?, ?)";
-//        PreparedStatement preparedStmt2 = connDb.prepareStatement(requeteAssociation);
-//
-//        // ajouter les valeurs sql insert
-//        preparedStmt2.setString(1, c.getProjectID());
-//        preparedStmt2.setInt(2, c.getCode());
-//        preparedStmt2.setInt(3, c.getDate());
-//
-//        preparedStmt2.execute();
-//        System.out.println("le code " + c.getCode() + " a été ajouté dans le projet id = " + c.projetID);
-//    }
-//
+        PreparedStatement preparedStmt = connDb.prepareStatement(requete1);
+        preparedStmt.setString(1, code);
+        result = preparedStmt.executeQuery();
+
+        String dateCreation = "";
+
+        if (result.next()) {
+            dateCreation = result.getString("dateCreation");
+            return new Code(code, dateCreation);
+        }
+
+        return null; //returns null if no code
+    }
+
+    public static void setCodeOnProject(Code c) throws SQLException{
+        Connection connDb = connectToDb();
+        String requeteAssociation = " INSERT INTO codeprojets (projectID, code, dateCreation) VALUES (?, ?, ?)";
+        PreparedStatement preparedStmt2 = connDb.prepareStatement(requeteAssociation);
+
+        // ajouter les valeurs sql insert
+        preparedStmt2.setInt(1, c.getProjectID());
+        preparedStmt2.setString(2, c.getCode());
+        preparedStmt2.setString(3, c.getDate());
+
+        preparedStmt2.execute();
+        System.out.println("le code " + c.getCode() + " a été ajouté dans le projet id = " + c.getProjectID());
+    }
+
 }
