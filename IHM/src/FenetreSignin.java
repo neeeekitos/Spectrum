@@ -336,6 +336,7 @@ public class FenetreSignin extends JFrame {
         backToLogin.setBackground(new java.awt.Color(231, 231, 231));
         backToLogin.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         backToLogin.setForeground(new java.awt.Color(255, 255, 255));
+        backToLogin.setCursor(new Cursor(Cursor.HAND_CURSOR));
         backToLogin.setText("back to login");
         backToLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -476,7 +477,7 @@ public class FenetreSignin extends JFrame {
     private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitButtonMouseClicked
         ImageIcon img = new ImageIcon("images/attention.png");
 
-
+        int counterConditions = 0; //Calcule et vérifie si toutes les conditions etaient respectées
         firstName = firstNameField.getText();
         lastName = lastNameField.getText();
         username = userNameField.getText();
@@ -490,9 +491,9 @@ public class FenetreSignin extends JFrame {
             notFilledOut.showMessageDialog(null, "Veuillez remplir toutes les informations", "Attention", JOptionPane.ERROR_MESSAGE, img);
 
         }else{
-
+            counterConditions++;
             if (Pattern.matches("^\\p{L}*$", firstNameField.getText())) {
-
+                counterConditions++;
             } else {
                 JOptionPane firstNameFalse = new JOptionPane();
                 firstNameFalse.showMessageDialog(null, "Votre prénom ne doit être composé que de lettres\n" , "Attention",JOptionPane.ERROR_MESSAGE, img);
@@ -501,7 +502,7 @@ public class FenetreSignin extends JFrame {
 
 
             if (Pattern.matches("^\\p{L}*$", lastNameField.getText())) {
-
+                counterConditions++;
             } else {
                 JOptionPane lastNameFalse = new JOptionPane();
                 lastNameFalse.showMessageDialog(null, "Votre nom ne doit être composé que de lettres\n" , "Attention",JOptionPane.ERROR_MESSAGE, img);
@@ -509,7 +510,7 @@ public class FenetreSignin extends JFrame {
             }
 
             if (Pattern.matches("^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\\.[a-z]{2,4}$", eMailField.getText())) {
-
+                counterConditions++;
             } else {
                 JOptionPane eMailFalse = new JOptionPane();
                 eMailFalse.showMessageDialog(null, "Votre adresse e-mail n'est pas conforme\n", "Attention", JOptionPane.ERROR_MESSAGE, img);
@@ -517,7 +518,7 @@ public class FenetreSignin extends JFrame {
 
 
             if (Pattern.matches("^[a-zA-Z0-9._-]{3,}$", userNameField.getText())) {
-
+                counterConditions++;
             } else {
                 JOptionPane usernameFalse = new JOptionPane();
                 usernameFalse.showMessageDialog(null, "Votre nom d'utilisateur doit suivre les règles suivantes : \n" +
@@ -527,6 +528,7 @@ public class FenetreSignin extends JFrame {
 
             }
             if(legalConCheckbox.isSelected()) {
+                counterConditions++;
             }else{
                 JOptionPane checkBoxNotChecked = new JOptionPane();
                 checkBoxNotChecked.showMessageDialog(null, "Veuillez accepter les conditions d'utilisations\n" , "Attention",JOptionPane.ERROR_MESSAGE, img);
@@ -534,7 +536,10 @@ public class FenetreSignin extends JFrame {
             }
 
             if (Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=\\S+$).{8,}$", password)) {
+                counterConditions++;
                 if(Arrays.equals(password1, password2))  {
+                    counterConditions++;
+                    System.out.println(counterConditions);
                 } else {
 
                     JOptionPane passwordDiff = new JOptionPane();
@@ -553,15 +558,16 @@ public class FenetreSignin extends JFrame {
 
         }
 
+        if (counterConditions==8) { //si on a passé 7 conditions
+            try {
+                ConnectionExchange.signinDB(firstName, lastName, username, password);
+                this.dispose();
 
+                new FenetreLogin().setVisible(true);
 
-
-
-        try {
-
-            ConnectionExchange.signinDB(firstName, lastName, username, password);
-        } catch (SQLException e) {
-            e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }//GEN-LAST:event_submitButtonMouseClicked
 
@@ -611,7 +617,8 @@ public class FenetreSignin extends JFrame {
     }//GEN-LAST:event_jPasswordField2ActionPerformed
 
     private void backToLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToLoginMouseClicked
-        // TODO add your handling code here:
+        new FenetreLogin().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_backToLoginMouseClicked
 
     private void jButtonOk1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonOk1MouseClicked

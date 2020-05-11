@@ -324,7 +324,8 @@ public class FenetreLogin extends JFrame {
 
         backToSignIn.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         backToSignIn.setForeground(new java.awt.Color(255, 255, 255));
-        backToSignIn.setText("back to sign in");
+        backToSignIn.setText("To sign in");
+        backToSignIn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         backToSignIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backToSignInMouseClicked(evt);
@@ -421,9 +422,8 @@ public class FenetreLogin extends JFrame {
     }//GEN-LAST:event_usernameFieldMouseClicked
 
     private void backToSignInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToSignInMouseClicked
-      // new FenetreSignin();
-      // FenetreSignin().setVisible(true);
-     //  this.JFrame.EXIT_ON_CLOSE();
+      new FenetreSignin().setVisible(true);
+      this.dispose();
 
     }//GEN-LAST:event_backToSignInMouseClicked
 
@@ -433,6 +433,7 @@ public class FenetreLogin extends JFrame {
 
         try {
             ConnectionExchange.loginDb(username, password);
+            this.dispose();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -459,30 +460,18 @@ public class FenetreLogin extends JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FenetreSignin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FenetreSignin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FenetreSignin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FenetreSignin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

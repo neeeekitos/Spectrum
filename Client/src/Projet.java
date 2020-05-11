@@ -9,12 +9,11 @@ public class Projet {
     private LinkedList <Message> messages;
     private ArrayList <String> collaborateurs;
 
-    public Projet(int id, String nom, ArrayList<String> collaborateurs){
+    public Projet(int id, String nom, ArrayList<String> collaborateurs, LinkedList<Message> messages){
         this.id=id;
         this.nom=nom;
         this.collaborateurs = collaborateurs;
-        this.messages = null;
-
+        this.messages = messages;
     }
 
     public LinkedList<Message> getMessages() {
@@ -35,5 +34,17 @@ public class Projet {
 
     public void setNom(String nom) { this.nom = nom; }
 
-    public void addMsg(Message msg) { messages.add(0, msg); }
+    public void setMsgs(LinkedList<Message> msg) { this.messages = msg; }
+
+    public void addMsg(Message message) { this.messages.add(message);}
+
+    public boolean equals(Object o){
+        if (! (o instanceof Projet)) return false;
+        Projet p = (Projet) o;
+        if (p.getNom().equals(this.getNom())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
