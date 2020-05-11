@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  *
  * @author lehma
@@ -15,6 +18,7 @@ public class FenetreConditions extends javax.swing.JFrame {
      */
     public FenetreConditions() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -26,121 +30,124 @@ public class FenetreConditions extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Conditions = new javax.swing.JFrame();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        conditions = new javax.swing.JFrame();
+        jPanelTopContainer = new javax.swing.JPanel();
+        jLabelTitle = new javax.swing.JLabel();
+        jLabelExit = new javax.swing.JLabel();
+        jScrollPaneLegalText = new javax.swing.JScrollPane();
+        jTextAreaLegalText = new javax.swing.JTextArea();
 
-        javax.swing.GroupLayout ConditionsLayout = new javax.swing.GroupLayout(Conditions.getContentPane());
-        Conditions.getContentPane().setLayout(ConditionsLayout);
-        ConditionsLayout.setHorizontalGroup(
-            ConditionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
-        );
-        ConditionsLayout.setVerticalGroup(
-            ConditionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
-        );
+        javax.swing.GroupLayout ConditionsLayout = new javax.swing.GroupLayout(conditions.getContentPane());
+
+        conditions.getContentPane().setLayout(ConditionsLayout);
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelTopContainer.setBackground(new java.awt.Color(102, 102, 102));
+        jPanelTopContainer.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Legal terms and conditions");
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jLabel8.setPreferredSize(new java.awt.Dimension(290, 35));
+        jLabelTitle.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitle.setText("Legal terms and conditions");
+        jLabelTitle.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelTitle.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jLabelTitle.setPreferredSize(new java.awt.Dimension(50, 35));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("X");
-        jLabel1.setToolTipText("");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelExit.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabelExit.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelExit.setText("X");
+        jLabelExit.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jLabelExit.setToolTipText("");
+        jLabelExit.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabelExit.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jLabelExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                jLabelExitMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelTopContainerLayout = new javax.swing.GroupLayout(jPanelTopContainer);
+        jPanelTopContainer.setLayout(jPanelTopContainerLayout);
+        jPanelTopContainerLayout.setHorizontalGroup(
+            jPanelTopContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTopContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 938, Short.MAX_VALUE)
+                .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 938, Short.MAX_VALUE)
                 .addGap(19, 19, 19)
-                .addComponent(jLabel1)
+                .addComponent(jLabelExit)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelTopContainerLayout.setVerticalGroup(
+            jPanelTopContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTopContainerLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(jPanelTopContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelExit))
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1);
+        getContentPane().add(jPanelTopContainer);
+        
+        jScrollPaneLegalText.setToolTipText("");
+        jScrollPaneLegalText.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setToolTipText("");
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jTextAreaLegalText.setEditable(false);
+        jTextAreaLegalText.setText("Nos Conditions et notre Politique de confidentialité mises à jour. Nos Conditions d’utilisation mises à jour expliquent les conditions à respecter pour pouvoir utiliser nos Services. Notre Politique de confidentialité mise à jour explique quelles informations nous recueillons, la manière dont nous les utilisons et dont nous les communiquons, et les différents choix que vous avez, notamment comment gérer vos paramètres de confidentialité, accéder aux informations dont nous disposons à votre sujet et supprimer votre compte. Nous avons conçu Spectrum en adoptant des principes de confidentialité et de sécurité majeurs, comme le chiffrement de bout en bout de vos messages et de vos appels, ce qui signifie que ni nous ni des tierces parties ne pouvons les lire ou les écouter. \n" +
+                "\n" +
+                "\n• Principes de sécurité et de confidentialité. Depuis que nous avons lancé Spectrum, nous avons développé nos Services en nous appuyant sur des principes de sécurité et de confidentialité solides.\n" +
+                "\n• Vous connecter à d'autres personnes. Nous vous offrons la possibilité de communiquer avec d'autres utilisateurs de Spectrum, notamment par messages, appels vocaux et vidéo, en envoyant des images et des vidéos, en montrant votre statut et en partageant votre localisation avec d'autres personnes si vous le souhaitez. Nous pouvons mettre à disposition une plate-forme pratique qui vous permette d'envoyer de l'argent à d'autres utilisateurs de notre plate-forme et d'en recevoir de leur part. Spectrum travaille avec des partenaires, prestataires de services et sociétés affiliées pour vous proposer des moyens d'interagir avec leurs services. Nous utilisons les informations que nous recevons de leur part pour exécuter, fournir et améliorer nos Services.\n" +
+                "\n• Méthodes d'amélioration de nos Services. Nous analysons la façon dont vous utilisez Spectrum pour améliorer l'ensemble des aspects de nos Services décrits aux présentes, notamment pour aider les entreprises qui utilisent Spectrum à mesurer l'efficacité et la distribution de leurs services et de leurs messages. Spectrum utilise les informations à sa disposition et travaille également avec des partenaires, prestataires de services et sociétés affiliées dans ce but.\n" +
+                "\n• Communication avec des entreprises. Nous mettons à votre disposition et à la disposition de tiers, telles que des entreprises, des moyens de communiquer ensemble en utilisant Spectrum, comme pour des commandes, transactions et informations de rendez-vous, notifications de livraison et d'expédition, des mises à jour de produits et services et du marketing. Les messages comprenant du contenu marketing que vous pourriez recevoir pourraient inclure une offre pour quelque chose susceptible de vous intéresser. Nous ne voulons pas que votre expérience soit gâchée par du contenu indésirable. Comme pour tous vos messages, vous pouvez gérer ces communications, et nous honorerons les choix que vous ferez.\n" +
+                "\n• Sécurité. Nous nous efforçons de garantir la sécurité de Spectrum en prenant les mesures nécessaires face aux personnes et activités abusives et aux violations de nos Conditions. Nous interdisons toute utilisation de nos Services à mauvais escient, tout comportement nuisible envers autrui et toute violation de nos Conditions et règlements, et nous réagissons aux situations dans lesquelles nous pouvons soutenir ou protéger notre communauté. Nous développons des systèmes automatisés pour améliorer notre capacité à détecter et à supprimer du service Spectrum les activités et personnes abusives qui pourraient porter atteinte à notre communauté et à la sécurité de nos Services. Si de telles personnes ou activités sont portées à notre connaissance, nous prenons les mesures nécessaires en supprimant du service Spectrum ces personnes ou activités ou en contactant les forces de l'ordre. Nous partageons des informations avec d'autres sociétés affiliées lorsqu'une mauvaise utilisation ou un comportement préjudiciable de la part de quelqu'un qui utilise nos Services est porté à notre connaissance.\n" +
+                "\n• Permettre l'accès mondial à nos Services. Pour que notre Service mondial fonctionne, nous devons conserver et distribuer du contenu et des informations dans nos centres de données et nos systèmes dans le monde entier, y compris en dehors de votre pays de résidence. Cette infrastructure peut être détenue ou exploitée par nos prestataires de services ou sociétés affiliées.\n" +
+                "\n• Sociétés affiliées. Nous faisons partie des entités Facebook. En tant que membre des entités Facebook, Spectrum reçoit des informations de la part des entités Facebook et partage des informations avec les entités Facebook, selon la description de la Politique de confidentialité de Spectrum. Nous utilisons les informations que nous recevons de leur part pour exécuter, fournir et améliorer nos Services. En savoir plus sur les entités Facebook ainsi que leurs conditions et règlements ici.\n" +
+                "\n");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n In tristique, urna consequat vestibulum accumsan, leo\n diam pharetra tortor, ut dictum velit nibh eget velit. \nQuisque felis arcu, finibus non sodales a, laoreet eget \nmetus. Nunc faucibus imperdiet condimentum. Aenean \nlobortis gravida nulla, non mollis quam malesuada eget.\n Pellentesque quis arcu est. Phasellus consectetur augue\n nec arcu cursus, at aliquet elit dignissim. Vivamus \nauctor lectus in ipsum malesuada efficitur. Praesent\n egestas faucibus nunc, sed mollis velit mattis eu.\n Suspendisse tincidunt aliquam ante. In diam urna,\n porta non scelerisque eget, ultricies ut ante. Fusce\n dapibus massa ut faucibus lacinia. Quisque ut congue\n felis. Ut nibh velit, imperdiet vel quam non, rutrum\n pulvinar enim. Vivamus sit amet luctus diam.\n Aenean et quam sed justo iaculis tincidunt.\n\nCras ultrices augue sed felis faucibus, sit amet\n ornare urna pellentesque. Nam et ligula eros.\n Morbi velit magna, rutrum a dui id, maximus\n fermentum neque. In ac nulla mi. Sed pellentesque\n finibus aliquam. Vestibulum nec libero fringilla,\n fermentum ipsum ut, mollis dui. Suspendisse vulputate\n lacus quis metus rhoncus euismod. Pellentesque\n scelerisque, urna in ornare pretium, orci justo\n volutpat nisi, tincidunt dignissim magna velit\n eget lectus. Curabitur eu fringilla felis,\n eget dignissim nulla.\n\nMauris elit dolor, congue vitae leo sed, tempus\n ullamcorper nulla. Nulla a convallis diam, vel \naliquet odio. Suspendisse sed risus nisl. Sed vel\n leo id risus aliquam bibendum in id dolor. Quisque\n et augue eget magna volutpat lobortis. Morbi sed\n varius felis. Curabitur quis semper tellus. \nSuspendisse potenti. Donec id malesuada ante,\n id sollicitudin velit. Nullam ut lacus sed nunc \nscelerisque accumsan. Aenean sit amet quam non justo\n interdum fringilla. Phasellus interdum, dui sit \namet bibendum consectetur, magna turpis commodo erat,\n at elementum neque arcu ac lorem. Morbi ac dolor in\n odio ultricies tincidunt.\n\nPhasellus ac odio in odio elementum vulputate. \nPellentesque eu elit non urna eleifend tincidunt vitae\n ut massa. Praesent non maximus purus, ut viverra risus. \nNam finibus feugiat tortor, quis tincidunt ante ultrices \nquis. Donec tempus sem auctor pharetra vehicula. Phasellus\n et massa quam. Pellentesque habitant morbi tristique senectus \net netus et malesuada fames ac turpis egestas. Ut ullamcorper\n nulla a luctus blandit. Pellentesque eu nisi malesuada,\n bibendum mauris vel, laoreet felis. Curabitur facilisis quam\n erat, eu elementum massa euismod a.");
-        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaLegalText.setLineWrap(true);
+        jTextAreaLegalText.setWrapStyleWord(true);
+        jTextAreaLegalText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPaneLegalText.setViewportView(jTextAreaLegalText);
+        jTextAreaLegalText.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextAreaLegalText.setBackground(new java.awt.Color(255, 255, 255));
 
-        getContentPane().add(jScrollPane1);
+        getContentPane().add(jScrollPaneLegalText);
+        jScrollPaneLegalText.setMaximumSize(new Dimension(700,500));
+        jScrollPaneLegalText.setMinimumSize(new Dimension(700,500));
+        jScrollPaneLegalText.setPreferredSize(new Dimension(700,500));
+
+        this.getContentPane().setMaximumSize(new Dimension(700,545));
+        this.getContentPane().setMinimumSize(new Dimension(700,545));
+        this.getContentPane().setPreferredSize(new Dimension(700,545));
+
+
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-         System.exit(0);
-        
-    }//GEN-LAST:event_jLabel1MouseClicked
+    private void jLabelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelExitMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jLabelExitMouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FenetreConditions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FenetreConditions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FenetreConditions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FenetreConditions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -151,11 +158,11 @@ public class FenetreConditions extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFrame Conditions;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JFrame conditions;
+    private javax.swing.JLabel jLabelExit;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JPanel jPanelTopContainer;
+    private javax.swing.JScrollPane jScrollPaneLegalText;
+    private javax.swing.JTextArea jTextAreaLegalText;
     // End of variables declaration//GEN-END:variables
 }

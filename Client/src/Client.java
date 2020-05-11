@@ -29,6 +29,17 @@ public class Client implements EcouteurConnection {
     private LinkedList<Projet> projets;
 
     public static void main(String[] args){
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         new Client("mathieu", "Mathieu", "Thoreton");
     }
 
@@ -78,14 +89,6 @@ public class Client implements EcouteurConnection {
 
         //charger les messages du 1er projet
         loadMessages(projets.get(0));
-
-//        projets = new LinkedList<Projet>();
-//        ArrayList<String> collabs = new ArrayList<>();
-//        collabs.add("Nikita");
-//        collabs.add("Roman");
-//
-//        createProject("lalala", collabs);
-
     }
 
     @Override
