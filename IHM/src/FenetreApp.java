@@ -20,7 +20,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class FenetreApp extends JFrame {
     Client user;
     /**
-     * Creates new form FenetreApp2
+     * Creates new form FenetreApp
      */
     public FenetreApp(Client user) {
         this.user=user;
@@ -68,10 +68,11 @@ public class FenetreApp extends JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));
-        this.setMinimumSize(new Dimension(1150, 810));
+        this.setPreferredSize(new Dimension(1150, 810));
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((int) (dimension.getWidth() / 2 - 1150/ 2),
                 (int) (dimension.getHeight() / 2 - 810 / 2));
+
 
         panel1.setBackground(new Color(26, 49, 81));
         panel1.setMaximumSize(new Dimension(80, 1800));
@@ -277,14 +278,29 @@ public class FenetreApp extends JFrame {
 
         b = new JList(listModel);
         p = new JPanel();
-    //    p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
-
         b.setSelectedIndex(0);
         b.setBackground(new Color(69, 123, 157));
-
         p.setBackground(new Color(69, 123, 157));
         p.add(b);
-        //p.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+
+        MouseListener mouseListener = new MouseAdapter() {
+            public void mouseClicked(MouseEvent mouseEvent) {
+                JList theList = (JList) mouseEvent.getSource();
+
+                if (mouseEvent.getClickCount() >= 1) {
+                    int index = theList.locationToIndex(mouseEvent.getPoint());
+                    if (index >= 0) {
+                        Object o = theList.getModel().getElementAt(index);
+                        InformationsCollab informationsCollab = new InformationsCollab(o.toString());
+                        informationsCollab.setVisible(true);
+                        System.out.println("Clicked on: " + o.toString());
+
+                    }
+
+                }
+            }
+        };
+        b.addMouseListener(mouseListener);
 
         panelCalendar.add(p,Component.LEFT_ALIGNMENT); //
 
@@ -298,7 +314,7 @@ public class FenetreApp extends JFrame {
 
     private void ajouterColabMouseClicked(java.awt.event.MouseEvent evt) {
         if (!projectName.getText().equals("")) {
-            new Ajouter(user, user.getProjectByName(projectName.getText()).getId()).setVisible(true);
+            new Ajouter(user, user.getProjectByName(projectName.getText()).getNom()).setVisible(true);
         } else {
             ImageIcon img = new ImageIcon("images/attention.png");
             JOptionPane usernameFalse = new JOptionPane();
@@ -314,9 +330,11 @@ public class FenetreApp extends JFrame {
         if(selected == JFileChooser.APPROVE_OPTION){
             File file = fileChooser.getSelectedFile();
             String getselectedImage = file.getAbsolutePath();
+            //user.sendImage
+
             JOptionPane.showMessageDialog(null, getselectedImage);
             ImageIcon imIcon = new ImageIcon(getselectedImage);
-            //attach.setIcon(imIcon);
+            //.setIcon(imIcon);
         }
     }
 
@@ -336,6 +354,7 @@ public class FenetreApp extends JFrame {
                 JOptionPane usernameFalse = new JOptionPane();
                 usernameFalse.showMessageDialog(null, "choose your project", "Attention",JOptionPane.ERROR_MESSAGE, img);
             }
+            projectName.setText("");
         }
     }
 
@@ -352,7 +371,7 @@ public class FenetreApp extends JFrame {
         private Shape shape;
         public RoundJTextField(int size) {
             super(size);
-            setOpaque(false); // As suggested by @AVD in comment.
+            setOpaque(false);
         }
         protected void paintComponent(Graphics g) {
             g.setColor(getBackground());
@@ -389,7 +408,7 @@ public class FenetreApp extends JFrame {
 
     public void updateCollaborateurs() {
         listModel.removeAllElements();
-        String projetString=projectName.getText();
+        String projetString = projectName.getText();
         if (!projetString.equals("")) {
             for (int j = 0; j < (user.getProjectByName(projectName.getText()).getArrayCollaborateurs().size()); j++) {
                 listModel.add(j, user.getProjectByName(projectName.getText()).getArrayCollaborateurs().get(j));
