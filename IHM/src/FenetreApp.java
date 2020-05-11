@@ -57,21 +57,21 @@ public class FenetreApp extends JFrame {
         PanelSend = new JPanel();
         send = new JLabel();
         jTextField1 = new RoundJTextField(20);
-        attach = new JLabel();
         panel_rigth = new JPanel();
         logo_image = new JLabel();
         spectrum = new JLabel();
         projet = new JLabel();
         ajouterColab = new JButton();
         msgArea = new JTextArea();
-        design = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));
-        this.setPreferredSize(new Dimension(1150, 810));
+        this.setPreferredSize(new Dimension(1170, 810));
+        this.setMinimumSize(new Dimension(1170, 810));
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((int) (dimension.getWidth() / 2 - 1150/ 2),
                 (int) (dimension.getHeight() / 2 - 810 / 2));
+
 
 
         panel1.setBackground(new Color(26, 49, 81));
@@ -93,9 +93,8 @@ public class FenetreApp extends JFrame {
         getContentPane().add(panel1);
 
         panelCalendar.setBackground(new Color(69, 123, 157));
-        panelCalendar.setMaximumSize(new Dimension(180, 2000));
-        panelCalendar.setMinimumSize(new Dimension(180, 800));
-        panelCalendar.setPreferredSize(new Dimension(180, 800));
+        panelCalendar.setMaximumSize(new Dimension(200, 2000));
+        panelCalendar.setMinimumSize(new Dimension(200, 800));
         panelCalendar.setLayout(new BoxLayout(panelCalendar, BoxLayout.Y_AXIS));
 
         panelCalendar.add(Box.createRigidArea(new Dimension(0,60)));
@@ -146,35 +145,26 @@ public class FenetreApp extends JFrame {
         scrollMessages.add(msgArea);
         panelCentral.add(scrollMessages);
 
-        PanelSend.setMaximumSize(new Dimension(690, 100));
-        PanelSend.setMinimumSize(new Dimension(690, 100));
-        PanelSend.setPreferredSize(new Dimension(690, 100));
+        PanelSend.setMaximumSize(new Dimension(690, 50));
+        PanelSend.setMinimumSize(new Dimension(690, 50));
+        PanelSend.setPreferredSize(new Dimension(690, 50));
         PanelSend.setBackground(new Color(224,224,226));
         PanelSend.setLayout(new BoxLayout(PanelSend, BoxLayout.LINE_AXIS));
 
-        attach.setIcon(new ImageIcon(this.getClass().getResource("attach.png")));
-        PanelSend.add(attach);
-        attach.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        attach.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-                attachMouseClicked(evt);
-            }
-        });
 
         jTextField1.setText("Tapez votre message ici");
-        jTextField1.setMaximumSize(new Dimension(600, 50));
-        jTextField1.setMinimumSize(new Dimension(600, 50));
-        jTextField1.setPreferredSize(new Dimension(600, 50));
+        jTextField1.setMaximumSize(new Dimension(620, 30));
+        jTextField1.setMinimumSize(new Dimension(620, 30));
+        jTextField1.setPreferredSize(new Dimension(620, 30));
+        jTextField1.setSize(600, 30);
         jTextField1.addFocusListener(new FocusAdapter() {
             public void focusGained(FocusEvent e) {
                 jTextField1.setText("");
             }
         });
         LineBorder lineBorder =new LineBorder(Color.white, 8, true);
-        jTextField1.setBorder(lineBorder );
-
+        //jTextField1.setBorder(lineBorder );
         PanelSend.add(jTextField1);
-
 
         send.setIcon(new ImageIcon(this.getClass().getResource("envoyer.png")));
         send.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -217,13 +207,6 @@ public class FenetreApp extends JFrame {
                 ajouterColabMouseClicked(evt);
             }
         });
-        design.setIcon(new ImageIcon(this.getClass().getResource("design.png")));
-        design.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        design.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-                designMouseClicked(evt);
-            }
-        });
 
         GroupLayout panel_rigthLayout = new GroupLayout(panel_rigth);
         panel_rigth.setLayout(panel_rigthLayout);
@@ -242,8 +225,7 @@ public class FenetreApp extends JFrame {
                                 .addGap(60, 60, 60)
                                 .addComponent(projet))
                         .addGroup(panel_rigthLayout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addComponent(design))
+                                .addGap(70, 70, 70))
         );
         panel_rigthLayout.setVerticalGroup(
                 panel_rigthLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -258,7 +240,6 @@ public class FenetreApp extends JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(projet)
                                 .addGap(30, 30, 30)
-                                .addComponent(design)
                                 .addContainerGap(592, Short.MAX_VALUE))
         );
 
@@ -322,25 +303,6 @@ public class FenetreApp extends JFrame {
         }
     }
 
-    private void attachMouseClicked(java.awt.event.MouseEvent evt) {
-        JFileChooser fileChooser =  new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter( " 4 Extensions Supported", "jpg", "png", "jpeg", "gif", "pdf");
-        fileChooser.setFileFilter(filter);
-        int selected = fileChooser.showOpenDialog(null);
-        if(selected == JFileChooser.APPROVE_OPTION){
-            File file = fileChooser.getSelectedFile();
-            String getselectedImage = file.getAbsolutePath();
-            //user.sendImage
-
-            JOptionPane.showMessageDialog(null, getselectedImage);
-            ImageIcon imIcon = new ImageIcon(getselectedImage);
-            //.setIcon(imIcon);
-        }
-    }
-
-    private void designMouseClicked(java.awt.event.MouseEvent evt) {
-
-    }
 
     private void sendMouseClicked(java.awt.event.MouseEvent evt) {
         String msg= jTextField1.getText();
@@ -423,7 +385,6 @@ public class FenetreApp extends JFrame {
     private JButton ajouterColab;
     private JLabel  send;
     private JButton exitButton;
-    private JLabel   attach;
     private JPanel jPanel1;
     private RoundJTextField jTextField1;
     private JLabel logo_image;
@@ -438,7 +399,6 @@ public class FenetreApp extends JFrame {
     private JLabel spectrum;
     private JLabel username;
     private DefaultListModel listModel;
-    private JLabel design;
     private MessageListModel addedItems;
     private JList<ListItem> list;
 
