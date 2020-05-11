@@ -106,6 +106,8 @@ public class Client implements EcouteurConnection {
         this.getProjectByName(nomProjet).addMsg(new Message(sender, textMessage, date, getProjectByName(nomProjet)));
 
         fenetre.printMsg("@" + sender + " : "  + "\r\n" + textMessage, false);//false = not my message => will be placed on the left area
+        fenetre.scrollOnTheBottom();
+
         System.out.println("message reçu : " + textMessage);
 
     }
@@ -291,5 +293,6 @@ public class Client implements EcouteurConnection {
             //si le message est le mien, on ne va pas afficher @username
             fenetre.printMsg((!myMessage ? "@" + messages.get(i).getUsername() + " :" + "\r\n" : "") + messages.get(i).getMessage(), myMessage);
         }
+        fenetre.scrollOnTheBottom();
     }
 }
