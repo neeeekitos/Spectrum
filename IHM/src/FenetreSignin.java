@@ -69,6 +69,7 @@ public class FenetreSignin extends JFrame {
         backToLogin = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jPasswordField2 = new javax.swing.JPasswordField();
+   
         jLabelRepeatPassword = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
         jLabelEmail = new javax.swing.JLabel();
@@ -85,6 +86,7 @@ public class FenetreSignin extends JFrame {
         jLabelLegalTerms.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLegalTerms.setText("Legal terms and conditions");
 
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 800));
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -100,10 +102,11 @@ public class FenetreSignin extends JFrame {
 
         legalConCheckbox.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         legalConCheckbox.setForeground(new java.awt.Color(255, 255, 255));
-        legalConCheckbox.setText("I accept the legal conditions");
+        legalConCheckbox.setText("J'accepte les conditions");
         legalConCheckbox.setOpaque(false);
 
         firstNameField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
         lastNameField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         userNameField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         eMailField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -112,7 +115,7 @@ public class FenetreSignin extends JFrame {
         submitButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         submitButton.setForeground(new java.awt.Color(0, 121, 203));
         submitButton.setIcon(new javax.swing.ImageIcon(this.getClass().getResource("triangle.png"))); // NOI18N
-        submitButton.setText("Submit");
+        submitButton.setText("Envoyer");
         submitButton.setToolTipText("");
         submitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -125,6 +128,7 @@ public class FenetreSignin extends JFrame {
         jLabelSeeConditions.setText("see conditions");
         jLabelSeeConditions.setCursor(new Cursor(Cursor.HAND_CURSOR));
         jLabelSeeConditions.addMouseListener(new java.awt.event.MouseAdapter() {
+
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelSeeConditionsMouseClicked(evt);
             }
@@ -134,20 +138,22 @@ public class FenetreSignin extends JFrame {
         backToLogin.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         backToLogin.setForeground(new java.awt.Color(255, 255, 255));
         backToLogin.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        backToLogin.setText("back to login");
+        backToLogin.setText("Retour vers Login");
         backToLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backToLoginMouseClicked(evt);
             }
         });
 
+
         jLabelRepeatPassword.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabelRepeatPassword.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelRepeatPassword.setText("Repeat your password");
+        jLabelRepeatPassword.setText("Réécrire le mot passe");
 
         jLabelPassword.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelPassword.setText("Password");
+        jLabelPassword.setText("Mot passe"");
+
 
         jLabelEmail.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,13 +163,15 @@ public class FenetreSignin extends JFrame {
         jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsername.setText("Username");
 
+
         jLabelLastName.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabelLastName.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLastName.setText("Last name");
+        jLabelLastName.setText("Nom");
 
         jLabelFirstName.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabelFirstName.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelFirstName.setText("First name");
+        jLabelFirstName.setText("Prénom");
+
 
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
@@ -355,14 +363,18 @@ public class FenetreSignin extends JFrame {
     }//GEN-LAST:event_submitButtonMouseClicked
     
 
+
     private void jLabelSeeConditionsMouseClicked(java.awt.event.MouseEvent evt) {
         new FenetreConditions().setVisible(true);
     }
-    
+
     private void backToLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToLoginMouseClicked
+
         new FenetreLogin().setVisible(true);
         this.dispose();
+
     }
+
 
     /**
      * @param args the command line arguments
