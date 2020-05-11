@@ -6,6 +6,7 @@ import java.nio.charset.Charset;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.concurrent.Callable;
@@ -92,7 +93,7 @@ public class ConnectionExchange {
     public static synchronized Connection connectToDb() {
         Connection connDb = null;
         try {
-            String url = "jdbc:mysql://localhost:4489/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:3306/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
             connDb = DriverManager.getConnection(url, "root", "root");
             System.out.println("Connecté à la BD");
 
@@ -296,6 +297,7 @@ public class ConnectionExchange {
      * @throws SQLException si jamais on a un problème avec la BD
      */
     public synchronized void addProjectToDB(Projet projet) throws SQLException {
+
         //vérifions si le projet n'est pas encore dans la BD associé avec notre utilisateur qui appelle cette méthode
         boolean checkCollabPresent = checkProjectExists(username, projet.getId());
         if (!checkCollabPresent) {
@@ -312,14 +314,20 @@ public class ConnectionExchange {
             //ajouter dans un tableau projetAssociation
             for (String usernameCollaborateur : projet.getArrayCollaborateurs()) {
                 addCollabInProject(usernameCollaborateur, projet.getId());
+
             }
         }
     }
 
     public void addCollabInProject(String usernameCollaborateur, int projetID) throws SQLException{
+
+        //vérifions si ce username existe dans la DB
+        boolean usernameExists = checkUsernameExists(usernameCollaborateur);
+
         //vérifions si le collab est déjà présent dans ce projet
         boolean checkCollabPresent = checkProjectExists(usernameCollaborateur, projetID);
-        if (!checkCollabPresent) {
+
+        if ((!checkCollabPresent) && usernameExists) {
             //création d'insert statement
             String requeteAssociation = " INSERT INTO projetassociation (username, projectID) VALUES (?, ?)";
             PreparedStatement preparedStmt2 = connDb.prepareStatement(requeteAssociation);
@@ -333,7 +341,7 @@ public class ConnectionExchange {
         } else {
             ImageIcon img = new ImageIcon("images/attention.png");
             JOptionPane existingProject = new JOptionPane();
-            existingProject.showMessageDialog(null, "Ce membre est déjà présent dans de projet", "Attention", JOptionPane.ERROR_MESSAGE, img);
+            existingProject.showMessageDialog(null, "Ce membre est déjà présent dans de projet / Cet username n'existe pas", "Attention", JOptionPane.ERROR_MESSAGE, img);
         }
     }
 
@@ -346,8 +354,23 @@ public class ConnectionExchange {
         preparedStmt.setString(1, usernameToCheck);
         preparedStmt.setInt(2, projectID);
         resultCheck = preparedStmt.executeQuery();
-        System.out.println("ce membre est présent dans le projet déjà: " + resultCheck.next());
-        return resultCheck.next(); //false si projet n'existe pas pour cet username
+
+        boolean resultat = resultCheck.next();
+        System.out.println("ce membre est présent dans le projet déjà: " + resultat);
+        return resultat; //false si projet n'existe pas pour cet username
+    }
+
+    public boolean checkUsernameExists(String usernameToCheck) throws SQLException {
+        ResultSet resultCheck;
+        //requete qui verifie si ce username est déjà utilisé
+        String requete1 = "SELECT * FROM users as u WHERE u.username=?";
+
+        PreparedStatement preparedStmt = connDb.prepareStatement(requete1);
+        preparedStmt.setString(1, usernameToCheck);
+        resultCheck = preparedStmt.executeQuery();
+        boolean resultat = resultCheck.next();
+        System.out.println("cet username existe : " + resultat);
+        return resultat; //false si username n'exite pas
     }
 
     /** Permet d'envoyer le message dans la BD et au serveur
@@ -367,4 +390,40 @@ public class ConnectionExchange {
 
         return lastProjectID;
     }
+
+//    public static Code getCodeIfExists(String code) throws SQLException {
+//        ResultSet result;
+//        //requete qui verifie si ce username est déjà utilisé
+//        String requete1 = "SELECT * FROM codeprojets as c WHERE c.code=?";
+//
+//        PreparedStatement preparedStmt = connDb.prepareStatement(requete1);
+//        preparedStmt.setString(1, code);
+//        result = preparedStmt.executeQuery();
+//
+//        int projectID;
+//        String dateCreation = "";
+//
+//        if (result.next()) {
+//            result.getInt("projectID");
+//            result.getString("dateCreation");
+//            return new Code(code, dateCreation, projectID);
+//        }
+//
+//        return null; //returns null if no code
+//    }
+
+//    public static void setCodeOnProject(Code c) throws SQLException{
+//        Connection connDb = connectToDb();
+//        String requeteAssociation = " INSERT INTO codeprojets (projectID, code, dateCreation) VALUES (?, ?, ?)";
+//        PreparedStatement preparedStmt2 = connDb.prepareStatement(requeteAssociation);
+//
+//        // ajouter les valeurs sql insert
+//        preparedStmt2.setString(1, c.getProjectID());
+//        preparedStmt2.setInt(2, c.getCode());
+//        preparedStmt2.setInt(3, c.getDate());
+//
+//        preparedStmt2.execute();
+//        System.out.println("le code " + c.getCode() + " a été ajouté dans le projet id = " + c.projetID);
+//    }
+//
 }
