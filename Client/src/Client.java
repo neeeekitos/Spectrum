@@ -29,6 +29,17 @@ public class Client implements EcouteurConnection {
     private LinkedList<Projet> projets;
 
     public static void main(String[] args){
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         new Client("mathieu", "Mathieu", "Thoreton");
     }
 
@@ -78,14 +89,6 @@ public class Client implements EcouteurConnection {
 
         //charger les messages du 1er projet
         loadMessages(projets.get(0));
-
-//        projets = new LinkedList<Projet>();
-//        ArrayList<String> collabs = new ArrayList<>();
-//        collabs.add("Nikita");
-//        collabs.add("Roman");
-//
-//        createProject("lalala", collabs);
-
     }
 
     @Override
@@ -106,6 +109,8 @@ public class Client implements EcouteurConnection {
         this.getProjectByName(nomProjet).addMsg(new Message(sender, textMessage, date, getProjectByName(nomProjet)));
 
         fenetre.printMsg("@" + sender + " : "  + "\r\n" + textMessage, false);//false = not my message => will be placed on the left area
+        fenetre.scrollOnTheBottom();
+
         System.out.println("message reçu : " + textMessage);
 
     }
@@ -291,5 +296,6 @@ public class Client implements EcouteurConnection {
             //si le message est le mien, on ne va pas afficher @username
             fenetre.printMsg((!myMessage ? "@" + messages.get(i).getUsername() + " :" + "\r\n" : "") + messages.get(i).getMessage(), myMessage);
         }
+        fenetre.scrollOnTheBottom();
     }
 }

@@ -18,10 +18,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author vetegan
  */
 public class FenetreApp extends JFrame {
-    Client user;
-    /**
-     * Creates new form FenetreApp
-     */
+
+    protected Client user;
+
+
     public FenetreApp(Client user) {
         this.user=user;
         initComponents();
@@ -137,6 +137,7 @@ public class FenetreApp extends JFrame {
         addedItems = new MessageListModel();
         list = new JList(addedItems);
         list.setCellRenderer(new ListItemRenderer());
+        list.ensureIndexIsVisible(list.getLastVisibleIndex());
         scrollMessages = new JScrollPane(list);
 
         scrollMessages.setMinimumSize(new Dimension(690, 540));
@@ -303,6 +304,13 @@ public class FenetreApp extends JFrame {
         }
     }
 
+    //syncronisé car on l'utilise du thread EDT (fenetre) ainsi que de la classe Client
+    public synchronized void scrollOnTheBottom() {
+        int lastIndex = list.getModel().getSize() - 1;
+        if (lastIndex >= 0) {
+            list.ensureIndexIsVisible(lastIndex);
+        }
+    }
 
     private void sendMouseClicked(java.awt.event.MouseEvent evt) {
         String msg= jTextField1.getText();
@@ -310,6 +318,7 @@ public class FenetreApp extends JFrame {
             if(!projectName.getText().equals("")) {
                 user.sendMessage(msg, user.getProjectByName(projectName.getText()));
                 this.printMsg(msg, true);
+                scrollOnTheBottom();
                 this.repaint();
             } else {
                 ImageIcon img = new ImageIcon("images/attention.png");
