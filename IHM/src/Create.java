@@ -258,7 +258,7 @@ public class Create extends javax.swing.JFrame {
         bottom.add(valider, new GridBagConstraints());
 
         getContentPane().add(bottom);
-
+        setResizable(false);
         pack();
     }// </editor-fold>
 

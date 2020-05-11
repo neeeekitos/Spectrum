@@ -49,7 +49,6 @@ public class Client implements EcouteurConnection {
         this.nom = nom;
         this.prenom = prenom;
 
-
         try {
             InetAddress inetAddress = InetAddress.getLocalHost();
             System.out.println("connection on local IP : "+ inetAddress.toString());
