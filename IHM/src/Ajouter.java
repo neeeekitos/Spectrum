@@ -59,12 +59,10 @@ public class Ajouter extends JFrame {
         addColab = new JLabel();
         collab = new ArrayList<JTextField>();
 
-
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        this.setMaximumSize(new Dimension(562,450));
-        this.setMinimumSize(new Dimension(562,450));
-        this.setPreferredSize(new Dimension(562,450));
+        getContentPane().setMaximumSize(new Dimension(562,450));
+        getContentPane().setMinimumSize(new Dimension(562,450));
+        getContentPane().setPreferredSize(new Dimension(562,450));
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((int) (dimension.getWidth() / 2 - 562/ 2),
                 (int) (dimension.getHeight() / 2 - 450 / 2));
@@ -207,9 +205,9 @@ public class Ajouter extends JFrame {
 
         getContentPane().add(top);
 
-        bottom.setMaximumSize(new Dimension(562, 30));
-        bottom.setMinimumSize(new Dimension(562, 30));
-        bottom.setPreferredSize(new Dimension(562, 30));
+        bottom.setMaximumSize(new Dimension(562, 54));
+        bottom.setMinimumSize(new Dimension(562, 54));
+        bottom.setPreferredSize(new Dimension(562, 54));
         bottom.setLayout(new GridBagLayout());
 
         valider.setText("Valider");
