@@ -58,7 +58,7 @@ public class Create extends javax.swing.JFrame {
         collab = new ArrayList<JTextField>();
 
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         getContentPane().setMaximumSize(new Dimension(562,450));
 
@@ -258,7 +258,7 @@ public class Create extends javax.swing.JFrame {
         bottom.add(valider, new GridBagConstraints());
 
         getContentPane().add(bottom);
-
+        setResizable(false);
         pack();
     }// </editor-fold>
 
