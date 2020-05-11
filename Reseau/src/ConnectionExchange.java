@@ -67,8 +67,11 @@ public class ConnectionExchange {
         return username;
     }
 
+
+    /** Disconnect sockets
+     */
     public synchronized void disconnect() {
-        //cnThread.interrupt();
+        cnThread.interrupt();
         try {
             connection.close();
             System.out.println("Le client @" + username + " est déconnecté");
@@ -77,7 +80,11 @@ public class ConnectionExchange {
         }
     }
 
-    //syncronisé pour la securité
+    /** Envoie la chaine de caratères, syncronisé pour la securité
+     * car est utilisé dans les threads différents
+     * @return Connection connDb
+     * @throws SQLException
+     */
     public synchronized void sendString(String msg) {
         try {
             out.write(msg + "\r\n");
@@ -90,6 +97,10 @@ public class ConnectionExchange {
         }
     }
 
+    /** Se connecte à la BDD
+     * @return Connection connDb
+     * @throws SQLException
+     */
     public static synchronized Connection connectToDb() {
         Connection connDb = null;
         try {
@@ -103,6 +114,12 @@ public class ConnectionExchange {
         return connDb;
     }
 
+    /** Sign-in dans la BD
+     * @param password
+     * @param username
+     * @return boolean
+     * @throws SQLException
+     */
     public static void loginDb(String username, String password) throws SQLException {
         Connection connDB = connectToDb();
 
@@ -142,6 +159,14 @@ public class ConnectionExchange {
         connDB.close();
     }
 
+    /** Sign-in dans la BD
+     * @param prenom
+     * @param nom
+     * @param password
+     * @param username
+     * @return boolean
+     * @throws SQLException
+     */
     public static boolean signinDB(String prenom, String nom, String username, String password) throws SQLException {
 
         Connection connDB = connectToDb();
@@ -172,6 +197,10 @@ public class ConnectionExchange {
         } else { return false; }
     }
 
+    /** Permet de mettre à jour tous le projets de l'utilisateur
+     * @return LinkedList<Projet> la liste des projet de notre utilisateur
+     * @throws SQLException
+     */
     public synchronized LinkedList<Projet> updateProjects() throws SQLException {
         ResultSet resultProjetID = null;
         ResultSet resultNomProjet = null;
@@ -183,7 +212,7 @@ public class ConnectionExchange {
         String nomProjet = "";
 
 
-        //requete qui verifie si ce username est déjà utilisé
+        //requete qui apporte tous les ID des projets où notre utilisateur est présent
         String requete1 = "SELECT * FROM projetassociation as p WHERE p.username=?";
 
         PreparedStatement preparedStmt = connDb.prepareStatement(requete1);
@@ -226,10 +255,14 @@ public class ConnectionExchange {
         return projets;
     }
 
+    /** Permet d'envoyer le message dans la BD
+     * @param projet l'instance du Projet
+     * @return LinkedList<Message> la liste des messages
+     * @throws SQLException
+     */
     public synchronized LinkedList<Message> updateMessages(Projet projet) throws SQLException {
-        counterUpdateMsg++;
+
         ResultSet result;
-        final int NB_MESSAGES = 15;
         LinkedList<Message> messages = new LinkedList<>();
         Message msg;
 
@@ -243,23 +276,22 @@ public class ConnectionExchange {
         preparedStmt.setInt(1, projet.getId());
         result = preparedStmt.executeQuery();
 
-        /*
-         * updates la quantité de messages nécessaire
-         * si le user va regarder les messages plus anciens, il va faire un updateMessages,
-         * donc le compteur++, on va charger encore x=NB_MESSAGES en plus
-         */
-        for (int i = 0; i<NB_MESSAGES*counterUpdateMsg; i++){
-            if (result.next()) {
-                textMsg = result.getString("message");
-                date = result.getString("dateMsg");
-                usernameMsg = result.getString("username");
-                messages.add(new Message(usernameMsg, textMsg, date, projet));
-            }
+        while (result.next()) {
+            textMsg = result.getString("message");
+            date = result.getString("dateMsg");
+            usernameMsg = result.getString("username");
+            messages.add(new Message(usernameMsg, textMsg, date, projet));
         }
 
         return messages;
     }
 
+    /** Permet d'envoyer le message dans la BD
+     * @param message l'instance de Message à envoyer, contient
+     *                le projet auquel elle appartient
+     * @return boolean
+     * @throws SQLException
+     */
     public synchronized boolean addMessageToDB(Message message) throws SQLException{
         ResultSet result = null;
 
