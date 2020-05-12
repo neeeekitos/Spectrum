@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/** Affiche les messages de GUI
+ * @author Nikita TEREKHOV
+ */
 public class ListItemRenderer implements ListCellRenderer<Object> {
 
     @Override
@@ -16,6 +19,7 @@ public class ListItemRenderer implements ListCellRenderer<Object> {
         return component;
     }
 
+    //pour tester
     public static void main(String[] args){
 
         ListItem temp1 = new ListItem("coucou", true);

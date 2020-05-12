@@ -1,16 +1,15 @@
 import javax.swing.*;
-import javax.xml.ws.handler.LogicalHandler;
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.concurrent.Callable;
 
+/** Represente une connection avec un Socket et des flux entrant et sortant
+ * @author Nikita TEREKHOV
+ * @author Valentina ETEGAN
+ */
 public class ConnectionExchange {
 
     private final Socket connection;
@@ -20,14 +19,24 @@ public class ConnectionExchange {
     private final EcouteurConnection eventEcouteur;
     private String username;
     private Connection connDb;
-    //incremente à chaque updateMessages(), pour afficher + de messages
-    private int counterUpdateMsg = 0;
 
-
+    /**
+     * Constructeur 1 sans Socket
+     * @param eventEcouteur l'interface
+     * @param ip IP adresse du serveur
+     * @param port le port de serveur
+     * @param username username de l'utilisateur
+     */
     public ConnectionExchange(EcouteurConnection eventEcouteur, String ip, int port, String username) throws IOException {
         this(eventEcouteur, new Socket(ip, port), username);
     }
 
+    /**
+     * Constructeur 2 avec Socket
+     * @param eventEcouteur l'interface
+     * @param connection le Socket
+     * @param username username de l'utilisateur
+     */
     public ConnectionExchange(EcouteurConnection eventEcouteur, Socket connection, String username) throws IOException {
         this.eventEcouteur = eventEcouteur;
         this.connection = connection;
@@ -66,12 +75,16 @@ public class ConnectionExchange {
         return "Connection: " + connection.getInetAddress() + ": " + connection.getPort();
     }
 
+    /** Retourne username
+     * @return username d'utilisateur
+     */
     public String getUsername() {
         return username;
     }
 
 
     /** Disconnect sockets
+     * Syncronisé car s'utilise dans plusieurs threads
      */
     public synchronized void disconnect() {
         cnThread.interrupt();
@@ -358,6 +371,11 @@ public class ConnectionExchange {
         }
     }
 
+    /** Ajoute le collaborateur dans le projet par son username
+     * @param usernameCollaborateur en String
+     * @param projetID en int le projet dans lequel on ajotera notre user
+     * @throws SQLException
+     */
     public void addCollabInProject(String usernameCollaborateur, int projetID) throws SQLException{
 
         //vérifions si ce username existe dans la DB
@@ -387,6 +405,11 @@ public class ConnectionExchange {
         }
     }
 
+    /** Vérifie si l'utilisateur a le projet donné
+     * @param usernameToCheck en String
+     * @param projectID en int le projet dans lequel on vérifie la présence
+     * @throws SQLException
+     */
     public boolean checkProjectExists(String usernameToCheck, int projectID) throws SQLException {
         ResultSet resultCheck;
         //requete qui verifie si ce username est déjà utilisé
@@ -402,6 +425,10 @@ public class ConnectionExchange {
         return resultat; //false si projet n'existe pas pour cet username
     }
 
+    /** Vérifie si l'utilisateur existe
+     * @param usernameToCheck en String
+     * @throws SQLException
+     */
     public boolean checkUsernameExists(String usernameToCheck) throws SQLException {
         ResultSet resultCheck;
         //requete qui verifie si ce username est déjà utilisé
@@ -462,6 +489,12 @@ public class ConnectionExchange {
         }
     }
 
+    /** Retourne les informations sur le code du projet et permet
+     * ainsi de vérifier si le code du projet existe
+     * @param code en String
+     * @return code du type Code avec la date de création et le projetID auquel appartient
+     * @throws SQLException si jamais on a un problème avec la BD
+     */
     public static Code getCodeIfExists(String code) throws SQLException {
         Connection connDb = connectToDb();
         ResultSet result;
@@ -485,6 +518,10 @@ public class ConnectionExchange {
         return null; //returns null if no code
     }
 
+    /** Set le code d'invitation pour le projet donné
+     * @param c du type Code qui contient la date de la création du code et l'id du projet
+     * @throws SQLException si jamais on a un problème avec la BD
+     */
     public static void setCodeOnProject(Code c) throws SQLException{
 
         Connection connDb = connectToDb();
@@ -514,6 +551,10 @@ public class ConnectionExchange {
         System.out.println("le code " + c.getCode() + " a été ajouté dans le projet");
     }
 
+    /** Efface le membre du projet
+     * @param usernameToDelete le username à effacer du projet
+     * @throws SQLException si jamais on a un problème avec la BD
+     */
     public void deleteMemberFromProject(String usernameToDelete) throws SQLException {
 
         String requeteDelete = " DELETE FROM projetassociation WHERE username=?";
@@ -533,6 +574,10 @@ public class ConnectionExchange {
         }
     }
 
+    /** Efface le code du projet
+     * @param codeToDelete
+     * @throws SQLException si jamais on a un problème avec la BD
+     */
     public static void deleteCodeProject(String codeToDelete, Connection connDb) throws SQLException {
 
         String requeteDelete = " DELETE FROM codeprojets WHERE code=?";

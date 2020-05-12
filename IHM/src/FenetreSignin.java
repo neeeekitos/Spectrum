@@ -7,16 +7,15 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
-
-
 /**
- *
- * @author lehma
+ * @author Lena LEHMANN
  */
 
 public class FenetreSignin extends JFrame {
 
-    //Constructeur
+    /**
+     * Construit une fenetre Signin
+     */
     public FenetreSignin() {
         try {
             Image img = ImageIO.read(new FileInputStream("IHM/resources/background.jpg"));
@@ -41,7 +40,6 @@ public class FenetreSignin extends JFrame {
     }
 
     /** Initialisation
-     * @return void
      */
     private void initComponents() {
 
@@ -269,7 +267,7 @@ public class FenetreSignin extends JFrame {
     /** Envoyer les donnes dans la BD
      * Et verrification des conditions sur le TextFiled
      * Si tout a ete bien envoye on vais etre envoye vers Log In
-     * @return void
+     * @param evt l'evenement
      */
     private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {
         ImageIcon img = new ImageIcon("resources/attention.png");
@@ -367,20 +365,19 @@ public class FenetreSignin extends JFrame {
     }
 
     /** Ouvrir la fenetre pour voir les condition d'utilisation
-     * @return void
+     * @param evt l'evenement
      */
     private void jLabelSeeConditionsMouseClicked(java.awt.event.MouseEvent evt) {
         new FenetreConditions().setVisible(true);
     }
 
     /** L'envoye vers Log In
-     * @return void
+     * @param evt l'evenement
      */
     private void backToLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToLoginMouseClicked
 
         new FenetreLogin().setVisible(true);
         this.dispose();
-
     }
 
     /**

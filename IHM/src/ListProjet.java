@@ -2,6 +2,9 @@
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
+/** Represente une liste des projets GUI
+ * @author Nikita TEREKHOV
+ */
 class ListProjet extends JFrame
 {
     //Declaration des variables
@@ -13,7 +16,11 @@ class ListProjet extends JFrame
     private FenetreApp fen;
     private DefaultListModel listModel;
 
-    //Constructeur
+    /**
+     * Constructeur du client
+     * @param fen la fenetre de l'application
+     *            dans laquelle on affiche notre liste
+     */
     public ListProjet(FenetreApp fen){
         this.fen = fen;
         this.init();
@@ -21,7 +28,6 @@ class ListProjet extends JFrame
     }
 
     /** Initialisation
-     * @return void
      */
     public void init() {
 
@@ -94,7 +100,9 @@ class ListProjet extends JFrame
         getContentPane().add(create,BorderLayout.PAGE_END);
 
     }
-
+    /**
+     * Met à jour la liste des projets
+     */
     public void updateListeProjet() {
         listModel.removeAllElements();
         for (int i = 0; i<fen.user.getProjets().size(); i++) {
