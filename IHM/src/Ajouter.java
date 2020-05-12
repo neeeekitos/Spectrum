@@ -32,11 +32,11 @@ public class Ajouter extends JFrame {
         top = new JPanel();
         leftPanel = new JPanel();
         collaborateur = new JLabel();
-        rigthPanel = new JPanel();
+        rightPanel = new JPanel();
         panelLogo = new JPanel();
         jLabel1 = new JLabel();
         panelCode = new JPanel();
-        codeJlabelExistance = new JLabel();
+        codeJLabelExistant = new JLabel();
         codeProjet = new JTextField();
         code = new JLabel();
         bottom = new JPanel();
@@ -101,18 +101,18 @@ public class Ajouter extends JFrame {
         //Ajouter du method que cree des JTextFilet que ajoute plusieurs collaborators
         addColab.addMouseListener(new MouseAdapter() {
             public void mouseExited(MouseEvent evt) {
-                addColabMouseExited(evt);
+                addCollabMouseExited(evt);
             }
 
-            private void addColabMouseExited(MouseEvent evt) {
+            private void addCollabMouseExited(MouseEvent evt) {
                 addColab.setText("");
             }
 
             public void mouseEntered(MouseEvent evt) {
-                addColabMouseEntered(evt);
+                addCollabMouseEntered(evt);
             }
 
-            private void addColabMouseEntered(MouseEvent evt) {
+            private void addCollabMouseEntered(MouseEvent evt) {
                 addColab.setText(" Plus colaborateurs");
             }
 
@@ -145,10 +145,10 @@ public class Ajouter extends JFrame {
 
 
         //Declaration panel droite
-        rigthPanel.setMaximumSize(new Dimension(281, 396));
-        rigthPanel.setMinimumSize(new Dimension(281, 396));
-        rigthPanel.setLayout(new BoxLayout(rigthPanel, BoxLayout.Y_AXIS));
-        rigthPanel.setBackground(new Color(255, 255, 255));
+        rightPanel.setMaximumSize(new Dimension(281, 396));
+        rightPanel.setMinimumSize(new Dimension(281, 396));
+        rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
+        rightPanel.setBackground(new Color(255, 255, 255));
 
         //Declaration du panel en haut que appartient dans rigthPanel
         panelLogo.setMaximumSize(new Dimension(281, 50));
@@ -162,21 +162,21 @@ public class Ajouter extends JFrame {
         panelLogo.setBackground(new Color(237, 246, 249));
 
         //Ajouter le panelLogol au rigthPane
-        rigthPanel.add(panelLogo);
+        rightPanel.add(panelLogo);
 
 
         //Panel PourCreer le code
         panelCode.setLayout(new GridBagLayout());
 
         //L'ajout de titre du panelCode
-        codeJlabelExistance.setFont(new Font("Lucida Grande", 1, 18)); // NOI18N
-        codeJlabelExistance.setText("Créer un code pour le projet");
+        codeJLabelExistant.setFont(new Font("Lucida Grande", 1, 18)); // NOI18N
+        codeJLabelExistant.setText("Créer un code pour le projet");
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
         gridBagConstraints[0].gridy = 0;
         gridBagConstraints[0].ipady = 50;
         gridBagConstraints[0].anchor = GridBagConstraints.PAGE_START;
-        panelCode.add(codeJlabelExistance, gridBagConstraints[0]);
+        panelCode.add(codeJLabelExistant, gridBagConstraints[0]);
 
         //L'ajou du soutitre du panelCode
         code.setText("Le code va expirer dans 24 heures");
@@ -186,7 +186,7 @@ public class Ajouter extends JFrame {
         gridBagConstraints[0].ipady = 20;
         panelCode.add(code, gridBagConstraints[0]);
         panelCode.setBackground(new Color(237, 246, 249));
-        rigthPanel.add(panelCode);
+        rightPanel.add(panelCode);
 
         //L'ajout de TextFiled pour donner un code unique pour pouvoir acceder au projet
         codeProjet.setText("");
@@ -199,7 +199,7 @@ public class Ajouter extends JFrame {
         panelCode.add(codeProjet, gridBagConstraints[0]);
 
         //L'ajout de rigthPanel au Panel top et du top au Pane
-        top.add(rigthPanel);
+        top.add(rightPanel);
         getContentPane().add(top);
 
         //Creeatin du panel Buttom
@@ -263,9 +263,9 @@ public class Ajouter extends JFrame {
     private javax.swing.JLabel addColab;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JScrollPane scroll;
-    private javax.swing.JPanel rigthPanel;
+    private javax.swing.JPanel rightPanel;
     private javax.swing.JPanel panelLogo;
-    private javax.swing.JLabel codeJlabelExistance;
+    private javax.swing.JLabel codeJLabelExistant;
     private javax.swing.JPanel top;
     private int counter;
     // Fin de declaration des variables

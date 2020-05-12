@@ -1,24 +1,23 @@
-import org.omg.CORBA.WStringSeqHelper;
 
+/**
+ *
+ * @author nikita
+ */
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.InetAddress;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 
 public class Client implements EcouteurConnection {
 
-    private static final String IP_ADDR = "localhost";
+    private static final String IP_ADDR = "127.0.0.1";
     private static final int PORT = 8190;
     private ConnectionExchange connection;
     protected FenetreApp fenetre;
@@ -40,7 +39,7 @@ public class Client implements EcouteurConnection {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        new Client("neeeekitos", "Nikita", "TEREKHOV");
+        new Client("lena", "Lena", "LEHMANN");
     }
 
     public Client(String username, String prenom, String nom){
@@ -52,7 +51,7 @@ public class Client implements EcouteurConnection {
         try {
             InetAddress inetAddress = InetAddress.getLocalHost();
             System.out.println("connection on local IP : "+ inetAddress.toString());
-            connection = new ConnectionExchange(this,"127.0.0.1", PORT, username);
+            connection = new ConnectionExchange(this,"192.168.1.7", PORT, username);
             connection.sendString(username);
         } catch (IOException e) {
             System.out.println("exception de connexion " + e);

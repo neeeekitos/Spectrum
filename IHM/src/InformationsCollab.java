@@ -1,5 +1,4 @@
 
-import javax.swing.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 import java.sql.SQLException;
@@ -58,7 +57,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         prenomLabel = new javax.swing.JLabel();
         nomLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
-        efacerButton = new javax.swing.JButton();
+        effacerBotton = new javax.swing.JButton();
         titleInformations = new javax.swing.JLabel();
 
         //Definir les proprietes de la fenetre
@@ -106,8 +105,8 @@ public class InformationsCollab extends javax.swing.JFrame {
         top.add(emailLabel, gridBagConstraints);
 
         //Le button qui eface les collaborateur
-        efacerButton.setText("Efacer l'utilisateur dans le projet");
-        efacerButton.addActionListener(new java.awt.event.ActionListener() {
+        effacerBotton.setText("Efacer l'utilisateur dans le projet");
+        effacerBotton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
@@ -116,7 +115,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new java.awt.Insets(43, 14, 0, 25);
-        top.add(efacerButton, gridBagConstraints);
+        top.add(effacerBotton, gridBagConstraints);
 
         //Afficher le titre du frame
         titleInformations.setText("Informations");
@@ -144,7 +143,7 @@ public class InformationsCollab extends javax.swing.JFrame {
 
 
     // Declaration des variables
-    private javax.swing.JButton efacerButton;
+    private javax.swing.JButton effacerBotton;
     private javax.swing.JLabel nomJLabel;
     private javax.swing.JLabel prenomLabel;
     private javax.swing.JLabel nomLabel;
