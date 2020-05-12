@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 
+/** Client du messenger
+ * @author Valentina ETEGAN
+ * @author Nikita TEREKHOV
+ */
 public class Client implements EcouteurConnection {
 
     private static final String IP_ADDR = "127.0.0.1";
@@ -27,6 +31,7 @@ public class Client implements EcouteurConnection {
     private String username;
     private LinkedList<Projet> projets;
 
+    //sans passer par login
     public static void main(String[] args){
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -42,6 +47,12 @@ public class Client implements EcouteurConnection {
         new Client("lena", "Lena", "LEHMANN");
     }
 
+    /**
+     * Constructeur du client
+     * @param username le username de l'utilisateur
+     * @param prenom
+     * @param nom
+     */
     public Client(String username, String prenom, String nom){
 
         this.username = username;
@@ -99,7 +110,7 @@ public class Client implements EcouteurConnection {
 
     @Override
     public void receiveString(String msg) {
-
+        //on décompose notre chaine de caractères
         String[] parts = msg.split("###");
         String sender = parts[0];
         String nomProjet = parts[1];
@@ -129,6 +140,8 @@ public class Client implements EcouteurConnection {
         System.out.println("Exception de connection " + e);
     }
 
+    /** met à jour la liste des projets
+     */
     public void updateProjets() {
         projets = new LinkedList<>();
         try {
@@ -170,7 +183,7 @@ public class Client implements EcouteurConnection {
         return projets;
     }
 
-    /** Va creer le nouvel projet pour notre utilisateur :
+    /** Va créer le nouvel projet pour notre utilisateur :
      * tout d'abord récupere le dernier projectID de la BD (qui est unique),
      * ensuite va créer le nouvel projet en utilisant l'id = projectID + 1, puis ajoute dans la DB,
      * finalement rajoute ce projet localement dans la liste des projets
