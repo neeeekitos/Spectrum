@@ -1,93 +1,76 @@
-// java Program to create a simple JList
+
 import java.awt.event.*;
 import java.awt.*;
-import java.util.LinkedList;
 import javax.swing.*;
-class Projets extends JFrame
+class ListProjet extends JFrame
 {
-
-    //frame
+    //Declaration des variables
     static JFrame f;
-
-    //lists
-    static JList b;
-
-     static JLabel jLabel1;
-    //main class
-
+    static JList listScroll;
+    static JLabel projetsLabel;
     static JScrollPane scrollpane;
-
     static JLabel create;
-
     private FenetreApp fen;
 
-
-    public Projets(FenetreApp fen){
+    //Constructeur
+    public ListProjet(FenetreApp fen){
         this.fen = fen;
         this.init();
         this.setVisible(true);
     }
 
-
+    /** Initialisation
+     * @return void
+     */
     public void init() {
 
+        //Definir les parametres de la pane
         getContentPane().setMinimumSize(new Dimension(300, 200));
 
-        jLabel1 = new JLabel();
-        jLabel1.setText("PROJETS");
-        jLabel1.setHorizontalAlignment(JLabel.CENTER);
-        jLabel1.setMinimumSize(new Dimension(300, 40));
+        //Afficher le title
+        projetsLabel = new JLabel();
+        projetsLabel.setText("PROJETS");
+        projetsLabel.setHorizontalAlignment(JLabel.CENTER);
+        projetsLabel.setMinimumSize(new Dimension(300, 40));
         getContentPane().setBackground(new Color(237, 246, 249));
 
-        //create a panel
-        JPanel p =new JPanel();
-
-        //create a new label
-        JLabel l= new JLabel("select the day of the week");
-
+        //Creer un Scroll pane pour afficher la liste des projets
+        JPanel panelScroll =new JPanel();
         DefaultListModel listModel = new DefaultListModel();
-
         for (int i = 0; i<fen.user.getProjets().size(); i++) {
-
             listModel.add(i,fen.user.getProjets().get(i).getNom() );
-
         }
-
-        //create list
-
-        b = new JList(listModel);
+        listScroll = new JList(listModel);
         MouseListener mouseListener = new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 1) {
-                    String selectedItem = (String) b.getSelectedValue();
+                    String selectedItem = (String) listScroll.getSelectedValue();
                     // add selectedItem to your second list.
-                    DefaultListModel model = (DefaultListModel) b.getModel();
+                    DefaultListModel model = (DefaultListModel) listScroll.getModel();
                     System.out.println("on a selectioné "+ selectedItem);
                     fen.updateProjetActif(selectedItem);
                 }
             }
         };
-        b.addMouseListener(mouseListener);
 
+        //L'ajout des Listeners pour pouvoir acceder au projet selectionee
+        listScroll.addMouseListener(mouseListener);
 
-        //set a selected index
-        b.setSelectedIndex(0);
+        //L'ajout de scroll dans la panel et apres du panel dans la fenetre
+        listScroll.setSelectedIndex(0);
+        panelScroll.setBackground(new Color(255,255,255));
+        panelScroll.add(listScroll);
+        this.add(panelScroll);
 
-        p.setBackground(new Color(255,255,255));
-        //add list to panel
-        p.add(b);
-
-        this.add(p);
-
-        //set the size of frame
+        //Definir les dimensions du frame
         this.setMinimumSize(new Dimension(300,200));
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((int) (dimension.getWidth() / 2 - 300/ 2),
                 (int) (dimension.getHeight() / 2 - 200/ 2));
+        scrollpane = new JScrollPane(panelScroll);
 
-
-        scrollpane = new JScrollPane(p);
-
+        //Le JLabel avec des ecouteurs qui va nous envoye vers la page pour creer des projets
+        //Ou pour pouvoir rejoindre un projet existent
         create = new JLabel();
         create.setText("New Projet");
         create.setHorizontalAlignment(JLabel.CENTER);
@@ -100,16 +83,11 @@ class Projets extends JFrame
             }
         });
 
-
-
-
-        getContentPane().add(jLabel1,BorderLayout.PAGE_START);
+        //L'ajout dans la Pane des elements
+        getContentPane().add(projetsLabel,BorderLayout.PAGE_START);
         getContentPane().add(scrollpane, BorderLayout.CENTER);
         getContentPane().add(create,BorderLayout.PAGE_END);
 
-
-
     }
-
 
 }
