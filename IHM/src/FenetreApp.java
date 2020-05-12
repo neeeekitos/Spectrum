@@ -169,8 +169,8 @@ public class FenetreApp extends JFrame {
         send.setIcon(new ImageIcon(this.getClass().getResource("envoyer.png")));
         send.setCursor(new Cursor(Cursor.HAND_CURSOR));
         send.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(ActionEvent evt) {
-                sendClicked(evt);
+            public void mouseClicked(MouseEvent evt) {
+                MouseClicked(evt);
             }
         });
         panelSend.add(send);
@@ -328,7 +328,15 @@ public class FenetreApp extends JFrame {
 
     /**  Envoye le message dans la BD et il l'afiche sur l'ecran
      */
-    private void sendClicked(java.awt.event.ActionEvent evt) {
+    private void sendClicked(ActionEvent evt) {
+        sendNshowMessage();
+    }
+
+    private void MouseClicked(MouseEvent evt) {
+        sendNshowMessage();
+    }
+
+    public void sendNshowMessage() {
         String msg= messageTextField.getText();
         //Si un message a ete ecrit
         if (!msg.equals("")){

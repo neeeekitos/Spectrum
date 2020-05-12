@@ -12,7 +12,7 @@ import java.util.LinkedList;
  */
 public class ConnectionExchange {
 
-    private static final String JDBC_URL = "jdbc:mysql://localhost:4489/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
     private final Socket connection;
     private final BufferedWriter out;
     private final BufferedReader in;
@@ -125,6 +125,9 @@ public class ConnectionExchange {
             System.out.println("Connecté à la BD");
 
         } catch (SQLException e) {
+            ImageIcon img = new ImageIcon("images/attention.png");
+            JOptionPane existingProject = new JOptionPane();
+            existingProject.showMessageDialog(null, "Erreur de connexion à la BD", "Attention", JOptionPane.ERROR_MESSAGE, img);
             throw new Error("Erreur de connexion à la BD", e);
         }
         return connDb;
