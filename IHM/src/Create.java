@@ -9,7 +9,10 @@ import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER;
 
@@ -215,11 +218,7 @@ public class Create extends javax.swing.JFrame {
         codeProjet.setMaximumSize(new Dimension(200, 26));
         codeProjet.setMinimumSize(new Dimension(200, 26));
         codeProjet.setPreferredSize(new Dimension(200, 26));
-        /*codeProjet.addFocusListener(new FocusAdapter() {
-            public void focusGained(FocusEvent e) {
-                codeProjet.setText("");
-            }
-        });*/
+
 
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
@@ -263,6 +262,8 @@ public class Create extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {
+        //Ajouter un for pour verif si sont null
+        // Ajouter les collaborateurs et le projet  dans la BD
         ArrayList <String> nomColabString = new ArrayList<String>();
         for(int i=0;i<=counter;i++){
             if(!collab.get(i).getText().equals("")){
@@ -274,6 +275,15 @@ public class Create extends javax.swing.JFrame {
             nomColabString.add(user.getUsername());
         }
         user.createProject(nom.getText(),nomColabString);
+
+        // Verifier le code du projet;
+        if(!codeProjet.getText().equals("")){
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+            String dateVerif = dateFormat.format(new Date());
+            new Code(codeProjet.getText(),dateVerif).codeCompare(codeProjet.getText(), user);
+            this.dispose();
+        }
+
     }
 
     // Variables declaration - do not modify

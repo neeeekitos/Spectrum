@@ -148,11 +148,11 @@ public class FenetreSignin extends JFrame {
 
         jLabelRepeatPassword.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabelRepeatPassword.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelRepeatPassword.setText("Réécrire le mot passe");
+        jLabelRepeatPassword.setText("Réécrire le mot de passe");
 
         jLabelPassword.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelPassword.setText("Mot passe"");
+        jLabelPassword.setText("Mot de passe");
 
 
         jLabelEmail.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N

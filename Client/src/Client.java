@@ -40,7 +40,7 @@ public class Client implements EcouteurConnection {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        new Client("mathieu", "Mathieu", "Thoreton");
+        new Client("vale", "Valentina", "Etegan");
     }
 
     public Client(String username, String prenom, String nom){
@@ -88,7 +88,9 @@ public class Client implements EcouteurConnection {
         }
 
         //charger les messages du 1er projet
-        loadMessages(projets.get(0));
+        if (projets.size() > 0) {
+            loadMessages(projets.get(0));
+        }
     }
 
     @Override
@@ -196,6 +198,10 @@ public class Client implements EcouteurConnection {
         }
     }
 
+    /** Ajoute le collaborateur dans le projet
+     * @param usernameCollab le collaborateur qu'on veut ajouter dans le projet
+     * @param projetID l'id du projet dans lequel on ajoute notre collaborateur
+     */
     public void ajouterCollab(String usernameCollab, int projetID){
         try {
             connection.addCollabInProject(usernameCollab, projetID);
@@ -204,6 +210,10 @@ public class Client implements EcouteurConnection {
         }
     }
 
+    /** Charge les messages de projet
+     * @param projet l'instance du projet dans lequel
+     *               on va charger les messages
+     */
     public void loadMessages(Projet projet) {
         if (projet != null) {
             LinkedList<Message> messages = new LinkedList<>();
@@ -230,26 +240,6 @@ public class Client implements EcouteurConnection {
         return null;
     }
 
-
-//    public synchronized void printMsg(String msg){ //тк работаем из потока окошка и соединения
-//        SwingUtilities.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                log.append(msg + "\n");
-//                log.setCaretPosition(log.getDocument().getLength());
-//            }
-//        });
-//    }
-
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        String msg = fieldInput.getText();
-//        if (msg.equals("")) return;
-//        fieldInput.setText(null);
-//        connection.sendString(fieldNickname.getText() + " : " + msg, usernames);
-//        this.validate();
-//    }
-
     /** Permet d'envoyer le message dans la BD et au serveur
      * @param msg le message à envoyer
      * @param projet l'instance Projet auquel appartient le message
@@ -269,8 +259,7 @@ public class Client implements EcouteurConnection {
             e.printStackTrace();
         }
 
-        /*
-         * sendString to all users from a project
+        /* sendString to all users from a project
          * collabStr: usernames separated by ###*
          */
         String collabStr = "";

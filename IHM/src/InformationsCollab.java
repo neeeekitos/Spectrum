@@ -56,8 +56,6 @@ public class InformationsCollab extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(150, 100));
         setMaximumSize(new java.awt.Dimension(150, 100));
         setLocationRelativeTo(null);
