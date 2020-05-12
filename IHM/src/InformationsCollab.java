@@ -42,9 +42,12 @@ public class InformationsCollab extends javax.swing.JFrame {
         String email = "";
 
         try {
-            prenom =  user.getConnectionExchange().getUserInfosByUsername(username)[0];
-            nom =  user.getConnectionExchange().getUserInfosByUsername(username)[1];
-            email =  user.getConnectionExchange().getUserInfosByUsername(username)[2];
+            String[] infoArray = user.getConnectionExchange().getUserInfosByUsername(username);
+            if (infoArray != null) {
+                prenom = infoArray[0];
+                nom = infoArray[1];
+                email = infoArray[2];
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

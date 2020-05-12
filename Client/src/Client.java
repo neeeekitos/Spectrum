@@ -40,7 +40,7 @@ public class Client implements EcouteurConnection {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        new Client("vale", "Valentina", "Etegan");
+        new Client("neeeekitos", "Nikita", "TEREKHOV");
     }
 
     public Client(String username, String prenom, String nom){

@@ -413,7 +413,7 @@ public class FenetreApp extends JFrame {
         String projetString = projectName.getText();
         if (!projetString.equals("") && user.getProjectByName(projetString)!=null) {
             for (int i = 0; i < user.getProjectByName(projetString).getArrayCollaborateurs().size(); i++) {
-                listModel.add(i, "@" + user.getProjectByName(projetString).getArrayCollaborateurs().get(i));
+                listModel.add(i, user.getProjectByName(projetString).getArrayCollaborateurs().get(i));
             }
         }
     }

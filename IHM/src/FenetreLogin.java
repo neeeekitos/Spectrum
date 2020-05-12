@@ -45,7 +45,6 @@ public class FenetreLogin extends JFrame {
         msgConnexionEchoue = new javax.swing.JLabel();
         champRempli = new javax.swing.JDialog();
         msgChampRempli = new javax.swing.JLabel();
-        okChampRempli = new javax.swing.JButton();
         jPanelPrincipal = new javax.swing.JPanel();
         memberLogin = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
@@ -103,7 +102,7 @@ public class FenetreLogin extends JFrame {
 
         passwordLabel.setFont(new java.awt.Font("Arial", 0, 16));
         passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
-        passwordLabel.setText("Mot passe");
+        passwordLabel.setText("Mot de passe");
 
         userName.setFont(new java.awt.Font("Arial", 0, 16));
         userName.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,16 +188,15 @@ public class FenetreLogin extends JFrame {
     private void backToSignInMouseClicked(java.awt.event.MouseEvent evt) {
       new FenetreSignin().setVisible(true);
       this.dispose();
-
     }
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {
         String username = usernameField.getText();
         String password = new String(passwordField.getPassword());
-
         try {
-            ConnectionExchange.loginDb(username, password);
-            this.dispose();
+            if (ConnectionExchange.loginDb(username, password)) {
+                this.dispose();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -236,7 +234,6 @@ public class FenetreLogin extends JFrame {
     private javax.swing.JButton LoginButton;
     private javax.swing.JLabel backToSignIn;
     private javax.swing.JTextField usernameField;
-    private javax.swing.JButton okChampRempli;
     private javax.swing.JDialog champRempli;
     private javax.swing.JLabel msgChampRempli;
     private javax.swing.JLabel userName;

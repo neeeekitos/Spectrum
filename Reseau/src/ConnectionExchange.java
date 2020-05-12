@@ -120,7 +120,7 @@ public class ConnectionExchange {
      * @return boolean
      * @throws SQLException
      */
-    public static void loginDb(String username, String password) throws SQLException {
+    public static boolean loginDb(String username, String password) throws SQLException {
         Connection connDB = connectToDb();
 
         ResultSet result = null;
@@ -149,14 +149,17 @@ public class ConnectionExchange {
                     }
                 }).start();
 
+                return true;
             } else {
                 JOptionPane.showMessageDialog(null,"Mot de passe incorrect ! ","Error",1);
+                return false;
             }
         } else {
             JOptionPane.showMessageDialog(null,"Login incorrect ! ","Error",1);
         }
 
         connDB.close();
+        return false;
     }
 
     /** Sign-in dans la BD
@@ -449,6 +452,7 @@ public class ConnectionExchange {
             prenom = result.getString("prenom");
             nom = result.getString("nom");
             email = result.getString("email");
+            System.out.println("C'est notre " + prenom);
             return new String[]{prenom, nom, email};
         } else {
             return null;
