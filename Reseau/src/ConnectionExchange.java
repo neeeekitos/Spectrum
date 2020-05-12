@@ -12,6 +12,7 @@ import java.util.LinkedList;
  */
 public class ConnectionExchange {
 
+    private static final String JDBC_URL = "jdbc:mysql://localhost:4489/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
     private final Socket connection;
     private final BufferedWriter out;
     private final BufferedReader in;
@@ -120,8 +121,7 @@ public class ConnectionExchange {
     public static synchronized Connection connectToDb() {
         Connection connDb = null;
         try {
-            String url = "jdbc:mysql://localhost:4489/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-            connDb = DriverManager.getConnection(url, "root", "root");
+            connDb = DriverManager.getConnection(JDBC_URL, "root", "root");
             System.out.println("Connecté à la BD");
 
         } catch (SQLException e) {
