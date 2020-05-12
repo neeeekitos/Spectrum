@@ -11,6 +11,8 @@ public class Code {
         private String date;
         private int projectID;
 
+        //Constructeur qu'on va appler dans la classe Create
+        //Comme on doit seullement verifier le code on n'a pas besoin du iDProjet
         public Code(String code){
             this.code = code;
             DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
@@ -40,6 +42,9 @@ public class Code {
              try {
                  c = ConnectionExchange.getCodeIfExists(code);
                  if (c != null) {
+
+                     //On prend la date de ce moment et la date du moment quand on a cree le code
+                     //Si le Code a ete creer de plus que 24 h alors le code ne vais pas functiionner et il vais etre effacer
                      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
                      Date date1 = sdf.parse(c.getDate());
                      Date date2 = sdf.parse(this.getDate());
@@ -65,18 +70,13 @@ public class Code {
 
 
 
-        public int getProjectID(){ return projectID;}
+    //Getters
+    public int getProjectID(){ return projectID;}
 
-        public String getCode(){ return code;}
+    public String getCode(){ return code;}
 
-        public String getDate(){ return date;}
-
-        public void setCode(String c){
+    public String getDate(){ return date;}
 
 
-        }
 
-        public boolean verifCode(String c,int date2){
-                return false;
-        }
 }

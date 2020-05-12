@@ -1,9 +1,5 @@
-import com.sun.deploy.panel.JSmartTextArea;
-import javafx.scene.layout.BackgroundFill;
 
 import javax.swing.*;
-import javax.swing.plaf.ComponentUI;
-import javax.swing.text.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 
