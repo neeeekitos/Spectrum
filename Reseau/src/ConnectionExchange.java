@@ -397,7 +397,7 @@ public class ConnectionExchange {
             preparedStmt2.setInt(2, projetID);
 
             preparedStmt2.execute();
-            System.out.println("l'utilisateur @" + usernameCollaborateur + " a été ajouté dans le projet id = " + projetID);
+            System.out.println("l'utilisateur @" + usernameCollaborateur + " a été ajouté dans le projet");
             ImageIcon img = new ImageIcon("images/attention.png");
             JOptionPane existingProject = new JOptionPane();
             existingProject.showMessageDialog(null, "l'utilisateur @" + usernameCollaborateur + " a été ajouté dans le projet id = " + projetID, "Attention", JOptionPane.ERROR_MESSAGE, img);
