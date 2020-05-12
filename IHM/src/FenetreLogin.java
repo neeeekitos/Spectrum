@@ -14,10 +14,9 @@ public class FenetreLogin extends JFrame {
 
     private JPanel background;
 
-
     public FenetreLogin() {
         try {
-            Image img = ImageIO.read(new FileInputStream("IHM/images/background.jpg"));
+            Image img = ImageIO.read(new FileInputStream("IHM/resources/background.jpg"));
 
             Image scaledImg = img.getScaledInstance(1000, 800,  java.awt.Image.SCALE_SMOOTH) ;
 
@@ -39,6 +38,7 @@ public class FenetreLogin extends JFrame {
     }
 
 
+
     private void initComponents() {
         
         fondConnexionEchoue = new javax.swing.JPanel();
@@ -56,6 +56,7 @@ public class FenetreLogin extends JFrame {
         userName = new javax.swing.JLabel();
         backToSignIn = new javax.swing.JLabel();
 
+
         fondConnexionEchoue.setBackground(new java.awt.Color(153, 153, 153));
         fondConnexionEchoue.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -71,6 +72,7 @@ public class FenetreLogin extends JFrame {
         msgChampRempli.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         msgChampRempli.setForeground(new java.awt.Color(255, 255, 255));
         msgChampRempli.setText("Please, fill out all the fields to login");
+
 
         setMinimumSize(new java.awt.Dimension(1000, 800));
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -116,6 +118,7 @@ public class FenetreLogin extends JFrame {
                 backToSignInMouseClicked(evt);
             }
         });
+
 
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
@@ -174,6 +177,7 @@ public class FenetreLogin extends JFrame {
                     .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backToSignIn))
                 .addGap(27, 27, 27))
+
         );
 
         getContentPane().add(jPanelPrincipal, new java.awt.GridBagConstraints());
@@ -181,9 +185,11 @@ public class FenetreLogin extends JFrame {
         pack();
     }
 
+
     private void backToSignInMouseClicked(java.awt.event.MouseEvent evt) {
       new FenetreSignin().setVisible(true);
       this.dispose();
+
     }
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {

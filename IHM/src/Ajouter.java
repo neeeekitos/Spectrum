@@ -8,40 +8,35 @@ import java.awt.event.MouseEvent;
 
 
 /**
- *
  * @author vetegan
  */
 public class Ajouter extends JFrame {
 
     private Client user;
     private String currentProjectNom;
-    /**
-     * Creates new form Ajouter
-     */
+
+
     public Ajouter(Client user, String currentProjectNom) {
         this.user = user;
         this.currentProjectNom = currentProjectNom;
         initComponents();
     }
 
-
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    /** Initialisation
+     * @return void
+     */
     private void initComponents() {
         final GridBagConstraints[] gridBagConstraints = new GridBagConstraints[1];
 
-        //Initialisation des variables
+        //L' initialisation des variables
         top = new JPanel();
         leftPanel = new JPanel();
-        nouveauProjet = new JLabel();
         collaborateur = new JLabel();
-        nomProjet = new JLabel();
-        nom = new JTextField();
-        jPanel3 = new JPanel();
+        rigthPanel = new JPanel();
         panelLogo = new JPanel();
         jLabel1 = new JLabel();
-        PanelProjet = new JPanel();
-        projExistant = new JLabel();
+        panelCode = new JPanel();
+        codeJlabelExistance = new JLabel();
         codeProjet = new JTextField();
         code = new JLabel();
         bottom = new JPanel();
@@ -49,13 +44,15 @@ public class Ajouter extends JFrame {
         addColab = new JLabel();
         collab = new ArrayList<JTextField>();
 
-        getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        getContentPane().setMaximumSize(new Dimension(562,450));
-        getContentPane().setMinimumSize(new Dimension(562,450));
-        getContentPane().setPreferredSize(new Dimension(562,450));
 
+        //Le Layout de la pane avec la decalaration des dimmensions
+        getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+        getContentPane().setMaximumSize(new Dimension(562, 450));
+        getContentPane().setMinimumSize(new Dimension(562, 450));
+
+        //Le possitionnement sur l'ecrain de la fenetre
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation((int) (dimension.getWidth() / 2 - 562/ 2),
+        setLocation((int) (dimension.getWidth() / 2 - 562 / 2),
                 (int) (dimension.getHeight() / 2 - 450 / 2));
 
         //Dimensions du panel top (en haut)
@@ -68,6 +65,7 @@ public class Ajouter extends JFrame {
 
         //Layout du premier panel a gauche
         leftPanel.setLayout(new GridBagLayout());
+        leftPanel.setBackground(new Color(69, 123, 157));
 
         //Parametres du Jlabel collaborateurs+ l'ajout dans Panel leftPanel
         collaborateur.setFont(new Font("Lucida Grande", 1, 18)); // NOI18N
@@ -76,7 +74,7 @@ public class Ajouter extends JFrame {
         gridBagConstraints[0].ipady = 50;
         leftPanel.add(collaborateur, gridBagConstraints[0]);
 
-        //
+        //Creation d'ArrayLyst avec les TextFiled avec les users des colaborateurs qu'on veut ajouter
         collab.add(0, new JTextField(""));
         collab.get(0).setMaximumSize(new Dimension(200, 26));
         collab.get(0).setMinimumSize(new Dimension(200, 26));
@@ -86,6 +84,8 @@ public class Ajouter extends JFrame {
         gridBagConstraints[0].gridy = 2;
         leftPanel.add(collab.get(0), gridBagConstraints[0]);
 
+
+        //Creation de JLabell avec un icon aec un mouse listener
         addColab = new JLabel();
         addColab.setHorizontalAlignment(JLabel.CENTER);
         addColab.setPreferredSize(new Dimension(200, 40));
@@ -97,8 +97,8 @@ public class Ajouter extends JFrame {
         gridBagConstraints[0].gridy = 7;
         leftPanel.add(addColab, gridBagConstraints[0]);
 
-        leftPanel.setBackground(new Color(69, 123, 157));
 
+        //Ajouter du method que cree des JTextFilet que ajoute plusieurs collaborators
         addColab.addMouseListener(new MouseAdapter() {
             public void mouseExited(MouseEvent evt) {
                 addColabMouseExited(evt);
@@ -124,89 +124,91 @@ public class Ajouter extends JFrame {
 
                 gridBagConstraints[0] = new GridBagConstraints();
                 gridBagConstraints[0].gridx = 0;
-                gridBagConstraints[0].gridy = 6+counter;
-                leftPanel.add(collab.get(counter),gridBagConstraints[0]);
+                gridBagConstraints[0].gridy = 6 + counter;
+                leftPanel.add(collab.get(counter), gridBagConstraints[0]);
 
                 gridBagConstraints[0] = new GridBagConstraints();
                 gridBagConstraints[0].gridx = 0;
-                gridBagConstraints[0].gridy = 7+counter;
+                gridBagConstraints[0].gridy = 7 + counter;
                 leftPanel.add(addColab, gridBagConstraints[0]);
-                /*collab.get(counter).addFocusListener(new FocusAdapter() {
-                    public void focusGained(FocusEvent e) {
-                        collab.get(counter).setText("");
-                    }
-                });*/
                 counter++;
                 leftPanel.repaint();
 
             }
         });
 
+
+        //Ajouter le LeftPanel dans un ScrollPane
         scroll = new JScrollPane(leftPanel);
         scroll.setBackground(new Color(69, 123, 157));
         top.add(scroll);
 
 
-        jPanel3.setMaximumSize(new Dimension(281, 396));
-        jPanel3.setMinimumSize(new Dimension(281, 396));
-        jPanel3.setLayout(new BoxLayout(jPanel3, BoxLayout.Y_AXIS));
-        jPanel3.setBackground(new Color(255,255,255));
+        //Declaration panel droite
+        rigthPanel.setMaximumSize(new Dimension(281, 396));
+        rigthPanel.setMinimumSize(new Dimension(281, 396));
+        rigthPanel.setLayout(new BoxLayout(rigthPanel, BoxLayout.Y_AXIS));
+        rigthPanel.setBackground(new Color(255, 255, 255));
 
+        //Declaration du panel en haut que appartient dans rigthPanel
         panelLogo.setMaximumSize(new Dimension(281, 50));
         panelLogo.setMinimumSize(new Dimension(281, 50));
         panelLogo.setPreferredSize(new Dimension(281, 50));
         panelLogo.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
+        //Mettre le logo dans un Jlabel
         jLabel1.setIcon(new ImageIcon(this.getClass().getResource("triangle.png")));
         panelLogo.add(jLabel1);
         panelLogo.setBackground(new Color(237, 246, 249));
 
-        jPanel3.add(panelLogo);
+        //Ajouter le panelLogol au rigthPane
+        rigthPanel.add(panelLogo);
 
-        PanelProjet.setLayout(new GridBagLayout());
 
-        projExistant.setFont(new Font("Lucida Grande", 1, 18)); // NOI18N
-        projExistant.setText("Créer un code pour le projet");
+        //Panel PourCreer le code
+        panelCode.setLayout(new GridBagLayout());
+
+        //L'ajout de titre du panelCode
+        codeJlabelExistance.setFont(new Font("Lucida Grande", 1, 18)); // NOI18N
+        codeJlabelExistance.setText("Créer un code pour le projet");
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
         gridBagConstraints[0].gridy = 0;
         gridBagConstraints[0].ipady = 50;
         gridBagConstraints[0].anchor = GridBagConstraints.PAGE_START;
-        PanelProjet.add(projExistant, gridBagConstraints[0]);
+        panelCode.add(codeJlabelExistance, gridBagConstraints[0]);
 
-        codeProjet.setText("");
-        codeProjet.setMaximumSize(new Dimension(200, 26));
-        codeProjet.setMinimumSize(new Dimension(200, 26));
-        codeProjet.setPreferredSize(new Dimension(200, 26));
-        /*codeProjet.addFocusListener(new FocusAdapter() {
-            public void focusGained(FocusEvent e) {
-                codeProjet.setText("");
-            }
-        });*/
-
-        gridBagConstraints[0] = new GridBagConstraints();
-        gridBagConstraints[0].gridx = 0;
-        gridBagConstraints[0].gridy = 2;
-        PanelProjet.add(codeProjet, gridBagConstraints[0]);
-
-        code.setText("Le code va expirer dans 10 minutes");
+        //L'ajou du soutitre du panelCode
+        code.setText("Le code va expirer dans 24 heures");
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
         gridBagConstraints[0].gridy = 1;
         gridBagConstraints[0].ipady = 20;
-        PanelProjet.add(code, gridBagConstraints[0]);
-        PanelProjet.setBackground(new Color(237, 246, 249));
-        jPanel3.add(PanelProjet);
+        panelCode.add(code, gridBagConstraints[0]);
+        panelCode.setBackground(new Color(237, 246, 249));
+        rigthPanel.add(panelCode);
 
-        top.add(jPanel3);
+        //L'ajout de TextFiled pour donner un code unique pour pouvoir acceder au projet
+        codeProjet.setText("");
+        codeProjet.setMaximumSize(new Dimension(200, 26));
+        codeProjet.setMinimumSize(new Dimension(200, 26));
+        codeProjet.setPreferredSize(new Dimension(200, 26));
+        gridBagConstraints[0] = new GridBagConstraints();
+        gridBagConstraints[0].gridx = 0;
+        gridBagConstraints[0].gridy = 2;
+        panelCode.add(codeProjet, gridBagConstraints[0]);
 
+        //L'ajout de rigthPanel au Panel top et du top au Pane
+        top.add(rigthPanel);
         getContentPane().add(top);
 
+        //Creeatin du panel Buttom
         bottom.setMaximumSize(new Dimension(562, 54));
         bottom.setMinimumSize(new Dimension(562, 54));
         bottom.setPreferredSize(new Dimension(562, 54));
         bottom.setLayout(new GridBagLayout());
 
+        //Creeation du button valider
         valider.setText("Valider");
         valider.setMaximumSize(new Dimension(100, 30));
         valider.setMinimumSize(new Dimension(100, 30));
@@ -218,52 +220,53 @@ public class Ajouter extends JFrame {
 
             private void validerActionPerformed(ActionEvent evt) {
 
-              ArrayList <String> collabString = new ArrayList<>();
-               for(int i=0;i<collab.size();i++) {
-                   if(!collab.get(i).getText().equals("")){
-                       collabString.add( collab.get(i).getText());
-                   }
-               }
-
-               for(int i=0; i<collabString.size();i++){
-                   user.ajouterCollab(collabString.get(i),user.getProjectByName(currentProjectNom).getId());
+                ArrayList<String> collabString = new ArrayList<>();
+                //on prend chaque textField et on met le contenu dans ArrayList
+                for (int i = 0; i < collab.size(); i++) {
+                    if (!collab.get(i).getText().equals("")) {
+                        collabString.add(collab.get(i).getText());
+                        collab.get(i).setText("");
+                    }
+                }
+                //mettons dans la BD alors les collaborateurs dans la BD
+                for (int i = 0; i < collabString.size(); i++) {
+                    user.ajouterCollab(collabString.get(i), user.getProjectByName(currentProjectNom).getId());
+                    codeProjet.setText("");
                 }
 
-               if(!code.getText().equals("")){
-                  user.getProjectByName(currentProjectNom).createCode(codeProjet.getText());
-               }
+                if (!codeProjet.getText().equals("")) {
+                    user.getProjectByName(currentProjectNom).createCode(codeProjet.getText());
+                    codeProjet.setText("");
+                }
             }
         });
         bottom.add(valider, new GridBagConstraints());
 
+        //L'ajout du bottom au pane;
         getContentPane().add(bottom);
+
+        //Fixer la taille du fenetre
         setResizable(false);
+
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Declaration des variables
     private JButton valider;
-    private javax.swing.JPanel PanelProjet;
+    private javax.swing.JPanel panelCode;
     private javax.swing.JPanel bottom;
     private javax.swing.JLabel code;
     private javax.swing.JTextField codeProjet;
-    private ArrayList <JTextField> collab;
+    private ArrayList<JTextField> collab;
     private javax.swing.JLabel collaborateur;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel addColab;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JScrollPane scroll;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField nom;
-    private javax.swing.JLabel nomProjet;
-    private javax.swing.JLabel nouveauProjet;
+    private javax.swing.JPanel rigthPanel;
     private javax.swing.JPanel panelLogo;
-    private javax.swing.JLabel projExistant;
+    private javax.swing.JLabel codeJlabelExistance;
     private javax.swing.JPanel top;
     private int counter;
-    // End of variables declaration//GEN-END:variables
+    // Fin de declaration des variables
 }
