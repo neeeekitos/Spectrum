@@ -5,14 +5,19 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-/**
- *
- * @author vetegan
+/**Classe que va creer l'afichage de fenetre des messages(fenetre principale)
+ * @author Nikita TEREKHOV
+ * @author Valentina ETEGAN
+ * @author Lena LEHMANN
+ * @author Roman HOCHHAUSEN
  */
 public class FenetreApp extends JFrame {
 
     protected Client user;
 
+    /**Constructeur
+     * @param user
+     * */
     public FenetreApp(Client user) {
         this.user=user;
         initComponents();
@@ -28,7 +33,6 @@ public class FenetreApp extends JFrame {
     }
 
     /** Initialisation
-     * @return void
      */
     private void initComponents() {
 
@@ -289,7 +293,7 @@ public class FenetreApp extends JFrame {
         pack();
     }
 
-    /** Deconnection d'application
+    /** Deconnection de l'application
      * @return void
      */
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +305,6 @@ public class FenetreApp extends JFrame {
 
     /** Ajouter les collaborateurs dans le projet
      * Si on n'est pas connecter dans un projet(la premiere authetification) on vais pas pouvoir ajouter des collaborateurs
-     * @return void
      */
     private void ajouterCollabMouseClicked(java.awt.event.MouseEvent evt) {
 
@@ -315,7 +318,6 @@ public class FenetreApp extends JFrame {
     }
 
     /**Syncronisé car on l'utilise du thread EDT (fenetre) ainsi que de la classe Client
-     * @return
      */
     public synchronized void scrollOnTheBottom() {
         int lastIndex = list.getModel().getSize() - 1;
@@ -325,7 +327,6 @@ public class FenetreApp extends JFrame {
     }
 
     /**  Envoye le message dans la BD et il l'afiche sur l'ecran
-     * @return void
      */
     private void sendClicked(java.awt.event.ActionEvent evt) {
         String msg= messageTextField.getText();
@@ -348,20 +349,19 @@ public class FenetreApp extends JFrame {
     }
 
     /** Ouvrir la liste des projets dans laquelles on est connecter
-     * @return void
      */
     private void projetMouseClicked(java.awt.event.MouseEvent evt) {
         new ListProjet(this).setVisible(true);
     }
 
     /** Ajout des messages
-     * @return void
      */
     public synchronized void printMsg(String msg, boolean myMessage) {
         addedItems.add(addedItems.getSize(), new ListItem(msg, myMessage));
     }
 
-    //Creer un classe pour avoir les bords ronds
+    /** Creer un classe pour arrondir les bords du JTextArea
+     */
     public class RoundJTextField extends JTextField {
         private Shape shape;
         public RoundJTextField(int size) {

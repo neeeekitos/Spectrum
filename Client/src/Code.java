@@ -4,15 +4,20 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/** Represente le code
+ * Cette code va expirer dans 24 h
+ * @author Valentina ETEGAN
+ * @author Lena LEHMANN
+ */
 public class Code {
 
         private String code;
         private String date;
         private int projectID;
 
-        //Constructeur qu'on va appler dans la classe Create
-        //Comme on doit seullement verifier le code on n'a pas besoin du iDProjet
+         /** Constructeur qu'on appele à partir de la fénetre Create
+          * @param code un code unique du projet
+          * */
         public Code(String code){
             this.code = code;
             DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
@@ -20,7 +25,11 @@ public class Code {
             projectID = 0;
         }
 
-        //constructeur pour la creation du code
+
+         /** Constructeur qu'on va appeler quand on crée un code
+         * @param code un code unique du projet
+         * @param projectID l'ID du projet
+        * */
         public Code(String code, int projectID) {
             this.code = code;
             DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
@@ -28,14 +37,22 @@ public class Code {
             this.projectID = projectID;
         }
 
-        //Constructeur qu'on appelle dans la fenetre ajouter quand on vais creer le code
-        //On utilise ça car on n'a pas besoin d'avoir la date donnee dans constructeurs
+
+        /** Constructeur qu'on va appeler dans la fenetre Ajouter
+         * pour comparer le code qu'on vient d'ecrire avec le code qu'on a dans la DB
+         * @param code un code unique du projet
+         * @param date la date de creation de code
+         * @param projectID l'ID du projet
+         * */
          public Code(String code, String date, int projectID){
             this.projectID= projectID;
             this.code = code;
             this.date = date;
          }
 
+        /** Methode qui compare le code donnee avec le code existent dans le projet
+         * et qui l'ajout ou efface dans la base des donees
+         * */
          public void codeCompare(String code, Client user) {
              Code c;
 
@@ -70,12 +87,22 @@ public class Code {
 
 
 
-    //Getters
-    public int getProjectID(){ return projectID;}
+        /** Retourne le projetID du projet
+         * @return projetID l'ID du projet
+         */
+        public int getProjectID(){ return projectID;}
 
-    public String getCode(){ return code;}
 
-    public String getDate(){ return date;}
+        /** Retourne le code du projet
+         * @return code un code unique pour le projet
+         */
+        public String getCode(){ return code;}
+
+
+        /** Retourne la date de creation de code
+         * @return date la date de creation de code
+         */
+        public String getDate(){ return date;}
 
 
 

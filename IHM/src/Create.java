@@ -5,15 +5,19 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-/**
- *
- * @author vetegan
+/**Classe que va creer l'afichage de fenetre des messages(fenetre principale)
+ * @author Valentina ETEGAN
+ * @author Roman HOCHHAUSEN
  */
 public class Create extends javax.swing.JFrame {
 
     Client user;
     ListProjet listeProjets;
 
+    /**Constructeur
+     * @param user
+     * @param listeProjets
+     * */
     public Create(Client user, ListProjet listeProjets) {
         this.user=user;
         this.listeProjets=listeProjets;
@@ -21,7 +25,6 @@ public class Create extends javax.swing.JFrame {
     }
 
     /** Initialisation
-     * @return void
      */
     private void initComponents() {
         final GridBagConstraints[] gridBagConstraints = new GridBagConstraints[1];
@@ -265,7 +268,6 @@ public class Create extends javax.swing.JFrame {
     }
 
     /** Ajouter les collaborateurs et le projet  dans la BD
-     * @return void
      */
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {
 

@@ -7,15 +7,19 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-/**
- * @author vetegan
+/** Fenetre qui permet d'ajouter les collaborateurs
+ * @author Nikita TEREKHOV
+ * @author Lena LEHMANN
  */
 public class Ajouter extends JFrame {
 
     private Client user;
     private String currentProjectNom;
 
-
+    /**Constructeur
+     * @param user
+     * @param currentProjectNom
+     * */
     public Ajouter(Client user, String currentProjectNom) {
         this.user = user;
         this.currentProjectNom = currentProjectNom;
@@ -23,7 +27,6 @@ public class Ajouter extends JFrame {
     }
 
     /** Initialisation
-     * @return void
      */
     private void initComponents() {
         final GridBagConstraints[] gridBagConstraints = new GridBagConstraints[1];
@@ -50,7 +53,7 @@ public class Ajouter extends JFrame {
         getContentPane().setMaximumSize(new Dimension(562, 450));
         getContentPane().setMinimumSize(new Dimension(562, 450));
 
-        //Le possitionnement sur l'ecrain de la fenetre
+        //Le positionement sur l'ecrain de la fenetre
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((int) (dimension.getWidth() / 2 - 562 / 2),
                 (int) (dimension.getHeight() / 2 - 450 / 2));
@@ -178,7 +181,7 @@ public class Ajouter extends JFrame {
         gridBagConstraints[0].anchor = GridBagConstraints.PAGE_START;
         panelCode.add(codeJLabelExistant, gridBagConstraints[0]);
 
-        //L'ajou du soutitre du panelCode
+        //L'ajout du soutitre du panelCode
         code.setText("Le code va expirer dans 24 heures");
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
