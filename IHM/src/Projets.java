@@ -15,6 +15,8 @@ class Projets extends JFrame
      static JLabel jLabel1;
     //main class
 
+    private DefaultListModel listModel;
+
     static JScrollPane scrollpane;
 
     static JLabel create;
@@ -45,7 +47,7 @@ class Projets extends JFrame
         //create a new label
         JLabel l= new JLabel("select the day of the week");
 
-        DefaultListModel listModel = new DefaultListModel();
+        listModel = new DefaultListModel();
 
         for (int i = 0; i<fen.user.getProjets().size(); i++) {
 
@@ -85,7 +87,6 @@ class Projets extends JFrame
         setLocation((int) (dimension.getWidth() / 2 - 300/ 2),
                 (int) (dimension.getHeight() / 2 - 200/ 2));
 
-
         scrollpane = new JScrollPane(p);
 
         create = new JLabel();
@@ -96,20 +97,20 @@ class Projets extends JFrame
         getContentPane().setBackground(new Color(237, 246, 249));
         create.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
-                new Create(fen.user).setVisible(true);
+                new Create(fen.user, Projets.this).setVisible(true);
             }
         });
-
-
 
 
         getContentPane().add(jLabel1,BorderLayout.PAGE_START);
         getContentPane().add(scrollpane, BorderLayout.CENTER);
         getContentPane().add(create,BorderLayout.PAGE_END);
-
-
-
     }
 
-
+    public void updateListeProjet() {
+        listModel.removeAllElements();
+        for (int i = 0; i<fen.user.getProjets().size(); i++) {
+            listModel.add(i,fen.user.getProjets().get(i).getNom());
+        }
+    }
 }

@@ -273,7 +273,7 @@ public class FenetreApp extends JFrame {
                     int index = theList.locationToIndex(mouseEvent.getPoint());
                     if (index >= 0) {
                         Object o = theList.getModel().getElementAt(index);
-                        InformationsCollab informationsCollab = new InformationsCollab(o.toString());
+                        InformationsCollab informationsCollab = new InformationsCollab(o.toString(), user);
                         informationsCollab.setVisible(true);
                         System.out.println("Clicked on: " + o.toString());
 

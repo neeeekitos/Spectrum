@@ -370,6 +370,9 @@ public class ConnectionExchange {
 
             preparedStmt2.execute();
             System.out.println("l'utilisateur @" + usernameCollaborateur + " a été ajouté dans le projet id = " + projetID);
+            ImageIcon img = new ImageIcon("images/attention.png");
+            JOptionPane existingProject = new JOptionPane();
+            existingProject.showMessageDialog(null, "l'utilisateur @" + usernameCollaborateur + " a été ajouté dans le projet id = " + projetID, "Attention", JOptionPane.ERROR_MESSAGE, img);
         } else {
             ImageIcon img = new ImageIcon("images/attention.png");
             JOptionPane existingProject = new JOptionPane();
@@ -434,10 +437,12 @@ public class ConnectionExchange {
         result = preparedStmt.executeQuery();
 
         String dateCreation = "";
+        int projectID;
 
         if (result.next()) {
             dateCreation = result.getString("dateCreation");
-            return new Code(code, dateCreation);
+            projectID = result.getInt("projectID");
+            return new Code(code, dateCreation, projectID);
         }
 
         return null; //returns null if no code
@@ -455,6 +460,25 @@ public class ConnectionExchange {
 
         preparedStmt2.execute();
         System.out.println("le code " + c.getCode() + " a été ajouté dans le projet id = " + c.getProjectID());
+    }
+
+    public void deleteMemberFromProject(String usernameToDelete) throws SQLException {
+
+        String requeteDelete = " DELETE FROM projetassociation WHERE username=?";
+
+        PreparedStatement preparedStmt = connDb.prepareStatement(requeteDelete);
+        preparedStmt.setString(1, usernameToDelete);
+        int quantityRowsUpdated = preparedStmt.executeUpdate();
+        if (quantityRowsUpdated > 0) {
+            System.out.println("L'utilisateur @" + usernameToDelete + " a été supprimé du projet");
+            ImageIcon img = new ImageIcon("images/attention.png");
+            JOptionPane usernameFalse = new JOptionPane();
+            usernameFalse.showMessageDialog(null, "L'utilisateur @" + usernameToDelete + " a été supprimé du projet", "Attention",JOptionPane.ERROR_MESSAGE, img);
+        } else {
+            ImageIcon img = new ImageIcon("images/attention.png");
+            JOptionPane usernameFalse = new JOptionPane();
+            usernameFalse.showMessageDialog(null, "L'utilisateur @" + usernameToDelete + " n'a pas été supprimé du projet", "Attention",JOptionPane.ERROR_MESSAGE, img);
+        }
     }
 
 }

@@ -11,19 +11,27 @@ public class Code {
         private String date;
         private int projectID;
 
-        public Code(String code, String date){
+        public Code(String code){
             this.code = code;
-            this.date = date;
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+            this.date = dateFormat.format(new Date());;
             projectID = 0;
+        }
+
+        //constructeur pour la creation du code
+        public Code(String code, int projectID) {
+            this.code = code;
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+            this.date = dateFormat.format(new Date());;
+            this.projectID = projectID;
         }
 
         //Constructeur qu'on appelle dans la fenetre ajouter quand on vais creer le code
         //On utilise ça car on n'a pas besoin d'avoir la date donnee dans constructeurs
-         public Code(String code, int projectID){
+         public Code(String code, String date, int projectID){
             this.projectID= projectID;
             this.code = code;
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-            date = dateFormat.format(new Date());
+            this.date = date;
          }
 
          public void codeCompare(String code, Client user) {

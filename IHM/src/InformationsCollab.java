@@ -9,6 +9,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
+import java.sql.SQLException;
 
 /**
  *
@@ -22,8 +23,11 @@ public class InformationsCollab extends javax.swing.JFrame {
 
     String username;
     boolean gained;
-    public InformationsCollab(String username) {
+    Client user;
+
+    public InformationsCollab(String username, Client user) {
         this.username = username;
+        this.user = user;
         initComponents();
         this.addWindowFocusListener(new WindowFocusListener() {
             @Override
@@ -96,7 +100,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 10, 0, 0);
         top.add(jLabel5, gridBagConstraints);
 
-        jButton1.setText("Efacer l'utilisateur dans le projet");
+        jButton1.setText("Effacer l'utilisateur dans le projet");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -118,7 +122,12 @@ public class InformationsCollab extends javax.swing.JFrame {
 
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-
+        try {
+            user.getConnectionExchange().deleteMemberFromProject(username);
+            user.updateProjets();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -140,7 +149,7 @@ public class InformationsCollab extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InformationsCollab("Mathieu").setVisible(true);
+                new InformationsCollab("Mathieu",  new Client("vale", "Valentina", "Etegan")).setVisible(true);
             }
         });
     }

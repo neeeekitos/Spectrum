@@ -189,7 +189,7 @@ public class Ajouter extends JFrame {
         gridBagConstraints[0].gridy = 2;
         PanelProjet.add(codeProjet, gridBagConstraints[0]);
 
-        code.setText("Le code va expirer dans 10 minutes");
+        code.setText("Le code va expirer dans 24 heures");
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
         gridBagConstraints[0].gridy = 1;
@@ -227,10 +227,13 @@ public class Ajouter extends JFrame {
 
                for(int i=0; i<collabString.size();i++){
                    user.ajouterCollab(collabString.get(i),user.getProjectByName(currentProjectNom).getId());
-                }
+                   collab.get(i).setText("");
+               }
 
-               if(!code.getText().equals("")){
+               if(!codeProjet.getText().equals("")){
+                   System.out.println(code.getText() + "voici le code");
                   user.getProjectByName(currentProjectNom).createCode(codeProjet.getText());
+                  user.updateProjets();
                }
             }
         });

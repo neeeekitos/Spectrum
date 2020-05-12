@@ -130,6 +130,16 @@ public class Client implements EcouteurConnection {
         System.out.println("Exception de connection " + e);
     }
 
+    public void updateProjets() {
+        projets = new LinkedList<>();
+        try {
+            projets = connection.updateProjects();
+            fenetre.updateCollaborateurs();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     /** Retourne le username de l'utilisateur
      * @return username
      */
@@ -205,6 +215,7 @@ public class Client implements EcouteurConnection {
     public void ajouterCollab(String usernameCollab, int projetID){
         try {
             connection.addCollabInProject(usernameCollab, projetID);
+            updateProjets();
         } catch (SQLException e) {
             e.printStackTrace();
         }

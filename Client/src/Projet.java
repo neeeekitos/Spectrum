@@ -52,7 +52,7 @@ public class Projet {
     }
 
     public void createCode(String code){
-        Code c = new Code(code,id);
+        Code c = new Code(code, id);
         try {
             ConnectionExchange.setCodeOnProject(c);
         } catch (SQLException e) {
