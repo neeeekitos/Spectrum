@@ -11,6 +11,7 @@ class ListProjet extends JFrame
     static JScrollPane scrollpane;
     static JLabel create;
     private FenetreApp fen;
+    private DefaultListModel listModel;
 
     //Constructeur
     public ListProjet(FenetreApp fen){
@@ -32,11 +33,13 @@ class ListProjet extends JFrame
         projetsLabel.setText("PROJETS");
         projetsLabel.setHorizontalAlignment(JLabel.CENTER);
         projetsLabel.setMinimumSize(new Dimension(300, 40));
+        projetsLabel.setPreferredSize(new Dimension(300, 40));
+        projetsLabel.setMaximumSize(new Dimension(300, 40));
         getContentPane().setBackground(new Color(237, 246, 249));
 
         //Creer un Scroll pane pour afficher la liste des projets
         JPanel panelScroll =new JPanel();
-        DefaultListModel listModel = new DefaultListModel();
+        listModel = new DefaultListModel();
         for (int i = 0; i<fen.user.getProjets().size(); i++) {
             listModel.add(i,fen.user.getProjets().get(i).getNom() );
         }
@@ -75,11 +78,13 @@ class ListProjet extends JFrame
         create.setText("New Projet");
         create.setHorizontalAlignment(JLabel.CENTER);
         create.setMinimumSize(new Dimension(300, 40));
+        create.setPreferredSize(new Dimension(300, 40));
+        create.setMaximumSize(new Dimension(300, 40));
         create.setCursor(new Cursor(Cursor.HAND_CURSOR));
         getContentPane().setBackground(new Color(237, 246, 249));
         create.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
-                new Create(fen.user).setVisible(true);
+                new Create(fen.user, ListProjet.this).setVisible(true);
             }
         });
 
@@ -88,6 +93,13 @@ class ListProjet extends JFrame
         getContentPane().add(scrollpane, BorderLayout.CENTER);
         getContentPane().add(create,BorderLayout.PAGE_END);
 
+    }
+
+    public void updateListeProjet() {
+        listModel.removeAllElements();
+        for (int i = 0; i<fen.user.getProjets().size(); i++) {
+            listModel.add(i,fen.user.getProjets().get(i).getNom() );
+        }
     }
 
 }

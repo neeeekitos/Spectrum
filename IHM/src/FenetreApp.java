@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 /**
@@ -34,7 +35,7 @@ public class FenetreApp extends JFrame {
 
         //Initialisation des variables
         panelExit = new JPanel();
-        exitButton = new JButton();
+        deconnectButton = new JButton();
         panelUtilisateur = new JPanel();
         name = new JLabel();
         username = new JLabel();
@@ -70,13 +71,13 @@ public class FenetreApp extends JFrame {
         panelExit.setLayout(new BorderLayout(10, 750));
 
         //creation du button exit
-        exitButton.setIcon(new ImageIcon(this.getClass().getResource("exit.jpeg")));
-        exitButton.addActionListener(new ActionListener() {
+        deconnectButton.setIcon(new ImageIcon(this.getClass().getResource("exit.jpeg")));
+        deconnectButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 exitButtonActionPerformed(evt);
             }
         });
-        panelExit.add(exitButton,BorderLayout.PAGE_END);
+        panelExit.add(deconnectButton,BorderLayout.PAGE_END);
 
         //Ajouter le panelExit au pane
         getContentPane().add(panelExit);
@@ -87,6 +88,7 @@ public class FenetreApp extends JFrame {
         panelUtilisateur.setMinimumSize(new Dimension(200, 800));
         panelUtilisateur.setLayout(new BoxLayout(panelUtilisateur, BoxLayout.Y_AXIS));
         panelUtilisateur.add(Box.createRigidArea(new Dimension(0,60)));
+        panelUtilisateur.setBorder(new EmptyBorder(10, 0, 10, 16));
 
         //Afficher le nom et prenom du utilisateur
         name.setFont(new Font("Arial", 1, 18)); // NOI18N
@@ -147,25 +149,25 @@ public class FenetreApp extends JFrame {
 
         //Le text filed ou on peut ecrire nos messages
         messageTextFiled.setText("Tapez votre message ici");
-        messageTextFiled.setMaximumSize(new Dimension(620, 30));
-        messageTextFiled.setMinimumSize(new Dimension(620, 30));
-        messageTextFiled.setPreferredSize(new Dimension(620, 30));
-        messageTextFiled.setSize(600, 30);
+        messageTextFiled.setMaximumSize(new Dimension(630, 40));
+        messageTextFiled.setMinimumSize(new Dimension(630, 40));
+        messageTextFiled.setPreferredSize(new Dimension(630, 40));
+        messageTextFiled.setSize(630, 40);
         messageTextFiled.addFocusListener(new FocusAdapter() {
             public void focusGained(FocusEvent e) {
                 messageTextFiled.setText("");
             }
         });
-        LineBorder lineBorder =new LineBorder(Color.white, 8, true);
-        //jTextField1.setBorder(lineBorder );
+        messageTextFiled.addActionListener(this::sendClicked);
+        
         panelSend.add(messageTextFiled);
 
         //Le Icon sur laquelle on doit appuye pour envoye les messages
         send.setIcon(new ImageIcon(this.getClass().getResource("envoyer.png")));
         send.setCursor(new Cursor(Cursor.HAND_CURSOR));
         send.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-                sendMouseClicked(evt);
+            public void mouseClicked(ActionEvent evt) {
+                sendClicked(evt);
             }
         });
         panelSend.add(send);
@@ -272,7 +274,7 @@ public class FenetreApp extends JFrame {
                     int index = theList.locationToIndex(mouseEvent.getPoint());
                     if (index >= 0) {
                         Object o = theList.getModel().getElementAt(index);
-                        InformationsCollab informationsCollab = new InformationsCollab(o.toString(),user);
+                        InformationsCollab informationsCollab = new InformationsCollab(o.toString(), user);
                         informationsCollab.setVisible(true);
                         System.out.println("Clicked on: " + o.toString());
 
@@ -288,12 +290,14 @@ public class FenetreApp extends JFrame {
         pack();
     }
 
-    /** Sortir de l'application
+    /** Deconnection d'application
      * @return void
      */
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {
 
-        System.exit(0);
+        this.dispose();
+        new FenetreLogin().setVisible(true);
+
     }
 
     /** Ajouter les collaborateurs dans le projet
@@ -305,7 +309,7 @@ public class FenetreApp extends JFrame {
         if (!projectName.getText().equals("")) {
             new Ajouter(user, user.getProjectByName(projectName.getText()).getNom()).setVisible(true);
         } else {
-            ImageIcon img = new ImageIcon("images/attention.png");
+            ImageIcon img = new ImageIcon("resources/attention.png");
             JOptionPane usernameFalse = new JOptionPane();
             usernameFalse.showMessageDialog(null, "Vous n'avez pas projets actifs", "Attention",JOptionPane.ERROR_MESSAGE, img);
         }
@@ -324,7 +328,7 @@ public class FenetreApp extends JFrame {
     /**  Envoye le message dans la BD et il l'afiche sur l'ecran
      * @return void
      */
-    private void sendMouseClicked(java.awt.event.MouseEvent evt) {
+    private void sendClicked(java.awt.event.ActionEvent evt) {
         String msg= messageTextFiled.getText();
         //Si un message a ete ecrit
         if (!msg.equals("")){
@@ -334,13 +338,13 @@ public class FenetreApp extends JFrame {
                 scrollOnTheBottom();
                 this.repaint();
             } else {
-                ImageIcon img = new ImageIcon("images/attention.png");
+                ImageIcon img = new ImageIcon("resources/attention.png");
                 JOptionPane usernameFalse = new JOptionPane();
                 usernameFalse.showMessageDialog(null, "choose your project", "Attention",JOptionPane.ERROR_MESSAGE, img);
             }
 
             //On vais effacer le message apres il a ete envoye
-            projectName.setText("");
+            messageTextFiled.setText("");
         }
     }
 
@@ -382,7 +386,7 @@ public class FenetreApp extends JFrame {
         }
     }
 
-    /**Updater le project avec le Jlabel, les Messages et la liste de collaborateurs
+    /**Update le project avec le Jlabel, les Messages et la liste de collaborateurs
      * @return void
      */
     public void updateProjetActif(String nomProjetActif) {
@@ -401,11 +405,17 @@ public class FenetreApp extends JFrame {
 
     }
 
-    /** Updater les collaborateurs
+    /** Update les collaborateurs
      * @return void
      */
     public void updateCollaborateurs() {
-
+        listModel.removeAllElements();
+        String projetString = projectName.getText();
+        if (!projetString.equals("") && user.getProjectByName(projetString)!=null) {
+            for (int i = 0; i < user.getProjectByName(projetString).getArrayCollaborateurs().size(); i++) {
+                listModel.add(i, "@" + user.getProjectByName(projetString).getArrayCollaborateurs().get(i));
+            }
+        }
     }
 
     //Declaration des variables
@@ -413,7 +423,7 @@ public class FenetreApp extends JFrame {
     private JPanel panelSend;
     private JButton ajouterColab;
     private JLabel  send;
-    private JButton exitButton;
+    private JButton deconnectButton;
     private JPanel panelNomProjet;
     private RoundJTextField messageTextFiled;
     private JLabel logoImage;

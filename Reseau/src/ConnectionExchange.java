@@ -471,6 +471,7 @@ public class ConnectionExchange {
         if (result.next()) {
             dateCreation = result.getString("dateCreation");
             projectID = result.getInt("projectID");
+            System.out.println("Le code est : " + code);
             return new Code(code, dateCreation, projectID);
         }
 
@@ -478,7 +479,19 @@ public class ConnectionExchange {
     }
 
     public static void setCodeOnProject(Code c) throws SQLException{
+
         Connection connDb = connectToDb();
+        ResultSet result;
+        String requete1 = "SELECT * FROM codeprojets as c WHERE c.projectID=?";
+
+        PreparedStatement preparedStmt = connDb.prepareStatement(requete1);
+        preparedStmt.setInt(1, c.getProjectID());
+        result = preparedStmt.executeQuery();
+
+        if (result.next()) {
+            deleteCodeProject(result.getString("code"),  connDb);
+        }
+
         String requeteAssociation = " INSERT INTO codeprojets (projectID, code, dateCreation) VALUES (?, ?, ?)";
         PreparedStatement preparedStmt2 = connDb.prepareStatement(requeteAssociation);
 
@@ -488,7 +501,10 @@ public class ConnectionExchange {
         preparedStmt2.setString(3, c.getDate());
 
         preparedStmt2.execute();
-        System.out.println("le code " + c.getCode() + " a été ajouté dans le projet id = " + c.getProjectID());
+        ImageIcon img = new ImageIcon("images/attention.png");
+        JOptionPane usernameFalse = new JOptionPane();
+        usernameFalse.showMessageDialog(null, "le code " + c.getCode() + " a été ajouté dans le projet", "Attention",JOptionPane.ERROR_MESSAGE, img);
+        System.out.println("le code " + c.getCode() + " a été ajouté dans le projet");
     }
 
     public void deleteMemberFromProject(String usernameToDelete) throws SQLException {
@@ -507,6 +523,25 @@ public class ConnectionExchange {
             ImageIcon img = new ImageIcon("images/attention.png");
             JOptionPane usernameFalse = new JOptionPane();
             usernameFalse.showMessageDialog(null, "L'utilisateur @" + usernameToDelete + " n'a pas été supprimé du projet", "Attention",JOptionPane.ERROR_MESSAGE, img);
+        }
+    }
+
+    public static void deleteCodeProject(String codeToDelete, Connection connDb) throws SQLException {
+
+        String requeteDelete = " DELETE FROM codeprojets WHERE code=?";
+
+        PreparedStatement preparedStmt = connDb.prepareStatement(requeteDelete);
+        preparedStmt.setString(1, codeToDelete);
+        int quantityRowsUpdated = preparedStmt.executeUpdate();
+        if (quantityRowsUpdated > 0) {
+            System.out.println("Le code " + codeToDelete + " a été supprimé du projet");
+            ImageIcon img = new ImageIcon("images/attention.png");
+            JOptionPane usernameFalse = new JOptionPane();
+            usernameFalse.showMessageDialog(null, "Le code " + codeToDelete + " a été supprimé du projet", "Attention",JOptionPane.ERROR_MESSAGE, img);
+        } else {
+            ImageIcon img = new ImageIcon("images/attention.png");
+            JOptionPane usernameFalse = new JOptionPane();
+            usernameFalse.showMessageDialog(null, "Le code " + codeToDelete + " n'a pas été supprimé du projet", "Attention",JOptionPane.ERROR_MESSAGE, img);
         }
     }
 

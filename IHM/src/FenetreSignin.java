@@ -19,7 +19,7 @@ public class FenetreSignin extends JFrame {
     //Constructeur
     public FenetreSignin() {
         try {
-            Image img = ImageIO.read(new FileInputStream("IHM/images/background.jpg"));
+            Image img = ImageIO.read(new FileInputStream("IHM/resources/background.jpg"));
 
             Image scaledImg = img.getScaledInstance(1000, 800,  java.awt.Image.SCALE_SMOOTH) ;
 
@@ -272,7 +272,7 @@ public class FenetreSignin extends JFrame {
      * @return void
      */
     private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {
-        ImageIcon img = new ImageIcon("images/attention.png");
+        ImageIcon img = new ImageIcon("resources/attention.png");
         //Calcule et vérifie si toutes les conditions etaient respectées
         int counterConditions = 0;
         String firstName = firstNameField.getText();
