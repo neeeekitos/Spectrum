@@ -3,9 +3,9 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 import java.sql.SQLException;
 
-/**
- *
- * @author vetegan
+/**Classe qui va afficher les unfoermations d'un certain collaborateur
+ * @author Nikita TEREKHOV
+ * @author Valentina ETEGAN
  */
 public class InformationsCollab extends javax.swing.JFrame {
 
@@ -13,6 +13,10 @@ public class InformationsCollab extends javax.swing.JFrame {
     private boolean gained;
     private Client user;
 
+    /**Constructeur
+     * @param username du collaborateur sur laquell on veut les informations
+     * @param user le Client sur lequelle on veeut les informations
+     * */
     public InformationsCollab(String username, Client user) {
         this.username = username;
         this.user = user;
@@ -31,7 +35,6 @@ public class InformationsCollab extends javax.swing.JFrame {
     }
 
     /** Initialisation
-     * @return void
      */
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
@@ -127,7 +130,6 @@ public class InformationsCollab extends javax.swing.JFrame {
     }
 
     /** Efacer le colaborateur de ce projet
-     * @return void
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         try {

@@ -6,14 +6,15 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 
-/**
- * @author lehma
+/**Fenetre Login
+ * @author Roman HOCHHAUSEN
  */
-
 public class FenetreLogin extends JFrame {
 
     private JPanel background;
 
+    /**Constructeur
+     * */
     public FenetreLogin() {
         try {
             Image img = ImageIO.read(new FileInputStream("IHM/resources/background.jpg"));
@@ -62,7 +63,6 @@ public class FenetreLogin extends JFrame {
         msgConnexionEchoue.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         msgConnexionEchoue.setForeground(new java.awt.Color(255, 255, 255));
         msgConnexionEchoue.setText("Process failed, please check your connexion and try again");
-
 
 
         champRempli.setBackground(new java.awt.Color(102, 102, 102));
@@ -184,12 +184,16 @@ public class FenetreLogin extends JFrame {
         pack();
     }
 
-
+    /** Envoye vers SignIn
+     */
     private void backToSignInMouseClicked(java.awt.event.MouseEvent evt) {
       new FenetreSignin().setVisible(true);
       this.dispose();
     }
 
+    /** Valider les cooerdonees de username
+     * pour pouvoir apres le connecter a la FenetreApp
+     */
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {
         String username = usernameField.getText();
         String password = new String(passwordField.getPassword());

@@ -1,20 +1,19 @@
 
 import javax.swing.*;
 import java.awt.*;
-
-/**
- *
- * @author lehma
+/**Classe qui va creer l'afichage de fenetre conditions qu'on doit accepter pour pouvoir creer un conte
+ * @author Lena LEHMANN
  */
 public class FenetreConditions extends javax.swing.JFrame {
 
+    /**Constructeur
+     * */
     public FenetreConditions() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
     /** Initialisation
-     * @return void
      */
     private void initComponents() {
 
@@ -116,8 +115,7 @@ public class FenetreConditions extends javax.swing.JFrame {
         pack();
     }
 
-    /** Sortir
-     * @return void
+    /** Fermer la fenetre
      */
     private void jLabelExitMouseClicked(java.awt.event.MouseEvent evt) {
         this.dispose();
