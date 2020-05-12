@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-/** Represente une connection avec un Socket et des flux entrant et sortant
+/** Représente une connection avec un Socket et des flux entrant et sortant
  * @author Nikita TEREKHOV
  * @author Valentina ETEGAN
  */
@@ -85,7 +85,7 @@ public class ConnectionExchange {
 
 
     /** Disconnect sockets
-     * Syncronisé car s'utilise dans plusieurs threads
+     * Synchronisé, car s'utilise dans plusieurs threads
      */
     public synchronized void disconnect() {
         cnThread.interrupt();
@@ -97,7 +97,7 @@ public class ConnectionExchange {
         }
     }
 
-    /** Envoie la chaine de caratères, syncronisé pour la securité
+    /** Envoie la chaine de caratères, synchronisée pour la sécurité
      * car est utilisé dans les threads différents
      * @return Connection connDb
      * @throws SQLException
@@ -107,14 +107,14 @@ public class ConnectionExchange {
             out.write(msg + "\r\n");
             out.flush(); //pour envoyer de Buffer à client/serveur
 
-            //ajouter l'envoie du message dans la DB
+            //ajouter l'envoi du message dans la DB
         } catch (IOException e) {
             eventEcouteur.exception(ConnectionExchange.this, e);
             eventEcouteur.disconnect(this);
         }
     }
 
-    /** Se connecte à la BDD
+    /** Se connecte à la BD
      * @return Connection connDb
      * @throws SQLException
      */
@@ -149,7 +149,7 @@ public class ConnectionExchange {
         preparedStmt.setString(1, username);
         result = preparedStmt.executeQuery();
 
-        //verifions si on a qqch dans un result
+        //vérifions si on a qqch dans un result
         if (result.next()) {
 
             String usernameDb = result.getString(2);
@@ -160,7 +160,7 @@ public class ConnectionExchange {
                 String prenom = result.getString(3);
                 String nom = result.getString(4);
 
-                //Comme on ne peut pas appeler invokeAndWait(dans la classe client) de thread EDT
+                //Comme on ne peut pas appeler invokeAndWait (dans la classe client) de thread EDT
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -194,14 +194,14 @@ public class ConnectionExchange {
         Connection connDB = connectToDb();
         ResultSet result = null;
 
-        //requete qui verifie si ce username est déjà utilisé
+        //requête qui verifie si ce username est déjà utilisé
         String requeteCheck = "SELECT * FROM users as u WHERE u.username=?";
 
         PreparedStatement preparedStmt = connDB.prepareStatement(requeteCheck);
         preparedStmt.setString(1, username);
         result = preparedStmt.executeQuery();
 
-        //verifions si on a qqch dans un result
+        //vérifions si on a qqch dans un result
         if (!result.next()) {
 
             //création d'insert statement
@@ -220,7 +220,7 @@ public class ConnectionExchange {
         } else { return false; }
     }
 
-    /** Permet de mettre à jour tous le projets de l'utilisateur
+    /** Permet de mettre à jour tous les projets de l'utilisateur
      * @return LinkedList<Projet> la liste des projet de notre utilisateur
      * @throws SQLException
      */
@@ -235,7 +235,7 @@ public class ConnectionExchange {
         String nomProjet = "";
 
 
-        //requete qui apporte tous les ID des projets où notre utilisateur est présent
+        //requête qui apporte tous les ID des projets où notre utilisateur est présent
         String requete1 = "SELECT * FROM projetassociation as p WHERE p.username=?";
 
         PreparedStatement preparedStmt = connDb.prepareStatement(requete1);
@@ -266,7 +266,7 @@ public class ConnectionExchange {
                 collaborateurs.add(resultCollaborateurs.getString("username"));
             }
 
-            //creer le projet et ajouter dans la liste
+            //créer le projet et ajouter dans la liste
             Projet projet = new Projet(projectID, nomProjet, collaborateurs, new LinkedList<>());
             projets.add(projet);
             System.out.println(nomProjet);
@@ -324,7 +324,7 @@ public class ConnectionExchange {
         preparedStmt.setInt(1, message.getProjet().getId());
         result = preparedStmt.executeQuery();
 
-        //verifions si on a qqch dans un result
+        //vérifions si on a qqch dans un result
         if (result != null) {
 
             //création d'insert statement
@@ -337,7 +337,7 @@ public class ConnectionExchange {
             preparedStmt.setString(3, message.getMessage());
             preparedStmt.setString(4, message.getDate());
 
-            // executer
+            // éxecuter
             return preparedStmt.execute();
         } else {
             System.out.println("L'envoi du message dans la BD n'est pas reussi : " + message.getMessage());
@@ -408,7 +408,7 @@ public class ConnectionExchange {
         }
     }
 
-    /** Vérifie si l'utilisateur a le projet donné
+    /** Vérifie si l'utilisateur est associé au projet donné
      * @param usernameToCheck en String
      * @param projectID en int le projet dans lequel on vérifie la présence
      * @throws SQLException

@@ -5,7 +5,7 @@ import java.awt.geom.RoundRectangle2D;
 
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER;
 
-/** Represente des blocs des messages
+/** Représente des blocs de messages
  * @author Valentina ETEGAN
  */
 public class ListItem extends JPanel {
@@ -16,8 +16,8 @@ public class ListItem extends JPanel {
     private boolean myMessage;
 
     /**
-     * Constructeur du bloc de message
-     * @param text text du message
+     * Constructeur du bloc de messages
+     * @param text texte du message
      * @param myMessage permet de savoir où positionner le message
      *                  si true - à droite, si false - à gauche
      */
@@ -26,7 +26,7 @@ public class ListItem extends JPanel {
         this.text = text;
         this.myMessage = myMessage;
 
-        //Create a text area.
+        //Crée une zone de texte
         textArea = new RoundJTextArea();
         textArea.setText(text);
         textArea.setFont(new Font("Sans", Font.LAYOUT_LEFT_TO_RIGHT, 12));
@@ -50,8 +50,8 @@ public class ListItem extends JPanel {
         this.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     }
 
-    /** Calcule la hauteur nécessaire du block de message pour que le text soit bien dédans
-     * @param content le text du message
+    /** Calcule la hauteur du bloc de message nécessaire, pour que le texte soit bien dedans
+     * @param content le texte du message
      */
     public static int getContentHeight(String content) {
         JEditorPane dummyEditorPane=new JEditorPane();

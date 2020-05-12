@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-/** Interface pour la connection qui caractérise une connection
+/** Interface qui caractérise une connection
  * @author Nikita TEREKHOV
  * @author Valentina ETEGAN
  */

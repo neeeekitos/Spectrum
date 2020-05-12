@@ -3,7 +3,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 import java.sql.SQLException;
 
-/**Classe qui va afficher les unfoermations d'un certain collaborateur
+/**Classe qui va afficher les informations d'un certain collaborateur
  * @author Nikita TEREKHOV
  * @author Valentina ETEGAN
  */
@@ -14,8 +14,8 @@ public class InformationsCollab extends javax.swing.JFrame {
     private Client user;
 
     /**Constructeur
-     * @param username du collaborateur sur laquell on veut les informations
-     * @param user le Client sur lequelle on veeut les informations
+     * @param username du collaborateur sur lequel on veut obtenir des informations
+     * @param user le Client sur lequel on veut les informations
      * */
     public InformationsCollab(String username, Client user) {
         this.username = username;
@@ -63,7 +63,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         effacerBotton = new javax.swing.JButton();
         titleInformations = new javax.swing.JLabel();
 
-        //Definir les proprietes de la fenetre
+        //Définir les propriétés de la fenêtre
         setMinimumSize(new java.awt.Dimension(150, 100));
         setMaximumSize(new java.awt.Dimension(150, 100));
         setLocationRelativeTo(null);
@@ -80,7 +80,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 10, 0, 0);
         top.add(nomJLabel, gridBagConstraints);
 
-        // Afficher le prenom du collaborateur
+        // Afficher le prénom du collaborateur
         prenomLabel.setText("Prénom : " + prenom);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -89,7 +89,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 10, 0, 0);
         top.add(prenomLabel, gridBagConstraints);
 
-        // Afficher le nom du collaborateur
+        // Afficher le nom d'utilisateur du collaborateur
         nomLabel.setText("Nom d'utilisateur : " + username );
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -107,7 +107,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 10, 0, 0);
         top.add(emailLabel, gridBagConstraints);
 
-        //Le button qui eface les collaborateur
+        //Le bouton qui efface les collaborateurs
         effacerBotton.setText("Efacer l'utilisateur dans le projet");
         effacerBotton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +129,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         pack();
     }
 
-    /** Efacer le colaborateur de ce projet
+    /** Effacer le collaborateur de ce projet
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         try {
@@ -144,7 +144,7 @@ public class InformationsCollab extends javax.swing.JFrame {
     }
 
 
-    // Declaration des variables
+    // Déclaration des variables
     private javax.swing.JButton effacerBotton;
     private javax.swing.JLabel nomJLabel;
     private javax.swing.JLabel prenomLabel;

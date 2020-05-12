@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public class FenetreSignin extends JFrame {
 
     /**
-     * Construit une fenetre Signin
+     * Construit la fenêtre Signin
      */
     public FenetreSignin() {
         try {
@@ -65,46 +65,46 @@ public class FenetreSignin extends JFrame {
         jLabelLastName = new javax.swing.JLabel();
         jLabelFirstName = new javax.swing.JLabel();
 
-        //Definir les proprietes du pane conditions
+        //Définir les propriétés du pane conditions
         conditions.setMaximumSize(new java.awt.Dimension(600, 400));
         conditions.setMinimumSize(new java.awt.Dimension(600, 400));
         conditions.setPreferredSize(new java.awt.Dimension(600, 400));
         conditions.getContentPane().setLayout(new javax.swing.BoxLayout(conditions.getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
-        //Definir les proprietes du legal terms
+        //Définir les propriétés du legal terms
         jLabelLegalTerms.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabelLegalTerms.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLegalTerms.setText("Legal terms and conditions");
 
-        //Definir les proprietes du fenetre
+        //Définir les propriétés du fenêtre
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 800));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        //Definir les proprietes du PanelPrincipal
+        //Définir les propriétés du PanelPrincipal
         jPanelPrincipal.setBackground(new java.awt.Color(102, 102, 102));
         jPanelPrincipal.setMaximumSize(new java.awt.Dimension(300, 700));
 
-        //Definir les proprietes du label sign in
+        //Définir les propriétés du label sign in
         jLabelMemberSignIn.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabelMemberSignIn.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMemberSignIn.setText("Member sign-in ");
         jLabelMemberSignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabelMemberSignIn.setOpaque(false);
 
-        //Definir les proprietes du checkBox pour valider les legalConditions
+        //Définir les propriétés du checkBox pour valider les legalConditions
         legalConCheckbox.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         legalConCheckbox.setForeground(new java.awt.Color(255, 255, 255));
         legalConCheckbox.setText("J'accepte les conditions");
         legalConCheckbox.setOpaque(false);
 
-        //Definir les TextFiled a completer
+        //Définir les TextField à compléter
         firstNameField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lastNameField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         userNameField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         eMailField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        //Definir le buton qui vais envoye les donnes dans la BD
+        //Définir le bouton qui va envoyer les données dans la BD
         submitButton.setBackground(new java.awt.Color(102, 204, 255));
         submitButton.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         submitButton.setForeground(new java.awt.Color(0, 121, 203));
@@ -117,7 +117,7 @@ public class FenetreSignin extends JFrame {
             }
         });
 
-        //Denifir le JLabel qui va afficher les conditions
+        //Définir le JLabel qui va afficher les conditions
         jLabelSeeConditions.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabelSeeConditions.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSeeConditions.setText("see conditions");
@@ -129,7 +129,7 @@ public class FenetreSignin extends JFrame {
             }
         });
 
-        //Definir le JLabel qui vais nous envoye vers LogIn
+        //Définir le JLabel qui va nous renvoyer vers LogIn
         backToLogin.setBackground(new java.awt.Color(231, 231, 231));
         backToLogin.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         backToLogin.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,8 +141,8 @@ public class FenetreSignin extends JFrame {
             }
         });
 
-        //Definir les Labels afficher sur la fenetre:
-        //La reecriture  mot de passe
+        //Définir les Labels affichés sur la fenêtre:
+        //Rééecriture du mot de passe
         jLabelRepeatPassword.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabelRepeatPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRepeatPassword.setText("Réécrire le mot de passe");
@@ -157,7 +157,7 @@ public class FenetreSignin extends JFrame {
         jLabelEmail.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEmail.setText("E-mail");
 
-        //L'udername
+        //Le username
         jLabelUsername.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsername.setText("Username");
@@ -167,12 +167,12 @@ public class FenetreSignin extends JFrame {
         jLabelLastName.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLastName.setText("Nom");
 
-        //Le prenom
+        //Le prénom
         jLabelFirstName.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabelFirstName.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFirstName.setText("Prénom");
 
-        //L'ajout dans le panel principal avec le layout
+        //L'ajout de l'ensemble dans le panel principal avec le layout
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
         jPanelPrincipalLayout.setHorizontalGroup(
@@ -264,14 +264,14 @@ public class FenetreSignin extends JFrame {
         pack();
     }
 
-    /** Envoyer les donnes dans la BD
-     * Et verrification des conditions sur le TextFiled
-     * Si tout a ete bien envoye on vais etre envoye vers Log In
-     * @param evt l'evenement
+    /** Envoi des données dans la BD
+     * Et vérification des conditions sur le TextField
+     * Si tout a bien été envoyé, on va être renvoyé vers Log In
+     * @param evt l'évènement
      */
     private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {
         ImageIcon img = new ImageIcon("resources/attention.png");
-        //Calcule et vérifie si toutes les conditions etaient respectées
+        //Calcule et vérifie si toutes les conditions étaient respectées
         int counterConditions = 0;
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
@@ -351,7 +351,7 @@ public class FenetreSignin extends JFrame {
 
         }
 
-        if (counterConditions==8) { //si on a passé 7 conditions
+        if (counterConditions==8) { //si on a vérifié 7 conditions
             try {
                 ConnectionExchange.signinDB(firstName, lastName, username, eMail, password);
                 this.dispose();
@@ -364,15 +364,15 @@ public class FenetreSignin extends JFrame {
         }
     }
 
-    /** Ouvrir la fenetre pour voir les condition d'utilisation
-     * @param evt l'evenement
+    /** Ouvrir la fenêtre pour voir les conditions d'utilisation
+     * @param evt l'évènement
      */
     private void jLabelSeeConditionsMouseClicked(java.awt.event.MouseEvent evt) {
         new FenetreConditions().setVisible(true);
     }
 
-    /** L'envoye vers Log In
-     * @param evt l'evenement
+    /** Le renvoi vers LogIn
+     * @param evt l'évènement
      */
     private void backToLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToLoginMouseClicked
 
@@ -396,7 +396,7 @@ public class FenetreSignin extends JFrame {
             e.printStackTrace();
         }
 
-        /* Create and display the form */
+        /* Créé et affiche la forme*/
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FenetreSignin().setVisible(true);
@@ -404,7 +404,7 @@ public class FenetreSignin extends JFrame {
         });
     }
 
-    // Declaration des variables
+    // Déclaration des variables
     private JFrame conditions;
     private javax.swing.JLabel backToLogin;
     private javax.swing.JLabel jLabelEmail;

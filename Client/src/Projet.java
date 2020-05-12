@@ -2,7 +2,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-/** Represent un projet
+/** Représente un projet
  * @author Nikita TEREKHOV
  */
 public class Projet {
@@ -13,9 +13,9 @@ public class Projet {
     private ArrayList <String> collaborateurs;
 
     /**Constructeur
-     * @param id de projet
-     * @param nom de projet
-     * @param collaborateurs de projet
+     * @param id du projet
+     * @param nom du projet
+     * @param collaborateurs du projet
      * */
     public Projet(int id, String nom, ArrayList<String> collaborateurs, LinkedList<Message> messages){
         this.id=id;
@@ -24,43 +24,43 @@ public class Projet {
         this.messages = messages;
     }
 
-    /** Retourne les messages envoye dans le projet
-     * @return messages qu'ont ete envoye dans le projet
+    /** Retourne les messages envoyés dans le projet
+     * @return messages qui ont été envoyés dans le projet
      */
     public LinkedList<Message> getMessages() {
         return messages;
     }
 
     /** Retourne l'id du projet
-     * @return id de projet
+     * @return id du projet
      */
     public int getId(){
         return this.id;
     }
 
     /** Retourne le nom du projet
-     * @return nom de projet
+     * @return nom du projet
      */
     public String getNom(){
         return this.nom;
     }
 
     /** Retourne les collaborateurs du projet
-     * @return collaborateurs presents dans le projet
+     * @return collaborateurs présents dans le projet
      */
     public ArrayList<String> getArrayCollaborateurs() {
         return collaborateurs;
     }
 
     /** Setter des messages
-     * on va implementer les messages
+     * on va implémenter les messages
      */
     public void setMsgs(LinkedList<Message> msg) {
         this.messages = msg;
     }
 
-    /** Ajout de message dans la liste
-     * on va implementer le message
+    /** Ajout des messages dans la liste
+     * on va implémenter les messages
      */
     public void addMsg(Message message) {
         this.messages.add(message);
@@ -78,7 +78,7 @@ public class Projet {
         }
     }
 
-    /** Creer un code unique pour le projet
+    /** Créé un code unique pour le projet
      */
     public void createCode(String code){
         Code c = new Code(code, id);
