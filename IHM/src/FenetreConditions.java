@@ -1,7 +1,7 @@
 
 import javax.swing.*;
 import java.awt.*;
-/**Classe qui va creer l'afichage de fenetre conditions qu'on doit accepter pour pouvoir creer un conte
+/**Classe qui va créer l'affichage de la fenêtre indiquant les conditions d'utilisation qu'on doit accepter pour pouvoir créer un conte
  * @author Lena LEHMANN
  */
 public class FenetreConditions extends javax.swing.JFrame {
@@ -25,18 +25,18 @@ public class FenetreConditions extends javax.swing.JFrame {
         scroll = new javax.swing.JScrollPane();
         textAreaLegalText = new javax.swing.JTextArea();
 
-        //Definir les proprites de la page
+        //Définition des propriétés de la page
         javax.swing.GroupLayout ConditionsLayout = new javax.swing.GroupLayout(conditions.getContentPane());
         conditions.getContentPane().setLayout(ConditionsLayout);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
-        //Definir les proprites du panel
+        //Définition des proprites du panel
         panelContainer.setBackground(new java.awt.Color(102, 102, 102));
         panelContainer.setForeground(new java.awt.Color(255, 255, 255));
 
-        //Definir les proprites du title
+        //Définir les propriétés du titre
         labelTitle.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(255, 255, 255));
         labelTitle.setText("Legal terms and conditions");
@@ -44,7 +44,7 @@ public class FenetreConditions extends javax.swing.JFrame {
         labelTitle.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         labelTitle.setPreferredSize(new java.awt.Dimension(50, 35));
 
-        //Definir les proprites du buttom de sortie
+        //Définir les propriétés du bouton de sortie
         labelExit.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         labelExit.setForeground(new java.awt.Color(255, 255, 255));
         labelExit.setText("X");
@@ -58,7 +58,7 @@ public class FenetreConditions extends javax.swing.JFrame {
             }
         });
 
-        //L'ajout des elements dans le panel
+        //L'ajout des éléments dans le panel
         javax.swing.GroupLayout jPanelTopContainerLayout = new javax.swing.GroupLayout(panelContainer);
         panelContainer.setLayout(jPanelTopContainerLayout);
         jPanelTopContainerLayout.setHorizontalGroup(
@@ -85,7 +85,7 @@ public class FenetreConditions extends javax.swing.JFrame {
         scroll.setToolTipText("");
         scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        //Definir le text que va etre aficher
+        //Definir le texte qui va être affiché
         textAreaLegalText.setEditable(false);
         textAreaLegalText.setText("Nos Conditions et notre Politique de confidentialité mises à jour. Nos Conditions d’utilisation mises à jour expliquent les conditions à respecter pour pouvoir utiliser nos Services. Notre Politique de confidentialité mise à jour explique quelles informations nous recueillons, la manière dont nous les utilisons et dont nous les communiquons, et les différents choix que vous avez, notamment comment gérer vos paramètres de confidentialité, accéder aux informations dont nous disposons à votre sujet et supprimer votre compte. Nous avons conçu Spectrum en adoptant des principes de confidentialité et de sécurité majeurs, comme le chiffrement de bout en bout de vos messages et de vos appels, ce qui signifie que ni nous ni des tierces parties ne pouvons les lire ou les écouter. \n" +
                 "\n" +
@@ -104,7 +104,7 @@ public class FenetreConditions extends javax.swing.JFrame {
         textAreaLegalText.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         textAreaLegalText.setBackground(new java.awt.Color(255, 255, 255));
 
-        //L'ajout du scroll pane dans la fenetre
+        //L'ajout du scroll pane dans la fenêtre
         getContentPane().add(scroll);
         scroll.setMaximumSize(new Dimension(700,500));
         scroll.setMinimumSize(new Dimension(700,500));
@@ -138,7 +138,7 @@ public class FenetreConditions extends javax.swing.JFrame {
             e.printStackTrace();
         }
 
-        /* Create and display the form */
+        /* Création et affichage de la forme*/
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FenetreConditions().setVisible(true);
@@ -146,7 +146,7 @@ public class FenetreConditions extends javax.swing.JFrame {
         });
     }
 
-    // Declaration des Variables
+    // Déclaration des Variables
     private javax.swing.JFrame conditions;
     private javax.swing.JLabel labelExit;
     private javax.swing.JLabel labelTitle;

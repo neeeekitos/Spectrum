@@ -184,15 +184,15 @@ public class FenetreLogin extends JFrame {
         pack();
     }
 
-    /** Envoye vers SignIn
+    /** Envoie vers SignIn
      */
     private void backToSignInMouseClicked(java.awt.event.MouseEvent evt) {
       new FenetreSignin().setVisible(true);
       this.dispose();
     }
 
-    /** Valider les cooerdonees de username
-     * pour pouvoir apres le connecter a la FenetreApp
+    /** Valider les coordonées de username
+     * pour pouvoir après le connecter à la FenetreApp
      */
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {
         String username = usernameField.getText();

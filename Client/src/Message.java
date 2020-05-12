@@ -1,5 +1,5 @@
 
-/** Represente le message
+/** Représente le message
  * @author Lena LEHMANN
  */
 public class Message {
@@ -10,9 +10,9 @@ public class Message {
 
     /** Constructeur
      * @param username
-     * @param message qu'on doit envoye
-     * @param date d'envoye de message
-     * @param projet dans laquelle on doit envoye le message
+     * @param message qu'on doit envoyer
+     * @param date d'envoie du message
+     * @param projet dans lequel on doit envoyer le message
      * */
     public Message(String username, String message, String date, Projet projet){
         this.username = username;
@@ -29,21 +29,21 @@ public class Message {
     }
 
     /** Retourne le Projet de l'utilisateur
-     * @return projet dans laquelle on doit envoye le message
+     * @return projet dans lequel on doit envoyer le message
      */
     public Projet getProjet(){
         return projet;
     }
 
     /** Retourne le message de l'utilisateur
-     * @return message qu'on doit envoye
+     * @return message qu'on doit envoyer
      */
     public String getMessage(){
         return message;
     }
 
-    /** Retourne la date de message
-     * @return date d'envoye de message
+    /** Retourne la date du message
+     * @return date d'envoi du message
      */
     public String getDate(){
         return date;

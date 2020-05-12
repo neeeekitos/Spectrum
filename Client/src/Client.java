@@ -1,8 +1,4 @@
 
-/**
- *
- * @author nikita
- */
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -15,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 
-/** Client du messenger
+/** Client de la messagerie
  * @author Valentina ETEGAN
  * @author Nikita TEREKHOV
  */
@@ -77,11 +73,11 @@ public class Client implements EcouteurConnection {
             e.printStackTrace();
         }
 
-        /* creer une fenetre dans un thread edt
-         * ici on utilisera plutot invokeAndWait
-         * car avec invokeLater la fenetre va etre créée de la façon asynchrone et
-         * l'affichage des messages ( le chargement des messages ) va sortir une exception
-         * vu que la fenetre était pas encore prête
+        /* créer une fenêtre dans un thread edt
+         * ici on utilisera plutôt invokeAndWait
+         * car avec invokeLater la fenêtre sera créée de façon asynchrone et
+         * l'affichage des messages (le chargement des messages) va nous donner comme résultat une exception
+         * vu que la fenêtre n'était pas encore prête
          */
         try {
             EventQueue.invokeAndWait(new Runnable() {
@@ -159,7 +155,7 @@ public class Client implements EcouteurConnection {
         return username;
     }
 
-    /** Retourne le prenom de l'utilisateur
+    /** Retourne le prénom de l'utilisateur
      * @return prenom
      */
     public String getPrenom(){
@@ -183,13 +179,13 @@ public class Client implements EcouteurConnection {
         return projets;
     }
 
-    /** Va créer le nouvel projet pour notre utilisateur :
-     * tout d'abord récupere le dernier projectID de la BD (qui est unique),
-     * ensuite va créer le nouvel projet en utilisant l'id = projectID + 1, puis ajoute dans la DB,
-     * finalement rajoute ce projet localement dans la liste des projets
-     * @param nom le nom du projet, qui est unique dans la liste des projets de chaque clients,
-     *            on le vérifie avec une méthode contains(), qui utilise equals, ce dernier étant redéfini
-     *            pour comparer le nom de projets
+    /** Va créer un nouveau projet pour notre utilisateur :
+     * tout d'abord on récupère le dernier projectID de la BD (qui est unique),
+     * ensuite on va créer le nouveau projet en utilisant l'ID = projectID + 1, puis on l'ajoute dans la BD,
+     * enfin, on rajoute ce projet localement dans la liste des projets
+     * @param nom le nom du projet, qui est unique dans la liste des projets de chaque client,
+     *            on le vérifie avec une méthode contains(), qui utilise equals (méthode equals est redéfinie
+     *            pour comparer les noms des projets)
      * @param collaborateurs les collaborateurs du projet
      */
     public void createProject(String nom, ArrayList<String> collaborateurs) {
@@ -233,7 +229,7 @@ public class Client implements EcouteurConnection {
         }
     }
 
-    /** Charge les messages de projet
+    /** Charge les messages du projet
      * @param projet l'instance du projet dans lequel
      *               on va charger les messages
      */
@@ -250,7 +246,7 @@ public class Client implements EcouteurConnection {
         }
     }
 
-    /** Retourne l'instance Projet de l'utilisateur en le trouvant par le nom du projet fourni
+    /** Retourne l'instance Projet de l'utilisateur en le trouvant grâce au nom du projet fourni
      * @param name le nom du projet
      * @return projet l'instance Projet
      */
@@ -265,7 +261,7 @@ public class Client implements EcouteurConnection {
 
     /** Permet d'envoyer le message dans la BD et au serveur
      * @param msg le message à envoyer
-     * @param projet l'instance Projet auquel appartient le message
+     * @param projet l'instance Projet à laquelle appartient le message
      */
     public void sendMessage(String msg, Projet projet) {
 

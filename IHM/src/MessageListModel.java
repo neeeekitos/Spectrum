@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
-/** Herite de ListModel et définit le modèle pour les messages
+/** Hérite de ListModel et définit le modèle pour les messages
  * @author Roman HOCHHAUSEN
  */
 public class MessageListModel extends AbstractListModel<ListItem> {
@@ -23,7 +23,7 @@ public class MessageListModel extends AbstractListModel<ListItem> {
         return list.get(index);
     }
 
-    /** Ajoute un element dans la liste (le message dans notre cas)
+    /** Ajoute un élément dans la liste (le message dans notre cas)
      * @param index position
      * @param item l'élément de la liste
      */

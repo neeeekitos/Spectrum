@@ -7,7 +7,7 @@ import java.rmi.ConnectIOException;
 import java.util.*;
 import java.util.concurrent.*;
 
-/** Serveur du messenger
+/** Serveur du service de messagerie
  * @author Roman HOCHHAUSEN
  * @author Lena LEHMANN
  */
@@ -24,7 +24,7 @@ public class Server implements EcouteurConnection{
 
     /**
      * Constructeur d'un Serveur
-     * accepte une connection après avoir reçu ne chaine de caractères contenant le username et stocke dans le Map
+     * accepte une connection après avoir reçu une chaine de caractères contenant le username et stocke dans le Map
      */
     private Server() {
 
@@ -36,7 +36,7 @@ public class Server implements EcouteurConnection{
                 try {
                     Socket connection = server.accept();
 
-                    //receive username to identify a person && attente 1 seconde pour obtenir le username, sinon disconnect
+                    //recoit le username pour identifier une personne && attente d'une seconde pour obtenir le username, sinon disconnect
                     String username = "";
                     long initTime = System.currentTimeMillis();
                     BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));

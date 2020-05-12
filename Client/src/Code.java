@@ -4,8 +4,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/** Represente le code
- * Cette code va expirer dans 24 h
+/** Représente le code secret permettant d'accéder à un projet en particulier
+ * Ce code va expirer dans 24 h
  * @author Valentina ETEGAN
  * @author Lena LEHMANN
  */
@@ -15,8 +15,8 @@ public class Code {
         private String date;
         private int projectID;
 
-         /** Constructeur qu'on appele à partir de la fénetre Create
-          * @param code un code unique du projet
+         /** Constructeur qu'on appelle à partir de la fenêtre Create
+          * @param code un code unique, spécifique au projet
           * */
         public Code(String code){
             this.code = code;
@@ -27,7 +27,7 @@ public class Code {
 
 
          /** Constructeur qu'on va appeler quand on crée un code
-         * @param code un code unique du projet
+         * @param code un code unique, spécifique au projet
          * @param projectID l'ID du projet
         * */
         public Code(String code, int projectID) {
@@ -38,10 +38,10 @@ public class Code {
         }
 
 
-        /** Constructeur qu'on va appeler dans la fenetre Ajouter
-         * pour comparer le code qu'on vient d'ecrire avec le code qu'on a dans la DB
-         * @param code un code unique du projet
-         * @param date la date de creation de code
+        /** Constructeur qu'on va appeler dans la fenêtre Ajouter,
+         * pour comparer le code qu'on vient d'écrire avec le code qu'on a dans la BD
+         * @param code un code unique, spécifique au projet
+         * @param date la date de création du code
          * @param projectID l'ID du projet
          * */
          public Code(String code, String date, int projectID){
@@ -50,8 +50,8 @@ public class Code {
             this.date = date;
          }
 
-        /** Methode qui compare le code donnee avec le code existent dans le projet
-         * et qui l'ajout ou efface dans la base des donees
+        /** Méthode qui compare le code donné avec le code existant dans le projet
+         * et qui l'ajoute ou l'efface dans la base de données
          * */
          public void codeCompare(String code, Client user) {
              Code c;
@@ -60,15 +60,15 @@ public class Code {
                  c = ConnectionExchange.getCodeIfExists(code);
                  if (c != null) {
 
-                     //On prend la date de ce moment et la date du moment quand on a cree le code
-                     //Si le Code a ete creer de plus que 24 h alors le code ne vais pas functiionner et il vais etre effacer
+                     //On prend la date du moment présent et la date du moment où on a créé le code
+                     //Si le Code a été créé il y a plus que 24 h, alors celui-ci n'est plus valide : il ne fonctionnera pas et va être effacé
                      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
                      Date date1 = sdf.parse(c.getDate());
                      Date date2 = sdf.parse(this.getDate());
                      long diffHeures = (date2.getTime() - date1.getTime())/1000/3600;
                      if (diffHeures<=24) {
                          System.out.println("Le code d'invitation est utilisé par @" + user.getUsername());
-                         System.out.println("Le code d'invitation est encore valide " + (24-diffHeures) + " heures");
+                         System.out.println("Le code d'invitation est encore valide pendant " + (24-diffHeures) + " heures");
                          user.getConnectionExchange().addCollabInProject(user.getUsername(), c.getProjectID());
                      } else {
                          System.out.println("Le code n'est plus valide");
@@ -99,8 +99,8 @@ public class Code {
         public String getCode(){ return code;}
 
 
-        /** Retourne la date de creation de code
-         * @return date la date de creation de code
+        /** Retourne la date de création du code
+         * @return date la date de création du code
          */
         public String getDate(){ return date;}
 
