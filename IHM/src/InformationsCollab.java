@@ -2,6 +2,7 @@
 import javax.swing.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
+import java.sql.SQLException;
 
 /**
  *
@@ -9,11 +10,13 @@ import java.awt.event.WindowFocusListener;
  */
 public class InformationsCollab extends javax.swing.JFrame {
 
-    String username;
-    boolean gained;
+    private String username;
+    private boolean gained;
+    private Client user;
 
-    public InformationsCollab(String username) {
+    public InformationsCollab(String username, Client user) {
         this.username = username;
+        this.user = user;
         initComponents();
         this.addWindowFocusListener(new WindowFocusListener() {
             @Override
@@ -34,6 +37,18 @@ public class InformationsCollab extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        String prenom = "";
+        String nom = "";
+        String email = "";
+
+        try {
+            prenom =  user.getConnectionExchange().getUserInfosByUsername(username)[0];
+            nom =  user.getConnectionExchange().getUserInfosByUsername(username)[1];
+            email =  user.getConnectionExchange().getUserInfosByUsername(username)[2];
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         //Initialisation des variables
         top = new javax.swing.JPanel();
         nomJLabel = new javax.swing.JLabel();
@@ -52,7 +67,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         top.setLayout(new java.awt.GridBagLayout());
 
         // Afficher le nom du collaborateur
-        nomJLabel.setText("Nom : ");//+user.getUserbyUsername(username).getNom
+        nomJLabel.setText("Nom : " + nom);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -61,7 +76,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         top.add(nomJLabel, gridBagConstraints);
 
         // Afficher le prenom du collaborateur
-        prenomLabel.setText("Prénom :");//+user.getUserbyUsername(username).getPrenom
+        prenomLabel.setText("Prénom : " + prenom);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -70,7 +85,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         top.add(prenomLabel, gridBagConstraints);
 
         // Afficher le nom du collaborateur
-        nomLabel.setText("Nom d'utilisateur: "+username );
+        nomLabel.setText("Nom d'utilisateur : " + username );
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -79,7 +94,7 @@ public class InformationsCollab extends javax.swing.JFrame {
         top.add(nomLabel, gridBagConstraints);
 
         // Afficher le email du collaborateur
-        emailLabel.setText("E-mail :");//+user.getUserbyUsername(username).getEmail
+        emailLabel.setText("E-mail : " + email);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -113,32 +128,17 @@ public class InformationsCollab extends javax.swing.JFrame {
      * @return void
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (UnsupportedLookAndFeelException e) {
+            user.getConnectionExchange().deleteMemberFromProject(username);
+            user.updateProjets();
+            user.fenetre.updateCollaborateurs();
+            user.fenetre.repaint();
+            user.fenetre.validate();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InformationsCollab("Mathieu").setVisible(true);
-            }
-        });
     }
+
 
     // Declaration des variables
     private javax.swing.JButton efacerButton;

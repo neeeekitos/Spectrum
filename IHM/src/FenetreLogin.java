@@ -17,7 +17,7 @@ public class FenetreLogin extends JFrame {
     //Constructeur  de la page
     public FenetreLogin() {
         try {
-            Image img = ImageIO.read(new FileInputStream("IHM/images/background.jpg"));
+            Image img = ImageIO.read(new FileInputStream("IHM/resources/background.jpg"));
 
             Image scaledImg = img.getScaledInstance(1000, 800,  java.awt.Image.SCALE_SMOOTH) ;
 

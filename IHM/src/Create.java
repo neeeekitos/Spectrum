@@ -64,6 +64,7 @@ public class Create extends javax.swing.JFrame {
         //Definir la dimension et layout du panel Top
         top.setMaximumSize(new Dimension(562, 396));
         top.setMinimumSize(new Dimension(562, 396));
+        top.setPreferredSize(new Dimension(562, 396));
         top.setLayout(new BoxLayout(top, BoxLayout.LINE_AXIS));
 
         //Definir le layout du panel a gauche
@@ -108,6 +109,8 @@ public class Create extends javax.swing.JFrame {
         collab.add(0, new JTextField(""));
         collab.get(0).setMaximumSize(new Dimension(200, 26));
         collab.get(0).setMinimumSize(new Dimension(200, 26));
+        collab.get(0).setPreferredSize(new Dimension(200, 26));
+
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
         gridBagConstraints[0].gridy = 5;
@@ -273,23 +276,29 @@ public class Create extends javax.swing.JFrame {
      */
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {
 
+        //Ajout des collaborateurs
         ArrayList <String> nomColabString = new ArrayList<String>();
-        for(int i=0;i<=counter;i++){
-            if(!collab.get(i).getText().equals("")){
-                System.out.println(collab.get(i).getText());
-                nomColabString.add(collab.get(i).getText());
+        if(!nom.getText().equals("")) {
+            for (int i = 0; i <= counter; i++) {
+                if (!collab.get(i).getText().equals("")) {
+                    System.out.println(collab.get(i).getText());
+                    nomColabString.add(collab.get(i).getText());
+                    //On vais effacer lle JTextFiled apres on l'a mis dans un ArrayList
+                    collab.get(i).setText("");
+                }
             }
+            if (!nomColabString.contains(user.getUsername())) {
+                nomColabString.add(user.getUsername());
+            }
+            user.createProject(nom.getText(), nomColabString);
         }
-        if (!nomColabString.contains(user.getUsername())) {
-            nomColabString.add(user.getUsername());
-        }
-        user.createProject(nom.getText(),nomColabString);
 
         // Verifier le code du projet;
         if(!codeProjet.getText().equals("")){
             new Code(codeProjet.getText()).codeCompare(codeProjet.getText(), user);
             user.updateProjets();
-            listeProjets.update
+            listeProjets.updateListeProjet();
+            codeProjet.setText("");
             this.dispose();
         }
 

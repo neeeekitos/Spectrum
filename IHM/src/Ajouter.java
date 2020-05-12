@@ -179,7 +179,7 @@ public class Ajouter extends JFrame {
         panelCode.add(codeJlabelExistance, gridBagConstraints[0]);
 
         //L'ajou du soutitre du panelCode
-        code.setText("Le code va expirer dans 10 minutes");
+        code.setText("Le code va expirer dans 24 heures");
         gridBagConstraints[0] = new GridBagConstraints();
         gridBagConstraints[0].gridx = 0;
         gridBagConstraints[0].gridy = 1;
@@ -221,20 +221,22 @@ public class Ajouter extends JFrame {
             private void validerActionPerformed(ActionEvent evt) {
 
                 ArrayList<String> collabString = new ArrayList<>();
+                //on prend chaque textField et on met le contenu dans ArrayList
                 for (int i = 0; i < collab.size(); i++) {
                     if (!collab.get(i).getText().equals("")) {
                         collabString.add(collab.get(i).getText());
+                        collab.get(i).setText("");
                     }
-
                 }
-
+                //mettons dans la BD alors les collaborateurs dans la BD
                 for (int i = 0; i < collabString.size(); i++) {
                     user.ajouterCollab(collabString.get(i), user.getProjectByName(currentProjectNom).getId());
-
+                    codeProjet.setText("");
                 }
 
-                if (!code.getText().equals("")) {
+                if (!codeProjet.getText().equals("")) {
                     user.getProjectByName(currentProjectNom).createCode(codeProjet.getText());
+                    codeProjet.setText("");
                 }
             }
         });
