@@ -45,8 +45,11 @@ public class ConnectionExchange {
             public void run() {
                 try {
                     eventEcouteur.connectionReady(ConnectionExchange.this, username);
+                    String line = "";
                     while (!cnThread.isInterrupted()) {
-                        eventEcouteur.receiveString(in.readLine());
+                        if ((line = in.readLine())!=null)  {
+                            eventEcouteur.receiveString(line);
+                        }
                     }
                 } catch (IOException e) {
                     eventEcouteur.exception(ConnectionExchange.this, e);
@@ -104,7 +107,7 @@ public class ConnectionExchange {
     public static synchronized Connection connectToDb() {
         Connection connDb = null;
         try {
-            String url = "jdbc:mysql://localhost:3306/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:4489/spectrum?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
             connDb = DriverManager.getConnection(url, "root", "root");
             System.out.println("Connecté à la BD");
 

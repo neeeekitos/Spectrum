@@ -4,7 +4,6 @@ import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 
 /**
  *
@@ -44,12 +43,12 @@ public class FenetreApp extends JFrame {
         projectName = new JLabel();
         panelSend = new JPanel();
         send = new JLabel();
-        messageTextFiled = new RoundJTextField(20);
+        messageTextField = new RoundJTextField(20);
         panelRigth = new JPanel();
         logoImage = new JLabel();
         spectrum = new JLabel();
         projet = new JLabel();
-        ajouterColab = new JButton();
+        ajouterCollab = new JButton();
         msgArea = new JTextArea();
 
         //Ajout des parametres et position pour la ferentre
@@ -148,19 +147,19 @@ public class FenetreApp extends JFrame {
         panelSend.setLayout(new BoxLayout(panelSend, BoxLayout.LINE_AXIS));
 
         //Le text filed ou on peut ecrire nos messages
-        messageTextFiled.setText("Tapez votre message ici");
-        messageTextFiled.setMaximumSize(new Dimension(630, 40));
-        messageTextFiled.setMinimumSize(new Dimension(630, 40));
-        messageTextFiled.setPreferredSize(new Dimension(630, 40));
-        messageTextFiled.setSize(630, 40);
-        messageTextFiled.addFocusListener(new FocusAdapter() {
+        messageTextField.setText("Tapez votre message ici");
+        messageTextField.setMaximumSize(new Dimension(630, 40));
+        messageTextField.setMinimumSize(new Dimension(630, 40));
+        messageTextField.setPreferredSize(new Dimension(630, 40));
+        messageTextField.setSize(630, 40);
+        messageTextField.addFocusListener(new FocusAdapter() {
             public void focusGained(FocusEvent e) {
-                messageTextFiled.setText("");
+                messageTextField.setText("");
             }
         });
-        messageTextFiled.addActionListener(this::sendClicked);
+        messageTextField.addActionListener(this::sendClicked);
         
-        panelSend.add(messageTextFiled);
+        panelSend.add(messageTextField);
 
         //Le Icon sur laquelle on doit appuye pour envoye les messages
         send.setIcon(new ImageIcon(this.getClass().getResource("envoyer.png")));
@@ -202,10 +201,10 @@ public class FenetreApp extends JFrame {
         });
 
         //Un button qui ouvre un fenetre qui permet d'ajouter des colaborateurs
-        ajouterColab.setText("Ajouter collaborateurs");
-        ajouterColab.addMouseListener(new MouseAdapter() {
+        ajouterCollab.setText("Ajouter collaborateurs");
+        ajouterCollab.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
-                ajouterColabMouseClicked(evt);
+                ajouterCollabMouseClicked(evt);
             }
         });
 
@@ -222,7 +221,7 @@ public class FenetreApp extends JFrame {
                                 .addComponent(spectrum))
                         .addGroup(panel_rigthLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addComponent(ajouterColab, GroupLayout.PREFERRED_SIZE, 167, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ajouterCollab, GroupLayout.PREFERRED_SIZE, 167, GroupLayout.PREFERRED_SIZE))
                         .addGroup(panel_rigthLayout.createSequentialGroup()
                                 .addGap(60, 60, 60)
                                 .addComponent(projet))
@@ -238,7 +237,7 @@ public class FenetreApp extends JFrame {
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(spectrum)
                                 .addGap(51, 51, 51)
-                                .addComponent(ajouterColab)
+                                .addComponent(ajouterCollab)
                                 .addGap(18, 18, 18)
                                 .addComponent(projet)
                                 .addGap(30, 30, 30)
@@ -304,7 +303,7 @@ public class FenetreApp extends JFrame {
      * Si on n'est pas connecter dans un projet(la premiere authetification) on vais pas pouvoir ajouter des collaborateurs
      * @return void
      */
-    private void ajouterColabMouseClicked(java.awt.event.MouseEvent evt) {
+    private void ajouterCollabMouseClicked(java.awt.event.MouseEvent evt) {
 
         if (!projectName.getText().equals("")) {
             new Ajouter(user, user.getProjectByName(projectName.getText()).getNom()).setVisible(true);
@@ -329,7 +328,7 @@ public class FenetreApp extends JFrame {
      * @return void
      */
     private void sendClicked(java.awt.event.ActionEvent evt) {
-        String msg= messageTextFiled.getText();
+        String msg= messageTextField.getText();
         //Si un message a ete ecrit
         if (!msg.equals("")){
             if(!projectName.getText().equals("")) {
@@ -344,7 +343,7 @@ public class FenetreApp extends JFrame {
             }
 
             //On vais effacer le message apres il a ete envoye
-            messageTextFiled.setText("");
+            messageTextField.setText("");
         }
     }
 
@@ -421,11 +420,11 @@ public class FenetreApp extends JFrame {
     //Declaration des variables
     private JTextArea msgArea;
     private JPanel panelSend;
-    private JButton ajouterColab;
+    private JButton ajouterCollab;
     private JLabel  send;
     private JButton deconnectButton;
     private JPanel panelNomProjet;
-    private RoundJTextField messageTextFiled;
+    private RoundJTextField messageTextField;
     private JLabel logoImage;
     private JLabel name;
     private JPanel panelExit;

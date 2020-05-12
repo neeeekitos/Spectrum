@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *
@@ -40,7 +33,7 @@ public class Create extends javax.swing.JFrame {
         collaborateur = new JLabel();
         nomProjet = new JLabel();
         nom = new JTextField();
-        panelRigth = new JPanel();
+        panelRight = new JPanel();
         panelLogo = new JPanel();
         jLabel1 = new JLabel();
         panelProjet = new JPanel();
@@ -131,18 +124,18 @@ public class Create extends javax.swing.JFrame {
         //Il va creer des JtextFiled quand on click pour pouvoir ajouter plusieurs collab
         addColab.addMouseListener(new MouseAdapter() {
             public void mouseExited(MouseEvent evt) {
-                addColabMouseExited(evt);
+                addCollabMouseExited(evt);
             }
 
-            private void addColabMouseExited(MouseEvent evt) {
+            private void addCollabMouseExited(MouseEvent evt) {
                 addColab.setText("");
             }
 
             public void mouseEntered(MouseEvent evt) {
-                addColabMouseEntered(evt);
+                addCollabMouseEntered(evt);
             }
 
-            private void addColabMouseEntered(MouseEvent evt) {
+            private void addCollabMouseEntered(MouseEvent evt) {
                 addColab.setText(" Plus collaborateurs");
             }
 
@@ -185,10 +178,10 @@ public class Create extends javax.swing.JFrame {
         top.add(scroll);
 
         //Definir les propoiets du Panel a droite
-        panelRigth.setMaximumSize(new Dimension(281, 396));
-        panelRigth.setMinimumSize(new Dimension(281, 396));
-        panelRigth.setLayout(new BoxLayout(panelRigth, BoxLayout.Y_AXIS));
-        panelRigth.setBackground(new Color(255,255,255));
+        panelRight.setMaximumSize(new Dimension(281, 396));
+        panelRight.setMinimumSize(new Dimension(281, 396));
+        panelRight.setLayout(new BoxLayout(panelRight, BoxLayout.Y_AXIS));
+        panelRight.setBackground(new Color(255,255,255));
 
         //Definir les Parametres du Panel qui va contenir le Logo
         panelLogo.setMaximumSize(new Dimension(281, 50));
@@ -202,7 +195,7 @@ public class Create extends javax.swing.JFrame {
         panelLogo.setBackground(new Color(237, 246, 249));
 
         //Ajouter le PanelLogo panelRigth
-        panelRigth.add(panelLogo);
+        panelRight.add(panelLogo);
 
         //Creer lePanel qui vais prendre un code pour pouvoir nous connecter dans la BD
         panelProjet.setLayout(new GridBagLayout());
@@ -235,10 +228,10 @@ public class Create extends javax.swing.JFrame {
         gridBagConstraints[0].ipady = 20;
         panelProjet.add(code, gridBagConstraints[0]);
         panelProjet.setBackground(new Color(237, 246, 249));
-        panelRigth.add(panelProjet);
+        panelRight.add(panelProjet);
 
         //Ajout de panelRigth au panel top
-        top.add(panelRigth);
+        top.add(panelRight);
 
         //Ajout du Panel top au pane
         getContentPane().add(top);
@@ -315,7 +308,7 @@ public class Create extends javax.swing.JFrame {
     private javax.swing.JLabel addColab;
     private javax.swing.JPanel panelCreateProjet;
     private javax.swing.JScrollPane scroll;
-    private javax.swing.JPanel panelRigth;
+    private javax.swing.JPanel panelRight;
     private javax.swing.JTextField nom;
     private javax.swing.JLabel nomProjet;
     private javax.swing.JLabel nouveauProjet;

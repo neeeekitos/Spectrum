@@ -147,18 +147,18 @@ public class Server implements EcouteurConnection{
         System.out.println("Connection exception: " + e);
     }
 
-    private void sendToConnection(ArrayList<String> destinateursConnection, String msg){
+    private void sendToConnection(ArrayList<String> destinatairesConnection, String msg){
 
         System.out.println("server will send this : " + msg);
 
-        for (int i = 0; i<destinateursConnection.size(); i++) {
+        for (int i = 0; i<destinatairesConnection.size(); i++) {
             System.out.println("j'envoie le message à : ");
-            System.out.println(destinateursConnection.get(i));
-            ConnectionExchange conn = connections.get(destinateursConnection.get(i));
+            System.out.println(destinatairesConnection.get(i));
+            ConnectionExchange conn = connections.get(destinatairesConnection.get(i));
             if (conn != null) {
                 conn.sendString(msg);
             } else {
-                System.out.println("L'utilisateur @" + destinateursConnection.get(i) + " n'est pas en ligne");
+                System.out.println("L'utilisateur @" + destinatairesConnection.get(i) + " n'est pas en ligne");
             }
         }
     }
