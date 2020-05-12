@@ -351,7 +351,7 @@ public class FenetreSignin extends JFrame {
 
         if (counterConditions==8) { //si on a passé 7 conditions
             try {
-                ConnectionExchange.signinDB(firstName, lastName, username, password);
+                ConnectionExchange.signinDB(firstName, lastName, username, eMail, password);
                 this.dispose();
 
                 new FenetreLogin().setVisible(true);

@@ -378,13 +378,7 @@ public class FenetreApp extends JFrame {
     }
 
     public void updateCollaborateurs() {
-        listModel.removeAllElements();
-        String projetString = projectName.getText();
-        if (!projetString.equals("")) {
-            for (int j = 0; j < (user.getProjectByName(projectName.getText()).getArrayCollaborateurs().size()); j++) {
-                listModel.add(j, user.getProjectByName(projectName.getText()).getArrayCollaborateurs().get(j));
-            }
-        }
+
     }
 
     //Declaration des variables

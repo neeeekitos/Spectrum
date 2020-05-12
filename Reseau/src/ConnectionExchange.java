@@ -134,7 +134,7 @@ public class ConnectionExchange {
         if (result.next()) {
 
             String usernameDb = result.getString(2);
-            String passwordDb = result.getString(5);
+            String passwordDb = result.getString(6);
 
             if (password.equals(passwordDb)) {
                 JOptionPane.showMessageDialog(null,"Connexion réussie ! ","Success",JOptionPane.PLAIN_MESSAGE);
@@ -167,7 +167,7 @@ public class ConnectionExchange {
      * @return boolean
      * @throws SQLException
      */
-    public static boolean signinDB(String prenom, String nom, String username, String password) throws SQLException {
+    public static boolean signinDB(String prenom, String nom, String username, String email, String password) throws SQLException {
 
         Connection connDB = connectToDb();
         ResultSet result = null;
@@ -183,14 +183,15 @@ public class ConnectionExchange {
         if (!result.next()) {
 
             //création d'insert statement
-            String requete = " INSERT INTO users (username, prenom, nom, mdp) VALUES (?, ?, ?, ?)";
+            String requete = " INSERT INTO users (username, prenom, nom, email, mdp) VALUES (?, ?, ?, ?, ?)";
             preparedStmt = connDB.prepareStatement(requete);
 
             // ajouter les valeurs sql insert
             preparedStmt.setString(1, username);
             preparedStmt.setString(2, prenom);
             preparedStmt.setString(3, nom);
-            preparedStmt.setString(4, password);
+            preparedStmt.setString(4, email);
+            preparedStmt.setString(5, password);
 
             // executer
             return(preparedStmt.execute());
@@ -424,6 +425,34 @@ public class ConnectionExchange {
         }
 
         return lastProjectID;
+    }
+
+    /** Permet d'obtenir les informations sur l'utilisateur grâсe à son username
+     * @return String array avec le prenom, nom et email de l'utilisateur
+     * @throws SQLException si jamais on a un problème avec la BD
+     */
+    public String[] getUserInfosByUsername(String usernameInfos) throws SQLException {
+
+        ResultSet result;
+
+        String requete = "SELECT * FROM users as u WHERE u.username=?";
+
+        PreparedStatement preparedStmt = connDb.prepareStatement(requete);
+        preparedStmt.setString(1, usernameInfos);
+        result = preparedStmt.executeQuery();
+
+        String prenom = "";
+        String nom = "";
+        String email = "";
+
+        if (result.next()) {
+            prenom = result.getString("prenom");
+            nom = result.getString("nom");
+            email = result.getString("email");
+            return new String[]{prenom, nom, email};
+        } else {
+            return null;
+        }
     }
 
     public static Code getCodeIfExists(String code) throws SQLException {
