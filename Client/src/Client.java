@@ -62,7 +62,7 @@ public class Client implements EcouteurConnection {
         try {
             InetAddress inetAddress = InetAddress.getLocalHost();
             System.out.println("connection on local IP : "+ inetAddress.toString());
-            connection = new ConnectionExchange(this,"192.168.1.7", PORT, username);
+            connection = new ConnectionExchange(this,IP_ADDR, PORT, username);
             connection.sendString(username);
         } catch (IOException e) {
             System.out.println("exception de connexion " + e);

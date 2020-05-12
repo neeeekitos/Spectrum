@@ -59,6 +59,13 @@
         <item name="Spectrum" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="spectrum: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="codeprojets: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Spectrum" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="spectrum: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="messages: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
@@ -123,14 +130,14 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\temp\ALGO\Spectrum\IHM\images" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/IHM/images" />
       <recent name="$PROJECT_DIR$/IHM/src" />
       <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM\src" />
       <recent name="C:\Users\lehma\projetAlgo\Spectrum\IHM" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\temp\ALGO\Spectrum\IHM\images" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Client">
